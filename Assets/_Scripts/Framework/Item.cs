@@ -5,12 +5,10 @@ namespace Mcpgnz.DesktopFramework
 {
     using System;
     using System.Collections.Generic;
-    using PInvoke;
+    using System.Drawing;
     using Sirenix.OdinInspector;
     using UnityEngine;
     using Vanara.PInvoke;
-    using Shell32 = Vanara.PInvoke.Shell32;
-    using User32 = Vanara.PInvoke.User32;
 
     [Serializable]
     public class Item
@@ -38,12 +36,12 @@ namespace Mcpgnz.DesktopFramework
 
                 var hresult = (int)User32.SendMessage(
                     Framework.Desktop.Handle,
-                    (uint)ComCtl32.ListViewMessage.LVM_GETITEMPOSITION,
-                    _Index, memoryPointer) == 1;
-                Log.HResult(hresult ? HRESULT.S_OK : HRESULT.S_FALSE, "User32.SendMessage+LVM_GETITEMPOSITION");
+                    ComCtl32.ListViewMessage.LVM_GETITEMPOSITION,
+                    _Index, memoryPointer);
+                Log.HResult(hresult == 1 ? HRESULT.S_OK : HRESULT.S_FALSE, "User32.SendMessage+LVM_GETITEMPOSITION");
 
-                var point = Framework.VirtualFree<POINT>(memoryPointer);
-                return new Vector2Int(point.x, point.y);
+                var point = Framework.VirtualFree<Point>(memoryPointer);
+                return new Vector2Int(point.X, point.Y);
             }
             set
             {
