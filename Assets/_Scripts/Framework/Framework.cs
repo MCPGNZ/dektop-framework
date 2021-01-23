@@ -109,8 +109,6 @@
         #region Public Methods
         public static void Initialize()
         {
-            var hr = Ole32.CoInitializeEx(IntPtr.Zero, Ole32.COINIT.COINIT_APARTMENTTHREADED | Ole32.COINIT.COINIT_DISABLE_OLE1DDE);
-            Log.HResult(hr, "Ole32.CoInitializeEx");
         }
         public static string Query_Name(Shell32.IShellItem shellItem)
         {
