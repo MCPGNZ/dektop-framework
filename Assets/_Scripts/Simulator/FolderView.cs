@@ -1,6 +1,5 @@
 ﻿namespace Mcpgnz.DesktopSimulator
 {
-    using Mcpgnz.DesktopFramework;
     using Sirenix.OdinInspector;
     using TMPro;
     using UnityEngine;
@@ -12,7 +11,7 @@
         #endregion Private Variables
 
         #region Public Methods
-        public void Bind(Item item)
+        public void Bind(ItemEx item)
         {
             _Item = item;
             Refresh();
@@ -31,7 +30,7 @@
         #endregion Inspector Variables
 
         #region Private Variables
-        [ShowInInspector, BoxGroup("Preview")] private Item _Item;
+        [ShowInInspector, BoxGroup("Preview")] private ItemEx _Item;
         #endregion Private Variables
 
         #region Unity Methods

@@ -1,16 +1,15 @@
 ﻿// ReSharper disable All
 namespace Mcpgnz.DesktopSimulator
 {
-    using System.Collections.Generic;
-    using Mcpgnz.DesktopFramework;
+    using System;
     using Sirenix.OdinInspector;
+    using System.Collections.Generic;
     using UnityEngine;
-    using Zenject;
 
     public sealed class Simulator : MonoBehaviour
     {
         #region Public Methods
-        public static Vector3 ToViewPosition(Item item)
+        public static Vector3 ToViewPosition(ItemEx item)
         {
             var position = item.Position;
 
@@ -26,17 +25,23 @@ namespace Mcpgnz.DesktopSimulator
         #region Unity Methods
         private void Awake()
         {
+            FrameworkEx.Initialize();
+            DesktopEx.Initialize();
+
             Application.runInBackground = true;
         }
         private void Start()
         {
             CreateView();
         }
+
+        private void OnDestroy()
+        {
+            FrameworkEx.Cleanup();
+        }
         #endregion Unity Methods
 
         #region Private Variables
-        [Inject] private Desktop _Desktop;
-
         private readonly List<FolderView> _FolderViews = new List<FolderView>();
         #endregion Private Variables
 
@@ -47,13 +52,13 @@ namespace Mcpgnz.DesktopSimulator
             DestroyView();
 
             /* build */
-            var folders = _Desktop.Folders;
+            var items = DesktopEx.Items;
             var folderPrefab = Config.Folder;
 
-            foreach (var folder in folders)
+            foreach (var item in items)
             {
                 var view = Instantiate(folderPrefab, _ViewRoot.transform);
-                view.Bind(folder);
+                view.Bind(item);
 
                 _FolderViews.Add(view);
             }
