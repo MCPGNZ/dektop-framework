@@ -14,7 +14,7 @@
 
         public static void HResult(HRESULT hresult, object message, bool showSuccess = false)
         {
-            if (hresult.Failed)
+            if (hresult != HRESULT.S_OK)
             {
                 Console.WriteLine($"fail: {message} : {hresult}");
                 Debug.LogError($"fail: {message} : {hresult}");
