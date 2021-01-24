@@ -98,11 +98,16 @@
         [ShowInInspector]
         public string Name
         {
-            get => Marshal.PtrToStringUni(_Token->name);
+            get => Marshal.PtrToStringAuto(_Token->name);
             set
             {
-                var namePtr = Marshal.StringToCoTaskMemAuto(value);
-                item_rename(_Token, namePtr);
+                if (_Token->name != IntPtr.Zero)
+                {
+                    Marshal.FreeCoTaskMem(_Token->name);
+                }
+
+                _Token->name = Marshal.StringToCoTaskMemAuto(value);
+                item_update_name(_Token);
             }
         }
 
@@ -128,7 +133,7 @@
 
         #region Import
         [DllImport("desktop-lib.dll")]
-        private static extern void item_rename([MarshalAs(UnmanagedType.LPArray)] item_token* token, [MarshalAs(UnmanagedType.LPWStr)] IntPtr name);
+        private static extern void item_update_name([MarshalAs(UnmanagedType.LPArray)] item_token* token);
 
         [DllImport("desktop-lib.dll")]
         private static extern void item_update_position([MarshalAs(UnmanagedType.LPArray)] item_token* token);
