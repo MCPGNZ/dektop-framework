@@ -128,7 +128,7 @@
 
         #region Import
         [DllImport("desktop-lib.dll")]
-        private static extern void item_rename([MarshalAs(UnmanagedType.LPArray)] item_token* token, IntPtr name);
+        private static extern void item_rename([MarshalAs(UnmanagedType.LPArray)] item_token* token, [MarshalAs(UnmanagedType.LPWStr)] IntPtr name);
 
         [DllImport("desktop-lib.dll")]
         private static extern void item_update_position([MarshalAs(UnmanagedType.LPArray)] item_token* token);
