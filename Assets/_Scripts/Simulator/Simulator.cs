@@ -26,8 +26,6 @@ namespace Mcpgnz.DesktopSimulator
         private void Awake()
         {
             FrameworkEx.Initialize();
-            DesktopEx.Initialize();
-
             Application.runInBackground = true;
         }
         private void Start()

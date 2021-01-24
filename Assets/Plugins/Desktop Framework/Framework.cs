@@ -10,7 +10,6 @@
     [StructLayout(LayoutKind.Sequential)]
     public struct item_data
     {
-        [HideInInspector]
         public IntPtr name;
         public int x;
         public int y;
@@ -18,19 +17,40 @@
     #endregion Types
 
     [Serializable]
-    public sealed class FrameworkEx
+    public static class FrameworkEx
     {
+        #region Api
+        public static void Initialize()
+        {
+            Initialize(OnUnmanagedInfo, OnUnmanagedError);
+            DesktopEx.Initialize();
+        }
+        #endregion Api
+
         #region Import
         [DllImport("desktop-lib.dll", EntryPoint = "framework_initialize")]
-        public static extern void Initialize();
+        private static extern void Initialize(
+            [MarshalAs(UnmanagedType.FunctionPtr)] Callbacks.Info callbackInfo,
+            [MarshalAs(UnmanagedType.FunctionPtr)] Callbacks.Error callbackError);
 
         [DllImport("desktop-lib.dll", EntryPoint = "framework_cleanup")]
         public static extern void Cleanup();
         #endregion Import
+
+        #region Private
+        private static void OnUnmanagedInfo(string msg)
+        {
+            Debug.Log($"<color=#DAF7A6>Success: {msg}</color>");
+        }
+        private static void OnUnmanagedError(string msg)
+        {
+            Debug.LogError($"Error: {msg}");
+        }
+        #endregion Private
     }
 
     [Serializable]
-    public sealed class DesktopEx
+    public static class DesktopEx
     {
         #region Api
         public static ItemEx[] Items
@@ -55,7 +75,7 @@
 
         #region Import
         [DllImport("desktop-lib.dll", EntryPoint = "desktop_initialize")]
-        public static extern void Initialize();
+        internal static extern void Initialize();
 
         [DllImport("desktop-lib.dll", EntryPoint = "desktop_folders_count")]
         private static extern int GetFoldersCount();
