@@ -96,35 +96,46 @@
     {
         #region Public Variables
         [ShowInInspector]
-        public string Name => Marshal.PtrToStringUni(_Data->name);
+        public string Name
+        {
+            get => Marshal.PtrToStringUni(_Token->name);
+            set
+            {
+                var namePtr = Marshal.StringToCoTaskMemAuto(value);
+                item_rename(_Token, namePtr);
+            }
+        }
 
         [ShowInInspector]
         public Vector2Int Position
         {
-            get => new Vector2Int(_Data->x, _Data->y);
+            get => new Vector2Int(_Token->x, _Token->y);
             set
             {
-                _Data->x = value.x;
-                _Data->y = value.y;
-                item_update_position(_Data);
+                _Token->x = value.x;
+                _Token->y = value.y;
+                item_update_position(_Token);
             }
         }
         #endregion Public Variables
 
         #region Public Methods
-        public ItemEx(item_data* data)
+        public ItemEx(item_data* token)
         {
-            _Data = data;
+            _Token = token;
         }
         #endregion Public Methods
 
         #region Import
         [DllImport("desktop-lib.dll")]
+        private static extern void item_rename([MarshalAs(UnmanagedType.LPArray)] item_data* token, IntPtr name);
+
+        [DllImport("desktop-lib.dll")]
         private static extern void item_update_position([MarshalAs(UnmanagedType.LPArray)] item_data* token);
         #endregion Import
 
         #region Private Variables
-        private item_data* _Data;
+        private item_data* _Token;
         #endregion Private Variables
     }
 }
