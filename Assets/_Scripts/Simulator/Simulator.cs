@@ -1,17 +1,17 @@
 ﻿// ReSharper disable All
 namespace Mcpgnz.DesktopSimulator
 {
-    using System;
     using Sirenix.OdinInspector;
     using System.Collections.Generic;
+    using Mcpgnz.DesktopFramework;
     using UnityEngine;
 
     public sealed class Simulator : MonoBehaviour
     {
         #region Public Methods
-        public static Vector3 ToViewPosition(DirectoryEx directory)
+        public static Vector3 ToViewPosition(IItemEx item)
         {
-            var position = directory.Position;
+            var position = item.Position;
 
             /* todo: proper conversion */
             return new Vector3(position.x, 1440 - position.y, 0.0f);
@@ -41,7 +41,6 @@ namespace Mcpgnz.DesktopSimulator
 
         #region Private Variables
         private readonly List<FolderView> _FolderViews = new List<FolderView>();
-        private DirectoryEx _Wunsz;
         #endregion Private Variables
 
         #region Private Methods
@@ -57,7 +56,7 @@ namespace Mcpgnz.DesktopSimulator
             foreach (var item in items)
             {
                 var view = Instantiate(folderPrefab, _ViewRoot.transform);
-                view.Bind(new DirectoryEx(item));
+                view.Bind(item);
 
                 _FolderViews.Add(view);
             }

@@ -1,4 +1,4 @@
-﻿namespace Mcpgnz
+﻿namespace Mcpgnz.DesktopFramework
 {
     using System.Runtime.InteropServices;
 

@@ -1,5 +1,6 @@
 ﻿namespace Mcpgnz.DesktopSimulator
 {
+    using Mcpgnz.DesktopFramework;
     using Sirenix.OdinInspector;
     using TMPro;
     using UnityEngine;
@@ -7,34 +8,36 @@
     public sealed class FolderView : MonoBehaviour
     {
         #region Private Variables
-        public DirectoryEx Directory => _Directory;
+        public IItemEx Item => _Item;
         #endregion Private Variables
 
         #region Public Methods
-        public void Bind(DirectoryEx directory)
+        public void Bind(IItemEx item)
         {
-            _Directory = directory;
+            _Item = item;
 
-            _Directory.OnNameChanged += OnNameChanged;
-            _Directory.OnPositionChanged += OnPositionChanged;
+            _Item.OnNameChanged += OnNameChanged;
+            _Item.OnPositionChanged += OnPositionChanged;
 
-            OnNameChanged(_Directory.Name);
-            OnPositionChanged(_Directory.Position);
+            OnNameChanged(_Item.Name);
+            OnPositionChanged(_Item.Position);
         }
 
         public void Unbind()
         {
-            _Directory.OnPositionChanged -= OnPositionChanged;
-            _Directory = null;
+            _Item.OnPositionChanged -= OnPositionChanged;
+            _Item = null;
         }
         #endregion Public Methods
 
         #region Inspector Variables
-        [SerializeField, BoxGroup("References")] private TMP_Text _Name;
+        [SerializeField, BoxGroup("References")]
+        private TMP_Text _Name;
         #endregion Inspector Variables
 
         #region Private Variables
-        [ShowInInspector, BoxGroup("Preview")] private DirectoryEx _Directory;
+        [ShowInInspector, BoxGroup("Preview")]
+        private IItemEx _Item;
         #endregion Private Variables
 
         #region Private Methods
@@ -46,7 +49,7 @@
 
         private void OnPositionChanged(Vector2Int obj)
         {
-            transform.position = Simulator.ToViewPosition(_Directory);
+            transform.position = Simulator.ToViewPosition(_Item);
         }
         #endregion Private Methods
     }
