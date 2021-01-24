@@ -1,21 +1,11 @@
 ﻿namespace Mcpgnz
 {
     using System;
+    using System.Collections.Generic;
+    using System.IO;
     using System.Runtime.InteropServices;
     using Sirenix.OdinInspector;
     using UnityEngine;
-
-    #region Types
-    [Serializable]
-    [StructLayout(LayoutKind.Sequential)]
-    public struct item_token
-    {
-        public IntPtr name; /* LPWSTR */
-        public IntPtr item; /* IShellItem* */
-        public int x;
-        public int y;
-    }
-    #endregion Types
 
     [Serializable]
     public static class FrameworkEx
@@ -41,7 +31,8 @@
         #region Private
         private static void OnUnmanagedInfo(string msg)
         {
-            Debug.Log($"<color=#DAF7A6>Success: {msg}</color>");
+            /* todo: add settings */
+            // Debug.Log($"<color=#DAF7A6>Success: {msg}</color>");
         }
         private static void OnUnmanagedError(string msg)
         {
@@ -51,32 +42,41 @@
     }
 
     [Serializable]
-    public static unsafe class DesktopEx
+    public static class DesktopEx
     {
-        #region Api
-        public static ItemEx[] Items
+        #region Public Methods
+        public static List<FileInfo> Files
         {
             get
             {
-                /* fetch data */
-                var count = desktop_folders_count();
-                _Items = (item_token*)Marshal.AllocHGlobal(Marshal.SizeOf(typeof(item_token)) * count);
-                desktop_folders(_Items);
-
-                /* create representation */
-                var items = new ItemEx[count];
-                for (int i = 0; i < count; ++i)
+                var result = new List<FileInfo>();
+                var files = Directory.GetFiles(_Path);
+                foreach (var file in files)
                 {
-                    var item = (item_token*)IntPtr.Add((IntPtr)_Items, i * sizeof(item_token));
-                    items[i] = new ItemEx(item);
+                    result.Add(new FileInfo(file));
                 }
-                return items;
+
+                return result;
             }
         }
-        #endregion Api
+        public static List<DirectoryInfo> Directories
+        {
+            get
+            {
+                var result = new List<DirectoryInfo>();
+                var dirs = Directory.GetDirectories(_Path);
+                foreach (var dir in dirs)
+                {
+                    result.Add(new DirectoryInfo(dir));
+                }
+
+                return result;
+            }
+        }
+        #endregion Public Methods
 
         #region Private Variables
-        internal static item_token* _Items;
+        private static string _Path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         #endregion Private Variables
 
         #region Import
@@ -84,63 +84,107 @@
         internal static extern void desktop_initialize();
 
         [DllImport("desktop-lib.dll")]
-        private static extern int desktop_folders_count();
+        internal static extern void desktop_get_item_position([MarshalAs(UnmanagedType.LPWStr)] string path, out int x, out int y);
 
-        [DllImport("desktop-lib.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern void desktop_folders([MarshalAs(UnmanagedType.LPArray)] item_token* folders);
+        [DllImport("desktop-lib.dll")]
+        internal static extern void desktop_set_item_position([MarshalAs(UnmanagedType.LPWStr)] string path, int x, int y);
         #endregion Import
     }
 
     [Serializable]
-    public sealed unsafe class ItemEx
+    public sealed class DirectoryEx
     {
         #region Public Variables
+        public event Action<string> OnNameChanged;
+        public event Action<Vector2Int> OnPositionChanged;
+        #endregion Public Variables
+
+        #region Public Variables
+        /* todo: sometimes after rename the file changes its position, why? */
         [ShowInInspector]
         public string Name
         {
-            get => Marshal.PtrToStringAuto(_Token->name);
+            get => _Info.Name;
             set
             {
-                if (_Token->name != IntPtr.Zero)
-                {
-                    Marshal.FreeCoTaskMem(_Token->name);
-                }
+                _Info.MoveTo(Directory + "\\" + value);
+                OnNameChanged?.Invoke(value);
 
-                _Token->name = Marshal.StringToCoTaskMemAuto(value);
-                item_update_name(_Token);
+                /* ensure that directory stays at the correct position */
+                DesktopEx.desktop_set_item_position(Path, _Position.x, _Position.y);
+                OnPositionChanged?.Invoke(_Position);
             }
         }
 
         [ShowInInspector]
+        public string Path => _Info.FullName;
+
+        [ShowInInspector]
+        public string Directory => System.IO.Path.GetDirectoryName(_Info.FullName);
+
+        [ShowInInspector]
         public Vector2Int Position
         {
-            get => new Vector2Int(_Token->x, _Token->y);
+            get
+            {
+                DesktopEx.desktop_get_item_position(Path, out var x, out var y);
+                return new Vector2Int(x, y);
+            }
             set
             {
-                _Token->x = value.x;
-                _Token->y = value.y;
-                item_update_position(_Token);
+                _Position = value;
+                DesktopEx.desktop_set_item_position(Path, _Position.x, _Position.y);
+
+                OnPositionChanged?.Invoke(value);
+            }
+        }
+
+        [ShowInInspector]
+        public List<FileInfo> Files
+        {
+            get
+            {
+                var result = new List<FileInfo>();
+                var files = _Info.GetFiles();
+                foreach (var file in files)
+                {
+                    result.Add(file);
+                }
+
+                return result;
+            }
+        }
+
+        [ShowInInspector]
+        public List<DirectoryInfo> Directories
+        {
+            get
+            {
+                var result = new List<DirectoryInfo>();
+                var dirs = _Info.GetDirectories();
+                foreach (var dir in dirs)
+                {
+                    result.Add(dir);
+                }
+
+                return result;
             }
         }
         #endregion Public Variables
 
         #region Public Methods
-        public ItemEx(item_token* token)
+        public DirectoryEx(DirectoryInfo directoryInfo)
         {
-            _Token = token;
+            _Info = directoryInfo;
+            _Position = Position;
         }
         #endregion Public Methods
 
-        #region Import
-        [DllImport("desktop-lib.dll")]
-        private static extern void item_update_name([MarshalAs(UnmanagedType.LPArray)] item_token* token);
-
-        [DllImport("desktop-lib.dll")]
-        private static extern void item_update_position([MarshalAs(UnmanagedType.LPArray)] item_token* token);
-        #endregion Import
-
         #region Private Variables
-        private item_token* _Token;
+        private DirectoryInfo _Info;
+
+        [ShowInInspector]
+        private Vector2Int _Position;
         #endregion Private Variables
     }
 }

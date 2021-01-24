@@ -9,9 +9,9 @@ namespace Mcpgnz.DesktopSimulator
     public sealed class Simulator : MonoBehaviour
     {
         #region Public Methods
-        public static Vector3 ToViewPosition(ItemEx item)
+        public static Vector3 ToViewPosition(DirectoryEx directory)
         {
-            var position = item.Position;
+            var position = directory.Position;
 
             /* todo: proper conversion */
             return new Vector3(position.x, 1440 - position.y, 0.0f);
@@ -27,12 +27,12 @@ namespace Mcpgnz.DesktopSimulator
         {
             FrameworkEx.Initialize();
             Application.runInBackground = true;
+
         }
         private void Start()
         {
             CreateView();
         }
-
         private void OnDestroy()
         {
             FrameworkEx.Cleanup();
@@ -41,6 +41,7 @@ namespace Mcpgnz.DesktopSimulator
 
         #region Private Variables
         private readonly List<FolderView> _FolderViews = new List<FolderView>();
+        private DirectoryEx _Wunsz;
         #endregion Private Variables
 
         #region Private Methods
@@ -50,13 +51,13 @@ namespace Mcpgnz.DesktopSimulator
             DestroyView();
 
             /* build */
-            var items = DesktopEx.Items;
+            var items = DesktopEx.Directories;
             var folderPrefab = Config.Folder;
 
             foreach (var item in items)
             {
                 var view = Instantiate(folderPrefab, _ViewRoot.transform);
-                view.Bind(item);
+                view.Bind(new DirectoryEx(item));
 
                 _FolderViews.Add(view);
             }
@@ -72,5 +73,6 @@ namespace Mcpgnz.DesktopSimulator
             _FolderViews.Clear();
         }
         #endregion Private Methods
+
     }
 }

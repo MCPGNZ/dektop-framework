@@ -7,21 +7,25 @@
     public sealed class FolderView : MonoBehaviour
     {
         #region Private Variables
-        private bool IsBound => _Item != null;
+        public DirectoryEx Directory => _Directory;
         #endregion Private Variables
 
         #region Public Methods
-        public void Bind(ItemEx item)
+        public void Bind(DirectoryEx directory)
         {
-            _Item = item;
-            Refresh();
+            _Directory = directory;
+
+            _Directory.OnNameChanged += OnNameChanged;
+            _Directory.OnPositionChanged += OnPositionChanged;
+
+            OnNameChanged(_Directory.Name);
+            OnPositionChanged(_Directory.Position);
         }
+
         public void Unbind()
         {
-            _Item = null;
-
-            gameObject.name = "Folder [/unbound/]";
-            _Name.SetText(string.Empty);
+            _Directory.OnPositionChanged -= OnPositionChanged;
+            _Directory = null;
         }
         #endregion Public Methods
 
@@ -30,25 +34,19 @@
         #endregion Inspector Variables
 
         #region Private Variables
-        [ShowInInspector, BoxGroup("Preview")] private ItemEx _Item;
+        [ShowInInspector, BoxGroup("Preview")] private DirectoryEx _Directory;
         #endregion Private Variables
 
-        #region Unity Methods
-        private void FixedUpdate()
-        {
-            if (IsBound == false) { return; }
-
-            transform.position = Simulator.ToViewPosition(_Item);
-        }
-        #endregion Unity Methods
-
         #region Private Methods
-        private void Refresh()
+        private void OnNameChanged(string name)
         {
-            var name = _Item.Name;
-
             gameObject.name = $"Folder [{name}]";
             _Name.SetText(name);
+        }
+
+        private void OnPositionChanged(Vector2Int obj)
+        {
+            transform.position = Simulator.ToViewPosition(_Directory);
         }
         #endregion Private Methods
     }
