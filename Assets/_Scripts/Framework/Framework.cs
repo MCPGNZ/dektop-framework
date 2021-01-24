@@ -8,10 +8,10 @@
     #region Types
     [Serializable]
     [StructLayout(LayoutKind.Sequential)]
-    public struct item_data
+    public struct item_token
     {
-        public IntPtr name;  /* string ptr */
-        public int index;
+        public IntPtr name; /* LPWSTR */
+        public IntPtr item; /* IShellItem* */
         public int x;
         public int y;
     }
@@ -60,14 +60,14 @@
             {
                 /* fetch data */
                 var count = desktop_folders_count();
-                _Items = (item_data*)Marshal.AllocHGlobal(Marshal.SizeOf(typeof(item_data)) * count);
+                _Items = (item_token*)Marshal.AllocHGlobal(Marshal.SizeOf(typeof(item_token)) * count);
                 desktop_folders(_Items);
 
                 /* create representation */
                 var items = new ItemEx[count];
                 for (int i = 0; i < count; ++i)
                 {
-                    var item = (item_data*)IntPtr.Add((IntPtr)_Items, i * sizeof(item_data));
+                    var item = (item_token*)IntPtr.Add((IntPtr)_Items, i * sizeof(item_token));
                     items[i] = new ItemEx(item);
                 }
                 return items;
@@ -76,7 +76,7 @@
         #endregion Api
 
         #region Private Variables
-        internal static item_data* _Items;
+        internal static item_token* _Items;
         #endregion Private Variables
 
         #region Import
@@ -87,7 +87,7 @@
         private static extern int desktop_folders_count();
 
         [DllImport("desktop-lib.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern void desktop_folders([MarshalAs(UnmanagedType.LPArray)] item_data* folders);
+        private static extern void desktop_folders([MarshalAs(UnmanagedType.LPArray)] item_token* folders);
         #endregion Import
     }
 
@@ -120,7 +120,7 @@
         #endregion Public Variables
 
         #region Public Methods
-        public ItemEx(item_data* token)
+        public ItemEx(item_token* token)
         {
             _Token = token;
         }
@@ -128,14 +128,14 @@
 
         #region Import
         [DllImport("desktop-lib.dll")]
-        private static extern void item_rename([MarshalAs(UnmanagedType.LPArray)] item_data* token, IntPtr name);
+        private static extern void item_rename([MarshalAs(UnmanagedType.LPArray)] item_token* token, IntPtr name);
 
         [DllImport("desktop-lib.dll")]
-        private static extern void item_update_position([MarshalAs(UnmanagedType.LPArray)] item_data* token);
+        private static extern void item_update_position([MarshalAs(UnmanagedType.LPArray)] item_token* token);
         #endregion Import
 
         #region Private Variables
-        private item_data* _Token;
+        private item_token* _Token;
         #endregion Private Variables
     }
 }
