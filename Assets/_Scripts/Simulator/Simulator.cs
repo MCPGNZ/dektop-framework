@@ -48,7 +48,7 @@ namespace Mcpgnz.DesktopSimulator
             RawKeyInput.OnKeyUp += OnKeyUp;
             RawKeyInput.OnKeyDown += OnKeyDown;
 
-            RawMouseInput.Start(!workInBackground);
+            RawMouseInput.Start(workInBackground);
             RawMouseInput.OnMouseMove += OnMouseMove;
             RawMouseInput.OnMouseLeftDown += OnMouseLeftDown;
             RawMouseInput.OnMouseLeftUp += OnMouseLeftUp;
