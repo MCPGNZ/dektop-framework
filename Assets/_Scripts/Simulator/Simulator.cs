@@ -28,6 +28,7 @@ namespace Mcpgnz.DesktopSimulator
         {
             FrameworkEx.Initialize();
             Application.runInBackground = true;
+            InvokeRepeating("LogCursorPos", 0.0f, 1.0f);
 
         }
         private void Start()
@@ -42,9 +43,18 @@ namespace Mcpgnz.DesktopSimulator
         private void OnEnable()
         {
             bool workInBackground = true;
+
             RawKeyInput.Start(workInBackground);
             RawKeyInput.OnKeyUp += OnKeyUp;
             RawKeyInput.OnKeyDown += OnKeyDown;
+
+            RawMouseInput.Start(!workInBackground);
+            RawMouseInput.OnMouseMove += OnMouseMove;
+            RawMouseInput.OnMouseLeftDown += OnMouseLeftDown;
+            RawMouseInput.OnMouseLeftUp += OnMouseLeftUp;
+            RawMouseInput.OnMouseRightDown += OnMouseRightDown;
+            RawMouseInput.OnMouseRightUp += OnMouseRightUp;
+            RawMouseInput.OnMouseWheel += OnMouseWheel;
         }
 
         private void OnDisable()
@@ -52,11 +62,22 @@ namespace Mcpgnz.DesktopSimulator
             RawKeyInput.Stop();
             RawKeyInput.OnKeyUp -= OnKeyUp;
             RawKeyInput.OnKeyDown -= OnKeyDown;
+
+            RawMouseInput.Stop();
+            RawMouseInput.OnMouseMove -= OnMouseMove;
+            RawMouseInput.OnMouseLeftDown -= OnMouseLeftDown;
+            RawMouseInput.OnMouseLeftUp -= OnMouseLeftUp;
+            RawMouseInput.OnMouseRightDown -= OnMouseRightDown;
+            RawMouseInput.OnMouseRightUp -= OnMouseRightUp;
+            RawMouseInput.OnMouseWheel -= OnMouseWheel;
         }
+
         #endregion Unity Methods
 
         #region Private Variables
         private readonly List<FolderView> _FolderViews = new List<FolderView>();
+
+        private MousePosition cursorPos;
         #endregion Private Variables
 
         #region Private Methods
@@ -96,6 +117,41 @@ namespace Mcpgnz.DesktopSimulator
         private void OnKeyDown(RawKey key)
         {
             Debug.Log($"{key} down");
+        }
+
+        private void LogCursorPos()
+        {
+            Debug.Log($"cursor: {cursorPos.x}, {cursorPos.y}");
+        }
+
+        private void OnMouseMove(MousePosition pos)
+        {
+            cursorPos = pos;
+        }
+
+        private void OnMouseLeftDown(MousePosition pos)
+        {
+            Debug.Log($"mouse left down {pos.x}, {pos.y}");
+        }
+
+        private void OnMouseLeftUp(MousePosition pos)
+        {
+            Debug.Log($"mouse left up {pos.x}, {pos.y}");
+        }
+
+        private void OnMouseRightDown(MousePosition pos)
+        {
+            Debug.Log($"mouse right down {pos.x}, {pos.y}");
+        }
+
+        private void OnMouseRightUp(MousePosition pos)
+        {
+            Debug.Log($"mouse right up {pos.x}, {pos.y}");
+        }
+
+        private void OnMouseWheel(MousePosition pos, int delta)
+        {
+            Debug.Log($"mouse wheel: {delta} at {pos.x}, {pos.y}");
         }
         #endregion Private Methods
 
