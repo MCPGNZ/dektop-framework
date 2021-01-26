@@ -5,6 +5,7 @@ namespace Mcpgnz.DesktopSimulator
     using System.Collections.Generic;
     using Mcpgnz.DesktopFramework;
     using UnityEngine;
+    using UnityRawInput;
 
     public sealed class Simulator : MonoBehaviour
     {
@@ -36,6 +37,21 @@ namespace Mcpgnz.DesktopSimulator
         private void OnDestroy()
         {
             FrameworkEx.Cleanup();
+        }
+
+        private void OnEnable()
+        {
+            bool workInBackground = true;
+            RawKeyInput.Start(workInBackground);
+            RawKeyInput.OnKeyUp += OnKeyUp;
+            RawKeyInput.OnKeyDown += OnKeyDown;
+        }
+
+        private void OnDisable()
+        {
+            RawKeyInput.Stop();
+            RawKeyInput.OnKeyUp -= OnKeyUp;
+            RawKeyInput.OnKeyDown -= OnKeyDown;
         }
         #endregion Unity Methods
 
@@ -70,6 +86,16 @@ namespace Mcpgnz.DesktopSimulator
                 Destroy(folderView.gameObject);
             }
             _FolderViews.Clear();
+        }
+
+        private void OnKeyUp(RawKey key)
+        {
+            Debug.Log($"{key} up");
+        }
+
+        private void OnKeyDown(RawKey key)
+        {
+            Debug.Log($"{key} down");
         }
         #endregion Private Methods
 
