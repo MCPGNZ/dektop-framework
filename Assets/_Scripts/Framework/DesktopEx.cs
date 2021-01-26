@@ -9,6 +9,14 @@
     [Serializable]
     public static class DesktopEx
     {
+        [StructLayout(LayoutKind.Sequential)]
+        public struct Item
+        {
+            [MarshalAs(UnmanagedType.LPWStr)] public string path;
+            [MarshalAs(UnmanagedType.SysInt)] public int x;
+            [MarshalAs(UnmanagedType.SysInt)] public int y;
+        }
+
         #region Public Variables
         public static List<FileEx> Files
         {
@@ -50,10 +58,22 @@
             var directory = Directory.CreateDirectory(path);
             return new DirectoryEx(directory);
         }
+
+        public static void SetItemPosition(string path, int x, int y)
+        {
+            _Items.Add(new Item { path = path, x = x, y = y });
+        }
+
+        public static void Flush()
+        {
+            desktop_set_item_positions(_Items.ToArray(), _Items.Count);
+            _Items.Clear();
+        }
         #endregion Public methods
 
         #region Private Variables
         private static string _Path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        private static List<Item> _Items = new List<Item>();
         #endregion Private Variables
 
         #region Import
@@ -67,6 +87,11 @@
         [DllImport("desktop-lib.dll")]
         internal static extern void desktop_set_item_position(
             [MarshalAs(UnmanagedType.LPWStr)] string path, int x, int y);
+
+        [DllImport("desktop-lib.dll")]
+        internal static extern void desktop_set_item_positions(
+            [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStruct, SizeParamIndex = 1)] Item[] items,
+            long size);
         #endregion Import
     }
 }

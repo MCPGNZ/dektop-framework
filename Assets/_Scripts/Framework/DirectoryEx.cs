@@ -26,7 +26,7 @@
                 OnNameChanged?.Invoke(value);
 
                 /* ensure that directory stays at the correct position */
-                DesktopEx.desktop_set_item_position(Path, _Position.x, _Position.y);
+                DesktopEx.SetItemPosition(Path, _Position.x, _Position.y);
                 OnPositionChanged?.Invoke(_Position);
             }
         }
@@ -48,7 +48,7 @@
             set
             {
                 _Position = value;
-                DesktopEx.desktop_set_item_position(Path, _Position.x, _Position.y);
+                DesktopEx.SetItemPosition(Path, _Position.x, _Position.y);
 
                 OnPositionChanged?.Invoke(value);
             }

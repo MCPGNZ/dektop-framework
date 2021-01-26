@@ -37,7 +37,7 @@
             }
             set
             {
-                DesktopEx.desktop_set_item_position(Path, value.x, value.y);
+                DesktopEx.SetItemPosition(Path, value.x, value.y);
 
                 OnPositionChanged?.Invoke(value);
             }
