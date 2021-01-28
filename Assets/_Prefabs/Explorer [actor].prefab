@@ -44,4 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Name: Explorer
-  _Icon: {fileID: 11400000, guid: 41da954b43abebf41afe893af3efe3c2, type: 2}
+  _Tooltip: Hello traveller!
+  _Icon:
+  - {fileID: 11400000, guid: 41da954b43abebf41afe893af3efe3c2, type: 2}
+  - {fileID: 11400000, guid: 89d68df132d45804d8bc30e3b790b6e2, type: 2}
+  - {fileID: 11400000, guid: c87ddbdf781ad4044afa0eed7950bae9, type: 2}
+  - {fileID: 11400000, guid: fffca38013ba9ef49befa3ddb91a7547, type: 2}

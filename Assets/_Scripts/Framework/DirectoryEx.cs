@@ -109,8 +109,9 @@
         #endregion Public Methods
 
         #region Private Variables
-        private DirectoryInfo _Info;
+        internal DirectoryInfo _Info;
         private Vector2Int _Position;
         #endregion Private Variables
+
     }
 }

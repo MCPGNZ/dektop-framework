@@ -1,12 +1,9 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
-    using System;
     using System.IO;
     using System.Runtime.InteropServices;
-    using System.Text;
     using Sirenix.OdinInspector;
     using UnityEngine;
-    using Object = UnityEngine.Object;
 #if UNITY_EDITOR
     using UnityEditor;
 #endif
@@ -15,16 +12,17 @@
     public sealed class IconEx : ScriptableObject
     {
         #region Public Methods
+        public string AbsolutePath => Path.Combine(Application.streamingAssetsPath, _Path);
+        #endregion Public Methods
+
+        #region Public Methods
         public void Apply(IItemEx item)
         {
-            var path = item.Path;
-
-            CreateIcon(Path.Combine(path, "icon.ico"));
-            CreateDesktopIni(Path.Combine(path, "desktop.ini"));
-            CreateHidden(Path.Combine(path, ".hidden"));
-
-            File.SetAttributes(path, File.GetAttributes(path) | FileAttributes.ReadOnly);
-            SHChangeNotify(0x08000000, 0x0000, (IntPtr)null, (IntPtr)null);
+            set_icon(item.Path, AbsolutePath);
+        }
+        public void Tooltip(IItemEx item, string tooltip)
+        {
+            set_tooltip(item.Path, tooltip);
         }
         #endregion Public Methods
 
@@ -45,50 +43,16 @@
 #endif
         #endregion Unity Methods
 
-        #region Private Methods
-        private void CreateIcon(string path)
-        {
-            File.Copy(Path.Combine(Application.streamingAssetsPath, _Path), path);
-            File.SetAttributes(path,
-                File.GetAttributes(path)
-                | FileAttributes.Hidden);
-
-        }
-        private void CreateDesktopIni(string path)
-        {
-            File.WriteAllLines(path, new[]
-            {
-                "[.ShellClassInfo]",
-                "IconResource=icon.ico,0",
-                "[ViewState]",
-                "Mode=",
-                "Vid=",
-                "FolderType=Generic"
-            }, Encoding.UTF8);
-
-            File.SetAttributes(path,
-                File.GetAttributes(path)
-                | FileAttributes.Hidden);
-        }
-        private void CreateHidden(string path)
-        {
-            File.WriteAllLines(path, new[]
-            {
-                "desktop.ini",
-                "icon.ico"
-            }, Encoding.UTF8);
-
-            File.SetAttributes(path,
-                File.GetAttributes(path)
-                | FileAttributes.Hidden);
-
-        }
-        #endregion Private Methods
-
         #region Import
-        [DllImport("shell32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern void SHChangeNotify(
-            int wEventId, int uFlags, IntPtr dwItem1, IntPtr dwItem2);
+        [DllImport("desktop-lib.dll")]
+        internal static extern void set_icon(
+            [MarshalAs(UnmanagedType.LPWStr)] string itemPath,
+            [MarshalAs(UnmanagedType.LPWStr)] string iconPath);
+
+        [DllImport("desktop-lib.dll")]
+        internal static extern void set_tooltip(
+            [MarshalAs(UnmanagedType.LPWStr)] string itemPath,
+            [MarshalAs(UnmanagedType.LPWStr)] string tooltip);
         #endregion Import
 
     }
