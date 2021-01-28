@@ -1,5 +1,6 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
+    using Sirenix.OdinInspector;
     using UnityEngine;
 
     public sealed class Actor : MonoBehaviour
@@ -8,31 +9,26 @@
         public void Start()
         {
             _Directory = DesktopEx.CreateDirectory(_Name);
-
-            _Icon[0].Tooltip(_Directory, _Tooltip);
-            _Icon[0].Apply(_Directory);
+            _Directory.Icon = _Icon;
+            _Directory.Tooltip = _Tooltip;
+            _Directory.Position = new Vector2Int(100, 100);
         }
         public void OnDestroy()
         {
             _Directory.Delete();
         }
-
-        public void FixedUpdate()
-        {
-            _Icon[_Count].Apply(_Directory);
-            _Count = (_Count + 1) % _Icon.Length;
-        }
         #endregion Unity Methods
 
         #region Inspector Variables
         [SerializeField] private string _Name;
+
+        [SerializeField] private IconEx _Icon;
         [SerializeField] private string _Tooltip;
-        [SerializeField] private IconEx[] _Icon;
         #endregion Inspector Variables
 
         #region Private Variables
+        [ShowInInspector, HideInEditorMode]
         private DirectoryEx _Directory;
-        private int _Count;
         #endregion Private Variables
     }
 }

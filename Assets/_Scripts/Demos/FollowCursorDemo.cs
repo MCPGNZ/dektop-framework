@@ -46,7 +46,7 @@
             {
                 for (int i = 0; i < _Representation.Count; ++i)
                 {
-                    IItemEx dir = _Representation[i];
+                    ItemEx dir = _Representation[i];
                     Vector2 pos = dir.Position;
                     Vector2 target = Vector2.Lerp(pos, _CursorPos, 0.5f + (float)i / (float)(_Representation.Count * 2));
                     dir.Position = target.ToIntVec();

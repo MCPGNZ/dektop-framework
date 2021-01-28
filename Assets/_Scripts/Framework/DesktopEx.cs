@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Runtime.InteropServices;
-    using Sirenix.OdinInspector;
 
     [Serializable]
     public static class DesktopEx
@@ -15,7 +14,7 @@
             get
             {
                 var result = new List<FileEx>();
-                var files = Directory.GetFiles(_Path);
+                var files = Directory.GetFiles(_AbsolutePath);
                 foreach (var file in files)
                 {
                     var info = new FileInfo(file);
@@ -30,7 +29,7 @@
             get
             {
                 var result = new List<DirectoryEx>();
-                var dirs = Directory.GetDirectories(_Path);
+                var dirs = Directory.GetDirectories(_AbsolutePath);
                 foreach (var dir in dirs)
                 {
                     var info = new DirectoryInfo(dir);
@@ -43,17 +42,23 @@
         #endregion Public Variables
 
         #region Public methods
-        [Button]
+        public static FileEx CreateFile(string name)
+        {
+            var fileInfo = new FileInfo(Path.Combine(_AbsolutePath, name));
+            using (var stream = fileInfo.Create()) { }
+
+            return new FileEx(fileInfo);
+        }
         public static DirectoryEx CreateDirectory(string name)
         {
-            var path = Path.Combine(_Path, name);
+            var path = Path.Combine(_AbsolutePath, name);
             var directory = Directory.CreateDirectory(path);
             return new DirectoryEx(directory);
         }
         #endregion Public methods
 
         #region Private Variables
-        private static string _Path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        private static string _AbsolutePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         #endregion Private Variables
 
         #region Import

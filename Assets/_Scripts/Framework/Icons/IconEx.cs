@@ -1,7 +1,6 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System.IO;
-    using System.Runtime.InteropServices;
     using Sirenix.OdinInspector;
     using UnityEngine;
 #if UNITY_EDITOR
@@ -13,17 +12,6 @@
     {
         #region Public Methods
         public string AbsolutePath => Path.Combine(Application.streamingAssetsPath, _Path);
-        #endregion Public Methods
-
-        #region Public Methods
-        public void Apply(IItemEx item)
-        {
-            set_icon(item.Path, AbsolutePath);
-        }
-        public void Tooltip(IItemEx item, string tooltip)
-        {
-            set_tooltip(item.Path, tooltip);
-        }
         #endregion Public Methods
 
         #region Inspector Variables
@@ -42,18 +30,6 @@
         }
 #endif
         #endregion Unity Methods
-
-        #region Import
-        [DllImport("desktop-lib.dll")]
-        internal static extern void set_icon(
-            [MarshalAs(UnmanagedType.LPWStr)] string itemPath,
-            [MarshalAs(UnmanagedType.LPWStr)] string iconPath);
-
-        [DllImport("desktop-lib.dll")]
-        internal static extern void set_tooltip(
-            [MarshalAs(UnmanagedType.LPWStr)] string itemPath,
-            [MarshalAs(UnmanagedType.LPWStr)] string tooltip);
-        #endregion Import
 
     }
 }

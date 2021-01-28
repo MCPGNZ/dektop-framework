@@ -2,57 +2,20 @@
 {
     using System;
     using System.IO;
-    using Sirenix.OdinInspector;
-    using UnityEngine;
 
     [Serializable]
-    public sealed class FileEx : IItemEx
+    public sealed class FileEx : ItemEx<FileInfo>
     {
-        #region Public Variables
-        public event Action<string> OnNameChanged;
-        public event Action<Vector2Int> OnPositionChanged;
-        #endregion Public Variables
-
-        #region Public Variables
-        [ShowInInspector]
-        public string Name
-        {
-            get => _Info.Name;
-            set => _Info.MoveTo(value);
-        }
-
-        [ShowInInspector]
-        public string Path => _Info.FullName;
-
-        [ShowInInspector]
-        public string Directory => _Info.Directory.FullName;
-
-        [ShowInInspector]
-        public Vector2Int Position
-        {
-            get
-            {
-                DesktopEx.desktop_get_item_position(Path, out var x, out var y);
-                return new Vector2Int(x, y);
-            }
-            set
-            {
-                DesktopEx.desktop_set_item_position(Path, value.x, value.y);
-
-                OnPositionChanged?.Invoke(value);
-            }
-        }
-        #endregion Public Variables
-
         #region Public Methods
-        public FileEx(FileInfo directoryInfo)
+        public FileEx(FileInfo fileIno) : base(fileIno)
         {
-            _Info = directoryInfo;
+            _Info = fileIno;
+        }
+
+        public void Delete()
+        {
+            File.Delete(AbsolutePath);
         }
         #endregion Public Methods
-
-        #region Public Variables
-        private FileInfo _Info;
-        #endregion Public Variables
     }
 }
