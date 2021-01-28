@@ -40,12 +40,21 @@
                 return result;
             }
         }
+
+        // note: rename is reported as delete + create
+        public Action<string> OnItemCreated;
+        public Action<string> OnItemDeleted;
+        public Action<string> OnItemChanged;
         #endregion Public Variables
 
         #region Public Methods
         public DirectoryEx(DirectoryInfo directoryInfo) : base(directoryInfo)
         {
-
+            _Watcher = new FileSystemWatcher(directoryInfo.FullName);
+            _Watcher.Created += (object sender, FileSystemEventArgs args) => OnItemCreated?.Invoke(args.Name);
+            _Watcher.Deleted += (object sender, FileSystemEventArgs args) => OnItemDeleted?.Invoke(args.Name);
+            _Watcher.Changed += (object sender, FileSystemEventArgs args) => OnItemChanged?.Invoke(args.Name);
+            _Watcher.EnableRaisingEvents = true;
         }
 
         public FileEx CreateFile(string name)
@@ -66,5 +75,9 @@
             _Info = null;
         }
         #endregion Public Methods
+
+        #region Private variables
+        private static FileSystemWatcher _Watcher = null;
+        #endregion Private variables
     }
 }
