@@ -1,5 +1,6 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
+    using System;
     using System.Collections.Generic;
     using UnityEngine;
 
@@ -43,7 +44,7 @@
             if (type == '#')
             {
                 var actor = Create<Actor>(wallPrefab, cell, gridSize);
-                actor.Create("TODO");
+                actor.Create(String.Format("Wall{0}", UnityEngine.Random.Range(-10.0f, 10.0f)));
             }
         }
         #endregion Private Methods
