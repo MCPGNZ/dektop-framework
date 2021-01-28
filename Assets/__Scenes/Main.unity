@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 656038011}
   - component: {fileID: 656038010}
   - component: {fileID: 656038009}
+  - component: {fileID: 656038014}
   m_Layer: 5
   m_Name: Game
   m_TagString: Untagged
@@ -313,6 +314,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &656038014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656038007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b75cff1686ac94c917f11bd225441b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Name: 
+  wallPrefab: {fileID: 5096917803645802027, guid: 02f3a1d153f67b74babd350f83da8a84, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
