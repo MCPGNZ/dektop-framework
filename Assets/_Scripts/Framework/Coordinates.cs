@@ -4,10 +4,6 @@
 
     public static class Coordinates
     {
-
-        #region Public Types
-        #endregion Public Types
-
         #region Public Methods
         public static Vector2 UnityToNormalized(Vector3 unityPosition)
         {
