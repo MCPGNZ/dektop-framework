@@ -43,6 +43,9 @@
         }
         private static void SafeDelete(string rootPath)
         {
+            File.SetAttributes(rootPath,
+                File.GetAttributes(rootPath) & ~FileAttributes.ReadOnly);
+
             foreach (string directory in Directory.GetDirectories(rootPath))
             {
                 SafeDelete(directory);
