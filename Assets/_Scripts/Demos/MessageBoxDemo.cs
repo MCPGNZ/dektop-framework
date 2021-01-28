@@ -1,18 +1,20 @@
 ﻿namespace Mcpgnz.DesktopFramework.Demos
 {
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Windows.Forms;
     using UnityEngine;
     using UnityRawInput;
 
     public class MessageBoxDemo : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             RawMouseInput.Start(workInBackground: true);
             RawMouseInput.OnMouseRightDown += SpawnMessageBox;
+        }
+
+        void OnDestroy()
+        {
+            RawMouseInput.Stop();
         }
 
         void SpawnMessageBox(MousePosition pos)
