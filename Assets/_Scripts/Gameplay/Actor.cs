@@ -42,10 +42,13 @@
         #region Private Methods
         private void UpdatePosition()
         {
-            if (_Position != transform.position)
+            if (_Position != transform.localPosition)
             {
-                _Position = transform.position;
-                _Directory.Position = FrameworkEx.UnityToDesktopPosition(_Position);
+                Debug.Log(transform.localPosition);
+                _Position = transform.localPosition;
+                var result = Coordinates.UnityToDesktop(_Position);
+                Debug.Log(result);
+                _Directory.Position = result;
             }
         }
         #endregion Private Methods
