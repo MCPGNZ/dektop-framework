@@ -22,7 +22,7 @@
         {
             base.Start();
 
-            // _Preview = Container.Resolve<T>();
+            _Preview = Container.Resolve<T>();
         }
         #endregion Unity Methods
 
