@@ -4,11 +4,26 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Runtime.InteropServices;
+    using Sirenix.OdinInspector;
 
     [Serializable]
     public static class DesktopEx
     {
         #region Public Variables
+        [ShowInInspector]
+        public static bool AutoArrange
+        {
+            get => desktop_get_autoarrange();
+            set => desktop_set_autoarrange(value);
+        }
+
+        [ShowInInspector]
+        public static bool GridAlign
+        {
+            get => desktop_get_gridallign();
+            set => desktop_set_gridallign(value);
+        }
+
         public static List<FileEx> Files
         {
             get
@@ -72,6 +87,18 @@
         [DllImport("desktop-lib.dll")]
         internal static extern void desktop_set_item_position(
             [MarshalAs(UnmanagedType.LPWStr)] string path, int x, int y);
+
+        [DllImport("desktop-lib.dll")]
+        internal static extern bool desktop_get_autoarrange();
+
+        [DllImport("desktop-lib.dll")]
+        internal static extern void desktop_set_autoarrange(bool state);
+
+        [DllImport("desktop-lib.dll")]
+        internal static extern bool desktop_get_gridallign();
+
+        [DllImport("desktop-lib.dll")]
+        internal static extern void desktop_set_gridallign(bool state);
         #endregion Import
     }
 }

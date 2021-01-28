@@ -57,10 +57,6 @@
                 if (_Info is FileInfo fileInfo) { fileInfo.MoveTo(Path.Combine(DirectoryPath, value)); }
 
                 OnNameChanged?.Invoke(value);
-
-                /* ensure that directory stays at the correct position */
-                DesktopEx.desktop_set_item_position(AbsolutePath, _Position.x, _Position.y);
-                OnPositionChanged?.Invoke(_Position);
             }
         }
 
@@ -78,8 +74,7 @@
             }
             set
             {
-                _Position = value;
-                DesktopEx.desktop_set_item_position(AbsolutePath, _Position.x, _Position.y);
+                DesktopEx.desktop_set_item_position(AbsolutePath, value.x, value.y);
 
                 OnPositionChanged?.Invoke(value);
             }
@@ -99,13 +94,11 @@
         public ItemEx(T info)
         {
             _Info = info;
-            _Position = Position;
         }
         #endregion Public Methods
 
         #region Private Variables
         protected T _Info;
-        protected Vector2Int _Position;
         #endregion Private Variables
 
     }

@@ -5,6 +5,14 @@
 
     public sealed class Actor : MonoBehaviour
     {
+        #region Public Variables
+        public Vector2 NormalizedPosition
+        {
+            get => Coordinates.UnityToNormalized(transform.position);
+            set => _UnityPosition = Coordinates.NormalizedToUnity(value);
+        }
+        #endregion Public Variables
+
         #region Unity Methods
         public void Start()
         {
@@ -36,16 +44,16 @@
         [ShowInInspector, HideInEditorMode]
         private DirectoryEx _Directory;
 
-        private Vector3 _Position;
+        private Vector3 _UnityPosition;
         #endregion Private Variables
 
         #region Private Methods
         private void UpdatePosition()
         {
-            if (_Position != transform.position)
+            if (_UnityPosition != transform.localPosition)
             {
-                _Position = transform.position;
-                _Directory.Position = FrameworkEx.UnityToDesktopPosition(_Position);
+                _UnityPosition = transform.localPosition;
+                _Directory.Position = Coordinates.UnityToDesktop(_UnityPosition);
             }
         }
         #endregion Private Methods
