@@ -4,26 +4,50 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Runtime.InteropServices;
-    using Sirenix.OdinInspector;
 
     [Serializable]
     public static class DesktopEx
     {
+        #region Public Types
+        public enum FolderFlags : ulong
+        {
+            FWF_NONE = 0,
+            FWF_AUTOARRANGE = 0x1,
+            FWF_ABBREVIATEDNAMES = 0x2,
+            FWF_SNAPTOGRID = 0x4,
+            FWF_OWNERDATA = 0x8,
+            FWF_BESTFITWINDOW = 0x10,
+            FWF_DESKTOP = 0x20,
+            FWF_SINGLESEL = 0x40,
+            FWF_NOSUBFOLDERS = 0x80,
+            FWF_TRANSPARENT = 0x100,
+            FWF_NOCLIENTEDGE = 0x200,
+            FWF_NOSCROLL = 0x400,
+            FWF_ALIGNLEFT = 0x800,
+            FWF_NOICONS = 0x1000,
+            FWF_SHOWSELALWAYS = 0x2000,
+            FWF_NOVISIBLE = 0x4000,
+            FWF_SINGLECLICKACTIVATE = 0x8000,
+            FWF_NOWEBVIEW = 0x10000,
+            FWF_HIDEFILENAMES = 0x20000,
+            FWF_CHECKSELECT = 0x40000,
+            FWF_NOENUMREFRESH = 0x80000,
+            FWF_NOGROUPING = 0x100000,
+            FWF_FULLROWSELECT = 0x200000,
+            FWF_NOFILTERS = 0x400000,
+            FWF_NOCOLUMNHEADER = 0x800000,
+            FWF_NOHEADERINALLVIEWS = 0x1000000,
+            FWF_EXTENDEDTILES = 0x2000000,
+            FWF_TRICHECKSELECT = 0x4000000,
+            FWF_AUTOCHECKSELECT = 0x8000000,
+            FWF_NOBROWSERVIEWSTATE = 0x10000000,
+            FWF_SUBSETGROUPS = 0x20000000,
+            FWF_USESEARCHFOLDER = 0x40000000,
+            FWF_ALLOWRTLREADING = 0x80000000
+        }
+        #endregion Public Types
+
         #region Public Variables
-        [ShowInInspector]
-        public static bool AutoArrange
-        {
-            get => desktop_get_autoarrange();
-            set => desktop_set_autoarrange(value);
-        }
-
-        [ShowInInspector]
-        public static bool GridAlign
-        {
-            get => desktop_get_gridallign();
-            set => desktop_set_gridallign(value);
-        }
-
         public static List<FileEx> Files
         {
             get
@@ -56,7 +80,7 @@
         }
         #endregion Public Variables
 
-        #region Public methods
+        #region Public Methods
         public static FileEx CreateFile(string name)
         {
             var fileInfo = new FileInfo(Path.Combine(_AbsolutePath, name));
@@ -70,7 +94,16 @@
             var directory = Directory.CreateDirectory(path);
             return new DirectoryEx(directory);
         }
-        #endregion Public methods
+
+        public static bool Style(FolderFlags flag)
+        {
+            return desktop_get_style(flag);
+        }
+        public static void Style(FolderFlags flag, bool state)
+        {
+            desktop_set_style(flag, state);
+        }
+        #endregion Public Methods
 
         #region Private Variables
         private static string _AbsolutePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -89,16 +122,10 @@
             [MarshalAs(UnmanagedType.LPWStr)] string path, int x, int y);
 
         [DllImport("desktop-lib.dll")]
-        internal static extern bool desktop_get_autoarrange();
+        internal static extern bool desktop_get_style(FolderFlags flag);
 
         [DllImport("desktop-lib.dll")]
-        internal static extern void desktop_set_autoarrange(bool state);
-
-        [DllImport("desktop-lib.dll")]
-        internal static extern bool desktop_get_gridallign();
-
-        [DllImport("desktop-lib.dll")]
-        internal static extern void desktop_set_gridallign(bool state);
+        internal static extern void desktop_set_style(FolderFlags flag, bool state);
         #endregion Import
     }
 }
