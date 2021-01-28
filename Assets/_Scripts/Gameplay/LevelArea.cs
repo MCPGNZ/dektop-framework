@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Mcpgnz.DesktopFramework
+﻿namespace Mcpgnz.DesktopFramework
 {
+    using System.Collections.Generic;
+    using UnityEngine;
+
     public class LevelArea : MonoBehaviour
     {
-
-        // Use this for initialization
-        void Start()
+        #region Unity Methods
+        private void Start()
         {
-            TextAsset asset = (TextAsset)Resources.Load("_A1");
-            loadFromString( asset.ToString() );
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            var asset = (TextAsset)Resources.Load("_A1");
+            loadFromString(asset.ToString());
         }
         private void OnDestroy()
         {
@@ -28,10 +19,14 @@ namespace Mcpgnz.DesktopFramework
                 Destroy(item);
             }
         }
+        #endregion Unity Methods
 
+        #region Private Methods
         private void loadFromString(string level)
         {
-            string[] lines = level.Split('\n');
+            var lines = level.Split('\n');
+            var gridSize = new Vector2Int(lines[0].Length, lines.Length);
+
             for (int y = 0; y < lines.Length; y++)
             {
                 string line = lines[y];
@@ -40,30 +35,44 @@ namespace Mcpgnz.DesktopFramework
                 // don't read the last char, its a newline
                 for (int x = 0; x < line.Length - 1; x++)
                 {
-                    addActor(x, y, line[x]);
+                    addActor(new Vector2Int(x, y), gridSize, line[x]);
                 }
             }
         }
-
-        private void addActor(int x, int y, char type)
+        private void addActor(Vector2Int cell, Vector2Int gridSize, char type)
         {
             if (type == ' ') { return; }
-            Debug.Log(String.Format("At {0}, {1} I will spawn type: \"{2}\".", x, y, type));
+            Debug.Log($"At {cell.x}, {cell.y} I will spawn type: \"{type}\".");
 
             if (type == '#')
             {
-                GameObject item = Instantiate(wallPrefab);
-                loadedObjects.Add(item);
+                Create(wallPrefab, cell, gridSize);
             }
         }
+        #endregion Private Methods
 
         #region Inspector Variables
         [SerializeField] private string _Name;
+        [SerializeField] private Transform _Root;
         [SerializeField] public GameObject wallPrefab;
         #endregion Inspector Variables
 
         #region Private Variables
-        private List<GameObject> loadedObjects = new List<GameObject>();
-        #endregion
+        private readonly List<GameObject> loadedObjects = new List<GameObject>();
+        #endregion Private Variables
+
+        #region Private Methods
+        private GameObject Create(GameObject prefab, Vector2Int cell, Vector2Int gridSize)
+        {
+            var normalizedPosition = Coordinates.GridToNormalized(cell, gridSize);
+            var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
+
+            var item = Instantiate(prefab, _Root);
+            item.transform.localPosition = unityPosition;
+            loadedObjects.Add(item);
+
+            return item;
+        }
+        #endregion Private Methods
     }
 }

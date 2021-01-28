@@ -31,19 +31,19 @@
         private void Setup()
         {
             RawKeyInput.Start(true);
-            DesktopEx.AutoArrange = false;
-            DesktopEx.GridAlign = false;
+            DesktopEx.Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE, false);
+            DesktopEx.Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID, false);
         }
 
         private void StoreSettings()
         {
-            _AutoArrange = DesktopEx.AutoArrange;
-            _GridAlign = DesktopEx.GridAlign;
+            _AutoArrange = DesktopEx.Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE);
+            _GridAlign = DesktopEx.Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID);
         }
         private void RestoreSettings()
         {
-            DesktopEx.AutoArrange = _AutoArrange;
-            DesktopEx.GridAlign = _GridAlign;
+            DesktopEx.Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE, _AutoArrange);
+            DesktopEx.Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID, _GridAlign);
         }
         #endregion Private Methods
     }
