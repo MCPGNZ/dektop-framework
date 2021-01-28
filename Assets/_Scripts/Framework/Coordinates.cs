@@ -42,11 +42,11 @@
 
         public static Vector2 GridToNormalized(Vector2Int position, Vector2Int gridSize)
         {
-            return new Vector2(position.x / (float)(gridSize.x - 1), position.y / (float)(gridSize.y - 1));
+            return new Vector2(position.x / (float)(gridSize.x - 0), position.y / (float)(gridSize.y - 0));
         }
         public static Vector2Int NormalizedToGrid(Vector2 position, Vector2Int gridSize)
         {
-            return new Vector2Int((int)(position.x * (gridSize.x + 1)), (int)(position.y * (gridSize.y + 1)));
+            return new Vector2Int((int)(position.x * (gridSize.x + 0)), (int)(position.y * (gridSize.y + 0)));
         }
         #endregion Public Methods
 
