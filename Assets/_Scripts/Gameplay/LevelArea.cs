@@ -9,7 +9,7 @@
         private void Start()
         {
             var asset = (TextAsset)Resources.Load("_A1");
-            loadFromString(asset.ToString());
+            loadFromString(asset.text);
         }
         private void OnDestroy()
         {
@@ -24,18 +24,14 @@
         #region Private Methods
         private void loadFromString(string level)
         {
-            var lines = level.Split('\n');
-            var gridSize = new Vector2Int(lines[0].Length, lines.Length);
+            var map = Parse(level);
+            var gridSize = new Vector2Int(map.Length, map[0].Length);
 
-            for (int y = 0; y < lines.Length; y++)
+            for (int y = 0; y < gridSize.y; y++)
             {
-                string line = lines[y];
-                // if you encounter an empty line, stop reading file
-                if (line.Length < 2) { break; }
-                // don't read the last char, its a newline
-                for (int x = 0; x < line.Length - 1; x++)
+                for (int x = 0; x < gridSize.x; x++)
                 {
-                    addActor(new Vector2Int(x, y), gridSize, line[x]);
+                    addActor(new Vector2Int(x, y), gridSize, map[x][y]);
                 }
             }
         }
@@ -46,13 +42,13 @@
 
             if (type == '#')
             {
-                Create(wallPrefab, cell, gridSize);
+                var actor = Create<Actor>(wallPrefab, cell, gridSize);
+                actor.Create("TODO");
             }
         }
         #endregion Private Methods
 
         #region Inspector Variables
-        [SerializeField] private string _Name;
         [SerializeField] private Transform _Root;
         [SerializeField] public GameObject wallPrefab;
         #endregion Inspector Variables
@@ -62,7 +58,41 @@
         #endregion Private Variables
 
         #region Private Methods
-        private GameObject Create(GameObject prefab, Vector2Int cell, Vector2Int gridSize)
+        private char[][] Parse(string level)
+        {
+            var lines = level.Split('\n');
+
+            /* find row count */
+            int rowCount;
+            for (rowCount = 0; rowCount < lines.Length; ++rowCount)
+            {
+                if (string.IsNullOrWhiteSpace(lines[rowCount]))
+                {
+                    break;
+                }
+            }
+
+            /* find column count */
+            int columnCount = lines[0].Length - 1;
+
+            /* create map */
+            var map = new char[columnCount][];
+
+            for (int x = 0; x < columnCount; ++x)
+            {
+                map[x] = new char[rowCount];
+
+                /* fill */
+                for (int y = 0; y < rowCount; ++y)
+                {
+                    map[x][y] = lines[y][x];
+                }
+            }
+
+            return map;
+        }
+
+        private T Create<T>(GameObject prefab, Vector2Int cell, Vector2Int gridSize) where T : Component
         {
             var normalizedPosition = Coordinates.GridToNormalized(cell, gridSize);
             var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
@@ -71,7 +101,7 @@
             item.transform.localPosition = unityPosition;
             loadedObjects.Add(item);
 
-            return item;
+            return item.GetComponent<T>();
         }
         #endregion Private Methods
     }

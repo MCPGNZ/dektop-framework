@@ -1,11 +1,14 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
+    using System;
     using Sirenix.OdinInspector;
     using UnityEngine;
 
     public sealed class Actor : MonoBehaviour
     {
         #region Public Variables
+        public bool IsCreated => _Directory != null;
+
         public Vector2 NormalizedPosition
         {
             get => Coordinates.UnityToNormalized(transform.position);
@@ -13,23 +16,42 @@
         }
         #endregion Public Variables
 
-        #region Unity Methods
-        public void Start()
+        #region Public Methods
+        public void Create(string name)
         {
+            if (_Directory != null) { throw new InvalidOperationException(); }
+
+            _Name = name;
             _Directory = DesktopEx.CreateDirectory(_Name);
             _Directory.Icon = _Icon;
             _Directory.Tooltip = _Tooltip;
-
-            UpdatePosition();
         }
-        public void FixedUpdate()
+        public void Destroy()
         {
-            UpdatePosition();
-        }
+            if (_Directory == null) { throw new InvalidOperationException(); }
 
-        public void OnDestroy()
-        {
             _Directory.Delete();
+            _Directory = null;
+        }
+        #endregion Public Methods
+
+        #region Unity Methods
+        private void Start()
+        {
+            if (_AutoCreate) { Create(_Name); }
+
+            UpdatePosition();
+        }
+        private void FixedUpdate()
+        {
+            if (_Directory == null) { return; }
+            UpdatePosition();
+        }
+        private void OnDestroy()
+        {
+            if (_Directory == null) { return; }
+
+            Destroy();
         }
         #endregion Unity Methods
 
@@ -38,6 +60,8 @@
 
         [SerializeField] private IconEx _Icon;
         [SerializeField] private string _Tooltip;
+
+        [SerializeField] private bool _AutoCreate;
         #endregion Inspector Variables
 
         #region Private Variables
