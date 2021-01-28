@@ -54,6 +54,11 @@
                 return result;
             }
         }
+
+        // note: rename is reported as delete + create
+        public static Action<string> OnItemCreated;
+        public static Action<string> OnItemDeleted;
+        public static Action<string> OnItemChanged;
         #endregion Public Variables
 
         #region Public methods
@@ -74,7 +79,19 @@
 
         #region Private Variables
         private static string _AbsolutePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        private static FileSystemWatcher _Watcher = null;
         #endregion Private Variables
+
+        #region Private Methods
+        static DesktopEx()
+        {
+            _Watcher = new FileSystemWatcher(_AbsolutePath);
+            _Watcher.Created += (object sender, FileSystemEventArgs args) => OnItemCreated?.Invoke(args.Name);
+            _Watcher.Deleted += (object sender, FileSystemEventArgs args) => OnItemDeleted?.Invoke(args.Name);
+            _Watcher.Changed += (object sender, FileSystemEventArgs args) => OnItemChanged?.Invoke(args.Name);
+            _Watcher.EnableRaisingEvents = true;
+        }
+        #endregion Private Methods
 
         #region Import
         [DllImport("desktop-lib.dll")]
