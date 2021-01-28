@@ -22,7 +22,7 @@
             var dialog = new OpenFileDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                Framework.WallpaperManager.Set(dialog.FileName, Framework.WallpaperManager.Style.Stretched);
+                Framework.Wallpaper.Set(dialog.FileName, Framework.Wallpaper.Style.Stretched);
             }
         }
     }

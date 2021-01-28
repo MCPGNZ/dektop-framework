@@ -4,7 +4,7 @@
     using System.Runtime.InteropServices;
 
     // https://code.4noobz.net/set-the-wallpaper-by-code/
-    public static class WallpaperManager
+    public static class Wallpaper
     {
         const int SPI_SETDESKWALLPAPER = 20;
         const int SPIF_UPDATEINIFILE = 0x01;
