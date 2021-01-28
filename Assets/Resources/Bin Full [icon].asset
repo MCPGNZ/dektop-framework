@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8107a1533aeb41c89eabec6e8f29f021, type: 3}
-  m_Name: Explorer [icon]
+  m_Name: Bin Full [icon]
   m_EditorClassIdentifier: 
-  _Asset: {fileID: 102900000, guid: 7a428d8d0c29c564b976750409211905, type: 3}
-  _Path: explorer.ico
+  _Asset: {fileID: 102900000, guid: ef1afa6c3c7144849ab53ce4d4026cef, type: 3}
+  _Path: bin_full.ico
