@@ -52,8 +52,8 @@
         {
             if (_UnityPosition != transform.localPosition)
             {
-                var result = Coordinates.UnityToDesktop(_UnityPosition);
-                _Directory.Position = result;
+                _UnityPosition = transform.localPosition;
+                _Directory.Position = Coordinates.UnityToDesktop(_UnityPosition);
             }
         }
         #endregion Private Methods
