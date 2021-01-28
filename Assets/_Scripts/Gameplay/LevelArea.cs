@@ -42,13 +42,13 @@
 
             if (type == '#')
             {
-                Create(wallPrefab, cell, gridSize);
+                var actor = Create<Actor>(wallPrefab, cell, gridSize);
+                actor.Create("TODO");
             }
         }
         #endregion Private Methods
 
         #region Inspector Variables
-        [SerializeField] private string _Name;
         [SerializeField] private Transform _Root;
         [SerializeField] public GameObject wallPrefab;
         #endregion Inspector Variables
@@ -92,22 +92,16 @@
             return map;
         }
 
-        private GameObject Create(GameObject prefab, Vector2Int cell, Vector2Int gridSize)
+        private T Create<T>(GameObject prefab, Vector2Int cell, Vector2Int gridSize) where T : Component
         {
             var normalizedPosition = Coordinates.GridToNormalized(cell, gridSize);
             var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
-
-            Debug.Log(cell);
-            Debug.Log(gridSize);
-            Debug.Log(normalizedPosition);
-            Debug.Log(unityPosition);
-            Debug.Log("");
 
             var item = Instantiate(prefab, _Root);
             item.transform.localPosition = unityPosition;
             loadedObjects.Add(item);
 
-            return item;
+            return item.GetComponent<T>();
         }
         #endregion Private Methods
     }
