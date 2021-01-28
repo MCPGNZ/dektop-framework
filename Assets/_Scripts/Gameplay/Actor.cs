@@ -11,8 +11,14 @@
             _Directory = DesktopEx.CreateDirectory(_Name);
             _Directory.Icon = _Icon;
             _Directory.Tooltip = _Tooltip;
-            _Directory.Position = new Vector2Int(100, 100);
+
+            UpdatePosition();
         }
+        public void FixedUpdate()
+        {
+            UpdatePosition();
+        }
+
         public void OnDestroy()
         {
             _Directory.Delete();
@@ -29,6 +35,19 @@
         #region Private Variables
         [ShowInInspector, HideInEditorMode]
         private DirectoryEx _Directory;
+
+        private Vector3 _Position;
         #endregion Private Variables
+
+        #region Private Methods
+        private void UpdatePosition()
+        {
+            if (_Position != transform.position)
+            {
+                _Position = transform.position;
+                _Directory.Position = FrameworkEx.UnityToDesktopPosition(_Position);
+            }
+        }
+        #endregion Private Methods
     }
 }

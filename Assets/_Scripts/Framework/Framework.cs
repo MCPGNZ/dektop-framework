@@ -8,13 +8,22 @@
     [Serializable]
     public static class FrameworkEx
     {
-        #region Api
+        #region Public Metods
         public static void Initialize()
         {
             Initialize(OnUnmanagedInfo, OnUnmanagedError);
             DesktopEx.desktop_initialize();
         }
-        #endregion Api
+
+        public static Vector3 DesktopToUnityPosition(Vector2Int desktopPositio)
+        {
+            return new Vector2(desktopPositio.x, -desktopPositio.y);
+        }
+        public static Vector2Int UnityToDesktopPosition(Vector3 worldPosition)
+        {
+            return new Vector2Int((int)worldPosition.x, -(int)worldPosition.y);
+        }
+        #endregion Public Metods
 
         #region Import
         [DllImport("desktop-lib.dll", EntryPoint = "framework_initialize")]

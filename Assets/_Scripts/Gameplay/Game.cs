@@ -1,6 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using UnityEngine;
+    using UnityRawInput;
 
     public sealed class Game : MonoBehaviour
     {
@@ -8,9 +9,11 @@
         public void Awake()
         {
             FrameworkEx.Initialize();
+            RawKeyInput.Start(true);
         }
         private void OnDestroy()
         {
+            RawKeyInput.Stop();
             FrameworkEx.Cleanup();
         }
         #endregion Unity Methods

@@ -67,10 +67,8 @@
         [ShowInInspector]
         public override string AbsolutePath => _Info.FullName;
 
-        [ShowInInspector]
         public override string DirectoryPath => Path.GetDirectoryName(_Info.FullName);
 
-        [ShowInInspector]
         public override Vector2Int Position
         {
             get
