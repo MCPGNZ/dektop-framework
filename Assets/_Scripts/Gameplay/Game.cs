@@ -33,6 +33,10 @@
             RawKeyInput.Start(true);
             DesktopEx.Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE, false);
             DesktopEx.Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID, false);
+            // don't minimize the editor
+#if !UNITY_EDITOR
+            Framework.GameWindow.Minimize();
+#endif
         }
 
         private void StoreSettings()
