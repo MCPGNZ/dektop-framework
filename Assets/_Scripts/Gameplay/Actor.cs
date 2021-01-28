@@ -38,10 +38,7 @@
         #region Unity Methods
         private void Start()
         {
-            if (string.IsNullOrEmpty(_Name) == false)
-            {
-                Create(_Name);
-            }
+            if (_AutoCreate) { Create(_Name); }
 
             UpdatePosition();
         }
@@ -63,6 +60,8 @@
 
         [SerializeField] private IconEx _Icon;
         [SerializeField] private string _Tooltip;
+
+        [SerializeField] private bool _AutoCreate;
         #endregion Inspector Variables
 
         #region Private Variables

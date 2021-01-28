@@ -53,6 +53,7 @@ MonoBehaviour:
   _Name: Explorer
   _Icon: {fileID: 11400000, guid: 41da954b43abebf41afe893af3efe3c2, type: 2}
   _Tooltip: Hello traveller!
+  _AutoCreate: 1
 --- !u!114 &416909059199926145
 MonoBehaviour:
   m_ObjectHideFlags: 0
