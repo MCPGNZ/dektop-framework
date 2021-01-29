@@ -1,6 +1,8 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
+    using System.Drawing;
     using UnityEngine;
+    using Screen = System.Windows.Forms.Screen;
 
     public static class Coordinates
     {
@@ -29,15 +31,23 @@
 
         public static Vector2Int NormalizedToDesktop(Vector2 normalizedPosition)
         {
+            var screen = Screen.PrimaryScreen;
+            var size = screen.WorkingArea.Size;
+            var offset = screen.Bounds.Location;
+
             return new Vector2Int(
-               (int)(Screen.currentResolution.width * normalizedPosition.x),
-                (int)(Screen.currentResolution.height * normalizedPosition.y));
+                (int)(size.Width * normalizedPosition.x) - offset.X,
+                (int)(size.Height * normalizedPosition.y) - offset.Y);
         }
         public static Vector2 DesktopToNormalized(Vector2Int desktopPosition)
         {
+            var screen = Screen.PrimaryScreen;
+            var size = screen.WorkingArea.Size;
+            var offset = screen.Bounds.Location;
+
             return new Vector2(
-                desktopPosition.x / (float)Screen.currentResolution.width,
-                desktopPosition.y / (float)Screen.currentResolution.height);
+                (desktopPosition.x + offset.X) / (float)size.Width,
+                (desktopPosition.y + offset.Y) / (float)size.Height);
         }
 
         public static Vector2 GridToNormalized(Vector2Int position, Vector2Int gridSize)
