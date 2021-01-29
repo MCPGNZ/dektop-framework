@@ -15,8 +15,8 @@
         #endregion Public Methods
 
         #region Inspector Variables
-        [SerializeField] private Object _Asset;
-        [SerializeField, ReadOnly] private string _Path;
+        [SerializeField] public Object _Asset;
+        [SerializeField, ReadOnly] public string _Path;
         #endregion Inspector Variables
 
         #region Unity Methods

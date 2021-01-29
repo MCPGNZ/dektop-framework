@@ -13,7 +13,7 @@
         string AbsolutePath { get; }
         string DirectoryPath { get; }
 
-        Vector2Int Position { get; set; }
+        Vector2Int DesktopPosition { get; set; }
         #endregion Variables
     }
 
@@ -24,7 +24,7 @@
         public abstract string AbsolutePath { get; }
         public abstract string DirectoryPath { get; }
 
-        public abstract Vector2Int Position { get; set; }
+        public abstract Vector2Int DesktopPosition { get; set; }
         #endregion Public Variables
 
         #region Import
@@ -65,7 +65,7 @@
 
         public override string DirectoryPath => Path.GetDirectoryName(_Info.FullName);
 
-        public override Vector2Int Position
+        public override Vector2Int DesktopPosition
         {
             get
             {
