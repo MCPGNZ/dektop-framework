@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1523582168081683007}
   - component: {fileID: 4872732983858902978}
+  - component: {fileID: 5299680096090943688}
   m_Layer: 0
   m_Name: Wall [actor]
   m_TagString: Untagged
@@ -52,6 +53,33 @@ MonoBehaviour:
   _Name: Wall
   _Icon: {fileID: 11400000, guid: c87ddbdf781ad4044afa0eed7950bae9, type: 2}
   _Tooltip: IMAWALL
+  _AutoCreate: 0
+--- !u!61 &5299680096090943688
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5096917803645802027}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.025, y: -0.025}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.05}
+  m_EdgeRadius: 0
 --- !u!1001 &8850076434744296494
 PrefabInstance:
   m_ObjectHideFlags: 0

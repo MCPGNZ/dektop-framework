@@ -13,7 +13,7 @@
 
         #region Private Variables
         [SerializeField, BoxGroup("Movement")]
-        private float _MovementSpeed = 0.1f;
+        private float _MovementSpeed = 1.0f;
         #endregion Private Variables
     }
 }
