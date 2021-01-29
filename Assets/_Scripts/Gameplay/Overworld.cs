@@ -18,7 +18,6 @@
                 }
             }
         }
-
         #endregion Public Methods
 
         #region Inspector Variables

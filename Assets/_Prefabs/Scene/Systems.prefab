@@ -261,1304 +261,884 @@ MonoBehaviour:
     Size: {x: 42, y: 10}
     _Rows:
     - Cells:
-      - X: 0
-        Y: 0
+      - GlobalId: {x: 0, y: 0}
         Data: '#'
-      - X: 0
-        Y: 1
+      - GlobalId: {x: 0, y: 1}
         Data: '#'
-      - X: 0
-        Y: 2
+      - GlobalId: {x: 0, y: 2}
         Data: '#'
-      - X: 0
-        Y: 3
+      - GlobalId: {x: 0, y: 3}
         Data: '#'
-      - X: 0
-        Y: 4
+      - GlobalId: {x: 0, y: 4}
         Data: '#'
-      - X: 0
-        Y: 5
+      - GlobalId: {x: 0, y: 5}
         Data: '#'
-      - X: 0
-        Y: 6
+      - GlobalId: {x: 0, y: 6}
         Data: '#'
-      - X: 0
-        Y: 7
+      - GlobalId: {x: 0, y: 7}
         Data: '#'
-      - X: 0
-        Y: 8
+      - GlobalId: {x: 0, y: 8}
         Data: '#'
-      - X: 0
-        Y: 9
+      - GlobalId: {x: 0, y: 9}
         Data: '#'
     - Cells:
-      - X: 1
-        Y: 0
+      - GlobalId: {x: 1, y: 0}
         Data: '#'
-      - X: 1
-        Y: 1
+      - GlobalId: {x: 1, y: 1}
         Data: 
-      - X: 1
-        Y: 2
+      - GlobalId: {x: 1, y: 2}
         Data: 
-      - X: 1
-        Y: 3
+      - GlobalId: {x: 1, y: 3}
         Data: 
-      - X: 1
-        Y: 4
+      - GlobalId: {x: 1, y: 4}
         Data: 
-      - X: 1
-        Y: 5
+      - GlobalId: {x: 1, y: 5}
         Data: 
-      - X: 1
-        Y: 6
+      - GlobalId: {x: 1, y: 6}
         Data: 
-      - X: 1
-        Y: 7
+      - GlobalId: {x: 1, y: 7}
         Data: 
-      - X: 1
-        Y: 8
+      - GlobalId: {x: 1, y: 8}
         Data: 
-      - X: 1
-        Y: 9
+      - GlobalId: {x: 1, y: 9}
         Data: '#'
     - Cells:
-      - X: 2
-        Y: 0
+      - GlobalId: {x: 2, y: 0}
         Data: '#'
-      - X: 2
-        Y: 1
+      - GlobalId: {x: 2, y: 1}
         Data: 
-      - X: 2
-        Y: 2
+      - GlobalId: {x: 2, y: 2}
         Data: 
-      - X: 2
-        Y: 3
+      - GlobalId: {x: 2, y: 3}
+        Data: E
+      - GlobalId: {x: 2, y: 4}
         Data: 
-      - X: 2
-        Y: 4
+      - GlobalId: {x: 2, y: 5}
         Data: 
-      - X: 2
-        Y: 5
+      - GlobalId: {x: 2, y: 6}
         Data: 
-      - X: 2
-        Y: 6
+      - GlobalId: {x: 2, y: 7}
         Data: 
-      - X: 2
-        Y: 7
+      - GlobalId: {x: 2, y: 8}
         Data: 
-      - X: 2
-        Y: 8
-        Data: 
-      - X: 2
-        Y: 9
+      - GlobalId: {x: 2, y: 9}
         Data: '#'
     - Cells:
-      - X: 3
-        Y: 0
+      - GlobalId: {x: 3, y: 0}
         Data: '#'
-      - X: 3
-        Y: 1
+      - GlobalId: {x: 3, y: 1}
         Data: 
-      - X: 3
-        Y: 2
+      - GlobalId: {x: 3, y: 2}
         Data: 
-      - X: 3
-        Y: 3
+      - GlobalId: {x: 3, y: 3}
         Data: 
-      - X: 3
-        Y: 4
+      - GlobalId: {x: 3, y: 4}
         Data: 
-      - X: 3
-        Y: 5
+      - GlobalId: {x: 3, y: 5}
         Data: 
-      - X: 3
-        Y: 6
+      - GlobalId: {x: 3, y: 6}
         Data: 
-      - X: 3
-        Y: 7
+      - GlobalId: {x: 3, y: 7}
         Data: 
-      - X: 3
-        Y: 8
+      - GlobalId: {x: 3, y: 8}
         Data: 
-      - X: 3
-        Y: 9
+      - GlobalId: {x: 3, y: 9}
         Data: '#'
     - Cells:
-      - X: 4
-        Y: 0
+      - GlobalId: {x: 4, y: 0}
         Data: '#'
-      - X: 4
-        Y: 1
+      - GlobalId: {x: 4, y: 1}
         Data: 
-      - X: 4
-        Y: 2
+      - GlobalId: {x: 4, y: 2}
         Data: 
-      - X: 4
-        Y: 3
+      - GlobalId: {x: 4, y: 3}
         Data: 
-      - X: 4
-        Y: 4
+      - GlobalId: {x: 4, y: 4}
         Data: 
-      - X: 4
-        Y: 5
+      - GlobalId: {x: 4, y: 5}
         Data: 
-      - X: 4
-        Y: 6
+      - GlobalId: {x: 4, y: 6}
         Data: 
-      - X: 4
-        Y: 7
+      - GlobalId: {x: 4, y: 7}
         Data: 
-      - X: 4
-        Y: 8
+      - GlobalId: {x: 4, y: 8}
         Data: 
-      - X: 4
-        Y: 9
+      - GlobalId: {x: 4, y: 9}
         Data: '#'
     - Cells:
-      - X: 5
-        Y: 0
+      - GlobalId: {x: 5, y: 0}
         Data: '#'
-      - X: 5
-        Y: 1
+      - GlobalId: {x: 5, y: 1}
         Data: 
-      - X: 5
-        Y: 2
+      - GlobalId: {x: 5, y: 2}
         Data: '#'
-      - X: 5
-        Y: 3
+      - GlobalId: {x: 5, y: 3}
         Data: '#'
-      - X: 5
-        Y: 4
+      - GlobalId: {x: 5, y: 4}
         Data: '#'
-      - X: 5
-        Y: 5
+      - GlobalId: {x: 5, y: 5}
         Data: '#'
-      - X: 5
-        Y: 6
+      - GlobalId: {x: 5, y: 6}
         Data: '#'
-      - X: 5
-        Y: 7
+      - GlobalId: {x: 5, y: 7}
         Data: 
-      - X: 5
-        Y: 8
+      - GlobalId: {x: 5, y: 8}
         Data: 
-      - X: 5
-        Y: 9
+      - GlobalId: {x: 5, y: 9}
         Data: '#'
     - Cells:
-      - X: 6
-        Y: 0
+      - GlobalId: {x: 6, y: 0}
         Data: '#'
-      - X: 6
-        Y: 1
+      - GlobalId: {x: 6, y: 1}
         Data: 
-      - X: 6
-        Y: 2
+      - GlobalId: {x: 6, y: 2}
         Data: 
-      - X: 6
-        Y: 3
+      - GlobalId: {x: 6, y: 3}
         Data: 
-      - X: 6
-        Y: 4
+      - GlobalId: {x: 6, y: 4}
         Data: '#'
-      - X: 6
-        Y: 5
+      - GlobalId: {x: 6, y: 5}
         Data: 
-      - X: 6
-        Y: 6
+      - GlobalId: {x: 6, y: 6}
         Data: 
-      - X: 6
-        Y: 7
+      - GlobalId: {x: 6, y: 7}
         Data: 
-      - X: 6
-        Y: 8
+      - GlobalId: {x: 6, y: 8}
         Data: 
-      - X: 6
-        Y: 9
+      - GlobalId: {x: 6, y: 9}
         Data: '#'
     - Cells:
-      - X: 7
-        Y: 0
+      - GlobalId: {x: 7, y: 0}
         Data: '#'
-      - X: 7
-        Y: 1
+      - GlobalId: {x: 7, y: 1}
         Data: 
-      - X: 7
-        Y: 2
+      - GlobalId: {x: 7, y: 2}
         Data: '#'
-      - X: 7
-        Y: 3
+      - GlobalId: {x: 7, y: 3}
         Data: '#'
-      - X: 7
-        Y: 4
+      - GlobalId: {x: 7, y: 4}
         Data: '#'
-      - X: 7
-        Y: 5
+      - GlobalId: {x: 7, y: 5}
         Data: '#'
-      - X: 7
-        Y: 6
+      - GlobalId: {x: 7, y: 6}
         Data: '#'
-      - X: 7
-        Y: 7
+      - GlobalId: {x: 7, y: 7}
         Data: 
-      - X: 7
-        Y: 8
+      - GlobalId: {x: 7, y: 8}
         Data: 
-      - X: 7
-        Y: 9
+      - GlobalId: {x: 7, y: 9}
         Data: '#'
     - Cells:
-      - X: 8
-        Y: 0
+      - GlobalId: {x: 8, y: 0}
         Data: '#'
-      - X: 8
-        Y: 1
+      - GlobalId: {x: 8, y: 1}
         Data: 
-      - X: 8
-        Y: 2
+      - GlobalId: {x: 8, y: 2}
         Data: 
-      - X: 8
-        Y: 3
+      - GlobalId: {x: 8, y: 3}
         Data: 
-      - X: 8
-        Y: 4
+      - GlobalId: {x: 8, y: 4}
         Data: 
-      - X: 8
-        Y: 5
+      - GlobalId: {x: 8, y: 5}
         Data: 
-      - X: 8
-        Y: 6
+      - GlobalId: {x: 8, y: 6}
         Data: 
-      - X: 8
-        Y: 7
+      - GlobalId: {x: 8, y: 7}
         Data: 
-      - X: 8
-        Y: 8
+      - GlobalId: {x: 8, y: 8}
         Data: 
-      - X: 8
-        Y: 9
+      - GlobalId: {x: 8, y: 9}
         Data: '#'
     - Cells:
-      - X: 9
-        Y: 0
+      - GlobalId: {x: 9, y: 0}
         Data: '#'
-      - X: 9
-        Y: 1
+      - GlobalId: {x: 9, y: 1}
         Data: 
-      - X: 9
-        Y: 2
+      - GlobalId: {x: 9, y: 2}
         Data: 
-      - X: 9
-        Y: 3
+      - GlobalId: {x: 9, y: 3}
         Data: 
-      - X: 9
-        Y: 4
+      - GlobalId: {x: 9, y: 4}
         Data: 
-      - X: 9
-        Y: 5
+      - GlobalId: {x: 9, y: 5}
         Data: 
-      - X: 9
-        Y: 6
+      - GlobalId: {x: 9, y: 6}
         Data: 
-      - X: 9
-        Y: 7
+      - GlobalId: {x: 9, y: 7}
         Data: 
-      - X: 9
-        Y: 8
+      - GlobalId: {x: 9, y: 8}
         Data: 
-      - X: 9
-        Y: 9
+      - GlobalId: {x: 9, y: 9}
         Data: '#'
     - Cells:
-      - X: 10
-        Y: 0
+      - GlobalId: {x: 10, y: 0}
         Data: '#'
-      - X: 10
-        Y: 1
+      - GlobalId: {x: 10, y: 1}
         Data: 
-      - X: 10
-        Y: 2
+      - GlobalId: {x: 10, y: 2}
         Data: 
-      - X: 10
-        Y: 3
+      - GlobalId: {x: 10, y: 3}
         Data: 
-      - X: 10
-        Y: 4
+      - GlobalId: {x: 10, y: 4}
         Data: 
-      - X: 10
-        Y: 5
+      - GlobalId: {x: 10, y: 5}
         Data: 
-      - X: 10
-        Y: 6
+      - GlobalId: {x: 10, y: 6}
         Data: 
-      - X: 10
-        Y: 7
+      - GlobalId: {x: 10, y: 7}
         Data: 
-      - X: 10
-        Y: 8
+      - GlobalId: {x: 10, y: 8}
         Data: 
-      - X: 10
-        Y: 9
+      - GlobalId: {x: 10, y: 9}
         Data: 
     - Cells:
-      - X: 11
-        Y: 0
+      - GlobalId: {x: 11, y: 0}
         Data: '#'
-      - X: 11
-        Y: 1
+      - GlobalId: {x: 11, y: 1}
         Data: 
-      - X: 11
-        Y: 2
+      - GlobalId: {x: 11, y: 2}
         Data: 
-      - X: 11
-        Y: 3
+      - GlobalId: {x: 11, y: 3}
         Data: 
-      - X: 11
-        Y: 4
+      - GlobalId: {x: 11, y: 4}
         Data: 
-      - X: 11
-        Y: 5
+      - GlobalId: {x: 11, y: 5}
         Data: 
-      - X: 11
-        Y: 6
+      - GlobalId: {x: 11, y: 6}
         Data: 
-      - X: 11
-        Y: 7
+      - GlobalId: {x: 11, y: 7}
         Data: 
-      - X: 11
-        Y: 8
+      - GlobalId: {x: 11, y: 8}
         Data: 
-      - X: 11
-        Y: 9
+      - GlobalId: {x: 11, y: 9}
         Data: '#'
     - Cells:
-      - X: 12
-        Y: 0
+      - GlobalId: {x: 12, y: 0}
         Data: '#'
-      - X: 12
-        Y: 1
+      - GlobalId: {x: 12, y: 1}
         Data: 
-      - X: 12
-        Y: 2
+      - GlobalId: {x: 12, y: 2}
         Data: 
-      - X: 12
-        Y: 3
+      - GlobalId: {x: 12, y: 3}
         Data: 
-      - X: 12
-        Y: 4
+      - GlobalId: {x: 12, y: 4}
         Data: 
-      - X: 12
-        Y: 5
+      - GlobalId: {x: 12, y: 5}
         Data: 
-      - X: 12
-        Y: 6
+      - GlobalId: {x: 12, y: 6}
         Data: 
-      - X: 12
-        Y: 7
+      - GlobalId: {x: 12, y: 7}
         Data: 
-      - X: 12
-        Y: 8
+      - GlobalId: {x: 12, y: 8}
         Data: 
-      - X: 12
-        Y: 9
+      - GlobalId: {x: 12, y: 9}
         Data: '#'
     - Cells:
-      - X: 13
-        Y: 0
+      - GlobalId: {x: 13, y: 0}
         Data: '#'
-      - X: 13
-        Y: 1
+      - GlobalId: {x: 13, y: 1}
         Data: 
-      - X: 13
-        Y: 2
+      - GlobalId: {x: 13, y: 2}
         Data: 
-      - X: 13
-        Y: 3
+      - GlobalId: {x: 13, y: 3}
         Data: 
-      - X: 13
-        Y: 4
+      - GlobalId: {x: 13, y: 4}
         Data: 
-      - X: 13
-        Y: 5
+      - GlobalId: {x: 13, y: 5}
         Data: 
-      - X: 13
-        Y: 6
+      - GlobalId: {x: 13, y: 6}
         Data: 
-      - X: 13
-        Y: 7
+      - GlobalId: {x: 13, y: 7}
         Data: 
-      - X: 13
-        Y: 8
+      - GlobalId: {x: 13, y: 8}
         Data: 
-      - X: 13
-        Y: 9
+      - GlobalId: {x: 13, y: 9}
         Data: '#'
     - Cells:
-      - X: 14
-        Y: 0
+      - GlobalId: {x: 14, y: 0}
         Data: '#'
-      - X: 14
-        Y: 1
+      - GlobalId: {x: 14, y: 1}
         Data: 
-      - X: 14
-        Y: 2
+      - GlobalId: {x: 14, y: 2}
         Data: 
-      - X: 14
-        Y: 3
+      - GlobalId: {x: 14, y: 3}
         Data: 
-      - X: 14
-        Y: 4
+      - GlobalId: {x: 14, y: 4}
         Data: 
-      - X: 14
-        Y: 5
+      - GlobalId: {x: 14, y: 5}
         Data: 
-      - X: 14
-        Y: 6
+      - GlobalId: {x: 14, y: 6}
         Data: 
-      - X: 14
-        Y: 7
+      - GlobalId: {x: 14, y: 7}
         Data: 
-      - X: 14
-        Y: 8
+      - GlobalId: {x: 14, y: 8}
         Data: 
-      - X: 14
-        Y: 9
+      - GlobalId: {x: 14, y: 9}
         Data: '#'
     - Cells:
-      - X: 15
-        Y: 0
+      - GlobalId: {x: 15, y: 0}
         Data: '#'
-      - X: 15
-        Y: 1
+      - GlobalId: {x: 15, y: 1}
         Data: 
-      - X: 15
-        Y: 2
+      - GlobalId: {x: 15, y: 2}
         Data: 
-      - X: 15
-        Y: 3
+      - GlobalId: {x: 15, y: 3}
         Data: 
-      - X: 15
-        Y: 4
+      - GlobalId: {x: 15, y: 4}
         Data: 
-      - X: 15
-        Y: 5
+      - GlobalId: {x: 15, y: 5}
         Data: 
-      - X: 15
-        Y: 6
+      - GlobalId: {x: 15, y: 6}
         Data: 
-      - X: 15
-        Y: 7
+      - GlobalId: {x: 15, y: 7}
         Data: 
-      - X: 15
-        Y: 8
+      - GlobalId: {x: 15, y: 8}
         Data: 
-      - X: 15
-        Y: 9
+      - GlobalId: {x: 15, y: 9}
         Data: '#'
     - Cells:
-      - X: 16
-        Y: 0
+      - GlobalId: {x: 16, y: 0}
         Data: '#'
-      - X: 16
-        Y: 1
+      - GlobalId: {x: 16, y: 1}
         Data: 
-      - X: 16
-        Y: 2
+      - GlobalId: {x: 16, y: 2}
         Data: 
-      - X: 16
-        Y: 3
+      - GlobalId: {x: 16, y: 3}
         Data: 
-      - X: 16
-        Y: 4
+      - GlobalId: {x: 16, y: 4}
         Data: 
-      - X: 16
-        Y: 5
+      - GlobalId: {x: 16, y: 5}
         Data: 
-      - X: 16
-        Y: 6
+      - GlobalId: {x: 16, y: 6}
         Data: 
-      - X: 16
-        Y: 7
+      - GlobalId: {x: 16, y: 7}
+        Data: m
+      - GlobalId: {x: 16, y: 8}
         Data: 
-      - X: 16
-        Y: 8
-        Data: 
-      - X: 16
-        Y: 9
+      - GlobalId: {x: 16, y: 9}
         Data: '#'
     - Cells:
-      - X: 17
-        Y: 0
+      - GlobalId: {x: 17, y: 0}
         Data: '#'
-      - X: 17
-        Y: 1
+      - GlobalId: {x: 17, y: 1}
         Data: 
-      - X: 17
-        Y: 2
+      - GlobalId: {x: 17, y: 2}
         Data: 
-      - X: 17
-        Y: 3
+      - GlobalId: {x: 17, y: 3}
         Data: 
-      - X: 17
-        Y: 4
+      - GlobalId: {x: 17, y: 4}
         Data: 
-      - X: 17
-        Y: 5
+      - GlobalId: {x: 17, y: 5}
         Data: 
-      - X: 17
-        Y: 6
+      - GlobalId: {x: 17, y: 6}
         Data: 
-      - X: 17
-        Y: 7
+      - GlobalId: {x: 17, y: 7}
         Data: 
-      - X: 17
-        Y: 8
+      - GlobalId: {x: 17, y: 8}
         Data: 
-      - X: 17
-        Y: 9
+      - GlobalId: {x: 17, y: 9}
         Data: '#'
     - Cells:
-      - X: 18
-        Y: 0
+      - GlobalId: {x: 18, y: 0}
         Data: '#'
-      - X: 18
-        Y: 1
+      - GlobalId: {x: 18, y: 1}
         Data: 
-      - X: 18
-        Y: 2
+      - GlobalId: {x: 18, y: 2}
         Data: 
-      - X: 18
-        Y: 3
+      - GlobalId: {x: 18, y: 3}
         Data: 
-      - X: 18
-        Y: 4
+      - GlobalId: {x: 18, y: 4}
         Data: 
-      - X: 18
-        Y: 5
+      - GlobalId: {x: 18, y: 5}
         Data: 
-      - X: 18
-        Y: 6
+      - GlobalId: {x: 18, y: 6}
         Data: 
-      - X: 18
-        Y: 7
+      - GlobalId: {x: 18, y: 7}
+        Data: x
+      - GlobalId: {x: 18, y: 8}
         Data: 
-      - X: 18
-        Y: 8
-        Data: 
-      - X: 18
-        Y: 9
+      - GlobalId: {x: 18, y: 9}
         Data: '#'
     - Cells:
-      - X: 19
-        Y: 0
+      - GlobalId: {x: 19, y: 0}
         Data: '#'
-      - X: 19
-        Y: 1
+      - GlobalId: {x: 19, y: 1}
         Data: 
-      - X: 19
-        Y: 2
+      - GlobalId: {x: 19, y: 2}
         Data: 
-      - X: 19
-        Y: 3
+      - GlobalId: {x: 19, y: 3}
         Data: 
-      - X: 19
-        Y: 4
+      - GlobalId: {x: 19, y: 4}
+        Data: K0
+      - GlobalId: {x: 19, y: 5}
         Data: 
-      - X: 19
-        Y: 5
+      - GlobalId: {x: 19, y: 6}
         Data: 
-      - X: 19
-        Y: 6
+      - GlobalId: {x: 19, y: 7}
         Data: 
-      - X: 19
-        Y: 7
+      - GlobalId: {x: 19, y: 8}
         Data: 
-      - X: 19
-        Y: 8
-        Data: 
-      - X: 19
-        Y: 9
+      - GlobalId: {x: 19, y: 9}
         Data: '#'
     - Cells:
-      - X: 20
-        Y: 0
+      - GlobalId: {x: 20, y: 0}
         Data: '#'
-      - X: 20
-        Y: 1
+      - GlobalId: {x: 20, y: 1}
         Data: '#'
-      - X: 20
-        Y: 2
+      - GlobalId: {x: 20, y: 2}
         Data: '#'
-      - X: 20
-        Y: 3
+      - GlobalId: {x: 20, y: 3}
         Data: '#'
-      - X: 20
-        Y: 4
+      - GlobalId: {x: 20, y: 4}
+        Data: P0
+      - GlobalId: {x: 20, y: 5}
+        Data: '#'
+      - GlobalId: {x: 20, y: 6}
+        Data: '#'
+      - GlobalId: {x: 20, y: 7}
+        Data: '#'
+      - GlobalId: {x: 20, y: 8}
+        Data: '#'
+      - GlobalId: {x: 20, y: 9}
+        Data: '#'
+    - Cells:
+      - GlobalId: {x: 21, y: 0}
+        Data: '#'
+      - GlobalId: {x: 21, y: 1}
+        Data: '#'
+      - GlobalId: {x: 21, y: 2}
+        Data: '#'
+      - GlobalId: {x: 21, y: 3}
+        Data: '#'
+      - GlobalId: {x: 21, y: 4}
         Data: P1
-      - X: 20
-        Y: 5
+      - GlobalId: {x: 21, y: 5}
         Data: '#'
-      - X: 20
-        Y: 6
+      - GlobalId: {x: 21, y: 6}
         Data: '#'
-      - X: 20
-        Y: 7
+      - GlobalId: {x: 21, y: 7}
         Data: '#'
-      - X: 20
-        Y: 8
+      - GlobalId: {x: 21, y: 8}
         Data: '#'
-      - X: 20
-        Y: 9
+      - GlobalId: {x: 21, y: 9}
         Data: '#'
     - Cells:
-      - X: 21
-        Y: 0
+      - GlobalId: {x: 22, y: 0}
         Data: '#'
-      - X: 21
-        Y: 1
-        Data: '#'
-      - X: 21
-        Y: 2
-        Data: '#'
-      - X: 21
-        Y: 3
-        Data: '#'
-      - X: 21
-        Y: 4
-        Data: P1
-      - X: 21
-        Y: 5
-        Data: '#'
-      - X: 21
-        Y: 6
-        Data: '#'
-      - X: 21
-        Y: 7
-        Data: '#'
-      - X: 21
-        Y: 8
-        Data: '#'
-      - X: 21
-        Y: 9
+      - GlobalId: {x: 22, y: 1}
+        Data: 
+      - GlobalId: {x: 22, y: 2}
+        Data: 
+      - GlobalId: {x: 22, y: 3}
+        Data: 
+      - GlobalId: {x: 22, y: 4}
+        Data: K0
+      - GlobalId: {x: 22, y: 5}
+        Data: 
+      - GlobalId: {x: 22, y: 6}
+        Data: 
+      - GlobalId: {x: 22, y: 7}
+        Data: 
+      - GlobalId: {x: 22, y: 8}
+        Data: 
+      - GlobalId: {x: 22, y: 9}
         Data: '#'
     - Cells:
-      - X: 22
-        Y: 0
+      - GlobalId: {x: 23, y: 0}
         Data: '#'
-      - X: 22
-        Y: 1
+      - GlobalId: {x: 23, y: 1}
         Data: 
-      - X: 22
-        Y: 2
+      - GlobalId: {x: 23, y: 2}
         Data: 
-      - X: 22
-        Y: 3
+      - GlobalId: {x: 23, y: 3}
         Data: 
-      - X: 22
-        Y: 4
+      - GlobalId: {x: 23, y: 4}
         Data: 
-      - X: 22
-        Y: 5
+      - GlobalId: {x: 23, y: 5}
         Data: 
-      - X: 22
-        Y: 6
+      - GlobalId: {x: 23, y: 6}
         Data: 
-      - X: 22
-        Y: 7
+      - GlobalId: {x: 23, y: 7}
         Data: 
-      - X: 22
-        Y: 8
+      - GlobalId: {x: 23, y: 8}
         Data: 
-      - X: 22
-        Y: 9
+      - GlobalId: {x: 23, y: 9}
         Data: '#'
     - Cells:
-      - X: 23
-        Y: 0
+      - GlobalId: {x: 24, y: 0}
         Data: '#'
-      - X: 23
-        Y: 1
+      - GlobalId: {x: 24, y: 1}
         Data: 
-      - X: 23
-        Y: 2
+      - GlobalId: {x: 24, y: 2}
         Data: 
-      - X: 23
-        Y: 3
+      - GlobalId: {x: 24, y: 3}
         Data: 
-      - X: 23
-        Y: 4
+      - GlobalId: {x: 24, y: 4}
         Data: 
-      - X: 23
-        Y: 5
+      - GlobalId: {x: 24, y: 5}
         Data: 
-      - X: 23
-        Y: 6
+      - GlobalId: {x: 24, y: 6}
         Data: 
-      - X: 23
-        Y: 7
+      - GlobalId: {x: 24, y: 7}
         Data: 
-      - X: 23
-        Y: 8
+      - GlobalId: {x: 24, y: 8}
         Data: 
-      - X: 23
-        Y: 9
+      - GlobalId: {x: 24, y: 9}
         Data: '#'
     - Cells:
-      - X: 24
-        Y: 0
+      - GlobalId: {x: 25, y: 0}
         Data: '#'
-      - X: 24
-        Y: 1
+      - GlobalId: {x: 25, y: 1}
         Data: 
-      - X: 24
-        Y: 2
+      - GlobalId: {x: 25, y: 2}
         Data: 
-      - X: 24
-        Y: 3
+      - GlobalId: {x: 25, y: 3}
         Data: 
-      - X: 24
-        Y: 4
+      - GlobalId: {x: 25, y: 4}
         Data: 
-      - X: 24
-        Y: 5
+      - GlobalId: {x: 25, y: 5}
         Data: 
-      - X: 24
-        Y: 6
+      - GlobalId: {x: 25, y: 6}
         Data: 
-      - X: 24
-        Y: 7
+      - GlobalId: {x: 25, y: 7}
         Data: 
-      - X: 24
-        Y: 8
+      - GlobalId: {x: 25, y: 8}
         Data: 
-      - X: 24
-        Y: 9
+      - GlobalId: {x: 25, y: 9}
         Data: '#'
     - Cells:
-      - X: 25
-        Y: 0
+      - GlobalId: {x: 26, y: 0}
         Data: '#'
-      - X: 25
-        Y: 1
+      - GlobalId: {x: 26, y: 1}
         Data: 
-      - X: 25
-        Y: 2
+      - GlobalId: {x: 26, y: 2}
         Data: 
-      - X: 25
-        Y: 3
+      - GlobalId: {x: 26, y: 3}
         Data: 
-      - X: 25
-        Y: 4
+      - GlobalId: {x: 26, y: 4}
         Data: 
-      - X: 25
-        Y: 5
+      - GlobalId: {x: 26, y: 5}
         Data: 
-      - X: 25
-        Y: 6
+      - GlobalId: {x: 26, y: 6}
         Data: 
-      - X: 25
-        Y: 7
+      - GlobalId: {x: 26, y: 7}
         Data: 
-      - X: 25
-        Y: 8
+      - GlobalId: {x: 26, y: 8}
         Data: 
-      - X: 25
-        Y: 9
+      - GlobalId: {x: 26, y: 9}
         Data: '#'
     - Cells:
-      - X: 26
-        Y: 0
+      - GlobalId: {x: 27, y: 0}
         Data: '#'
-      - X: 26
-        Y: 1
+      - GlobalId: {x: 27, y: 1}
         Data: 
-      - X: 26
-        Y: 2
+      - GlobalId: {x: 27, y: 2}
         Data: 
-      - X: 26
-        Y: 3
+      - GlobalId: {x: 27, y: 3}
         Data: 
-      - X: 26
-        Y: 4
+      - GlobalId: {x: 27, y: 4}
         Data: 
-      - X: 26
-        Y: 5
+      - GlobalId: {x: 27, y: 5}
         Data: 
-      - X: 26
-        Y: 6
+      - GlobalId: {x: 27, y: 6}
         Data: 
-      - X: 26
-        Y: 7
+      - GlobalId: {x: 27, y: 7}
         Data: 
-      - X: 26
-        Y: 8
+      - GlobalId: {x: 27, y: 8}
         Data: 
-      - X: 26
-        Y: 9
+      - GlobalId: {x: 27, y: 9}
         Data: '#'
     - Cells:
-      - X: 27
-        Y: 0
+      - GlobalId: {x: 28, y: 0}
         Data: '#'
-      - X: 27
-        Y: 1
+      - GlobalId: {x: 28, y: 1}
         Data: 
-      - X: 27
-        Y: 2
+      - GlobalId: {x: 28, y: 2}
         Data: 
-      - X: 27
-        Y: 3
+      - GlobalId: {x: 28, y: 3}
         Data: 
-      - X: 27
-        Y: 4
+      - GlobalId: {x: 28, y: 4}
         Data: 
-      - X: 27
-        Y: 5
+      - GlobalId: {x: 28, y: 5}
         Data: 
-      - X: 27
-        Y: 6
+      - GlobalId: {x: 28, y: 6}
         Data: 
-      - X: 27
-        Y: 7
+      - GlobalId: {x: 28, y: 7}
         Data: 
-      - X: 27
-        Y: 8
+      - GlobalId: {x: 28, y: 8}
         Data: 
-      - X: 27
-        Y: 9
+      - GlobalId: {x: 28, y: 9}
         Data: '#'
     - Cells:
-      - X: 28
-        Y: 0
+      - GlobalId: {x: 29, y: 0}
         Data: '#'
-      - X: 28
-        Y: 1
+      - GlobalId: {x: 29, y: 1}
         Data: 
-      - X: 28
-        Y: 2
+      - GlobalId: {x: 29, y: 2}
         Data: 
-      - X: 28
-        Y: 3
+      - GlobalId: {x: 29, y: 3}
         Data: 
-      - X: 28
-        Y: 4
+      - GlobalId: {x: 29, y: 4}
         Data: 
-      - X: 28
-        Y: 5
+      - GlobalId: {x: 29, y: 5}
         Data: 
-      - X: 28
-        Y: 6
+      - GlobalId: {x: 29, y: 6}
         Data: 
-      - X: 28
-        Y: 7
+      - GlobalId: {x: 29, y: 7}
         Data: 
-      - X: 28
-        Y: 8
+      - GlobalId: {x: 29, y: 8}
         Data: 
-      - X: 28
-        Y: 9
+      - GlobalId: {x: 29, y: 9}
         Data: '#'
     - Cells:
-      - X: 29
-        Y: 0
+      - GlobalId: {x: 30, y: 0}
         Data: '#'
-      - X: 29
-        Y: 1
+      - GlobalId: {x: 30, y: 1}
         Data: 
-      - X: 29
-        Y: 2
+      - GlobalId: {x: 30, y: 2}
         Data: 
-      - X: 29
-        Y: 3
+      - GlobalId: {x: 30, y: 3}
         Data: 
-      - X: 29
-        Y: 4
+      - GlobalId: {x: 30, y: 4}
         Data: 
-      - X: 29
-        Y: 5
+      - GlobalId: {x: 30, y: 5}
         Data: 
-      - X: 29
-        Y: 6
+      - GlobalId: {x: 30, y: 6}
         Data: 
-      - X: 29
-        Y: 7
+      - GlobalId: {x: 30, y: 7}
         Data: 
-      - X: 29
-        Y: 8
+      - GlobalId: {x: 30, y: 8}
         Data: 
-      - X: 29
-        Y: 9
+      - GlobalId: {x: 30, y: 9}
         Data: '#'
     - Cells:
-      - X: 30
-        Y: 0
+      - GlobalId: {x: 31, y: 0}
         Data: '#'
-      - X: 30
-        Y: 1
+      - GlobalId: {x: 31, y: 1}
         Data: 
-      - X: 30
-        Y: 2
+      - GlobalId: {x: 31, y: 2}
         Data: 
-      - X: 30
-        Y: 3
+      - GlobalId: {x: 31, y: 3}
         Data: 
-      - X: 30
-        Y: 4
+      - GlobalId: {x: 31, y: 4}
         Data: 
-      - X: 30
-        Y: 5
+      - GlobalId: {x: 31, y: 5}
         Data: 
-      - X: 30
-        Y: 6
+      - GlobalId: {x: 31, y: 6}
         Data: 
-      - X: 30
-        Y: 7
+      - GlobalId: {x: 31, y: 7}
         Data: 
-      - X: 30
-        Y: 8
+      - GlobalId: {x: 31, y: 8}
         Data: 
-      - X: 30
-        Y: 9
+      - GlobalId: {x: 31, y: 9}
         Data: '#'
     - Cells:
-      - X: 31
-        Y: 0
+      - GlobalId: {x: 32, y: 0}
         Data: '#'
-      - X: 31
-        Y: 1
+      - GlobalId: {x: 32, y: 1}
         Data: 
-      - X: 31
-        Y: 2
+      - GlobalId: {x: 32, y: 2}
         Data: 
-      - X: 31
-        Y: 3
+      - GlobalId: {x: 32, y: 3}
         Data: 
-      - X: 31
-        Y: 4
+      - GlobalId: {x: 32, y: 4}
         Data: 
-      - X: 31
-        Y: 5
+      - GlobalId: {x: 32, y: 5}
         Data: 
-      - X: 31
-        Y: 6
+      - GlobalId: {x: 32, y: 6}
         Data: 
-      - X: 31
-        Y: 7
+      - GlobalId: {x: 32, y: 7}
         Data: 
-      - X: 31
-        Y: 8
+      - GlobalId: {x: 32, y: 8}
         Data: 
-      - X: 31
-        Y: 9
+      - GlobalId: {x: 32, y: 9}
         Data: '#'
     - Cells:
-      - X: 32
-        Y: 0
+      - GlobalId: {x: 33, y: 0}
         Data: '#'
-      - X: 32
-        Y: 1
+      - GlobalId: {x: 33, y: 1}
         Data: 
-      - X: 32
-        Y: 2
+      - GlobalId: {x: 33, y: 2}
         Data: 
-      - X: 32
-        Y: 3
+      - GlobalId: {x: 33, y: 3}
         Data: 
-      - X: 32
-        Y: 4
+      - GlobalId: {x: 33, y: 4}
         Data: 
-      - X: 32
-        Y: 5
+      - GlobalId: {x: 33, y: 5}
         Data: 
-      - X: 32
-        Y: 6
+      - GlobalId: {x: 33, y: 6}
         Data: 
-      - X: 32
-        Y: 7
+      - GlobalId: {x: 33, y: 7}
         Data: 
-      - X: 32
-        Y: 8
+      - GlobalId: {x: 33, y: 8}
         Data: 
-      - X: 32
-        Y: 9
+      - GlobalId: {x: 33, y: 9}
         Data: '#'
     - Cells:
-      - X: 33
-        Y: 0
+      - GlobalId: {x: 34, y: 0}
         Data: '#'
-      - X: 33
-        Y: 1
+      - GlobalId: {x: 34, y: 1}
         Data: 
-      - X: 33
-        Y: 2
+      - GlobalId: {x: 34, y: 2}
         Data: 
-      - X: 33
-        Y: 3
+      - GlobalId: {x: 34, y: 3}
         Data: 
-      - X: 33
-        Y: 4
+      - GlobalId: {x: 34, y: 4}
         Data: 
-      - X: 33
-        Y: 5
+      - GlobalId: {x: 34, y: 5}
         Data: 
-      - X: 33
-        Y: 6
+      - GlobalId: {x: 34, y: 6}
         Data: 
-      - X: 33
-        Y: 7
+      - GlobalId: {x: 34, y: 7}
         Data: 
-      - X: 33
-        Y: 8
+      - GlobalId: {x: 34, y: 8}
         Data: 
-      - X: 33
-        Y: 9
+      - GlobalId: {x: 34, y: 9}
         Data: '#'
     - Cells:
-      - X: 34
-        Y: 0
+      - GlobalId: {x: 35, y: 0}
         Data: '#'
-      - X: 34
-        Y: 1
+      - GlobalId: {x: 35, y: 1}
         Data: 
-      - X: 34
-        Y: 2
+      - GlobalId: {x: 35, y: 2}
         Data: 
-      - X: 34
-        Y: 3
+      - GlobalId: {x: 35, y: 3}
         Data: 
-      - X: 34
-        Y: 4
+      - GlobalId: {x: 35, y: 4}
         Data: 
-      - X: 34
-        Y: 5
+      - GlobalId: {x: 35, y: 5}
         Data: 
-      - X: 34
-        Y: 6
+      - GlobalId: {x: 35, y: 6}
         Data: 
-      - X: 34
-        Y: 7
+      - GlobalId: {x: 35, y: 7}
         Data: 
-      - X: 34
-        Y: 8
+      - GlobalId: {x: 35, y: 8}
         Data: 
-      - X: 34
-        Y: 9
+      - GlobalId: {x: 35, y: 9}
         Data: '#'
     - Cells:
-      - X: 35
-        Y: 0
+      - GlobalId: {x: 36, y: 0}
         Data: '#'
-      - X: 35
-        Y: 1
+      - GlobalId: {x: 36, y: 1}
         Data: 
-      - X: 35
-        Y: 2
+      - GlobalId: {x: 36, y: 2}
         Data: 
-      - X: 35
-        Y: 3
+      - GlobalId: {x: 36, y: 3}
         Data: 
-      - X: 35
-        Y: 4
+      - GlobalId: {x: 36, y: 4}
         Data: 
-      - X: 35
-        Y: 5
+      - GlobalId: {x: 36, y: 5}
         Data: 
-      - X: 35
-        Y: 6
+      - GlobalId: {x: 36, y: 6}
         Data: 
-      - X: 35
-        Y: 7
+      - GlobalId: {x: 36, y: 7}
         Data: 
-      - X: 35
-        Y: 8
+      - GlobalId: {x: 36, y: 8}
         Data: 
-      - X: 35
-        Y: 9
+      - GlobalId: {x: 36, y: 9}
         Data: '#'
     - Cells:
-      - X: 36
-        Y: 0
+      - GlobalId: {x: 37, y: 0}
         Data: '#'
-      - X: 36
-        Y: 1
+      - GlobalId: {x: 37, y: 1}
         Data: 
-      - X: 36
-        Y: 2
+      - GlobalId: {x: 37, y: 2}
         Data: 
-      - X: 36
-        Y: 3
+      - GlobalId: {x: 37, y: 3}
         Data: 
-      - X: 36
-        Y: 4
+      - GlobalId: {x: 37, y: 4}
         Data: 
-      - X: 36
-        Y: 5
+      - GlobalId: {x: 37, y: 5}
         Data: 
-      - X: 36
-        Y: 6
+      - GlobalId: {x: 37, y: 6}
         Data: 
-      - X: 36
-        Y: 7
+      - GlobalId: {x: 37, y: 7}
         Data: 
-      - X: 36
-        Y: 8
+      - GlobalId: {x: 37, y: 8}
         Data: 
-      - X: 36
-        Y: 9
+      - GlobalId: {x: 37, y: 9}
         Data: '#'
     - Cells:
-      - X: 37
-        Y: 0
+      - GlobalId: {x: 38, y: 0}
         Data: '#'
-      - X: 37
-        Y: 1
+      - GlobalId: {x: 38, y: 1}
         Data: 
-      - X: 37
-        Y: 2
+      - GlobalId: {x: 38, y: 2}
         Data: 
-      - X: 37
-        Y: 3
+      - GlobalId: {x: 38, y: 3}
         Data: 
-      - X: 37
-        Y: 4
+      - GlobalId: {x: 38, y: 4}
         Data: 
-      - X: 37
-        Y: 5
+      - GlobalId: {x: 38, y: 5}
         Data: 
-      - X: 37
-        Y: 6
+      - GlobalId: {x: 38, y: 6}
         Data: 
-      - X: 37
-        Y: 7
+      - GlobalId: {x: 38, y: 7}
         Data: 
-      - X: 37
-        Y: 8
+      - GlobalId: {x: 38, y: 8}
         Data: 
-      - X: 37
-        Y: 9
+      - GlobalId: {x: 38, y: 9}
         Data: '#'
     - Cells:
-      - X: 38
-        Y: 0
+      - GlobalId: {x: 39, y: 0}
         Data: '#'
-      - X: 38
-        Y: 1
+      - GlobalId: {x: 39, y: 1}
         Data: 
-      - X: 38
-        Y: 2
+      - GlobalId: {x: 39, y: 2}
         Data: 
-      - X: 38
-        Y: 3
+      - GlobalId: {x: 39, y: 3}
         Data: 
-      - X: 38
-        Y: 4
+      - GlobalId: {x: 39, y: 4}
         Data: 
-      - X: 38
-        Y: 5
+      - GlobalId: {x: 39, y: 5}
         Data: 
-      - X: 38
-        Y: 6
+      - GlobalId: {x: 39, y: 6}
         Data: 
-      - X: 38
-        Y: 7
+      - GlobalId: {x: 39, y: 7}
         Data: 
-      - X: 38
-        Y: 8
+      - GlobalId: {x: 39, y: 8}
         Data: 
-      - X: 38
-        Y: 9
+      - GlobalId: {x: 39, y: 9}
         Data: '#'
     - Cells:
-      - X: 39
-        Y: 0
+      - GlobalId: {x: 40, y: 0}
         Data: '#'
-      - X: 39
-        Y: 1
+      - GlobalId: {x: 40, y: 1}
         Data: 
-      - X: 39
-        Y: 2
+      - GlobalId: {x: 40, y: 2}
         Data: 
-      - X: 39
-        Y: 3
+      - GlobalId: {x: 40, y: 3}
         Data: 
-      - X: 39
-        Y: 4
+      - GlobalId: {x: 40, y: 4}
         Data: 
-      - X: 39
-        Y: 5
+      - GlobalId: {x: 40, y: 5}
         Data: 
-      - X: 39
-        Y: 6
+      - GlobalId: {x: 40, y: 6}
         Data: 
-      - X: 39
-        Y: 7
+      - GlobalId: {x: 40, y: 7}
         Data: 
-      - X: 39
-        Y: 8
+      - GlobalId: {x: 40, y: 8}
         Data: 
-      - X: 39
-        Y: 9
+      - GlobalId: {x: 40, y: 9}
         Data: '#'
     - Cells:
-      - X: 40
-        Y: 0
+      - GlobalId: {x: 41, y: 0}
         Data: '#'
-      - X: 40
-        Y: 1
-        Data: 
-      - X: 40
-        Y: 2
-        Data: 
-      - X: 40
-        Y: 3
-        Data: 
-      - X: 40
-        Y: 4
-        Data: 
-      - X: 40
-        Y: 5
-        Data: 
-      - X: 40
-        Y: 6
-        Data: 
-      - X: 40
-        Y: 7
-        Data: 
-      - X: 40
-        Y: 8
-        Data: 
-      - X: 40
-        Y: 9
+      - GlobalId: {x: 41, y: 1}
         Data: '#'
-    - Cells:
-      - X: 41
-        Y: 0
+      - GlobalId: {x: 41, y: 2}
         Data: '#'
-      - X: 41
-        Y: 1
+      - GlobalId: {x: 41, y: 3}
         Data: '#'
-      - X: 41
-        Y: 2
+      - GlobalId: {x: 41, y: 4}
         Data: '#'
-      - X: 41
-        Y: 3
+      - GlobalId: {x: 41, y: 5}
         Data: '#'
-      - X: 41
-        Y: 4
+      - GlobalId: {x: 41, y: 6}
         Data: '#'
-      - X: 41
-        Y: 5
+      - GlobalId: {x: 41, y: 7}
         Data: '#'
-      - X: 41
-        Y: 6
+      - GlobalId: {x: 41, y: 8}
         Data: '#'
-      - X: 41
-        Y: 7
-        Data: '#'
-      - X: 41
-        Y: 8
-        Data: '#'
-      - X: 41
-        Y: 9
+      - GlobalId: {x: 41, y: 9}
         Data: '#'
