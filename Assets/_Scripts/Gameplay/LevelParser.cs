@@ -20,13 +20,14 @@
 
         /// <summary>
         /// Starting position of the Explorer
+        /// note: this only works if the player is in the 0, 0 stage
         /// </summary>
         public Vector3 Explorer_UnityPosition
         {
             get
             {
                 var cell = World.FindUnique(ExplorerId);
-                var normalizedPosition = Coordinates.GridToNormalized(cell.GlobalId, World.Size);
+                var normalizedPosition = Coordinates.GridToNormalized(cell.GlobalId, Config.StageSize);
                 var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
 
                 return unityPosition;
