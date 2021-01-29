@@ -24,6 +24,9 @@
 
             Debug.Log("Ouch! It hurt!");
             _HUD.Lifepoints -= _Damage;
+
+            var reaction = collision.gameObject.GetComponent<DamageReaction>();
+            if (reaction != null) reaction.OnDamage();
         }
 
         [SerializeField] private int _Damage = 1;

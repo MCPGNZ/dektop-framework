@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 416909059199926145}
   - component: {fileID: 8651160211061711694}
   - component: {fileID: -6142916193532437611}
+  - component: {fileID: 5281587062277007895}
   m_Layer: 0
   m_Name: Explorer [actor]
   m_TagString: Untagged
@@ -110,6 +111,21 @@ CircleCollider2D:
   m_Offset: {x: 0.025, y: -0.025}
   serializedVersion: 2
   m_Radius: 0.025
+--- !u!114 &5281587062277007895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7733286898918282246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8d4439cc10e46479db1356afd3f1a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _AlternativeIcon: {fileID: 11400000, guid: 8fbf6a652c99ea04aab3795207c130f3, type: 2}
+  _BaseIcon: {fileID: 11400000, guid: 8978b034438143147a34a15943e7afe6, type: 2}
+  _Time: 1
 --- !u!1001 &2518504078586560021
 PrefabInstance:
   m_ObjectHideFlags: 0

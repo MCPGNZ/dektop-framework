@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8107a1533aeb41c89eabec6e8f29f021, type: 3}
-  m_Name: mine_1 [icon]
+  m_Name: explorer_hit [icon]
   m_EditorClassIdentifier: 
-  _Asset: {fileID: 102900000, guid: 06db56b41e3e18f4481ccc3535e3fd40, type: 3}
-  _Path: mine_1.ico
+  _Asset: {fileID: 102900000, guid: 4502ed27eebb39847895f38271c9c619, type: 3}
+  _Path: explorer_hit.ico
