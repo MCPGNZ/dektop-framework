@@ -19,17 +19,34 @@ namespace Mcpgnz.DesktopFramework
 
         }
 
+        #region Public Functions
         public void GoLeft()
         {
             var area = CurrentArea.GetComponent<LevelArea>();
             LoadLevel(LeftOf(area.LevelName));
+            TeleportExplorerBy(0.9f, 0);
         }
         public void GoRight()
         {
             var area = CurrentArea.GetComponent<LevelArea>();
             LoadLevel(RightOf(area.LevelName));
+            TeleportExplorerBy(-0.9f, 0);
         }
+        public void GoUp()
+        {
+            var area = CurrentArea.GetComponent<LevelArea>();
+            LoadLevel(TopOf(area.LevelName));
+            TeleportExplorerBy(0, 0.9f);
+        }
+        public void GoDown()
+        {
+            var area = CurrentArea.GetComponent<LevelArea>();
+            LoadLevel(UnderOf(area.LevelName));
+            TeleportExplorerBy(0, -0.9f);
+        }
+        #endregion
 
+        #region Private Functions
         private void LoadLevel(string areaName)
         {
             if (CurrentArea != null)
@@ -61,7 +78,14 @@ namespace Mcpgnz.DesktopFramework
             char[] nextAreaName = { areaName[0], (char)(areaName[1] + 1) };
             return new string(nextAreaName);
         }
+        private void TeleportExplorerBy(float x, float y)
+        {
+            var pos = Coordinates.UnityToNormalized(Explorer.transform.position);
+            Explorer.transform.position = Coordinates.NormalizedToUnity(pos + new Vector2(x, y));
+        }
+        #endregion
 
+        [SerializeField] public GameObject Explorer;
         [SerializeField] public GameObject CurrentArea;
         [SerializeField] public GameObject LevelPrefab;
         [SerializeField] private Transform _Root;
