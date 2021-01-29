@@ -3,7 +3,7 @@
     using Mcpgnz.Utilities;
     using UnityEngine;
 
-    public sealed class OverworldInstaller : PreviewInstaller<OverworldArea>
+    public sealed class OverworldInstaller : PreviewInstaller<Overworld>
     {
         #region Public Methods
         public override void InstallBindings()
@@ -13,7 +13,7 @@
         #endregion Public Methods
 
         #region Inspector Variables
-        [SerializeField] private OverworldArea _Overworld;
+        [SerializeField] private Overworld _Overworld;
         #endregion Inspector Variables
     }
 }

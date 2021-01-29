@@ -1,6 +1,5 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
-    using System.Drawing;
     using UnityEngine;
     using Screen = System.Windows.Forms.Screen;
 
@@ -61,7 +60,7 @@
         #endregion Public Methods
 
         #region Private Variables
-        private static readonly Vector2 _Canvas = new Vector2(1.6f, 0.9f);
+        private static readonly Vector2 _Canvas = new Vector2(1920, 1080);
         #endregion Private Variables
     }
 }

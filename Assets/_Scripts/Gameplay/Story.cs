@@ -6,7 +6,7 @@
     public class Story : MonoBehaviour
     {
         #region Inspector Variables
-        [SerializeField] private Level _Begin;
+        [SerializeField] private Vector2Int _Begin;
         #endregion Inspector Variables
 
         #region Unity Methods
@@ -17,7 +17,7 @@
         #endregion Unity Methods
 
         #region Private Variables
-        [Inject] private OverworldArea _Overworld;
+        [Inject] private Overworld _Overworld;
         #endregion Private Variables
     }
 }

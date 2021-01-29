@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2480559049a5194b93b4aeca85e091c, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
-  _MovementSpeed: 0.1
+  _MovementSpeed: 100
   _Wall: {fileID: 5096917803645802027, guid: 02f3a1d153f67b74babd350f83da8a84, type: 3}
