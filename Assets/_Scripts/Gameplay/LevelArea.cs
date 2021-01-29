@@ -9,7 +9,7 @@
         #region Unity Methods
         private void Start()
         {
-            var asset = (TextAsset)Resources.Load("_A1");
+            var asset = (TextAsset)Resources.Load("_"+LevelName);
             loadFromString(asset.text);
         }
         private void OnDestroy()
@@ -51,6 +51,7 @@
 
         #region Inspector Variables
         [SerializeField] private Transform _Root;
+        [SerializeField] public string LevelName;
         [SerializeField] public GameObject wallPrefab;
         #endregion Inspector Variables
 
