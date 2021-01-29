@@ -53,7 +53,7 @@
         {
             switch (cell.Data)
             {
-                case "#":
+                case LevelParser.WallId:
                 {
                     var actor = Create<Actor>(Config.Wall, position, gridSize);
                     actor.Create($"Wall{Random.Range(-10.0f, 10.0f)}");
