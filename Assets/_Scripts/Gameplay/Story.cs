@@ -1,18 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Story : MonoBehaviour
+﻿namespace Mcpgnz.DesktopFramework
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    using UnityEngine;
+    using Zenject;
 
-    // Update is called once per frame
-    void Update()
+    public class Story : MonoBehaviour
     {
-        
+        #region Inspector Variables
+        [SerializeField] private Vector2Int _Begin;
+        #endregion Inspector Variables
+
+        #region Unity Methods
+        private void Start()
+        {
+            _Overworld.Load(_Begin);
+        }
+        #endregion Unity Methods
+
+        #region Private Variables
+        [Inject] private Overworld _Overworld;
+        #endregion Private Variables
     }
 }
