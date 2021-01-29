@@ -3,17 +3,17 @@
     using Mcpgnz.Utilities;
     using UnityEngine;
 
-    public sealed class GameInstaller : PreviewInstaller<Lifetime>
+    public sealed class OverworldInstaller : PreviewInstaller<OverworldArea>
     {
         #region Public Methods
         public override void InstallBindings()
         {
-            Container.BindInstance(lifetime).AsSingle().NonLazy();
+            Container.BindInstance(_Overworld).AsSingle().NonLazy();
         }
         #endregion Public Methods
 
         #region Inspector Variables
-        [SerializeField] private Lifetime lifetime;
+        [SerializeField] private OverworldArea _Overworld;
         #endregion Inspector Variables
     }
 }

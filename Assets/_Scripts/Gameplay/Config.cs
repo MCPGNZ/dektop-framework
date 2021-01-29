@@ -9,11 +9,16 @@
     {
         #region Public Variables
         public static float MovementSpeed => Instance._MovementSpeed;
+
+        public static GameObject Wall => Instance._Wall;
         #endregion Public Variables
 
         #region Private Variables
         [SerializeField, BoxGroup("Movement")]
         private float _MovementSpeed = 1.0f;
+
+        [SerializeField, BoxGroup("Prefabs")]
+        private GameObject _Wall;
         #endregion Private Variables
     }
 }

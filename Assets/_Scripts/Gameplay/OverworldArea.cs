@@ -1,93 +1,48 @@
-﻿
-namespace Mcpgnz.DesktopFramework
+﻿namespace Mcpgnz.DesktopFramework
 {
-    using System.Collections;
+    using System;
+    using Sirenix.OdinInspector;
     using UnityEngine;
+    using Zenject;
 
     public class OverworldArea : MonoBehaviour
     {
+        #region Public Methods
+        public void Load(Level level)
+        {
+            if (_Current != null) { Destroy(_Current); }
 
-        // Use this for initialization
-        void Start()
-        {
-            LoadLevel("A1");
+            _Current = Instantiate(level, _Root);
+            _Container.Inject(_Current);
         }
+        #endregion Public Methods
 
-        // Update is called once per frame
-        void Update()
-        {
+        #region Inspector Variables
+        [SerializeField] private RectTransform _Root;
+        [SerializeField] private GameObject Explorer;
 
-        }
+        [SerializeField, ReadOnly] public Level _Current;
+        #endregion Inspector Variables
 
-        #region Public Functions
-        public void GoLeft()
+        #region Private Types
+        [Serializable]
+        private sealed class Entry
         {
-            var area = CurrentArea.GetComponent<LevelArea>();
-            LoadLevel(LeftOf(area.LevelName));
-            TeleportExplorerBy(0.9f, 0);
+            public string Name;
+            public Level Level;
         }
-        public void GoRight()
-        {
-            var area = CurrentArea.GetComponent<LevelArea>();
-            LoadLevel(RightOf(area.LevelName));
-            TeleportExplorerBy(-0.9f, 0);
-        }
-        public void GoUp()
-        {
-            var area = CurrentArea.GetComponent<LevelArea>();
-            LoadLevel(TopOf(area.LevelName));
-            TeleportExplorerBy(0, 0.9f);
-        }
-        public void GoDown()
-        {
-            var area = CurrentArea.GetComponent<LevelArea>();
-            LoadLevel(UnderOf(area.LevelName));
-            TeleportExplorerBy(0, -0.9f);
-        }
-        #endregion
+        #endregion Private Types
 
-        #region Private Functions
-        private void LoadLevel(string areaName)
-        {
-            if (CurrentArea != null)
-            {
-                Destroy(CurrentArea);
-            }
-            var item = Instantiate(LevelPrefab, _Root);
-            CurrentArea = item;
-            var area = item.GetComponent<LevelArea>();
-            area.LevelName = areaName;
-        }
-        private string LeftOf(string areaName)
-        {
-            char[] nextAreaName = { (char)(areaName[0] - 1), areaName[1] };
-            return new string(nextAreaName);
-        }
-        private string RightOf(string areaName)
-        {
-            char[] nextAreaName = { (char)(areaName[0] + 1), areaName[1] };
-            return new string(nextAreaName);
-        }
-        private string TopOf(string areaName)
-        {
-            char[] nextAreaName = { areaName[0], (char)(areaName[1] - 1) };
-            return new string(nextAreaName);
-        }
-        private string UnderOf(string areaName)
-        {
-            char[] nextAreaName = { areaName[0], (char)(areaName[1] + 1) };
-            return new string(nextAreaName);
-        }
+        #region Private Methods
         private void TeleportExplorerBy(float x, float y)
         {
             var pos = Coordinates.UnityToNormalized(Explorer.transform.position);
             Explorer.transform.position = Coordinates.NormalizedToUnity(pos + new Vector2(x, y));
         }
-        #endregion
+        #endregion Private Methods
 
-        [SerializeField] public GameObject Explorer;
-        [SerializeField] public GameObject CurrentArea;
-        [SerializeField] public GameObject LevelPrefab;
-        [SerializeField] private Transform _Root;
+        #region Private Variables
+        [Inject] private DiContainer _Container;
+        #endregion Private Variables
     }
 }

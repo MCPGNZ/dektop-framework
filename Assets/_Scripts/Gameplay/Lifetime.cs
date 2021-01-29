@@ -4,7 +4,7 @@
     using UnityEngine;
     using UnityRawInput;
 
-    public sealed class Game : MonoBehaviour
+    public sealed class Lifetime : MonoBehaviour
     {
         #region Unity Methods
         public void Awake()
