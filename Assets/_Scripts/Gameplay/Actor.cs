@@ -77,7 +77,7 @@
             if (_UnityPosition != transform.localPosition)
             {
                 _UnityPosition = transform.localPosition;
-                _Directory.Position = Coordinates.UnityToDesktop(_UnityPosition);
+                _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
             }
         }
         #endregion Private Methods

@@ -39,7 +39,7 @@
                 var worldPosition = matrix * _Vertices[i];
                 var cameraPosition = _Camera.WorldToScreenPoint(worldPosition);
 
-                _Representation[i].Position = new Vector2Int((int)cameraPosition.x,
+                _Representation[i].DesktopPosition = new Vector2Int((int)cameraPosition.x,
                     (int)cameraPosition.y);
             }
         }
