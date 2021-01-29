@@ -33,6 +33,12 @@
             _Directory.Delete();
             _Directory = null;
         }
+        public void ChangeIcon(IconEx newIcon)
+        {
+            if (_Directory == null) { throw new InvalidOperationException(); }
+
+            _Directory.Icon = newIcon;
+        }
         #endregion Public Methods
 
         #region Unity Methods

@@ -1,5 +1,6 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
+    using Mcpgnz.DesktopFramework.Framework;
     using System.Collections.Generic;
     using UnityEngine;
     using UnityRawInput;
@@ -56,9 +57,11 @@
         #region Private Methods
         private void SetupDesktop()
         {
+            Wallpaper.Backup();
             _AutoArrange = DesktopEx.Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE);
             _GridAlign = DesktopEx.Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID);
 
+            Wallpaper.Set("BCG1.jpg");
             DesktopEx.Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE, false);
             DesktopEx.Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID, false);
         }
@@ -93,6 +96,7 @@
         {
             DesktopEx.Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE, _AutoArrange);
             DesktopEx.Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID, _GridAlign);
+            Wallpaper.Restore();
         }
         private void RestoreItems()
         {
