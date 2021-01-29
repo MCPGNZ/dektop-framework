@@ -46,3 +46,4 @@ MonoBehaviour:
   _Root: {fileID: 0}
   LevelName: 
   wallPrefab: {fileID: 5096917803645802027, guid: 02f3a1d153f67b74babd350f83da8a84, type: 3}
+  spikesPrefab: {fileID: 4835563417813236666, guid: 6eca33b3dec1af44fa249caebf5aa32f, type: 3}

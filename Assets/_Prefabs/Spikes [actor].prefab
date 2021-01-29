@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Name: spikes1
-  _Icon: {fileID: 11400000, guid: 45cc4c8cee9b2ce45bdb6a5a6c9c127f, type: 2}
+  _Icon: {fileID: 11400000, guid: 8155f3c1964f8ec46ad4e0740f0fcf3e, type: 2}
   _Tooltip: Watch out!
   _AutoCreate: 0
 --- !u!58 &4835563417813236668

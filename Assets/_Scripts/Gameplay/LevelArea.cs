@@ -46,6 +46,11 @@
                 var actor = Create<Actor>(wallPrefab, cell, gridSize);
                 actor.Create(String.Format("Wall{0}", UnityEngine.Random.Range(-10.0f, 10.0f)));
             }
+            if (type == 'x')
+            {
+                var actor = Create<Actor>(spikesPrefab, cell, gridSize);
+                actor.Create(String.Format("Spikes{0}", UnityEngine.Random.Range(-10.0f, 10.0f)));
+            }
         }
         #endregion Private Methods
 
@@ -53,6 +58,7 @@
         [SerializeField] private Transform _Root;
         [SerializeField] public string LevelName;
         [SerializeField] public GameObject wallPrefab;
+        [SerializeField] public GameObject spikesPrefab;
         #endregion Inspector Variables
 
         #region Private Variables
