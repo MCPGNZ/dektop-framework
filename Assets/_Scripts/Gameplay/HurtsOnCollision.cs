@@ -21,12 +21,12 @@
         {
             // make sure it only hurts the player (who has Movement behavior)
             if (collision.gameObject.GetComponent<Movement>() == null) { return; }
-            for (int i = 0; i < damage; i++)
-            {
-                Debug.Log("Ouch! It hurt!");
-            }
+
+            Debug.Log("Ouch! It hurt!");
+            _HUD.Lifepoints -= _Damage;
         }
 
-        [SerializeField] private int damage = 1;
+        [SerializeField] private int _Damage = 1;
+        [SerializeField] private HUDController _HUD;
     }
 }
