@@ -22,6 +22,7 @@
         Empty = 200,
         Wall = 201,
         Heart = 202,
+        Note = 203,
 
         /* enemies */
         SpikeEnemy = 300,
@@ -64,6 +65,7 @@
 
             if (tag.StartsWith(Identifier.PortalEntry.ToTag())) { return Identifier.PortalEntry; }
             if (tag.StartsWith(Identifier.PortalExit.ToTag())) { return Identifier.PortalExit; }
+            if (tag.StartsWith(Identifier.Note.ToTag())) { return Identifier.Note; }
 
             Debug.LogWarning($"unrecognized tag: {tag}");
 

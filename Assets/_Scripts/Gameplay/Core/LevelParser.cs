@@ -1,6 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     using System.IO;
     using GoogleSheetsToUnity;
@@ -12,9 +13,34 @@
     {
         #region Public Methods
         public Map World => _Map;
+
+        public Note GetNoteById(string id)
+        {
+            Debug.Log($"got {_Notes.Count} notes");
+            Debug.Log($"notes = {string.Join("\n",_Notes.Select((n) => n.ToString()))}");
+            var matchingNotes = _Notes.Where((n) => n.Id == id).ToList();
+            if (matchingNotes.Count == 0)
+                throw new ArgumentException($"no note for id = {id}");
+            if (matchingNotes.Count > 1)
+                throw new ArgumentException($"multiple notes for id = {id}. This isn't supposed to happen, OnClippyNotesSheetLoaded is fucked up.");
+            return matchingNotes[0];
+        }
         #endregion Public Methods
 
         #region Public Types
+        [Serializable]
+        public sealed class Note
+        {
+            public string Id;
+            public string Icon;
+            public string Message;
+
+            public override string ToString()
+            {
+                return $"id = {Id}; icon = {Icon}; mesage = {Message}";
+            }
+        }
+
         [Serializable]
         public sealed class Map
         {
@@ -201,9 +227,11 @@
 
         #region Inspector Variables
         [SerializeField] private string _SpreadSheetId = "17PZjawA0xeLcKWSJjHh22cn-BePWG1xDu0cgBKQ-zv4";
-        [SerializeField] private string _WorksheetId = "Level";
+        [SerializeField] private string _MapWorksheetId = "Level";
+        [SerializeField] private string _NotesWorksheetId = "Notes";
 
         [SerializeField, HideInInspector] private Map _Map;
+        [SerializeField] private List<Note> _Notes;
         #endregion Inspector Variables
 
         #region Private Methods
@@ -211,10 +239,11 @@
         private void Parse()
         {
             Debug.Log("Parse started");
-            SpreadsheetManager.ReadPublicSpreadsheet(new GSTU_Search(_SpreadSheetId, _WorksheetId, "A1", "ZZ128"), OnSheetLoaded);
+            SpreadsheetManager.ReadPublicSpreadsheet(new GSTU_Search(_SpreadSheetId, _MapWorksheetId, "A1", "ZZ128"), OnMapSheetLoaded);
+            SpreadsheetManager.ReadPublicSpreadsheet(new GSTU_Search(_SpreadSheetId, _NotesWorksheetId, "A1", "Z128"), OnClippyNotesSheetLoaded);
         }
 
-        private void OnSheetLoaded(GstuSpreadSheet spreadSheet)
+        private void OnMapSheetLoaded(GstuSpreadSheet spreadSheet)
         {
             /* calculate row and column count */
             int rowCount = 0;
@@ -250,7 +279,42 @@
                 _Map[column][row] = new Cell(new Vector2Int(column, row), cell.Value.value);
             }
 
-            Debug.Log("Parse success");
+            Debug.Log("Map parse success");
+        }
+
+        private void OnClippyNotesSheetLoaded(GstuSpreadSheet spreadSheet)
+        {
+            _Notes = new List<Note>();
+
+            try
+            {
+                for (int rowIdx = 1; ; ++rowIdx)
+                {
+                    string id = spreadSheet.Cells["A" + rowIdx.ToString()].value;
+                    string icon = spreadSheet.Cells["B" + rowIdx.ToString()].value;
+                    string message = spreadSheet.Cells["C" + rowIdx.ToString()].value;
+
+                    if (string.IsNullOrWhiteSpace(id)) break;
+                    if (!id.StartsWith(Identifier.Note.ToTag()))
+                    {
+                        Debug.LogError($"Unexpected note id: {id}, ignoring");
+                        continue;
+                    }
+
+                    if (_Notes.Where((n) => n.Id == id).Any())
+                    {
+                        Debug.LogError($"Duplicate note id: {id} at row {rowIdx}, overwriting");
+                    }
+
+                    _Notes.Add(new Note { Id = id, Icon = icon, Message = message });
+                    Debug.Log($"Loaded note: {id} = {message} (icon = {icon})");
+                }
+            }
+            catch (KeyNotFoundException)
+            {
+            }
+
+            Debug.Log($"Notes parse success, {_Notes.Count} loaded");
         }
         #endregion Private Methods
     }
