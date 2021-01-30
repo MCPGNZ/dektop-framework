@@ -19,6 +19,7 @@
         #region Public Methods
         public void Create(string name)
         {
+            if (Config.DisableIcons) { return; }
             if (_Directory != null) { throw new InvalidOperationException(); }
 
             _Name = name;

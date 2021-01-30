@@ -21,7 +21,7 @@
         private void OnCollisionEnter2D(Collision2D collision)
         {
             // make sure it only hurts the player (who has Movement behavior)
-            // if (collision.gameObject.GetComponent<Movement>() == null) { return; }
+            if (collision.gameObject.GetComponent<Movement>() == null) { return; }
 
             Debug.Log("Ouch! It hurt!");
             _Controller.Lifepoints -= _Damage;

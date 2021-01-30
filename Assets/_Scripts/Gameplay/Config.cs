@@ -12,6 +12,7 @@
         public static Vector2Int StageSize => Instance._StageSize;
 
         public static float MovementSpeed => Instance._MovementSpeed;
+        public static bool DisableIcons => Instance._DisableIcons;
         public static GameObject Wall => Instance._Wall;
         public static GameObject SpikeEnemy => Instance._SpikeEnemy;
         public static GameObject MineEnemy => Instance._MineEnemy;
@@ -30,6 +31,9 @@
 
         [SerializeField, BoxGroup("Movement")]
         private float _MovementSpeed = 1.0f;
+
+        [SerializeField, BoxGroup("DebugMode")]
+        private bool _DisableIcons = false;
 
         [SerializeField, BoxGroup("Prefabs")]
         private GameObject _Wall;
