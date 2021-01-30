@@ -46,8 +46,8 @@
         private void RemoveHeart()
         {
             if (_Hearts.Count < 1) return;
-            var item = _Hearts[0];
-            _Hearts.RemoveAt(0);
+            var item = _Hearts[_Hearts.Count - 1];
+            _Hearts.RemoveAt(_Hearts.Count - 1);
 
             var reaction = item.GetComponent<DamageReaction>();
             reaction.OnDamage();
