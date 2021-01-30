@@ -46,19 +46,16 @@
                     case Identifier.MineEnemy:
                         {
                             name = $"Minesweeper{name}.exe";
-                            var automobile = GetComponent<Automobile>();
-                            if (cell.Parameters.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 100.0f); }
-                            if (cell.Parameters.Contains("-")) { automobile.MoveVector = new Vector2(100.0f, 0.0f); }
-                            if (cell.Parameters.Contains("*")) { automobile.MoveVector = new Vector2(100.0f, 100.0f); }
                             break;
                         }
                     case Identifier.BatEnemy:
                         {
                             name = $"Killer{name}.bat";
-                            var automobile = GetComponent<Automobile>();
-                            if (cell.Parameters.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 150.0f); }
-                            if (cell.Parameters.Contains("-")) { automobile.MoveVector = new Vector2(150.0f, 0.0f); }
-                            if (cell.Parameters.Contains("*")) { automobile.MoveVector = new Vector2(150.0f, 150.0f); }
+                            break;
+                        }
+                    default:
+                        {
+                            name = $"{cell.Type.ToName()}{name}";
                             break;
                         }
                 }

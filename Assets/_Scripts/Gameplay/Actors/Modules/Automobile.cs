@@ -17,6 +17,13 @@
         void Start()
         {
             rigidbody2d = GetComponent<Rigidbody2D>();
+            var actor = GetComponent<Actor>();
+            if ((bool)(actor?.Cell?.HasParameters)) { 
+                var parameters = actor.Cell.Parameters;
+                if (parameters.Contains("|")) { MoveVector = new Vector2(0.0f, 100.0f); }
+                if (parameters.Contains("-")) { MoveVector = new Vector2(100.0f, 0.0f); }
+                if (parameters.Contains("*")) { MoveVector = new Vector2(100.0f, 100.0f); }
+            }
         }
 
         // Update is called once per frame

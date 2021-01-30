@@ -8,6 +8,7 @@
     {
         #region Inspector Variables
         [SerializeField] private GameObject _HeartPrefab;
+        [SerializeField] private float _PlacementSpread = 45.0f;
         #endregion Inspector Variables
 
         #region Unity Methods
@@ -37,7 +38,9 @@
         {
             var item = Instantiate(_HeartPrefab, _Overworld.transform);
             _Hearts.Add(item);
-            var displacement = new Vector3(Random.Range(-15.05f, 15.05f), Random.Range(-30.05f, 30.05f), 0);
+            var displacement = new Vector3(
+                Random.Range(-_PlacementSpread, _PlacementSpread),
+                Random.Range(-_PlacementSpread, _PlacementSpread), 0);
             item.transform.position = gameObject.transform.position + displacement;
 
             var actorName = $"Heart{_AutoIncrement++}";
