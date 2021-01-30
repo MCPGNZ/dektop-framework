@@ -1,7 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
-    using Mcpgnz.DesktopFramework.Framework;
     using System.Collections.Generic;
+    using Mcpgnz.DesktopFramework.Framework;
     using UnityEngine;
     using UnityRawInput;
 
@@ -10,6 +10,8 @@
         #region Unity Methods
         public void Awake()
         {
+            Application.runInBackground = true;
+
             FrameworkEx.Initialize();
             RawKeyInput.Start(true);
 

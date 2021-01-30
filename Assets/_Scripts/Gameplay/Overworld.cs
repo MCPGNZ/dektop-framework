@@ -10,6 +10,10 @@
         #region Public Methods
         public void Load(Vector2Int levelId)
         {
+            /* cleanup */
+            Release();
+
+            /* load */
             var stage = _Parser.World.Stage(levelId);
             for (int x = 0; x < stage.Size.x; ++x)
             {
@@ -24,13 +28,12 @@
 
         #region Inspector Variables
         [SerializeField] private Transform _Root;
-        [SerializeField] private GameObject Explorer;
-
         [SerializeField] private LevelParser _Parser;
         #endregion Inspector Variables
 
         #region Private Variables
         [Inject] private DiContainer _Container;
+        [Inject] private Explorer _Explorer;
 
         private Vector2Int _CurrentStageId;
         private readonly List<GameObject> _Objects = new List<GameObject>();
@@ -53,7 +56,7 @@
             {
                 Load(cell.StageId);
             }
-            Explorer.transform.position = Coordinates.NormalizedToUnity(Coordinates.GridToNormalized(cell.LocalPositionGrid, Config.StageSize));
+            _Explorer.transform.position = Coordinates.NormalizedToUnity(Coordinates.GridToNormalized(cell.LocalPositionGrid, Config.StageSize));
         }
         public void TeleportExplorerTo(string targetKey)
         {
