@@ -63,29 +63,37 @@
 
         private void AddActor(Cell cell, Vector2Int position, Vector2Int gridSize)
         {
-            Debug.Log($"AddActor {cell.Type}");
+            /* empty is empty... */
+            if (cell.Type == Identifier.Empty) { return; }
 
+            /* explorer is always on scene */
+            if (cell.Type == Identifier.Explorer) { return; }
+
+            /* handle rest */
             var name = cell.Type.ToString();
             var prefab = Config.FindPrefab(cell.Type);
+            var item = Create(prefab, position, gridSize);
 
-            var actor = Create<Actor>(prefab, position, gridSize);
             switch (cell.Type)
             {
                 case Identifier.PortalEntry:
                 {
-                    actor.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}");
-                    actor.GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
+
+                    var portal = item.GetComponent<Actor>();
+                    portal.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}");
+                    portal.GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
                     break;
                 }
                 default:
                 {
-                    actor.Create($"{name}{_AutoIncrement++}");
+                    var actor = item.GetComponent<Actor>();
+                    if (actor != null) { actor.Create($"{name}{_AutoIncrement++}"); }
                     break;
                 }
             }
         }
 
-        private T Create<T>(GameObject prefab, Vector2Int cell, Vector2Int gridSize) where T : Component
+        private GameObject Create(GameObject prefab, Vector2Int cell, Vector2Int gridSize)
         {
             var normalizedPosition = Coordinates.GridToNormalized(cell, gridSize);
             var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
@@ -94,7 +102,7 @@
             item.transform.localPosition = unityPosition;
 
             _Objects.Add(item);
-            return item.GetComponent<T>();
+            return item;
         }
         #endregion Private Methods
     }

@@ -24,6 +24,10 @@ MonoBehaviour:
     Prefab: {fileID: 4835563417813236666, guid: 6eca33b3dec1af44fa249caebf5aa32f, type: 3}
   - Identifier: 301
     Prefab: {fileID: 4898220957834961, guid: a0941299f380fea4caada4cd8a647ddc, type: 3}
+  - Identifier: 400
+    Prefab: {fileID: 5096917803645802027, guid: 110830bccfa296c43a7a8a9946aefc0b, type: 3}
+  - Identifier: 401
+    Prefab: {fileID: 5096917803645802027, guid: 714c3bbd5c25d7d4db7d2651a4d78f73, type: 3}
   _Avatars:
   - Identifier: 100
     Avatar: {fileID: 11400000, guid: 8978b034438143147a34a15943e7afe6, type: 2}

@@ -13,14 +13,20 @@
         [Serializable]
         public sealed class PrefabEntry
         {
+            [HideLabel, HorizontalGroup]
             public Identifier Identifier;
+
+            [HideLabel, HorizontalGroup, AssetsOnly]
             public GameObject Prefab;
         }
 
         [Serializable]
         public sealed class AvatarEntry
         {
+            [HideLabel, HorizontalGroup]
             public Identifier Identifier;
+
+            [HideLabel, HorizontalGroup, AssetsOnly]
             public IconEx Avatar;
         }
         #endregion Public Types
@@ -28,11 +34,17 @@
         #region Public Variables
         public static GameObject FindPrefab(Identifier id)
         {
-            return Instance._Prefabs.Find(x => x.Identifier == id).Prefab;
+            var found = Instance._Prefabs.Find(x => x.Identifier == id);
+            if (found == null) { throw new InvalidOperationException($"prefab not found for: {Enum.GetName(typeof(Identifier), id)}"); }
+
+            return found.Prefab;
         }
         public static IconEx FindAvatar(Identifier id)
         {
-            return Instance._Avatars.Find(x => x.Identifier == id).Avatar;
+            var found = Instance._Avatars.Find(x => x.Identifier == id);
+            if (found == null) { throw new InvalidOperationException($"avatar not found for: {Enum.GetName(typeof(Identifier), id)}"); }
+
+            return found.Avatar;
         }
 
         public static Vector2Int UnitySize => Instance._UnitySize;

@@ -9,10 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1445859659807526580}
-  - component: {fileID: 4872732983858902978}
-  - component: {fileID: 4421197900850016875}
   m_Layer: 0
-  m_Name: PortalEntry [actor]
+  m_Name: PortalExit [empty]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,35 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4872732983858902978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5096917803645802027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8c0035a80fae1e44938e2c810b1e443, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Name: PortalEntry
-  _Icon: {fileID: 11400000, guid: b39ba08a3132be44dab536ab42d9521d, type: 2}
-  _Tooltip: COMEHERE
-  _AutoCreate: 0
---- !u!114 &4421197900850016875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5096917803645802027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 458b7b03a0cb64046af9ef742f9b7fcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PortalExitKey: 
 --- !u!1 &8401291838102324015
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,9 +43,9 @@ GameObject:
   - component: {fileID: 6861416090555774567}
   - component: {fileID: 4587854961222370541}
   m_Layer: 0
-  m_Name: Portal
+  m_Name: Model
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -135,7 +104,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 478ba355cea03c345bc3461e74c63e2d, type: 3}
-  m_Color: {r: 0, g: 0.5216656, b: 1, a: 1}
+  m_Color: {r: 0.06132078, g: 0.9337234, b: 1, a: 0.05490196}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
