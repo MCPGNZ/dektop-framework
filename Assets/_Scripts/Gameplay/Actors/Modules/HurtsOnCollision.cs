@@ -20,8 +20,23 @@
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            // This is for mines, who have solid bodies.
+            OnAnyKindOfContact(collision.collider);
+        }
+
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            // This is for spikes, who you can pass through.
+            OnAnyKindOfContact(collider);
+        }
+
+        private void OnAnyKindOfContact(Collider2D collider)
+        {
+            var bodyObject = collider.attachedRigidbody.gameObject;
+            Debug.Log($"I collided with {bodyObject.name}.");
+
             // make sure it only hurts the player (who has Movement behavior)
-            if (collision.gameObject.GetComponent<Movement>() == null) { return; }
+            if (bodyObject.GetComponent<Movement>() == null) { return; }
 
             _Controller.Lifepoints -= _Damage;
 
@@ -30,8 +45,8 @@
                 Debug.Log("Ouch! It hurt!");
                 // TODO replace with Ailish sounds
                 Sounds.WindowsHardwareRemove.Play();
-                var reaction = collision.gameObject.GetComponent<DamageReaction>();
-                if (reaction != null) reaction.OnDamage();
+		var reaction = bodyObject.GetComponent<DamageReaction>();
+		if (reaction != null) reaction.OnDamage();
             }
             else if (_Damage < 0)
             {
