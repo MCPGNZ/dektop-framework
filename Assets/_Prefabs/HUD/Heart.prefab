@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5633159556627855274}
   - component: {fileID: 5633159556627855268}
   - component: {fileID: 5633159556627855275}
+  - component: {fileID: -3056390512838900834}
   m_Layer: 5
   m_Name: Heart
   m_TagString: Untagged
@@ -27,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 5633159556627855273}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 32, y: 32, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,7 +101,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c0035a80fae1e44938e2c810b1e443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell:
+    GlobalId: {x: 0, y: 0}
+    Data: 
+    Type: 0
   _Name: Life
-  _Icon: {fileID: 11400000, guid: 08f063ab091a6c847b0a1dcdeabe407a, type: 2}
+  _Icon: {fileID: 11400000, guid: ffe35758a20cd734ab89df451a0ec24f, type: 2}
   _Tooltip: It's very precious.
   _AutoCreate: 0
+--- !u!114 &-3056390512838900834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5633159556627855273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8d4439cc10e46479db1356afd3f1a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _AlternativeIcon: {fileID: 11400000, guid: c572f3d6069c95d4e88c690815447bad, type: 2}
+  _BaseIcon: {fileID: 11400000, guid: ffe35758a20cd734ab89df451a0ec24f, type: 2}
+  _Time: 1
+  _ShakeStrength: 10
