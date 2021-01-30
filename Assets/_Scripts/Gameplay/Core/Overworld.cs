@@ -212,24 +212,36 @@
                 }
                 case Identifier.MineEnemy:
                 {
-                    var actor = item.GetComponent<Actor>();
-                    actor.Create($"Minesweeper{_AutoIncrement++}.exe");
-                    var automobile = item.GetComponent<Automobile>();
-                    if (cell.Data.Contains("|")) { automobile.MoveVector = new Vector2(  0.0f, 100.0f); }
-                    if (cell.Data.Contains("-")) { automobile.MoveVector = new Vector2(100.0f,   0.0f); }
-                    if (cell.Data.Contains("*")) { automobile.MoveVector = new Vector2(100.0f, 100.0f); }
+                    Pool.Instantiate(cell.Type, transform, _Container,
+                        /* initialize */
+                        item =>
+                        {
+                            InitializePosition(item, position, gridSize);
 
+                            var actor = item.GetComponent<Actor>();
+                            actor.Create($"Minesweeper{_AutoIncrement++}.exe");
+                            var automobile = item.GetComponent<Automobile>();
+                            if (cell.Data.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 100.0f); }
+                            if (cell.Data.Contains("-")) { automobile.MoveVector = new Vector2(100.0f, 0.0f); }
+                            if (cell.Data.Contains("*")) { automobile.MoveVector = new Vector2(100.0f, 100.0f); }
+                        });
                     break;
-                    }
+                }
                 case Identifier.BatEnemy:
                 {
-                    var actor = item.GetComponent<Actor>();
-                    actor.Create($"Killer{_AutoIncrement++}.bat");
-                    var automobile = item.GetComponent<Automobile>();
-                    if (cell.Data.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 150.0f); }
-                    if (cell.Data.Contains("-")) { automobile.MoveVector = new Vector2(150.0f, 0.0f); }
-                    if (cell.Data.Contains("*")) { automobile.MoveVector = new Vector2(150.0f, 150.0f); }
+                    Pool.Instantiate(cell.Type, transform, _Container,
+                        /* initialize */
+                        item =>
+                        {
+                            InitializePosition(item, position, gridSize);
 
+                            var actor = item.GetComponent<Actor>();
+                            actor.Create($"Killer{_AutoIncrement++}.bat");
+                            var automobile = item.GetComponent<Automobile>();
+                            if (cell.Data.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 150.0f); }
+                            if (cell.Data.Contains("-")) { automobile.MoveVector = new Vector2(150.0f, 0.0f); }
+                            if (cell.Data.Contains("*")) { automobile.MoveVector = new Vector2(150.0f, 150.0f); }
+                        });
                     break;
                 }
                 default:
