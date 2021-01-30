@@ -5,10 +5,6 @@
 
     public class Story : MonoBehaviour
     {
-        #region Inspector Variables
-        [SerializeField] private Vector2Int _Begin;
-        #endregion Inspector Variables
-
         #region Unity Methods
         private void Start()
         {
@@ -49,10 +45,10 @@
         private void BeginAction()
         {
             /* setup explorer starting position */
-            _Explorer.transform.position = _Parser.Explorer_UnityPosition;
+            _Overworld.TeleportExplorerTo(_Parser.ExplorerCell);
 
             /* load first level */
-            _Overworld.Load(_Begin);
+            _Overworld.Load(_Parser.ExplorerCell.StageId);
         }
         #endregion Private Methods
 

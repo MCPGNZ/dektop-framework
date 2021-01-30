@@ -18,6 +18,7 @@
                     AddActor(stage[x][y], new Vector2Int(x, y), stage.Size);
                 }
             }
+            _CurrentStageId = levelId;
         }
         #endregion Public Methods
 
@@ -31,6 +32,7 @@
         #region Private Variables
         [Inject] private DiContainer _Container;
 
+        private Vector2Int _CurrentStageId;
         private readonly List<GameObject> _Objects = new List<GameObject>();
         private int _AutoIncrement = 1;
         #endregion Private Variables
@@ -43,6 +45,21 @@
                 Destroy(entry);
             }
             _Objects.Clear();
+        }
+
+        public void TeleportExplorerTo(Cell cell)
+        {
+            if (_CurrentStageId != cell.StageId)
+            {
+                Load(cell.StageId);
+            }
+            Explorer.transform.position = Coordinates.NormalizedToUnity(Coordinates.GridToNormalized(cell.LocalPositionGrid, Config.StageSize));
+        }
+
+        public void TeleportExplorerTo(string targetKey)
+        {
+            var cell = _Parser.World.FindUnique(targetKey);
+            TeleportExplorerTo(cell);
         }
 
         private void TeleportExplorerBy(float x, float y)
