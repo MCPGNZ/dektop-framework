@@ -98,7 +98,7 @@ public class MessageBox : Form
             this.icon.InitialImage = null;
             this.icon.ImageLocation = iconPath;
             this.icon.Name = "icon";
-            this.icon.MaximumSize = new Size(64, 64);
+            this.icon.Size = new Size(96, 96);
             this.icon.SizeMode = PictureBoxSizeMode.Zoom;
             this.icon.TabIndex = 0;
             this.icon.TabStop = false;
@@ -120,7 +120,7 @@ public class MessageBox : Form
         this.buttonsPanel.HorizontalScroll.Enabled = false;
         this.buttonsPanel.VerticalScroll.Enabled = false;
 
-        for (int i = buttonLabels.Length - 1; i >= 0; ++i)
+        for (int i = buttonLabels.Length - 1; i >= 0; --i)
         {
             Button btn = buttons[i];
             string label = buttonLabels[i];
