@@ -32,6 +32,7 @@
         [Inject] private DiContainer _Container;
 
         private readonly List<GameObject> _Objects = new List<GameObject>();
+        private int _AutoIncrement = 1;
         #endregion Private Variables
 
         #region Private Methods
@@ -57,7 +58,19 @@
                 case "#":
                 {
                     var actor = Create<Actor>(Config.Wall, position, gridSize);
-                    actor.Create($"Wall{Random.Range(-10.0f, 10.0f)}");
+                    actor.Create($"Wall{_AutoIncrement++}");
+                    break;
+                }
+                case "x":
+                {
+                    var actor = Create<Actor>(Config.SpikeEnemy, position, gridSize);
+                    actor.Create($"Spikes{_AutoIncrement++}");
+                    break;
+                    }
+                case "m":
+                {
+                    var actor = Create<Actor>(Config.MineEnemy, position, gridSize);
+                    actor.Create($"Minesweeper{_AutoIncrement++}");
                     break;
                 }
             }

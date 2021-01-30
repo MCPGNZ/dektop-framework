@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2480559049a5194b93b4aeca85e091c, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
+  _UnitySize: {x: 1920, y: 1080}
+  _StageSize: {x: 21, y: 10}
   _MovementSpeed: 100
   _Wall: {fileID: 5096917803645802027, guid: 02f3a1d153f67b74babd350f83da8a84, type: 3}
+  _SpikeEnemy: {fileID: 4835563417813236666, guid: 6eca33b3dec1af44fa249caebf5aa32f, type: 3}
+  _MineEnemy: {fileID: 4898220957834961, guid: a0941299f380fea4caada4cd8a647ddc, type: 3}

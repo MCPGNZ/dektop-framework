@@ -29,7 +29,7 @@
         {
             var item = Instantiate(_HeartPrefab);
             _Hearts.Add(item);
-            var displacement = new Vector3(Random.Range(-0.05f, 0.05f), Random.Range(-0.05f, 0.05f), 0);
+            var displacement = new Vector3(Random.Range(-15.05f, 15.05f), Random.Range(-30.05f, 30.05f), 0);
             item.transform.position = gameObject.transform.position + displacement;
             var actorName = string.Format("Heart{0}", _AutoIncrement++);
             item.GetComponent<Actor>().Create(actorName);

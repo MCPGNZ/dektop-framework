@@ -334,7 +334,7 @@ MonoBehaviour:
         Data: 
       - X: 2
         Y: 3
-        Data: 
+        Data: E
       - X: 2
         Y: 4
         Data: 
@@ -709,7 +709,7 @@ MonoBehaviour:
         Data: 
       - X: 14
         Y: 4
-        Data: 
+        Data: P2
       - X: 14
         Y: 5
         Data: 
@@ -780,7 +780,7 @@ MonoBehaviour:
         Data: 
       - X: 16
         Y: 7
-        Data: 
+        Data: m
       - X: 16
         Y: 8
         Data: 
@@ -842,7 +842,7 @@ MonoBehaviour:
         Data: 
       - X: 18
         Y: 7
-        Data: 
+        Data: x
       - X: 18
         Y: 8
         Data: 
@@ -864,7 +864,7 @@ MonoBehaviour:
         Data: 
       - X: 19
         Y: 4
-        Data: 
+        Data: K1
       - X: 19
         Y: 5
         Data: 
@@ -894,39 +894,39 @@ MonoBehaviour:
         Y: 3
         Data: '#'
       - X: 20
+        Y: 4
+        Data: P0
+      - X: 20
+        Y: 5
+        Data: '#'
+      - X: 20
+        Y: 6
+        Data: '#'
+      - X: 20
+        Y: 7
+        Data: '#'
+      - X: 20
+        Y: 8
+        Data: '#'
+      - X: 20
+        Y: 9
+        Data: '#'
+    - Cells:
+      - X: 21
+        Y: 0
+        Data: '#'
+      - X: 21
+        Y: 1
+        Data: '#'
+      - X: 21
+        Y: 2
+        Data: '#'
+      - X: 21
+        Y: 3
+        Data: '#'
+      - X: 21
         Y: 4
         Data: P1
-      - X: 20
-        Y: 5
-        Data: '#'
-      - X: 20
-        Y: 6
-        Data: '#'
-      - X: 20
-        Y: 7
-        Data: '#'
-      - X: 20
-        Y: 8
-        Data: '#'
-      - X: 20
-        Y: 9
-        Data: '#'
-    - Cells:
-      - X: 21
-        Y: 0
-        Data: '#'
-      - X: 21
-        Y: 1
-        Data: '#'
-      - X: 21
-        Y: 2
-        Data: '#'
-      - X: 21
-        Y: 3
-        Data: '#'
-      - X: 21
-        Y: 4
-        Data: P1
       - X: 21
         Y: 5
         Data: '#'
@@ -957,7 +957,7 @@ MonoBehaviour:
         Data: 
       - X: 22
         Y: 4
-        Data: 
+        Data: K0
       - X: 22
         Y: 5
         Data: 
@@ -1174,7 +1174,7 @@ MonoBehaviour:
         Data: 
       - X: 29
         Y: 4
-        Data: 
+        Data: K2
       - X: 29
         Y: 5
         Data: 

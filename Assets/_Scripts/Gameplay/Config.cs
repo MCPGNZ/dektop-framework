@@ -13,6 +13,8 @@
 
         public static float MovementSpeed => Instance._MovementSpeed;
         public static GameObject Wall => Instance._Wall;
+        public static GameObject SpikeEnemy => Instance._SpikeEnemy;
+        public static GameObject MineEnemy => Instance._MineEnemy;
         #endregion Public Variables
 
         #region Private Variables
@@ -27,6 +29,10 @@
 
         [SerializeField, BoxGroup("Prefabs")]
         private GameObject _Wall;
+        [SerializeField, BoxGroup("Prefabs")]
+        private GameObject _SpikeEnemy;
+        [SerializeField, BoxGroup("Prefabs")]
+        private GameObject _MineEnemy;
         #endregion Private Variables
     }
 }
