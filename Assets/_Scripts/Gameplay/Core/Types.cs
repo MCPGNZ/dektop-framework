@@ -1,6 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System;
+    using UnityEngine;
 
     /// <summary>
     /// All objects used in the game,
@@ -63,6 +64,8 @@
 
             if (tag.StartsWith(Identifier.PortalEntry.ToTag())) { return Identifier.PortalEntry; }
             if (tag.StartsWith(Identifier.PortalExit.ToTag())) { return Identifier.PortalExit; }
+
+            Debug.LogWarning($"unrecognized tag: {tag}");
 
             return Identifier.Unknown;
         }
