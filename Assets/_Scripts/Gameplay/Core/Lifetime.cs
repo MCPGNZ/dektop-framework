@@ -16,6 +16,7 @@
             Application.runInBackground = true;
 
             FrameworkEx.Initialize();
+
             RawKeyInput.Start(true);
             RawKeyInput.InterceptMessages = true;
             RawKeyInput.OnKeyUp += OnExitKey;

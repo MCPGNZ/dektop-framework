@@ -14,10 +14,11 @@
         #endregion Inspector Variables
 
         #region Unity Methods
-        private void Start()
+        private void Awake()
         {
-            rigidbody2d = GetComponent<Rigidbody2D>();
+            _Rigidbody = GetComponent<Rigidbody2D>();
         }
+
         private void FixedUpdate()
         {
             var direction = Vector2.zero;
@@ -31,22 +32,23 @@
         }
         #endregion Unity Methods
 
+        #region Private Variables
+        private Rigidbody2D _Rigidbody;
+        #endregion Private Variables
+
         #region Private Methods
         private void Move(Vector2 vector)
         {
-            if (rigidbody2d.bodyType == RigidbodyType2D.Kinematic)
+            if (_Rigidbody.bodyType == RigidbodyType2D.Kinematic)
             {
-                rigidbody2d.MovePosition(rigidbody2d.position + vector);
+                _Rigidbody.MovePosition(_Rigidbody.position + vector);
             }
             else
             {
-                rigidbody2d.AddForce(vector);
+                _Rigidbody.AddForce(vector);
             }
         }
         #endregion Private Methods
 
-        #region Private Variables
-        Rigidbody2D rigidbody2d;
-        #endregion
     }
 }

@@ -1,12 +1,18 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
+    using System;
     using System.Collections.Generic;
     using UnityEngine;
     using Zenject;
     using static LevelParser;
+    using Random = UnityEngine.Random;
 
     public class Overworld : MonoBehaviour
     {
+        #region Public Variables
+        public static Action LevelChanged;
+        #endregion Public Variables
+
         #region Public Methods
         public void Load(Vector2Int levelId)
         {
@@ -23,6 +29,7 @@
                 }
             }
             _CurrentStageId = levelId;
+            LevelChanged?.Invoke();
         }
         #endregion Public Methods
 
