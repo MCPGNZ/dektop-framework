@@ -31,6 +31,13 @@
         [SerializeField] private LevelParser _Parser;
         #endregion Inspector Variables
 
+        #region Unity Methods
+        private void Update()
+        {
+            if (_PortalLock > 0.0f) { _PortalLock -= Time.deltaTime; }
+        }
+        #endregion Unity Methods
+
         #region Private Variables
         [Inject] private DiContainer _Container;
         [Inject] private Explorer _Explorer;
@@ -38,11 +45,14 @@
         private Vector2Int _CurrentStageId;
         private readonly List<GameObject> _Objects = new List<GameObject>();
         private int _AutoIncrement = 1;
+
+        private float _PortalLock;
         #endregion Private Variables
 
         #region Private Methods
         private void Release()
         {
+            /* todo: object pool */
             foreach (var entry in _Objects)
             {
                 Destroy(entry);
@@ -52,10 +62,19 @@
 
         public void TeleportExplorerTo(Cell cell)
         {
+            /* portals are blocked for set amount of time */
+            if (_PortalLock > 0.0f) { return; }
+
+            /* lock portal for some time */
+            _PortalLock = Config.PortalLock;
+
+            /* stages are only reloaded if the portals leads to another stage */
             if (_CurrentStageId != cell.StageId)
             {
                 Load(cell.StageId);
             }
+
+            /* move the player */
             _Explorer.transform.position = Coordinates.NormalizedToUnity(Coordinates.GridToNormalized(cell.LocalPositionGrid, Config.StageSize));
         }
         public void TeleportExplorerTo(string targetKey)

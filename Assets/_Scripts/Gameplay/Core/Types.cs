@@ -2,6 +2,10 @@
 {
     using System;
 
+    /// <summary>
+    /// All objects used in the game,
+    /// properties (prefab, avatar, etc) defined in the Config asset
+    /// </summary>
     public enum Identifier
     {
         Unknown = 0,

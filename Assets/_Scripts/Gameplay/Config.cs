@@ -46,6 +46,8 @@
         public static Vector2Int UnitySize => Instance._UnitySize;
         public static Vector2Int StageSize => Instance._StageSize;
 
+        public static float PortalLock => Instance._PortalLock;
+
         public static float MovementSpeed => Instance._MovementSpeed;
         #endregion Public Variables
 
@@ -58,6 +60,9 @@
 
         [SerializeField, BoxGroup("Movement")]
         private float _MovementSpeed = 1.0f;
+
+        [SerializeField, BoxGroup("Portals")]
+        private float _PortalLock = 1.0f;
 
         [SerializeField]
         internal List<IdentifierEntry> _Identifiers;

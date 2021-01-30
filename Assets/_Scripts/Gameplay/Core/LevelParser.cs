@@ -109,7 +109,7 @@
             {
                 var result = new Map(Config.StageSize);
 
-                var xOffset = Config.StageSize.x * stageId.y;
+                var xOffset = Config.StageSize.x * stageId.x;
                 var yOffset = Config.StageSize.y * stageId.y;
 
                 for (int x = 0; x < result.Size.x; ++x)
@@ -128,7 +128,6 @@
             [SerializeField]
             private Row[] _Rows;
             #endregion Private Variables
-
         }
 
         [Serializable]

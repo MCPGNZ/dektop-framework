@@ -9,7 +9,6 @@
         #region Unity Methods
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("teleportz");
             _Overworld.TeleportExplorerTo(PortalExitKey);
         }
         #endregion Unity Methods
