@@ -25,6 +25,9 @@
         public void Awake()
         {
             Application.runInBackground = true;
+            TextInput.Show("dupa", "gowno", "firewall.ico");
+            TextInput.Show("dupa", "gowno chuj asdajkshgkljasdf asdf asdf asd fa sdf asd fas dfa sd", "firewall.ico");
+            TextInput.Show("dupa", "gowno chuj asdajkshgkljasdf asdf asdf asd fa sdf asd fas dfa sd asd asd as da das da sd asd as da sd as das d asd as das das d asd as das das d asd as da sd asd as da sd asd as da sd as das d asd as da sd asd as dkasjfnkejg adkvj rkjv fdkjv a vafdkjv akdfj vakdj fka vkjs vkaj vkjdf vkjdf kdjf vkj vkaj dkvaj ", "firewall.ico");
 
             FrameworkEx.Initialize();
 
@@ -36,9 +39,6 @@
             SetupItems();
 
             Minimize();
-
-            string result = TextInput.Show("tytul", "dupadsaksag af sdf asdf asd ga eakgjre bkjre akjr gkjd gkjew fkaejr vkjd vakjfdbkejv fdjv kjfd vksj tkhjs ekrjfiaehab ihr ceidhv aieht ivj fng bwhtri gv?", "bin.ico");
-            Debug.LogError($"AAA KURWA {result}");
         }
         private void OnDestroy()
         {

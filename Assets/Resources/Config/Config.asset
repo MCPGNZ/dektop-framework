@@ -99,3 +99,11 @@ MonoBehaviour:
     Tag: WIN2000
     Prefab: {fileID: 104899619469281166, guid: 1b6fb0095bc520347a2673c5ef2bde1f, type: 3}
     Avatar: {fileID: 11400000, guid: 1ac6fef84b8dca843946fb8e37063158, type: 2}
+  - Identifier: 205
+    Tag: pl
+    Prefab: {fileID: 495446661102638985, guid: c3b75aa6375f115439daa892492a806b, type: 3}
+    Avatar: {fileID: 11400000, guid: a967b34dec823da418b80a7f89f81a7f, type: 2}
+  - Identifier: 206
+    Tag: plp
+    Prefab: {fileID: 4835563417813236666, guid: 019954407aabb3643a12b36d628a7968, type: 3}
+    Avatar: {fileID: 11400000, guid: 4f48f2c2bea2bd44d9ee825a94049978, type: 2}
