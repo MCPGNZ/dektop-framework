@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Name: Windows 8
-  _Icon: {fileID: 11400000, guid: fffca38013ba9ef49befa3ddb91a7547, type: 2}
+  _Icon: {fileID: 11400000, guid: a81edf671fcfc194db792a9d13f4e6ba, type: 2}
   _Tooltip: Don't look at me.
   _AutoCreate: 1
 --- !u!1 &7648953659995989948
