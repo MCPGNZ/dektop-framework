@@ -175,6 +175,17 @@
             public string Data;
             public Identifier Type;
 
+            public bool HasParameters { get { return Data.Contains(':'); } }
+            public string Parameters
+            {
+                get
+                {
+                    if (!HasParameters)
+                        throw new ArgumentException($"cell {Data} has no parameters");
+                    return Data.Substring(Data.IndexOf(':') + 1);
+                }
+            }
+
             public Vector2Int StageId => new Vector2Int(GlobalId.x / Config.StageSize.x, GlobalId.y / Config.StageSize.y);
 
             /// <summary>
@@ -201,8 +212,7 @@
                     if (Type != Identifier.PortalEntry)
                         throw new InvalidOperationException("MatchingExitPortalKey read on non-entry-portal");
 
-                    return Identifier.PortalExit.ToTag() +
-                           Data.Substring(Identifier.PortalEntry.ToTag().Length);
+                    return Identifier.PortalExit.ToTag() + ":" + Parameters;
                 }
             }
             #endregion Public Variables

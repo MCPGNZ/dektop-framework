@@ -17,8 +17,43 @@
         #endregion Public Variables
 
         #region Public Methods
-        public void Create(string name, LevelParser.Cell cell = null)
+        public void Create(string uniqueId, LevelParser.Cell cell = null)
         {
+            string name = uniqueId;
+
+            // null for Explorer and HUD elements
+            if (cell != null)
+            {
+                switch (cell.Type)
+                {
+                    case Identifier.PortalEntry:
+                        {
+                            name = $"PortalEntry{name}";
+                            GetComponent<Actor>().GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
+                            break;
+                        }
+
+                    case Identifier.MineEnemy:
+                        {
+                            name = $"Minesweeper{name}.exe";
+                            var automobile = GetComponent<Automobile>();
+                            if (cell.Parameters.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 100.0f); }
+                            if (cell.Parameters.Contains("-")) { automobile.MoveVector = new Vector2(100.0f, 0.0f); }
+                            if (cell.Parameters.Contains("*")) { automobile.MoveVector = new Vector2(100.0f, 100.0f); }
+                            break;
+                        }
+                    case Identifier.BatEnemy:
+                        {
+                            name = $"Killer{name}.bat";
+                            var automobile = GetComponent<Automobile>();
+                            if (cell.Parameters.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 150.0f); }
+                            if (cell.Parameters.Contains("-")) { automobile.MoveVector = new Vector2(150.0f, 0.0f); }
+                            if (cell.Parameters.Contains("*")) { automobile.MoveVector = new Vector2(150.0f, 150.0f); }
+                            break;
+                        }
+                }
+            }
+
             if (Config.DisableIcons) { return; }
             if (_Directory != null) { throw new InvalidOperationException($"actor: {name}"); }
 
