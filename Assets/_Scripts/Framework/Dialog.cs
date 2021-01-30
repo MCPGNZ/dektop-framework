@@ -1,5 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
+    using System;
+
     public static class Dialog
     {
         public static string Error(string message, params string[] options)
@@ -18,17 +20,24 @@
 
         public static string Message(string title, string message, IconEx icon, params string[] options)
         {
-            var iconPath = icon == null ? null : icon.AbsolutePath;
-
             string response = null;
-            var msg = new MessageBox(title, message, options, iconPath)
+
+            try
             {
-                OnButtonClick = r =>
+                var iconPath = icon == null ? null : icon.AbsolutePath;
+                var msg = new MessageBox(title, message, options, iconPath)
                 {
-                    response = r;
-                }
-            };
-            msg.ShowDialog();
+                    OnButtonClick = r =>
+                    {
+                        response = r;
+                    }
+                };
+                msg.ShowDialog();
+            }
+            catch (Exception e)
+            {
+            }
+
             return response;
         }
     }
