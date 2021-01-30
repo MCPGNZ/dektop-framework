@@ -16,53 +16,37 @@
         // Update is called once per frame
         void FixedUpdate()
         {
-            CheckCollisions();
+            // Change the Move Vector only once per simulation frame.
+            if (_QueueHorizontalBounce) { _CurrentMoveVector *= new Vector2(-1.0f, 1.0f); }
+            if (_QueueVerticalBounce) { _CurrentMoveVector *= new Vector2(1.0f, -1.0f); }
+            _QueueHorizontalBounce = _QueueVerticalBounce = false;
+
             var vector = _CurrentMoveVector * Time.deltaTime;
             rigidbody2d.MovePosition(rigidbody2d.position + vector);
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            
-            // Store all collisions for later, but only the relative positions.
-            if (collision.attachedRigidbody != null)
-            {
-                var relativePos = collision.attachedRigidbody.transform.position - gameObject.transform.position;
-                Debug.Log(String.Format($"Bouncing off from {collision.attachedRigidbody.name} with {relativePos.x}, {relativePos.y}"));
-                _SimultaneusCollisions.Add(relativePos);
-            }
-        }
-        private void CheckCollisions()
-        {
-            if (_SimultaneusCollisions.Count < 1) return;
-            // Will do a diagonal bounce off any collisions.
-            var relativePos = GetBestCollider();
+            var point = collision.GetContact(0);
+            var relativePos = point.normal;
+            Debug.Log(String.Format($"Bouncing off from {collision.rigidbody.name} with {relativePos.x}, {relativePos.y}"));
             if (Math.Abs(relativePos.x) > Math.Abs(relativePos.y))
             {
-                _CurrentMoveVector *= new Vector2(-1.0f, 1.0f);
+                _QueueHorizontalBounce = true;
             }
             else
             {
-                _CurrentMoveVector *= new Vector2(1.0f, -1.0f);
+                _QueueVerticalBounce = true;
             }
         }
-        private Vector3 GetBestCollider()
-        {
-            // If you hit multiple objects at once, only bounce off the closest.
-            Vector3 best = _SimultaneusCollisions[0];
-            foreach (var item in _SimultaneusCollisions)
-            {
-                if (item.magnitude > best.magnitude) best = item;
-            }
-            _SimultaneusCollisions.Clear();
-            return best;
-        }
+
 
         [SerializeField] private Vector2 _CurrentMoveVector = new Vector2(1.0f, 1.0f);
 
         #region Private Variables
         private Rigidbody2D rigidbody2d;
-        private List<Vector3> _SimultaneusCollisions = new List<Vector3>();
+        private bool _QueueVerticalBounce = false;
+        private bool _QueueHorizontalBounce = false;
         #endregion
     }
 }
