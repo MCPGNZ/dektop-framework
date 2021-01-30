@@ -43,7 +43,7 @@
             FrameworkEx.Cleanup();
 
             RestoreItems();
-            RestoreSettings();
+            RestoreDesktop();
         }
         #endregion Unity Methods
 
@@ -67,8 +67,11 @@
         #endregion Private Types
 
         #region Private Variables
-        private bool _AutoArrange;
-        private bool _GridAlign;
+        private DesktopEx.FolderViewMode _Mode;
+        private int _IconSize;
+
+        private readonly Dictionary<DesktopEx.FolderFlags, bool> _Style =
+            new Dictionary<DesktopEx.FolderFlags, bool>();
 
         private List<StoredItem> _StoredItems;
         #endregion Private Variables
@@ -77,12 +80,15 @@
         private void SetupDesktop()
         {
             Wallpaper.Backup();
-            _AutoArrange = DesktopEx.Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE);
-            _GridAlign = DesktopEx.Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID);
 
-            Wallpaper.Set("BCG1.jpg");
-            DesktopEx.Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE, false);
-            DesktopEx.Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID, false);
+            Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE, false);
+            Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID, false);
+
+            DesktopEx.Icons(ref _Mode, ref _IconSize);
+            var normalizedSize = new Vector2(1.0f, 1.0f) / (Config.StageSize + new Vector2Int(1, 1));
+            var desktopSize = Coordinates.NormalizedToDesktop_Size(normalizedSize);
+            Debug.Log(Mathf.Min(desktopSize.x, desktopSize.y));
+            DesktopEx.Icons(_Mode, Mathf.Min(desktopSize.x, desktopSize.y));
         }
         private void SetupItems()
         {
@@ -110,18 +116,16 @@
             }
         }
 
-        private void OnExitKey(RawKey key)
+        private void RestoreDesktop()
         {
-            if (key == RawKey.Escape)
-            {
-                Quit();
-            }
-        }
+            DesktopEx.Icons(_Mode, _IconSize);
 
-        private void RestoreSettings()
-        {
-            DesktopEx.Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE, _AutoArrange);
-            DesktopEx.Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID, _GridAlign);
+            /* restore styles */
+            foreach (var entry in _Style)
+            {
+                DesktopEx.Style(entry.Key, entry.Value);
+            }
+
             Wallpaper.Restore();
         }
         private void RestoreItems()
@@ -144,6 +148,20 @@
             Framework.GameWindow.Minimize();
 #endif
         }
+        private void OnExitKey(RawKey key)
+        {
+            if (key == RawKey.Escape)
+            {
+                Quit();
+            }
+        }
+
+        private void Style(DesktopEx.FolderFlags flag, bool newValue)
+        {
+            _Style.Add(flag, DesktopEx.Style(flag));
+            DesktopEx.Style(flag, newValue);
+        }
         #endregion Private Methods
+
     }
 }

@@ -69,12 +69,12 @@
         {
             get
             {
-                DesktopEx.desktop_get_item_position(AbsolutePath, out var x, out var y);
+                DesktopEx.desktop_get_item_position(_Info.Name, out var x, out var y);
                 return new Vector2Int(x, y);
             }
             set
             {
-                DesktopEx.desktop_set_item_position(AbsolutePath, value.x, value.y);
+                DesktopEx.desktop_set_item_position(_Info.Name, value.x, value.y);
 
                 OnPositionChanged?.Invoke(value);
             }
