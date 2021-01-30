@@ -29,7 +29,7 @@
             FrameworkEx.Initialize();
 
             RawKeyInput.Start(true);
-            RawKeyInput.InterceptMessages = true;
+            RawKeyInput.InterceptMessages = !Config.SaveInput;
             RawKeyInput.OnKeyUp += OnExitKey;
 
             SetupDesktop();

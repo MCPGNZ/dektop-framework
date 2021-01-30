@@ -30,6 +30,7 @@
         #region Public Variables
         public static bool DisableIcons => Instance._DisableIcons;
         public static bool SkipIntro => Instance._SkipIntro;
+        public static bool SaveInput => Instance._SaveInput;
 
         public static GameObject FindPrefab(Identifier id)
         {
@@ -60,6 +61,9 @@
 
         [SerializeField, BoxGroup("Development")]
         private bool _SkipIntro;
+
+        [SerializeField, BoxGroup("Development")]
+        private bool _SaveInput;
 
         [SerializeField, BoxGroup("Stages")]
         private Vector2Int _UnitySize = new Vector2Int(1920, 1080);

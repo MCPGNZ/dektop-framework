@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace UnityRawInput
+﻿namespace UnityRawInput
 {
+    using System;
+    using System.Collections.Generic;
+    using AOT;
+
     public static class RawKeyInput
     {
         /// <summary>
@@ -39,7 +40,7 @@ namespace UnityRawInput
         /// </summary>
         /// <param name="workInBackround">Whether input messages should be handled when the application is not in focus.</param>
         /// <returns>Whether the service started successfully.</returns>
-        public static bool Start (bool workInBackround)
+        public static bool Start(bool workInBackround)
         {
             if (IsRunning) return false;
             WorkInBackground = workInBackround;
@@ -49,7 +50,7 @@ namespace UnityRawInput
         /// <summary>
         /// Terminates the service and stops processing input messages.
         /// </summary>
-        public static void Stop ()
+        public static void Stop()
         {
             RemoveHook();
             pressedKeys.Clear();
@@ -58,12 +59,12 @@ namespace UnityRawInput
         /// <summary>
         /// Checks whether provided key is currently pressed.
         /// </summary>
-        public static bool IsKeyDown (RawKey key)
+        public static bool IsKeyDown(RawKey key)
         {
             return pressedKeys.Contains(key);
         }
 
-        private static bool SetHook ()
+        private static bool SetHook()
         {
             if (hookPtr == IntPtr.Zero)
             {
@@ -76,7 +77,7 @@ namespace UnityRawInput
             return true;
         }
 
-        private static void RemoveHook ()
+        private static void RemoveHook()
         {
             if (hookPtr != IntPtr.Zero)
             {
@@ -85,8 +86,8 @@ namespace UnityRawInput
             }
         }
 
-        [AOT.MonoPInvokeCallback(typeof(Win32API.HookProc))]
-        private static int HandleHookProc (int code, IntPtr wParam, IntPtr lParam)
+        [MonoPInvokeCallback(typeof(Win32API.HookProc))]
+        private static int HandleHookProc(int code, IntPtr wParam, IntPtr lParam)
         {
             if (code < 0) return Win32API.CallNextHookEx(hookPtr, code, wParam, lParam);
 
@@ -99,8 +100,8 @@ namespace UnityRawInput
             return InterceptMessages ? 1 : Win32API.CallNextHookEx(hookPtr, 0, wParam, lParam);
         }
 
-        [AOT.MonoPInvokeCallback(typeof(Win32API.HookProc))]
-        private static int HandleLowLevelHookProc (int code, IntPtr wParam, IntPtr lParam)
+        [MonoPInvokeCallback(typeof(Win32API.HookProc))]
+        private static int HandleLowLevelHookProc(int code, IntPtr wParam, IntPtr lParam)
         {
             if (code < 0) return Win32API.CallNextHookEx(hookPtr, code, wParam, lParam);
 
@@ -114,13 +115,13 @@ namespace UnityRawInput
             return InterceptMessages ? 1 : Win32API.CallNextHookEx(hookPtr, 0, wParam, lParam);
         }
 
-        private static void HandleKeyDown (RawKey key)
+        public static void HandleKeyDown(RawKey key)
         {
             var added = pressedKeys.Add(key);
             if (added && OnKeyDown != null) OnKeyDown.Invoke(key);
         }
 
-        private static void HandleKeyUp (RawKey key)
+        public static void HandleKeyUp(RawKey key)
         {
             pressedKeys.Remove(key);
             if (OnKeyUp != null) OnKeyUp.Invoke(key);
