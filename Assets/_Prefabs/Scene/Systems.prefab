@@ -464,13 +464,13 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 2, y: 2}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 2, y: 3}
         Data: 
         Type: 200
       - GlobalId: {x: 2, y: 4}
-        Data: 
+        Data: cu
         Type: 200
       - GlobalId: {x: 2, y: 5}
         Data: 
@@ -830,8 +830,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 5, y: 3}
-        Data: 
-        Type: 200
+        Data: BIN
+        Type: 101
       - GlobalId: {x: 5, y: 4}
         Data: 
         Type: 200
@@ -2397,8 +2397,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 18, y: 1}
-        Data: m*
-        Type: 301
+        Data: 
+        Type: 200
       - GlobalId: {x: 18, y: 2}
         Data: 
         Type: 200
@@ -2434,7 +2434,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 18, y: 13}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 18, y: 14}
         Data: 
         Type: 200
@@ -4712,7 +4712,7 @@ MonoBehaviour:
         Type: 201
       - GlobalId: {x: 37, y: 6}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 37, y: 7}
         Data: '#'
         Type: 201
@@ -6248,7 +6248,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 49, y: 34}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 49, y: 35}
         Data: 
         Type: 200
@@ -6369,7 +6369,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 50, y: 34}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 50, y: 35}
         Data: 
         Type: 200
@@ -6490,7 +6490,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 51, y: 34}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 51, y: 35}
         Data: 
         Type: 200
@@ -6611,7 +6611,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 52, y: 34}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 52, y: 35}
         Data: 
         Type: 200
@@ -6732,7 +6732,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 53, y: 34}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 53, y: 35}
         Data: 
         Type: 200
@@ -8060,7 +8060,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 64, y: 33}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 64, y: 34}
         Data: 
         Type: 200
@@ -8677,7 +8677,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 69, y: 37}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 69, y: 38}
         Data: 
         Type: 200
@@ -8904,13 +8904,13 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 71, y: 32}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 71, y: 33}
         Data: 
         Type: 200
       - GlobalId: {x: 71, y: 34}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 71, y: 35}
         Data: '#'
         Type: 201
@@ -9385,7 +9385,7 @@ MonoBehaviour:
         Type: 201
       - GlobalId: {x: 75, y: 31}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 75, y: 32}
         Data: 
         Type: 200
@@ -9999,7 +9999,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 80, y: 34}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 80, y: 35}
         Data: 
         Type: 200
@@ -10247,7 +10247,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 82, y: 36}
         Data: o
-        Type: 200
+        Type: 204
       - GlobalId: {x: 82, y: 37}
         Data: 
         Type: 200
