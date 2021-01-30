@@ -42,7 +42,7 @@
 
         void Overworld.IPooled.OnCreate()
         {
-
+            UpdatePosition();
         }
         void Overworld.IPooled.OnRelease()
         {
@@ -87,7 +87,7 @@
         #endregion Private Variables
 
         #region Private Methods
-        private void UpdatePosition()
+        public void UpdatePosition()
         {
             if (_UnityPosition != transform.localPosition)
             {

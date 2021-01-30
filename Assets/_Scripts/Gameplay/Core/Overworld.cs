@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading;
+    using JetBrains.Annotations;
     using UnityEngine;
     using Zenject;
     using static LevelParser;
@@ -29,6 +31,8 @@
                 }
             }
             _CurrentStageId = levelId;
+
+            Thread.Sleep(1000);
             LevelChanged?.Invoke();
         }
         #endregion Public Methods
@@ -53,9 +57,7 @@
         private sealed class Pool
         {
             #region Public Methods
-            public static GameObject Instantiate(Identifier identifier,
-                Vector2Int cell, Vector2Int gridSize, Transform parent,
-                DiContainer container)
+            public static GameObject Instantiate(Identifier identifier, Transform parent, DiContainer container, Action<GameObject> initialize)
             {
                 if (_FreeList.TryGetValue(identifier, out var result))
                 {
@@ -65,20 +67,17 @@
                         var last = result.Dequeue();
 
                         /* handle state change */
-                        OnCreate(last, cell, gridSize);
+                        OnActivated(last, initialize);
                         return last;
                     }
                 }
 
+                /* instantiate new entry */
                 var prefab = Config.FindPrefab(identifier);
-
                 var item = container.InstantiatePrefab(prefab, parent);
-                var normalizedPosition = Coordinates.GridToNormalized(cell, gridSize);
-                var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
+                _Instantiated.Add(item, identifier);
 
-                item.transform.localPosition = unityPosition;
-
-                _Created.Add(item, identifier);
+                OnActivated(item, initialize);
                 return item;
             }
 
@@ -86,7 +85,7 @@
             {
                 if (obj == null) { return; }
 
-                var identifier = _Created[obj];
+                var identifier = _Instantiated[obj];
 
                 /* add to freelist */
                 if (_FreeList.TryGetValue(identifier, out var result) == false)
@@ -101,11 +100,11 @@
                 _FreeList[identifier].Enqueue(obj);
 
                 /* handle state change */
-                OnRelease(obj);
+                OnDeactivated(obj);
             }
             public static void ReleaseAll()
             {
-                foreach (var entry in _Created)
+                foreach (var entry in _Instantiated)
                 {
                     Release(entry.Key);
                 }
@@ -113,12 +112,9 @@
             #endregion Public Methods
 
             #region Private Methods
-            private static void OnCreate(GameObject item, Vector2Int cell, Vector2Int gridSize)
+            private static void OnActivated(GameObject item, Action<GameObject> initialize)
             {
-                /* update position */
-                var normalizedPosition = Coordinates.GridToNormalized(cell, gridSize);
-                var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
-                item.transform.localPosition = unityPosition;
+                initialize(item);
 
                 /* notify */
                 var pooled = item.GetComponent<IPooled>();
@@ -127,7 +123,7 @@
                 /* activate */
                 item.SetActive(true);
             }
-            private static void OnRelease(GameObject item)
+            private static void OnDeactivated(GameObject item)
             {
                 var pooled = item.GetComponent<IPooled>();
                 pooled?.OnRelease();
@@ -142,16 +138,16 @@
                 new Dictionary<Identifier, Queue<GameObject>>();
 
             /* prefab to instances */
-            private static readonly Dictionary<GameObject, Identifier> _Created =
+            private static readonly Dictionary<GameObject, Identifier> _Instantiated =
                 new Dictionary<GameObject, Identifier>();
             #endregion Private Variables
         }
         #endregion Private Types
 
         #region Private Variables
-        [Inject] private DiContainer _Container;
-        [Inject] private Explorer _Explorer;
-        [Inject] private LevelParser _Parser;
+        [Inject, UsedImplicitly] private DiContainer _Container;
+        [Inject, UsedImplicitly] private Explorer _Explorer;
+        [Inject, UsedImplicitly] private LevelParser _Parser;
 
         private Vector2Int _CurrentStageId;
         private int _AutoIncrement = 1;
@@ -197,26 +193,50 @@
             if (cell.Type == Identifier.Explorer) { return; }
 
             /* handle rest */
-            var name = cell.Type.ToString();
-            var item = Pool.Instantiate(cell.Type, position, gridSize, transform, _Container);
-
             switch (cell.Type)
             {
                 case Identifier.PortalEntry:
                 {
+                    Pool.Instantiate(cell.Type, transform, _Container,
+                        /* initialize */
+                        item =>
+                        {
+                            InitializePosition(item, position, gridSize);
 
-                    var portal = item.GetComponent<Actor>();
-                    portal.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}");
-                    portal.GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
+                            var portal = item.GetComponent<Actor>();
+                            portal.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}");
+                            portal.GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
+                        });
+
                     break;
                 }
                 default:
                 {
-                    var actor = item.GetComponent<Actor>();
-                    if (actor != null) { actor.Create($"{name}{_AutoIncrement++}"); }
+                    Pool.Instantiate(cell.Type, transform, _Container,
+                        /* initialize */
+                        item =>
+                        {
+                            InitializePosition(item, position, gridSize);
+
+                            var actor = item.GetComponent<Actor>();
+                            if (actor != null)
+                            {
+                                var actorName = cell.Type.ToString();
+                                actor.Create($"{actorName}{_AutoIncrement++}");
+                            }
+                        });
+
                     break;
                 }
             }
+        }
+
+        private void InitializePosition(GameObject item, Vector2Int position, Vector2Int gridSize)
+        {
+            var normalizedPosition = Coordinates.GridToNormalized(position, gridSize);
+            var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
+
+            item.transform.localPosition = unityPosition;
         }
         #endregion Private Methods
     }
