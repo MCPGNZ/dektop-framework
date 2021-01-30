@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2480559049a5194b93b4aeca85e091c, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
+  _DisableIcons: 0
+  _SkipIntro: 0
   _UnitySize: {x: 1920, y: 1080}
   _StageSize: {x: 21, y: 10}
   _MovementSpeed: 100
+  _PortalLock: 1
   _Identifiers:
   - Identifier: 100
     Tag: E
@@ -52,3 +55,7 @@ MonoBehaviour:
     Tag: 
     Prefab: {fileID: 0}
     Avatar: {fileID: 11400000, guid: abaa57d34eed15149bfde5aeaa9a08d4, type: 2}
+  - Identifier: 202
+    Tag: <3
+    Prefab: {fileID: 4835563417813236666, guid: b3bbd74abc58e0c419ae3d5922101b01, type: 3}
+    Avatar: {fileID: 11400000, guid: 08f063ab091a6c847b0a1dcdeabe407a, type: 2}
