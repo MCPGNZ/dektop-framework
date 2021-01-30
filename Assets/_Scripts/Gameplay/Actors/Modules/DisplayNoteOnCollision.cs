@@ -19,7 +19,5 @@ public class DisplayNoteOnCollision : MonoBehaviour
                        buttonLabels: new string[] { "Huh." },
                        iconPath: string.IsNullOrWhiteSpace(note.Icon) ? null : note.Icon)
             .ShowDialog();
-
-        Destroy(gameObject);
     }
 }
