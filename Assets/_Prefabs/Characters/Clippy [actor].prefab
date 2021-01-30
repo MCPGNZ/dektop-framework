@@ -197,4 +197,4 @@ MonoBehaviour:
   _Name: Clippy
   _Icon: {fileID: 11400000, guid: 9fb3eedcd9422294e9b6541df036d31d, type: 2}
   _Tooltip: Time does not matter.
-  _AutoCreate: 1
+  _AutoCreate: 0
