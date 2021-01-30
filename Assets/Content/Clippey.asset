@@ -63,13 +63,13 @@ MonoBehaviour:
     00000004:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
-        Message: 'No? Well then... It seems you enjoy playing games? '
+        Message: No? Well then... It seems you enjoy playing games?
         Tooltip: 
         Icon: {fileID: 0}
         Options:
         - "Yes\u2026"
         - Not really.
-        - I have no time for games
+        - I have no time for games.
     00000005:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
