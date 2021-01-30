@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _DisableIcons: 0
   _SkipIntro: 0
-  _SaveInput: 0
+  _SaveInput: 1
   _UnitySize: {x: 2100, y: 1000}
   _StageSize: {x: 21, y: 10}
   _MovementSpeed: 100
@@ -27,7 +27,7 @@ MonoBehaviour:
   - Identifier: 103
     Tag: CP
     Prefab: {fileID: 7733286898918282246, guid: cee3c19854aaf3b4c940f1cda8b21717, type: 3}
-    Avatar: {fileID: 11400000, guid: 0ee4ee1191236554893f6e495c29e081, type: 2}
+    Avatar: {fileID: 11400000, guid: 9fb3eedcd9422294e9b6541df036d31d, type: 2}
   - Identifier: 101
     Tag: BIN
     Prefab: {fileID: 104899619469281166, guid: faac93143594ae945ae21e5f15d35a89, type: 3}

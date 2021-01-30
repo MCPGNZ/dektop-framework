@@ -27,16 +27,15 @@
 
             [ListDrawerSettings(Expanded = true)]
             public string[] Options;
+
+            [Button]
             public void Execute(NPC npc)
             {
-                if (Icon != null) { Dialog.Character(npc.Character, Message, Icon, Options); }
-                else { Dialog.Character(npc.Character, Message, Options); }
-
+                Dialog.Character(npc.Character, Message, Icon, Options);
                 if (string.IsNullOrWhiteSpace(Tooltip))
                 {
                     npc.Actor.Tooltip = Tooltip;
                 }
-
             }
         }
 
@@ -45,6 +44,7 @@
             public void Execute(NPC npc)
             {
                 npc.gameObject.SetActive(false);
+                npc.Actor.Destroy();
             }
         }
 

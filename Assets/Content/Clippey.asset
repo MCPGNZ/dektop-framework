@@ -27,12 +27,12 @@ MonoBehaviour:
     00000000:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
-        Message: Well, hello!
+        Message: Well... hello
         Tooltip: 
         Icon: {fileID: 0}
         Options:
-        - uhm.. hi?
-        - hello!
+        - uhm
+        - yyyy
     00000001:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
