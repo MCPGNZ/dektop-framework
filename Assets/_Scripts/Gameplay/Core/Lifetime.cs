@@ -1,17 +1,24 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
-    using Mcpgnz.DesktopFramework.Framework;
     using System.Collections.Generic;
+    using Mcpgnz.DesktopFramework.Framework;
     using UnityEngine;
     using UnityRawInput;
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 
     public sealed class Lifetime : MonoBehaviour
     {
         #region Unity Methods
         public void Awake()
         {
+            Application.runInBackground = true;
+
             FrameworkEx.Initialize();
             RawKeyInput.Start(true);
+            RawKeyInput.InterceptMessages = true;
+            RawKeyInput.OnKeyUp += OnExitKey;
 
             SetupDesktop();
             SetupItems();
@@ -65,7 +72,6 @@
             DesktopEx.Style(DesktopEx.FolderFlags.FWF_AUTOARRANGE, false);
             DesktopEx.Style(DesktopEx.FolderFlags.FWF_SNAPTOGRID, false);
         }
-
         private void SetupItems()
         {
             var items = DesktopEx.Items;
@@ -89,6 +95,18 @@
             {
                 /* to the purgatory! */
                 item.DesktopPosition = new Vector2Int(-8192, -8192);
+            }
+        }
+
+        private void OnExitKey(RawKey key)
+        {
+            if (key == RawKey.Escape)
+            {
+#if UNITY_EDITOR
+                EditorApplication.isPlaying = false;
+#else
+                Application.Quit();
+#endif
             }
         }
 

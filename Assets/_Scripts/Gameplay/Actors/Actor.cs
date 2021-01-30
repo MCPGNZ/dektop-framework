@@ -8,7 +8,6 @@
     {
         #region Public Variables
         public bool IsCreated => _Directory != null;
-
         public Vector2 NormalizedPosition
         {
             get => Coordinates.UnityToNormalized(transform.position);

@@ -1,5 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
+    using System;
+    using System.Collections.Generic;
     using Mcpgnz.Utilities;
     using Sirenix.OdinInspector;
     using UnityEngine;
@@ -7,22 +9,58 @@
     [CreateAssetMenu(menuName = "Framework/Config")]
     public sealed class Config : ScriptableObjectSingleton<Config>
     {
+        #region Public Types
+        [Serializable]
+        public sealed class IdentifierEntry
+        {
+            [HideLabel, HorizontalGroup, LabelWidth(64)]
+            public Identifier Identifier;
+
+            [HideLabel, HorizontalGroup, LabelWidth(64)]
+            public string Tag;
+
+            [HideLabel, HorizontalGroup, AssetsOnly]
+            public GameObject Prefab;
+
+            [HideLabel, HorizontalGroup, AssetsOnly]
+            public IconEx Avatar;
+        }
+        #endregion Public Types
+
         #region Public Variables
+        public static bool DisableIcons => Instance._DisableIcons;
+        public static bool SkipIntro => Instance._SkipIntro;
+
+        public static GameObject FindPrefab(Identifier id)
+        {
+            var found = Instance._Identifiers.Find(x => x.Identifier == id);
+            if (found == null) { throw new InvalidOperationException($"prefab not found for: {id.ToName()}"); }
+
+            return found.Prefab;
+        }
+        public static IconEx FindAvatar(Identifier id)
+        {
+            var found = Instance._Identifiers.Find(x => x.Identifier == id);
+            if (found == null) { throw new InvalidOperationException($"avatar not found for: {id.ToName()}"); }
+
+            return found.Avatar;
+        }
+
         public static Vector2Int UnitySize => Instance._UnitySize;
         public static Vector2Int StageSize => Instance._StageSize;
 
-        public static float MovementSpeed => Instance._MovementSpeed;
-        public static bool DisableIcons => Instance._DisableIcons;
-        public static GameObject Wall => Instance._Wall;
-        public static GameObject SpikeEnemy => Instance._SpikeEnemy;
-        public static GameObject MineEnemy => Instance._MineEnemy;
+        public static float PortalLock => Instance._PortalLock;
 
-        public static IconEx ExplorerAvatar => Instance._ExplorerAvatar;
-        public static IconEx ClippyAvatar => Instance._ClippyAvatar;
-        public static IconEx ErrorAvatar => Instance._ErrorAvatar;
+        public static float MovementSpeed => Instance._MovementSpeed;
         #endregion Public Variables
 
-        #region Private Variables
+        #region Inspector Variables
+        [SerializeField, BoxGroup("Development")]
+        private bool _DisableIcons;
+
+        [SerializeField, BoxGroup("Development")]
+        private bool _SkipIntro;
+
         [SerializeField, BoxGroup("Stages")]
         private Vector2Int _UnitySize = new Vector2Int(1920, 1080);
 
@@ -32,24 +70,12 @@
         [SerializeField, BoxGroup("Movement")]
         private float _MovementSpeed = 1.0f;
 
-        [SerializeField, BoxGroup("DebugMode")]
-        private bool _DisableIcons = false;
+        [SerializeField, BoxGroup("Portals")]
+        private float _PortalLock = 1.0f;
 
-        [SerializeField, BoxGroup("Prefabs")]
-        private GameObject _Wall;
-        [SerializeField, BoxGroup("Prefabs")]
-        private GameObject _SpikeEnemy;
-        [SerializeField, BoxGroup("Prefabs")]
-        private GameObject _MineEnemy;
+        [SerializeField]
+        internal List<IdentifierEntry> _Identifiers;
+        #endregion Inspector Variables
 
-        [SerializeField, BoxGroup("Avatars")]
-        private IconEx _ExplorerAvatar;
-
-        [SerializeField, BoxGroup("Avatars")]
-        private IconEx _ClippyAvatar;
-
-        [SerializeField, BoxGroup("Avatars")]
-        private IconEx _ErrorAvatar;
-        #endregion Private Variables
     }
 }

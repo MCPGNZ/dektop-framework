@@ -25,11 +25,11 @@
         #endregion Public Types
 
         #region Public Variables
-        public Story.Character Character => character;
+        public Identifier Character => character;
         #endregion Public Variables
 
         #region Inspector Variables
-        [SerializeField] private Story.Character character;
+        [SerializeField] private Identifier character;
         [SerializeField] private List<Encounter> _Encounters;
         #endregion Inspector Variables
 

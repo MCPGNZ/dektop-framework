@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1753588927511919776}
   - component: {fileID: 2751283740265797758}
-  - component: {fileID: -1955134296384298850}
+  - component: {fileID: 8574526501635009542}
   - component: {fileID: -2861405033765997326}
   - component: {fileID: 7664459961715386247}
   - component: {fileID: 5346482400258901590}
@@ -57,7 +57,7 @@ MonoBehaviour:
   _Icon: {fileID: 11400000, guid: 8155f3c1964f8ec46ad4e0740f0fcf3e, type: 2}
   _Tooltip: It's going to blow!
   _AutoCreate: 0
---- !u!114 &-1955134296384298850
+--- !u!114 &8574526501635009542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43969d2ef1b649efa501cd3747cc46a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Damage: 2
+  _Damage: 1
 --- !u!50 &-2861405033765997326
 Rigidbody2D:
   serializedVersion: 4

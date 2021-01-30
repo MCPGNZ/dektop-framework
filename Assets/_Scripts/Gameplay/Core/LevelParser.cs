@@ -10,29 +10,8 @@
 
     public class LevelParser : MonoBehaviour
     {
-        #region Public Variables
-        public const string ExplorerId = "E";
-        public const string WallId = "#";
-        #endregion Public Variables
-
         #region Public Methods
         public Map World => _Map;
-
-        /// <summary>
-        /// Starting position of the Explorer
-        /// note: this only works if the player is in the 0, 0 stage
-        /// </summary>
-        public Vector3 Explorer_UnityPosition
-        {
-            get
-            {
-                var cell = World.FindUnique(ExplorerId);
-                var normalizedPosition = Coordinates.GridToNormalized(cell.GlobalId, Config.StageSize);
-                var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
-
-                return unityPosition;
-            }
-        }
         #endregion Public Methods
 
         #region Public Types
@@ -66,12 +45,21 @@
             /// <summary>
             /// Fails if there is not exactly one cell with _key_
             /// </summary>
-            /// <param name="key"></param>
-            /// <returns></returns>
             public Cell FindUnique(string key)
             {
                 var found = FindAll(key);
                 if (found.Count != 1) { throw new InvalidDataException($"should found only one {key} but found: {found.Count}"); }
+
+                return found[0];
+            }
+
+            /// <summary>
+            /// Fails if there is not exactly one cell with _key_
+            /// </summary>
+            public Cell FindUnique(Identifier identifier)
+            {
+                var found = FindAll(identifier);
+                if (found.Count != 1) { throw new InvalidDataException($"should found only one {identifier.ToName()} but found: {found.Count}"); }
 
                 return found[0];
             }
@@ -96,13 +84,32 @@
             }
 
             /// <summary>
+            /// Finds all cell with matching _key_
+            /// </summary>
+            public List<Cell> FindAll(Identifier key)
+            {
+                var result = new List<Cell>();
+                foreach (var row in _Rows)
+                {
+                    foreach (var cell in row.Cells)
+                    {
+                        if (cell.Type == key)
+                        {
+                            result.Add(cell);
+                        }
+                    }
+                }
+                return result;
+            }
+
+            /// <summary>
             /// Extracts Stage from map
             /// </summary>
             public Map Stage(Vector2Int stageId)
             {
                 var result = new Map(Config.StageSize);
 
-                var xOffset = Config.StageSize.x * stageId.y;
+                var xOffset = Config.StageSize.x * stageId.x;
                 var yOffset = Config.StageSize.y * stageId.y;
 
                 for (int x = 0; x < result.Size.x; ++x)
@@ -121,7 +128,6 @@
             [SerializeField]
             private Row[] _Rows;
             #endregion Private Variables
-
         }
 
         [Serializable]
@@ -141,7 +147,55 @@
             #region Public Variables
             public Vector2Int GlobalId;
             public string Data;
+            public Identifier Type;
+
+            public Vector2Int StageId => new Vector2Int(GlobalId.x / Config.StageSize.x, GlobalId.y / Config.StageSize.y);
+
+            /// <summary>
+            /// position, in tiles, within current stage.
+            /// </summary>
+            public Vector2Int LocalPositionGrid => new Vector2Int(GlobalId.x % Config.StageSize.x, GlobalId.y % Config.StageSize.y);
+
+            /// <summary>
+            /// position, in unity, within current stage.
+            /// </summary>
+            public Vector3 LocalUnityPosition
+            {
+                get
+                {
+                    var normalized = Coordinates.GridToNormalized(LocalPositionGrid, Config.StageSize);
+                    return Coordinates.NormalizedToUnity(normalized);
+                }
+            }
+
+            public string MatchingPortalExitKey
+            {
+                get
+                {
+                    if (Type != Identifier.PortalEntry)
+                        throw new InvalidOperationException("MatchingExitPortalKey read on non-entry-portal");
+
+                    return Identifier.PortalExit.ToTag() +
+                           Data.Substring(Identifier.PortalEntry.ToTag().Length);
+                }
+            }
             #endregion Public Variables
+
+            #region Public Methods
+            public Cell(Vector2Int globalId, string data)
+            {
+                GlobalId = globalId;
+                Data = data;
+
+                Type = data.ToID();
+                if (Type == Identifier.Unknown)
+                {
+                    Debug.LogWarning($"ignoring unsupported cell value: {data} at {globalId}");
+                    Type = Identifier.Empty;
+                }
+                Debug.Log($"{Type} at {GlobalId}");
+            }
+            #endregion Public Methods
         }
         #endregion Public Types
 
@@ -193,11 +247,7 @@
                 var row = cell.Value.Row() - 1;
                 var column = GoogleSheetsToUnityUtilities.NumberFromExcelColumn(cell.Value.Column()) - 1;
 
-                _Map[column][row] = new Cell
-                {
-                    GlobalId = new Vector2Int(column, row),
-                    Data = cell.Value.value
-                };
+                _Map[column][row] = new Cell(new Vector2Int(column, row), cell.Value.value);
             }
 
             Debug.Log("Parse success");

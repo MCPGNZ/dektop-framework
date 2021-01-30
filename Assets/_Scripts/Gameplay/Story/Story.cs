@@ -5,17 +5,6 @@
 
     public class Story : MonoBehaviour
     {
-        #region Public Types
-        public enum Character
-        {
-            Explorer = 0,
-            Bin = 1,
-            Windows = 2,
-            Error = 3,
-            Clippy = 4
-        }
-        #endregion Public Types
-
         #region Inspector Variables
         [SerializeField] private Vector2Int _Begin;
         #endregion Inspector Variables
@@ -37,10 +26,10 @@
         #region Private Methods
         private void Begin()
         {
-            Dialog.Character(Character.Error, "Error", "Error.", "Error?", "Malkovich!");
+            Dialog.Character(Identifier.Error, "Error", "Error.", "Error?", "Malkovich!");
 
         START:
-            var response = Dialog.Character(Character.Clippy, "No!", "Yes", "No");
+            var response = Dialog.Character(Identifier.Clippy, "No!", "Yes", "No");
             switch (response)
             {
                 case "Yes":
@@ -49,8 +38,8 @@
                 }
                 case "No":
                 {
-                    Dialog.Character(Character.Clippy, "I am FED UP", "???");
-                    Dialog.Character(Character.Clippy, "No more playing games!", ":<");
+                    Dialog.Character(Identifier.Clippy, "I am FED UP", "???");
+                    Dialog.Character(Identifier.Clippy, "No more playing games!", ":<");
                     break;
                 }
             }
@@ -59,7 +48,8 @@
         private void BeginAction()
         {
             /* setup explorer starting position */
-            _Explorer.transform.position = _Parser.Explorer_UnityPosition;
+            var cell = _Parser.World.FindUnique(Identifier.Explorer);
+            _Explorer.transform.position = cell.LocalUnityPosition;
 
             /* load first level */
             _Overworld.Load(_Begin);
