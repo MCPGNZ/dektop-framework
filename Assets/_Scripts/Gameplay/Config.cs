@@ -16,6 +16,7 @@
 
         public static IconEx ExplorerAvatar => Instance._ExplorerAvatar;
         public static IconEx ClippyAvatar => Instance._ClippyAvatar;
+        public static IconEx ErrorAvatar => Instance._ErrorAvatar;
         #endregion Public Variables
 
         #region Private Variables
@@ -36,6 +37,9 @@
 
         [SerializeField, BoxGroup("Avatars")]
         private IconEx _ClippyAvatar;
+
+        [SerializeField, BoxGroup("Avatars")]
+        private IconEx _ErrorAvatar;
         #endregion Private Variables
     }
 }

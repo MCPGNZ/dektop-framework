@@ -26,6 +26,7 @@
         #region Private Methods
         private void Begin()
         {
+            Dialog.Error("Error", "Error.", "Error?", "Malkovich!");
 
         START:
             var response = Dialog.Clipper("No!", "Yes", "No");

@@ -2,6 +2,11 @@
 {
     public static class Dialog
     {
+        public static string Error(string message, params string[] options)
+        {
+            return Message("Clipper", message, Config.ErrorAvatar, options);
+        }
+
         public static string Explorer(string message, params string[] options)
         {
             return Message("Clipper", message, Config.ExplorerAvatar, options);

@@ -18,3 +18,4 @@ MonoBehaviour:
   _Wall: {fileID: 5096917803645802027, guid: 02f3a1d153f67b74babd350f83da8a84, type: 3}
   _ExplorerAvatar: {fileID: 11400000, guid: 8978b034438143147a34a15943e7afe6, type: 2}
   _ClippyAvatar: {fileID: 11400000, guid: 50de8b76fd3b4e045bda45efa9f1399c, type: 2}
+  _ErrorAvatar: {fileID: 11400000, guid: abaa57d34eed15149bfde5aeaa9a08d4, type: 2}
