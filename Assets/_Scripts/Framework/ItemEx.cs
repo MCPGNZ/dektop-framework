@@ -3,7 +3,6 @@
     using System;
     using System.IO;
     using System.Runtime.InteropServices;
-    using Sirenix.OdinInspector;
     using UnityEngine;
 
     public interface IItemEx
@@ -47,7 +46,6 @@
         public event Action<string> OnNameChanged;
         public event Action<Vector2Int> OnPositionChanged;
 
-        [ShowInInspector]
         public override string Name
         {
             get => _Info.Name;
@@ -60,7 +58,6 @@
             }
         }
 
-        [ShowInInspector]
         public override string AbsolutePath => _Info.FullName;
 
         public override string DirectoryPath => Path.GetDirectoryName(_Info.FullName);
