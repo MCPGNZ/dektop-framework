@@ -52,7 +52,8 @@ MonoBehaviour:
     Type: 0
   _Name: Lock
   _Icon: {fileID: 11400000, guid: 45cc4c8cee9b2ce45bdb6a5a6c9c127f, type: 2}
-  _Tooltip: A tough thing to crack.
+  _Tooltip: It looks like there's a zipped file. I wonder what's inside... But it
+    probably needs a password... Maybe it's somewhere near?
   _AutoCreate: 0
 --- !u!50 &495446661102639031
 Rigidbody2D:

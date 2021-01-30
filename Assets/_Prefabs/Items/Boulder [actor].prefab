@@ -51,7 +51,7 @@ MonoBehaviour:
     Type: 0
   _Name: Boulder
   _Icon: {fileID: 11400000, guid: 324dc97e80dca0947a13818361cfe022, type: 2}
-  _Tooltip: Looks like it can be pushed.
+  _Tooltip: 'This looks... somehow lighter. Can it be... movable? '
   _AutoCreate: 0
 --- !u!50 &495446661102639031
 Rigidbody2D:
