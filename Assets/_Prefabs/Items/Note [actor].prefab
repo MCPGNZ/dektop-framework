@@ -52,9 +52,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c0035a80fae1e44938e2c810b1e443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell:
+    GlobalId: {x: 0, y: 0}
+    Data: 
+    Type: 0
   _Name: note
   _Icon: {fileID: 11400000, guid: f0152e2e201629642887cbe3d8358f96, type: 2}
-  _Tooltip: Signed by "Clippy"
+  _Tooltip: What is this random sheet of paper? Could it be... someone's diary?
   _AutoCreate: 0
 --- !u!58 &8838738422601942424
 CircleCollider2D:

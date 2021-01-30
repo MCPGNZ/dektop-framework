@@ -181,7 +181,7 @@
                 get
                 {
                     if (!HasParameters)
-                        throw new ArgumentException($"cell {Data} has no parameters");
+                        return "";
                     return Data.Substring(Data.IndexOf(':') + 1);
                 }
             }

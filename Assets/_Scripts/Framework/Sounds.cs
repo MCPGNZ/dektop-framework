@@ -19,9 +19,9 @@
                 {
                     this.Player = new System.Media.SoundPlayer(this.Path);
                 }
-                catch (FileNotFoundException)
+                catch (Exception e)
                 {
-                    Debug.LogWarning($"unable to play {this.Path}: file not found");
+                    Debug.LogWarning($"unable to play {this.Path}: {e.ToString()}");
                 }
             }
 
@@ -29,7 +29,14 @@
             {
                 if (this.Player != null)
                 {
-                    this.Player.Play();
+                    try
+                    {
+                        this.Player.Play();
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogWarning($"unable to play {this.Path}: {e.ToString()}");
+                    }
                 }
             }
 
