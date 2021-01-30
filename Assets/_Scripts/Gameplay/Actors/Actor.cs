@@ -14,6 +14,16 @@
             get => Coordinates.UnityToNormalized(transform.position);
             set => _UnityPosition = Coordinates.NormalizedToUnity(value);
         }
+
+        public string Tooltip
+        {
+            set
+            {
+                _Tooltip = value;
+                _Directory.Tooltip = value;
+            }
+
+        }
         #endregion Public Variables
 
         #region Public Methods

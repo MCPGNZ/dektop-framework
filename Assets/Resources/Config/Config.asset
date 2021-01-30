@@ -35,6 +35,14 @@ MonoBehaviour:
     Tag: '#'
     Prefab: {fileID: 5096917803645802027, guid: 02f3a1d153f67b74babd350f83da8a84, type: 3}
     Avatar: {fileID: 11400000, guid: a967b34dec823da418b80a7f89f81a7f, type: 2}
+  - Identifier: 204
+    Tag: o
+    Prefab: {fileID: 495446661102638985, guid: 84fd194fa6704b64da672812a6f7ce85, type: 3}
+    Avatar: {fileID: 0}
+  - Identifier: 203
+    Tag: nt
+    Prefab: {fileID: 4835563417813236666, guid: 5c85fabab14c4dc43bd8aff463ae3413, type: 3}
+    Avatar: {fileID: 0}
   - Identifier: 300
     Tag: x
     Prefab: {fileID: 4835563417813236666, guid: 6eca33b3dec1af44fa249caebf5aa32f, type: 3}
@@ -45,7 +53,7 @@ MonoBehaviour:
     Avatar: {fileID: 11400000, guid: 8155f3c1964f8ec46ad4e0740f0fcf3e, type: 2}
   - Identifier: 302
     Tag: b
-    Prefab: {fileID: 4898220957834961, guid: a0941299f380fea4caada4cd8a647ddc, type: 3}
+    Prefab: {fileID: 2343094066623330577, guid: f6d46502d2041a2409716d75690039af, type: 3}
     Avatar: {fileID: 0}
   - Identifier: 400
     Tag: P
@@ -63,10 +71,6 @@ MonoBehaviour:
     Tag: <3
     Prefab: {fileID: 4835563417813236666, guid: b3bbd74abc58e0c419ae3d5922101b01, type: 3}
     Avatar: {fileID: 11400000, guid: 08f063ab091a6c847b0a1dcdeabe407a, type: 2}
-  - Identifier: 203
-    Tag: nt
-    Prefab: {fileID: 4835563417813236666, guid: 5c85fabab14c4dc43bd8aff463ae3413, type: 3}
-    Avatar: {fileID: 11400000, guid: f0152e2e201629642887cbe3d8358f96, type: 2}
   - Identifier: 104
     Tag: WIN31
     Prefab: {fileID: 104899619469281166, guid: 2d21d3ccae8b30f44a1c45596fefaa08, type: 3}

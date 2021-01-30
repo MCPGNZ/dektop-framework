@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: bat [icon]
   m_EditorClassIdentifier: 
   _Asset: {fileID: 102900000, guid: 8629e2634acd9f543a5c3d82f8f10184, type: 3}
-  _Path: 
+  _Path: bat.ico

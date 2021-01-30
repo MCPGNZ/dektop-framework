@@ -10,10 +10,18 @@
         #endregion Inspector Variables
 
         #region Unity Methods
+        private void Awake()
+        {
+            _Explorer.OnLifeLost += OnExplorerLifeLost;
+        }
+        private void OnDestroy()
+        {
+            _Explorer.OnLifeLost -= OnExplorerLifeLost;
+        }
+
         private void Start()
         {
-            if (!Config.SkipIntro) { BeginDialogs(); }
-            BeginAction();
+            StoryBegin();
         }
         #endregion Unity Methods
 
@@ -24,6 +32,17 @@
         #endregion Private Variables
 
         #region Private Methods
+        private void StoryBegin()
+        {
+            if (!Config.SkipIntro) { BeginDialogs(); }
+            BeginAction();
+        }
+        private void StoryEnd()
+        {
+            EndDialogs();
+            Lifetime.Quit();
+        }
+
         private void BeginDialogs()
         {
             Dialog.Character(Identifier.Error, "Error", "Error.", "Error?", "Malkovich!");
@@ -53,6 +72,19 @@
 
             /* load first level */
             _Overworld.Load(_Begin);
+        }
+
+        private void EndDialogs()
+        {
+            Dialog.Character(Identifier.Clippy, "You are no more", "Sorry...");
+        }
+
+        private void OnExplorerLifeLost(int count)
+        {
+            if (_Explorer.Lives <= 0)
+            {
+                StoryEnd();
+            }
         }
         #endregion Private Methods
 
