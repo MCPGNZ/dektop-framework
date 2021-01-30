@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Runtime.InteropServices;
+    using System.Text;
 
     [Serializable]
     public static class DesktopEx
@@ -172,12 +173,21 @@
         internal static extern void desktop_initialize();
 
         [DllImport("desktop-lib.dll")]
+        internal static extern int desktop_get_item_indices2(
+            [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPWStr, SizeParamIndex = 1)]
+            StringBuilder[] paths);
+
+        [DllImport("desktop-lib.dll")]
+        internal static extern void desktop_set_item_position2(int index, int x, int y);
+
+        [DllImport("desktop-lib.dll")]
         internal static extern void desktop_get_item_position(
             [MarshalAs(UnmanagedType.LPWStr)] string path, out int x, out int y);
 
         [DllImport("desktop-lib.dll")]
         internal static extern void desktop_set_item_position(
             [MarshalAs(UnmanagedType.LPWStr)] string path, int x, int y);
+
         [DllImport("desktop-lib.dll")]
         internal static extern bool desktop_get_style(FolderFlags flag);
 
