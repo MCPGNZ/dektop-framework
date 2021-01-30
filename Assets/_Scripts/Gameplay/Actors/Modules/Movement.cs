@@ -27,7 +27,7 @@
             if (RawKeyInput.IsKeyDown(_Right)) { direction += new Vector2(1, 0); }
             if (RawKeyInput.IsKeyDown(_Left)) { direction += new Vector2(-1, 0); }
 
-            var vector = direction.normalized * (_Speed * Time.deltaTime);
+            var vector = direction.normalized * (_Speed * Time.fixedDeltaTime);
             Move(vector);
         }
         #endregion Unity Methods
