@@ -2,36 +2,44 @@
 {
     using System.Collections.Generic;
     using UnityEngine;
+    using Zenject;
 
     public class LifepointController : MonoBehaviour
     {
+        #region Inspector Variables
+        [SerializeField] private GameObject _HeartPrefab;
+        #endregion Inspector Variables
 
-        // Use this for initialization
-        void Start()
+        #region Unity Methods
+        private void Update()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            if (_HUD.Lifepoints > _Hearts.Count)
+            if (_Explorer.Lives > _Hearts.Count)
             {
                 AddHeart();
             }
-            if (_HUD.Lifepoints < _Hearts.Count)
+            if (_Explorer.Lives < _Hearts.Count)
             {
                 RemoveHeart();
             }
         }
+        #endregion Unity Methods
 
+        #region Private Variables
+        private readonly List<GameObject> _Hearts = new List<GameObject>();
+        private int _AutoIncrement = 1;
+
+        [Inject] private Explorer _Explorer;
+        #endregion Private Variables
+
+        #region Private Methods
         private void AddHeart()
         {
             var item = Instantiate(_HeartPrefab);
             _Hearts.Add(item);
             var displacement = new Vector3(Random.Range(-15.05f, 15.05f), Random.Range(-30.05f, 30.05f), 0);
             item.transform.position = gameObject.transform.position + displacement;
-            var actorName = string.Format("Heart{0}", _AutoIncrement++);
+
+            var actorName = $"Heart{_AutoIncrement++}";
             item.GetComponent<Actor>().Create(actorName);
         }
         private void RemoveHeart()
@@ -41,11 +49,7 @@
             _Hearts.RemoveAt(0);
             Destroy(item);
         }
+        #endregion Private Methods
 
-        private readonly List<GameObject> _Hearts = new List<GameObject>();
-        private int _AutoIncrement = 1;
-
-        [SerializeField] private HUDController _HUD;
-        [SerializeField] private GameObject _HeartPrefab;
     }
 }

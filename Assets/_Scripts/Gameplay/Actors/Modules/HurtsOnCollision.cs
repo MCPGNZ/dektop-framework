@@ -5,19 +5,11 @@
 
     public class HurtsOnCollision : MonoBehaviour
     {
+        #region Inspector Variables
+        [SerializeField] private int _Damage = 1;
+        #endregion Inspector Variables
 
-        // Use this for initialization
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
+        #region Unity Methods
         private void OnCollisionEnter2D(Collision2D collision)
         {
             // This is for mines, who have solid bodies.
@@ -29,7 +21,13 @@
             // This is for spikes, who you can pass through.
             OnAnyKindOfContact(collider);
         }
+        #endregion Unity Methods
 
+        #region Private Variables
+        [Inject] private Explorer _Explorer;
+        #endregion Private Variables
+
+        #region Private Methds
         private void OnAnyKindOfContact(Collider2D collider)
         {
             var bodyObject = collider.attachedRigidbody.gameObject;
@@ -38,15 +36,15 @@
             // make sure it only hurts the player (who has Movement behavior)
             if (bodyObject.GetComponent<Movement>() == null) { return; }
 
-            _Controller.Lifepoints -= _Damage;
+            _Explorer.Lives -= _Damage;
 
             if (_Damage > 0)
             {
                 Debug.Log("Ouch! It hurt!");
                 // TODO replace with Ailish sounds
                 Sounds.WindowsHardwareRemove.Play();
-		var reaction = bodyObject.GetComponent<DamageReaction>();
-		if (reaction != null) reaction.OnDamage();
+                var reaction = bodyObject.GetComponent<DamageReaction>();
+                if (reaction != null) reaction.OnDamage();
             }
             else if (_Damage < 0)
             {
@@ -54,8 +52,6 @@
                 Sounds.WindowsHardwareInsert.Play();
             }
         }
-
-        [SerializeField] private int _Damage = 1;
-        [Inject] private HUDController _Controller;
+        #endregion Private Methds
     }
 }
