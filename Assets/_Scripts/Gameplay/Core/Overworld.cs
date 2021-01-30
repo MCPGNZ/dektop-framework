@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading;
+    using JetBrains.Annotations;
     using UnityEngine;
     using Zenject;
     using static LevelParser;
@@ -29,6 +31,8 @@
                 }
             }
             _CurrentStageId = levelId;
+
+            Thread.Sleep(1000);
             LevelChanged?.Invoke();
         }
         #endregion Public Methods
@@ -44,13 +48,108 @@
         }
         #endregion Unity Methods
 
+        #region Private Types
+        public interface IPooled
+        {
+            void OnCreate();
+            void OnRelease();
+        }
+        private sealed class Pool
+        {
+            #region Public Methods
+            public static GameObject Instantiate(Identifier identifier, Transform parent, DiContainer container, Action<GameObject> initialize)
+            {
+                if (_FreeList.TryGetValue(identifier, out var result))
+                {
+                    /* if the free list is empty */
+                    if (result.Count != 0)
+                    {
+                        var last = result.Dequeue();
+
+                        /* handle state change */
+                        OnActivated(last, initialize);
+                        return last;
+                    }
+                }
+
+                /* instantiate new entry */
+                var prefab = Config.FindPrefab(identifier);
+                var item = container.InstantiatePrefab(prefab, parent);
+                _Instantiated.Add(item, identifier);
+
+                OnActivated(item, initialize);
+                return item;
+            }
+
+            public static void Release(GameObject obj)
+            {
+                if (obj == null) { return; }
+
+                var identifier = _Instantiated[obj];
+
+                /* add to freelist */
+                if (_FreeList.TryGetValue(identifier, out var result) == false)
+                {
+                    _FreeList.Add(identifier, new Queue<GameObject>());
+                }
+
+                /* check if contains */
+                if (_FreeList[identifier].Contains(obj)) { return; }
+
+                /* add to freelist */
+                _FreeList[identifier].Enqueue(obj);
+
+                /* handle state change */
+                OnDeactivated(obj);
+            }
+            public static void ReleaseAll()
+            {
+                foreach (var entry in _Instantiated)
+                {
+                    Release(entry.Key);
+                }
+            }
+            #endregion Public Methods
+
+            #region Private Methods
+            private static void OnActivated(GameObject item, Action<GameObject> initialize)
+            {
+                initialize(item);
+
+                /* notify */
+                var pooled = item.GetComponent<IPooled>();
+                pooled?.OnCreate();
+
+                /* activate */
+                item.SetActive(true);
+            }
+            private static void OnDeactivated(GameObject item)
+            {
+                var pooled = item.GetComponent<IPooled>();
+                pooled?.OnRelease();
+
+                item.SetActive(false);
+            }
+            #endregion Private Methods
+
+            #region Private Variables
+            /* prefab to instances */
+            private static readonly Dictionary<Identifier, Queue<GameObject>> _FreeList =
+                new Dictionary<Identifier, Queue<GameObject>>();
+
+            /* prefab to instances */
+            private static readonly Dictionary<GameObject, Identifier> _Instantiated =
+                new Dictionary<GameObject, Identifier>();
+            #endregion Private Variables
+        }
+        #endregion Private Types
+
         #region Private Variables
-        [Inject] private DiContainer _Container;
-        [Inject] private Explorer _Explorer;
-        [Inject] private LevelParser _Parser;
+        [Inject, UsedImplicitly] private DiContainer _Container;
+        [Inject, UsedImplicitly] private Explorer _Explorer;
+        [Inject, UsedImplicitly] private LevelParser _Parser;
 
         private Vector2Int _CurrentStageId;
-        private readonly List<GameObject> _Objects = new List<GameObject>();
         private int _AutoIncrement = 1;
 
         private float _PortalLock;
@@ -59,12 +158,7 @@
         #region Private Methods
         private void Release()
         {
-            /* todo: object pool */
-            foreach (var entry in _Objects)
-            {
-                Destroy(entry);
-            }
-            _Objects.Clear();
+            Pool.ReleaseAll();
         }
 
         public void TeleportExplorerTo(Cell cell)
@@ -98,40 +192,65 @@
             /* explorer is always on scene */
             if (cell.Type == Identifier.Explorer) { return; }
 
-            /* handle rest */
-            var name = cell.Type.ToString();
-            var prefab = Config.FindPrefab(cell.Type);
-            var item = Create(prefab, position, gridSize);
+            Pool.Instantiate(cell.Type, transform, _Container,
+                item =>
+                {
+                    InitializePosition(item, position, gridSize);
+                    InitializeActor(cell, item);
+                });
+        }
 
+        private void InitializeActor(Cell cell, GameObject item)
+        {
             switch (cell.Type)
             {
                 case Identifier.PortalEntry:
                 {
-
                     var portal = item.GetComponent<Actor>();
                     portal.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}", cell);
                     portal.GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
                     break;
                 }
+
+                case Identifier.MineEnemy:
+                {
+                    var actor = item.GetComponent<Actor>();
+                    actor.Create($"Minesweeper{_AutoIncrement++}.exe");
+                    var automobile = item.GetComponent<Automobile>();
+                    if (cell.Data.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 100.0f); }
+                    if (cell.Data.Contains("-")) { automobile.MoveVector = new Vector2(100.0f, 0.0f); }
+                    if (cell.Data.Contains("*")) { automobile.MoveVector = new Vector2(100.0f, 100.0f); }
+                    break;
+                }
+                case Identifier.BatEnemy:
+                {
+                    var actor = item.GetComponent<Actor>();
+                    actor.Create($"Killer{_AutoIncrement++}.bat");
+                    var automobile = item.GetComponent<Automobile>();
+                    if (cell.Data.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 150.0f); }
+                    if (cell.Data.Contains("-")) { automobile.MoveVector = new Vector2(150.0f, 0.0f); }
+                    if (cell.Data.Contains("*")) { automobile.MoveVector = new Vector2(150.0f, 150.0f); }
+                    break;
+                }
                 default:
                 {
                     var actor = item.GetComponent<Actor>();
-                    if (actor != null) { actor.Create($"{name}{_AutoIncrement++}", cell); }
+                    if (actor != null)
+                    {
+                        var actorName = cell.Type.ToString();
+                        actor.Create($"{actorName}{_AutoIncrement++}", cell);
+                    }
                     break;
                 }
             }
         }
 
-        private GameObject Create(GameObject prefab, Vector2Int cell, Vector2Int gridSize)
+        private void InitializePosition(GameObject item, Vector2Int position, Vector2Int gridSize)
         {
-            var normalizedPosition = Coordinates.GridToNormalized(cell, gridSize);
+            var normalizedPosition = Coordinates.GridToNormalized(position, gridSize);
             var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
 
-            var item = _Container.InstantiatePrefab(prefab, transform);
             item.transform.localPosition = unityPosition;
-
-            _Objects.Add(item);
-            return item;
         }
         #endregion Private Methods
     }

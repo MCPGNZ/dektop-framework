@@ -4,7 +4,7 @@
     using Sirenix.OdinInspector;
     using UnityEngine;
 
-    public sealed class Actor : MonoBehaviour
+    public sealed class Actor : MonoBehaviour, Overworld.IPooled
     {
         #region Public Variables
         public bool IsCreated => _Directory != null;
@@ -20,7 +20,7 @@
         public void Create(string name, LevelParser.Cell cell = null)
         {
             if (Config.DisableIcons) { return; }
-            if (_Directory != null) { throw new InvalidOperationException(); }
+            if (_Directory != null) { throw new InvalidOperationException($"actor: {name}"); }
 
             Cell = cell;
             _Name = name;
@@ -30,16 +30,25 @@
         }
         public void Destroy()
         {
-            if (_Directory == null) { throw new InvalidOperationException(); }
+            if (_Directory == null) { throw new InvalidOperationException($"actor: {name}"); }
 
             _Directory.Delete();
             _Directory = null;
         }
         public void ChangeIcon(IconEx newIcon)
         {
-            if (_Directory == null) { throw new InvalidOperationException(); }
+            if (_Directory == null) { throw new InvalidOperationException($"actor: {name}"); }
 
             _Directory.Icon = newIcon;
+        }
+
+        void Overworld.IPooled.OnCreate()
+        {
+            UpdatePosition();
+        }
+        void Overworld.IPooled.OnRelease()
+        {
+            Destroy();
         }
         #endregion Public Methods
 
@@ -80,7 +89,7 @@
         #endregion Private Variables
 
         #region Private Methods
-        private void UpdatePosition()
+        public void UpdatePosition()
         {
             if (_UnityPosition != transform.localPosition)
             {

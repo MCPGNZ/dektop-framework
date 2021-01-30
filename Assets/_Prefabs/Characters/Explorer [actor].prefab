@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Name: Explorer
-  _Icon: {fileID: 11400000, guid: 41da954b43abebf41afe893af3efe3c2, type: 2}
+  _Icon: {fileID: 11400000, guid: 8978b034438143147a34a15943e7afe6, type: 2}
   _Tooltip: Hello traveller!
   _AutoCreate: 1
 --- !u!114 &5494825757479957891

@@ -2443,7 +2443,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 18, y: 1}
         Data: m*
-        Type: 200
+        Type: 301
       - GlobalId: {x: 18, y: 2}
         Data: 
         Type: 200
@@ -3323,7 +3323,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 25, y: 12}
         Data: m*
-        Type: 200
+        Type: 301
       - GlobalId: {x: 25, y: 13}
         Data: 
         Type: 200
@@ -3610,7 +3610,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 27, y: 27}
         Data: b||
-        Type: 200
+        Type: 302
       - GlobalId: {x: 27, y: 28}
         Data: 
         Type: 200
@@ -4049,7 +4049,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 31, y: 12}
         Data: m*
-        Type: 200
+        Type: 301
       - GlobalId: {x: 31, y: 13}
         Data: 
         Type: 200
@@ -4233,7 +4233,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 32, y: 33}
         Data: m||
-        Type: 200
+        Type: 301
       - GlobalId: {x: 32, y: 34}
         Data: 
         Type: 200
@@ -4593,7 +4593,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 35, y: 32}
         Data: m||
-        Type: 200
+        Type: 301
       - GlobalId: {x: 35, y: 33}
         Data: 
         Type: 200
@@ -4681,7 +4681,7 @@ MonoBehaviour:
         Type: 201
       - GlobalId: {x: 36, y: 21}
         Data: b-
-        Type: 200
+        Type: 302
       - GlobalId: {x: 36, y: 22}
         Data: 
         Type: 200
@@ -4775,7 +4775,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 37, y: 12}
         Data: m*
-        Type: 200
+        Type: 301
       - GlobalId: {x: 37, y: 13}
         Data: 
         Type: 200
@@ -4962,7 +4962,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 38, y: 34}
         Data: m||
-        Type: 200
+        Type: 301
       - GlobalId: {x: 38, y: 35}
         Data: '#'
         Type: 201
@@ -5791,7 +5791,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 45, y: 28}
         Data: b||
-        Type: 200
+        Type: 302
       - GlobalId: {x: 45, y: 29}
         Data: '#'
         Type: 201
@@ -6260,7 +6260,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 49, y: 23}
         Data: b-
-        Type: 200
+        Type: 302
       - GlobalId: {x: 49, y: 24}
         Data: 
         Type: 200
@@ -6469,7 +6469,7 @@ MonoBehaviour:
         Type: 201
       - GlobalId: {x: 51, y: 12}
         Data: b-
-        Type: 200
+        Type: 302
       - GlobalId: {x: 51, y: 13}
         Data: 
         Type: 200
@@ -6608,7 +6608,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 52, y: 18}
         Data: m||
-        Type: 200
+        Type: 301
       - GlobalId: {x: 52, y: 19}
         Data: '#'
         Type: 201
@@ -6638,7 +6638,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 52, y: 28}
         Data: b||
-        Type: 200
+        Type: 302
       - GlobalId: {x: 52, y: 29}
         Data: '#'
         Type: 201
@@ -6871,7 +6871,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 54, y: 25}
         Data: b-
-        Type: 200
+        Type: 302
       - GlobalId: {x: 54, y: 26}
         Data: 
         Type: 200
@@ -7319,7 +7319,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 58, y: 13}
         Data: b-
-        Type: 200
+        Type: 302
       - GlobalId: {x: 58, y: 14}
         Data: '#'
         Type: 201
@@ -7328,7 +7328,7 @@ MonoBehaviour:
         Type: 201
       - GlobalId: {x: 58, y: 16}
         Data: m||
-        Type: 200
+        Type: 301
       - GlobalId: {x: 58, y: 17}
         Data: 
         Type: 200
@@ -7376,7 +7376,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 58, y: 32}
         Data: m*
-        Type: 200
+        Type: 301
       - GlobalId: {x: 58, y: 33}
         Data: 
         Type: 200
@@ -7467,7 +7467,7 @@ MonoBehaviour:
         Type: 200
       - GlobalId: {x: 59, y: 22}
         Data: b-
-        Type: 200
+        Type: 302
       - GlobalId: {x: 59, y: 23}
         Data: 
         Type: 200

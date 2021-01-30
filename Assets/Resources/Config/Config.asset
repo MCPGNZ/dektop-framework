@@ -38,9 +38,13 @@ MonoBehaviour:
   - Identifier: 300
     Tag: x
     Prefab: {fileID: 4835563417813236666, guid: 6eca33b3dec1af44fa249caebf5aa32f, type: 3}
-    Avatar: {fileID: 0}
+    Avatar: {fileID: 11400000, guid: abaa57d34eed15149bfde5aeaa9a08d4, type: 2}
   - Identifier: 301
     Tag: m
+    Prefab: {fileID: 4898220957834961, guid: a0941299f380fea4caada4cd8a647ddc, type: 3}
+    Avatar: {fileID: 11400000, guid: 8155f3c1964f8ec46ad4e0740f0fcf3e, type: 2}
+  - Identifier: 302
+    Tag: b
     Prefab: {fileID: 4898220957834961, guid: a0941299f380fea4caada4cd8a647ddc, type: 3}
     Avatar: {fileID: 0}
   - Identifier: 400
@@ -63,3 +67,31 @@ MonoBehaviour:
     Tag: nt
     Prefab: {fileID: 4835563417813236666, guid: 5c85fabab14c4dc43bd8aff463ae3413, type: 3}
     Avatar: {fileID: 11400000, guid: f0152e2e201629642887cbe3d8358f96, type: 2}
+  - Identifier: 104
+    Tag: WIN31
+    Prefab: {fileID: 104899619469281166, guid: 2d21d3ccae8b30f44a1c45596fefaa08, type: 3}
+    Avatar: {fileID: 0}
+  - Identifier: 105
+    Tag: WIN7
+    Prefab: {fileID: 104899619469281166, guid: 969ced853536db0419188518c6cdc5ff, type: 3}
+    Avatar: {fileID: 0}
+  - Identifier: 106
+    Tag: WIN95
+    Prefab: {fileID: 104899619469281166, guid: a940765d8dfe21e44a052978b7531293, type: 3}
+    Avatar: {fileID: 0}
+  - Identifier: 107
+    Tag: WIN98
+    Prefab: {fileID: 104899619469281166, guid: a462d5f265262cb4fb2ee97459050fcc, type: 3}
+    Avatar: {fileID: 0}
+  - Identifier: 108
+    Tag: WIN8
+    Prefab: {fileID: 104899619469281166, guid: cf508aebe6e51ac4b9d764e1e5f34594, type: 3}
+    Avatar: {fileID: 0}
+  - Identifier: 109
+    Tag: WIN10
+    Prefab: {fileID: 104899619469281166, guid: b78f787ca84fbd444bfe2f5b70b41dad, type: 3}
+    Avatar: {fileID: 0}
+  - Identifier: 110
+    Tag: WIN2000
+    Prefab: {fileID: 104899619469281166, guid: 1b6fb0095bc520347a2673c5ef2bde1f, type: 3}
+    Avatar: {fileID: 0}

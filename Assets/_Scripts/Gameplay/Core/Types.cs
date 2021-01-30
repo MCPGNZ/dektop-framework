@@ -16,7 +16,14 @@
         Bin = 101,
         Error = 102,
         Clippy = 103,
-        Windows7 = 104,
+
+        Windows31 = 104,
+        Windows7 = 105,
+        Windows95 = 106,
+        Windows98 = 107,
+        Windows8 = 108,
+        Windows10 = 109,
+        Windows2000 = 110,
 
         /* environment */
         Empty = 200,
@@ -27,6 +34,7 @@
         /* enemies */
         SpikeEnemy = 300,
         MineEnemy = 301,
+        BatEnemy = 302,
 
         /* portals */
         PortalEntry = 400,
@@ -63,6 +71,8 @@
             var found = identifiers.Find(x => x.Tag == tag);
             if (found != null) { return found.Identifier; }
 
+            if (tag.StartsWith(Identifier.MineEnemy.ToTag())) { return Identifier.MineEnemy; }
+            if (tag.StartsWith(Identifier.BatEnemy.ToTag())) { return Identifier.BatEnemy; }
             if (tag.StartsWith(Identifier.PortalEntry.ToTag())) { return Identifier.PortalEntry; }
             if (tag.StartsWith(Identifier.PortalExit.ToTag())) { return Identifier.PortalExit; }
             if (tag.StartsWith(Identifier.Note.ToTag())) { return Identifier.Note; }
