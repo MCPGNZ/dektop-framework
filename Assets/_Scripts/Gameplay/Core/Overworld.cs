@@ -28,7 +28,6 @@
 
         #region Inspector Variables
         [SerializeField] private Transform _Root;
-        [SerializeField] private LevelParser _Parser;
         #endregion Inspector Variables
 
         #region Unity Methods
@@ -41,6 +40,7 @@
         #region Private Variables
         [Inject] private DiContainer _Container;
         [Inject] private Explorer _Explorer;
+        [Inject] private LevelParser _Parser;
 
         private Vector2Int _CurrentStageId;
         private readonly List<GameObject> _Objects = new List<GameObject>();
