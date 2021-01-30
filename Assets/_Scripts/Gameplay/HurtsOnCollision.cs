@@ -1,6 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using UnityEngine;
+    using Zenject;
 
     public class HurtsOnCollision : MonoBehaviour
     {
@@ -23,13 +24,13 @@
             // if (collision.gameObject.GetComponent<Movement>() == null) { return; }
 
             Debug.Log("Ouch! It hurt!");
-            _HUD.Lifepoints -= _Damage;
+            _Controller.Lifepoints -= _Damage;
 
             var reaction = collision.gameObject.GetComponent<DamageReaction>();
             if (reaction != null) reaction.OnDamage();
         }
 
         [SerializeField] private int _Damage = 1;
-        [SerializeField] private HUDController _HUD;
+        [Inject] private HUDController _Controller;
     }
 }
