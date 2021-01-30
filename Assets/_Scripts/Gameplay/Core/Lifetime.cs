@@ -36,6 +36,9 @@
             SetupItems();
 
             Minimize();
+
+            string result = TextInput.Show("tytul", "dupadsaksag af sdf asdf asd ga eakgjre bkjre akjr gkjd gkjew fkaejr vkjd vakjfdbkejv fdjv kjfd vksj tkhjs ekrjfiaehab ihr ceidhv aieht ivj fng bwhtri gv?", "bin.ico");
+            Debug.LogError($"AAA KURWA {result}");
         }
         private void OnDestroy()
         {
