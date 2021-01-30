@@ -109,14 +109,14 @@
                 {
 
                     var portal = item.GetComponent<Actor>();
-                    portal.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}");
+                    portal.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}", cell);
                     portal.GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
                     break;
                 }
                 default:
                 {
                     var actor = item.GetComponent<Actor>();
-                    if (actor != null) { actor.Create($"{name}{_AutoIncrement++}"); }
+                    if (actor != null) { actor.Create($"{name}{_AutoIncrement++}", cell); }
                     break;
                 }
             }

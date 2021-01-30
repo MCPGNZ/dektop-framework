@@ -8,6 +8,7 @@
     {
         #region Public Variables
         public bool IsCreated => _Directory != null;
+        public LevelParser.Cell Cell;
         public Vector2 NormalizedPosition
         {
             get => Coordinates.UnityToNormalized(transform.position);
@@ -16,11 +17,12 @@
         #endregion Public Variables
 
         #region Public Methods
-        public void Create(string name)
+        public void Create(string name, LevelParser.Cell cell = null)
         {
             if (Config.DisableIcons) { return; }
             if (_Directory != null) { throw new InvalidOperationException(); }
 
+            Cell = cell;
             _Name = name;
             _Directory = DesktopEx.CreateDirectory(_Name);
             _Directory.Icon = _Icon;
