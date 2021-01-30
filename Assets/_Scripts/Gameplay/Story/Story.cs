@@ -12,7 +12,7 @@
         #region Unity Methods
         private void Start()
         {
-            Begin();
+            if (!Config.SkipIntro) { BeginDialogs(); }
             BeginAction();
         }
         #endregion Unity Methods
@@ -24,7 +24,7 @@
         #endregion Private Variables
 
         #region Private Methods
-        private void Begin()
+        private void BeginDialogs()
         {
             Dialog.Character(Identifier.Error, "Error", "Error.", "Error?", "Malkovich!");
 
