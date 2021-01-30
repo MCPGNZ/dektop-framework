@@ -1,7 +1,6 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using JetBrains.Annotations;
     using UnityEngine;
@@ -201,8 +200,8 @@
             Pool.Instantiate(cell.Type, transform, _Container,
                 item =>
                 {
-                    InitializePosition(item, position, gridSize);
                     InitializeActor(cell, item);
+                    InitializePosition(item, position, gridSize);
                 });
         }
 
@@ -217,19 +216,14 @@
 
         private void InitializePosition(GameObject item, Vector2Int position, Vector2Int gridSize)
         {
-            StartCoroutine(DelayedPosition(item, position, gridSize));
-        }
-
-        private IEnumerator DelayedPosition(GameObject item, Vector2Int position, Vector2Int gridSize)
-        {
-            yield return new WaitForSecondsRealtime(1.0f);
-
             var normalizedPosition = Coordinates.GridToNormalized(position, gridSize);
             var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
 
             item.transform.localPosition = unityPosition;
+
+            var component = item.GetComponent<Actor>();
+            if (component != null) { component.UpdatePosition(true); }
         }
         #endregion Private Methods
     }
-
 }

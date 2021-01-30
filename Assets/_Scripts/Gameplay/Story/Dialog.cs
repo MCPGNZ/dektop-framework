@@ -12,6 +12,12 @@
             return Message(name, message, avatar, options);
         }
 
+        public static string Character(Identifier character, string message, IconEx avatar, params string[] options)
+        {
+            var name = character.ToString();
+            return Message(name, message, avatar, options);
+        }
+
         public static string Message(string title, string message, IconEx icon, params string[] options)
         {
             string response = null;

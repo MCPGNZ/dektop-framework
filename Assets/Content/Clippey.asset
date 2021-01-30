@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7c04991f0b45b89799ebaf77a6dd4f, type: 3}
+  m_Name: Clippey
+  m_EditorClassIdentifier: 
+  Encounters:
+  - Number: 0
+    Action:
+    - id: 0
+    - id: 1
+    - id: 2
+    - id: 3
+    - id: 4
+    - id: 5
+    - id: 6
+  references:
+    version: 1
+    00000000:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: Well, hello!
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options:
+        - uhm.. hi?
+        - hello!
+    00000001:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: Oh? I haven't seen you in a while.
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options:
+        - ...
+        - and.. who are you?
+    00000002:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: "Who am I? Oh, silly! Your old friend! Don\u2019t you remember me?"
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options:
+        - "Not really\u2026"
+        - "You remind me of someone\u2026"
+    00000003:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: "I\u2019m your office assistant! Would you like some assistance
+          today?"
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options:
+        - NO
+    00000004:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: 'No? Well then... It seems you enjoy playing games? '
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options:
+        - "Yes\u2026"
+        - Not really.
+        - I have no time for games
+    00000005:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: 'Me too! Watch this! '
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options:
+        - Watch what?
+    00000006:
+      type: {class: NpcStory/DisappearAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}

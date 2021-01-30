@@ -37,27 +37,27 @@
                 switch (cell.Type)
                 {
                     case Identifier.PortalEntry:
-                        {
-                            name = $"PortalEntry{name}";
-                            GetComponent<Actor>().GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
-                            break;
-                        }
+                    {
+                        name = $"PortalEntry{name}";
+                        GetComponent<Actor>().GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
+                        break;
+                    }
 
                     case Identifier.MineEnemy:
-                        {
-                            name = $"Minesweeper{name}.exe";
-                            break;
-                        }
+                    {
+                        name = $"Minesweeper{name}.exe";
+                        break;
+                    }
                     case Identifier.BatEnemy:
-                        {
-                            name = $"Killer{name}.bat";
-                            break;
-                        }
+                    {
+                        name = $"Killer{name}.bat";
+                        break;
+                    }
                     default:
-                        {
-                            name = $"{cell.Type.ToName()}{name}";
-                            break;
-                        }
+                    {
+                        name = $"{cell.Type.ToName()}{name}";
+                        break;
+                    }
                 }
             }
 
@@ -131,9 +131,9 @@
         #endregion Private Variables
 
         #region Private Methods
-        public void UpdatePosition()
+        public void UpdatePosition(bool force = false)
         {
-            if (_UnityPosition != transform.localPosition)
+            if (force || _UnityPosition != transform.localPosition)
             {
                 _UnityPosition = transform.localPosition;
                 _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
