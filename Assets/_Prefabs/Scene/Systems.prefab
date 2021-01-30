@@ -2902,8 +2902,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 22, y: 8}
-        Data: 
-        Type: 200
+        Data: BIN
+        Type: 101
       - GlobalId: {x: 22, y: 9}
         Data: 
         Type: 200

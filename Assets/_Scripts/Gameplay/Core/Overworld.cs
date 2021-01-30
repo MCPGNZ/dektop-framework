@@ -13,6 +13,7 @@
     {
         #region Public Variables
         public static Action LevelChanged;
+        public Vector2Int CurrentStageId => _CurrentStageId;
         #endregion Public Variables
 
         #region Public Methods
