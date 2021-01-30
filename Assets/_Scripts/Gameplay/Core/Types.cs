@@ -20,6 +20,7 @@
         /* environment */
         Empty = 200,
         Wall = 201,
+        Heart = 202,
 
         /* enemies */
         SpikeEnemy = 300,

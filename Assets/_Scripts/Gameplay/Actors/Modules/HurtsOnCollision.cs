@@ -23,11 +23,21 @@
             // make sure it only hurts the player (who has Movement behavior)
             if (collision.gameObject.GetComponent<Movement>() == null) { return; }
 
-            Debug.Log("Ouch! It hurt!");
             _Controller.Lifepoints -= _Damage;
 
-            var reaction = collision.gameObject.GetComponent<DamageReaction>();
-            if (reaction != null) reaction.OnDamage();
+            if (_Damage > 0)
+            {
+                Debug.Log("Ouch! It hurt!");
+                // TODO replace with Ailish sounds
+                Sounds.WindowsHardwareRemove.Play();
+                var reaction = collision.gameObject.GetComponent<DamageReaction>();
+                if (reaction != null) reaction.OnDamage();
+            }
+            else if (_Damage < 0)
+            {
+                // TODO replace with Ailish sounds
+                Sounds.WindowsHardwareInsert.Play();
+            }
         }
 
         [SerializeField] private int _Damage = 1;
