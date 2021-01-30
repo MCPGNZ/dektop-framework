@@ -10,6 +10,17 @@
 
     public sealed class Lifetime : MonoBehaviour
     {
+        #region Public Methods
+        public static void Quit()
+        {
+#if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+        #endregion Public Methods
+
         #region Unity Methods
         public void Awake()
         {
@@ -103,11 +114,7 @@
         {
             if (key == RawKey.Escape)
             {
-#if UNITY_EDITOR
-                EditorApplication.isPlaying = false;
-#else
-                Application.Quit();
-#endif
+                Quit();
             }
         }
 
@@ -138,6 +145,5 @@
 #endif
         }
         #endregion Private Methods
-
     }
 }

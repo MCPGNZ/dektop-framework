@@ -1,14 +1,22 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
+    using System;
     using UnityEngine;
 
     public sealed class Explorer : MonoBehaviour
     {
         #region Public Variables
+        public Action<int> OnLifeLost;
+
         public int Lives
         {
             get => _Lives;
-            set => _Lives = value;
+            set
+            {
+                if (value < _Lives) { OnLifeLost?.Invoke(_Lives - value); }
+
+                _Lives = value;
+            }
         }
         #endregion Public Variables
 
