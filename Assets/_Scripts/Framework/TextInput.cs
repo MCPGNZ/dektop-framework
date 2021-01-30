@@ -71,7 +71,7 @@ public class TextInput : Form
         // 
         // okButton
         // 
-        this.textInput.AutoSize = true;
+        this.okButton.AutoSize = true;
         this.okButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
         this.okButton.Padding = new Padding(15, 1, 15, 1);
         this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -83,8 +83,8 @@ public class TextInput : Form
         // textInput
         // 
         this.textInput.AutoSize = true;
-        this.textInput.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        this.textInput.MinimumSize = new Size(300, 10);
+        this.textInput.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        this.textInput.MinimumSize = new Size(200, 10);
         this.textInput.Name = "textInput";
         this.textInput.TabIndex = 0;
         this.textInput.ReadOnly = false;
@@ -104,7 +104,9 @@ public class TextInput : Form
         this.Name = "TextInput";
         this.Padding = new System.Windows.Forms.Padding(15);
         this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-        this.MaximumSize = new Size(600, 200);
+        this.Size = new Size(500, 200);
+        this.MinimumSize = this.Size;
+        this.MaximumSize = this.Size;
         this.Text = title;
         if (this.icon != null)
         {
@@ -131,12 +133,12 @@ public class TextInput : Form
         base.Dispose(disposing);
     }
 
-    public static string Show(string title, string message, string icon)
+    public static string Show(string title, string message, string iconPath)
     {
         bool shouldRestartKeyInput = UnityRawInput.RawKeyInput.IsRunning;
         UnityRawInput.RawKeyInput.Stop();
 
-        var input = new TextInput(title, message, icon);
+        var input = new TextInput(title, message, iconPath);
         input.textInput.Focus();
 
         string result = "";
