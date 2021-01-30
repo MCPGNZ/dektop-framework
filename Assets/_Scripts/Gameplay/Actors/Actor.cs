@@ -4,7 +4,7 @@
     using Sirenix.OdinInspector;
     using UnityEngine;
 
-    public sealed class Actor : MonoBehaviour
+    public sealed class Actor : MonoBehaviour, Overworld.IPooled
     {
         #region Public Variables
         public bool IsCreated => _Directory != null;
@@ -19,7 +19,7 @@
         public void Create(string name)
         {
             if (Config.DisableIcons) { return; }
-            if (_Directory != null) { throw new InvalidOperationException(); }
+            if (_Directory != null) { throw new InvalidOperationException($"actor: {name}"); }
 
             _Name = name;
             _Directory = DesktopEx.CreateDirectory(_Name);
@@ -28,16 +28,25 @@
         }
         public void Destroy()
         {
-            if (_Directory == null) { throw new InvalidOperationException(); }
+            if (_Directory == null) { throw new InvalidOperationException($"actor: {name}"); }
 
             _Directory.Delete();
             _Directory = null;
         }
         public void ChangeIcon(IconEx newIcon)
         {
-            if (_Directory == null) { throw new InvalidOperationException(); }
+            if (_Directory == null) { throw new InvalidOperationException($"actor: {name}"); }
 
             _Directory.Icon = newIcon;
+        }
+
+        void Overworld.IPooled.OnCreate()
+        {
+
+        }
+        void Overworld.IPooled.OnRelease()
+        {
+            Destroy();
         }
         #endregion Public Methods
 

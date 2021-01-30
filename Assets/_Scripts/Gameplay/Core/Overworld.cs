@@ -44,13 +44,106 @@
         }
         #endregion Unity Methods
 
+        #region Private Types
+        public interface IPooled
+        {
+            void OnCreate();
+            void OnRelease();
+        }
+        private sealed class Pool
+        {
+            #region Public Methods
+            public static GameObject Instantiate(Identifier identifier,
+                Vector2Int cell, Vector2Int gridSize, Transform parent,
+                DiContainer container)
+            {
+                if (_FreeList.TryGetValue(identifier, out var result))
+                {
+                    /* if the free list is empty */
+                    if (result.Count != 0)
+                    {
+                        var last = result.Dequeue();
+
+                        /* handle state change */
+                        OnCreate(last);
+                        return last;
+                    }
+                }
+
+                var prefab = Config.FindPrefab(identifier);
+
+                var item = container.InstantiatePrefab(prefab, parent);
+                var normalizedPosition = Coordinates.GridToNormalized(cell, gridSize);
+                var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
+
+                item.transform.localPosition = unityPosition;
+
+                _Created.Add(item, identifier);
+                return item;
+            }
+            public static void Release(GameObject obj)
+            {
+                var identifier = _Created[obj];
+
+                /* add to freelist */
+                if (_FreeList.TryGetValue(identifier, out var result) == false)
+                {
+                    _FreeList.Add(identifier, new Queue<GameObject>());
+                }
+
+                /* check if contains */
+                if (_FreeList[identifier].Contains(obj)) { return; }
+
+                /* add to freelist */
+                _FreeList[identifier].Enqueue(obj);
+
+                /* handle state change */
+                OnRelease(obj);
+            }
+            public static void ReleaseAll()
+            {
+                foreach (var entry in _Created)
+                {
+                    Release(entry.Key);
+                }
+            }
+            #endregion Public Methods
+
+            #region Private Methods
+            private static void OnCreate(GameObject item)
+            {
+                var pooled = item.GetComponent<IPooled>();
+                pooled?.OnCreate();
+
+                item.SetActive(true);
+            }
+            private static void OnRelease(GameObject item)
+            {
+                var pooled = item.GetComponent<IPooled>();
+                pooled?.OnRelease();
+
+                item.SetActive(false);
+            }
+            #endregion Private Methods
+
+            #region Private Variables
+            /* prefab to instances */
+            private static readonly Dictionary<Identifier, Queue<GameObject>> _FreeList =
+                new Dictionary<Identifier, Queue<GameObject>>();
+
+            /* prefab to instances */
+            private static readonly Dictionary<GameObject, Identifier> _Created =
+                new Dictionary<GameObject, Identifier>();
+            #endregion Private Variables
+        }
+        #endregion Private Types
+
         #region Private Variables
         [Inject] private DiContainer _Container;
         [Inject] private Explorer _Explorer;
         [Inject] private LevelParser _Parser;
 
         private Vector2Int _CurrentStageId;
-        private readonly List<GameObject> _Objects = new List<GameObject>();
         private int _AutoIncrement = 1;
 
         private float _PortalLock;
@@ -59,12 +152,7 @@
         #region Private Methods
         private void Release()
         {
-            /* todo: object pool */
-            foreach (var entry in _Objects)
-            {
-                Destroy(entry);
-            }
-            _Objects.Clear();
+            Pool.ReleaseAll();
         }
 
         public void TeleportExplorerTo(Cell cell)
@@ -100,8 +188,7 @@
 
             /* handle rest */
             var name = cell.Type.ToString();
-            var prefab = Config.FindPrefab(cell.Type);
-            var item = Create(prefab, position, gridSize);
+            var item = Pool.Instantiate(cell.Type, position, gridSize, transform, _Container);
 
             switch (cell.Type)
             {
@@ -120,18 +207,6 @@
                     break;
                 }
             }
-        }
-
-        private GameObject Create(GameObject prefab, Vector2Int cell, Vector2Int gridSize)
-        {
-            var normalizedPosition = Coordinates.GridToNormalized(cell, gridSize);
-            var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
-
-            var item = _Container.InstantiatePrefab(prefab, transform);
-            item.transform.localPosition = unityPosition;
-
-            _Objects.Add(item);
-            return item;
         }
         #endregion Private Methods
     }
