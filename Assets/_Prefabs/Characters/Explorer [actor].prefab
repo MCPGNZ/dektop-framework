@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952284212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 32, y: -32, z: 0}
-  m_LocalScale: {x: 64, y: 64, z: 1}
+  m_LocalPosition: {x: 48, y: -48, z: 0}
+  m_LocalScale: {x: 96, y: 96, z: 1}
   m_Children: []
   m_Father: {fileID: 4924021937538078364}
   m_RootOrder: 0
@@ -107,7 +107,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!1 &7733286898918282246
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
     Data: 
     Type: 0
   _Name: Explorer
-  _Icon: {fileID: 11400000, guid: 8978b034438143147a34a15943e7afe6, type: 2}
+  _Icon: {fileID: 11400000, guid: 41da954b43abebf41afe893af3efe3c2, type: 2}
   _Tooltip: Hello traveller!
   _AutoCreate: 1
 --- !u!114 &5494825757479957891
@@ -211,10 +211,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Speed: 2000
+  _DashSpeed: 6000
+  _DashCooldown: 1
+  _DashDuration: 0.3
   _Up: 38
   _Down: 40
   _Right: 39
   _Left: 37
+  _Dash: 32
 --- !u!114 &5281587062277007895
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,13 +1,13 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
-    using System.Threading;
     using JetBrains.Annotations;
     using UnityEngine;
+    using UnityRawInput;
     using Zenject;
     using static LevelParser;
-    using Random = UnityEngine.Random;
 
     public class Overworld : MonoBehaviour
     {
@@ -33,7 +33,12 @@
             }
             _CurrentStageId = levelId;
 
-            Thread.Sleep(1000);
+            /* force clean input */
+            RawKeyInput.HandleKeyUp(RawKey.Left);
+            RawKeyInput.HandleKeyUp(RawKey.Right);
+            RawKeyInput.HandleKeyUp(RawKey.Up);
+            RawKeyInput.HandleKeyUp(RawKey.Down);
+
             LevelChanged?.Invoke();
         }
         #endregion Public Methods
@@ -212,6 +217,13 @@
 
         private void InitializePosition(GameObject item, Vector2Int position, Vector2Int gridSize)
         {
+            StartCoroutine(DelayedPosition(item, position, gridSize));
+        }
+
+        private IEnumerator DelayedPosition(GameObject item, Vector2Int position, Vector2Int gridSize)
+        {
+            yield return new WaitForSecondsRealtime(1.0f);
+
             var normalizedPosition = Coordinates.GridToNormalized(position, gridSize);
             var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
 

@@ -11,7 +11,7 @@ namespace Mcpgnz.DesktopFramework
         // Use this for initialization
         void Start()
         {
-
+            _BaseShakePosition = gameObject.transform.position * 1;
         }
 
         // Update is called once per frame
@@ -45,7 +45,7 @@ namespace Mcpgnz.DesktopFramework
         private void ShakeIt()
         {
             if (_ShakeStrength == 0) { return; }
-            if (_BaseShakePosition == null) { _BaseShakePosition = gameObject.transform.position * 1; }
+            // Debug.Log($"Shaking from {_BaseShakePosition.x}, {_BaseShakePosition.y}");
             var isRigidbody = GetComponent<Rigidbody2D>() != null;
             var displacement = new Vector3(Random.Range(-_ShakeStrength, _ShakeStrength), Random.Range(-_ShakeStrength, _ShakeStrength), 0);
             if (!isRigidbody) gameObject.transform.position = _BaseShakePosition + displacement;
