@@ -10,32 +10,11 @@
 
     public class LevelParser : MonoBehaviour
     {
-        #region Private Variables
-        private const string ExplorerId = "E";
-        private const string WallId = "#";
-        private const string PortalEntryId = "P";
-        private const string PortalExitId = "K";
-        private const string SpikeEnemyId = "x";
-        private const string MineEnemyId = "m";
-        #endregion Private Variables
-
         #region Public Methods
         public Map World => _Map;
-        public Cell ExplorerCell => World.FindUnique(ExplorerId);
         #endregion Public Methods
 
         #region Public Types
-        public enum CellType
-        {
-            Empty,
-            Explorer,
-            Wall,
-            SpikeEnemy,
-            MineEnemy,
-            PortalEntry,
-            PortalExit
-        }
-
         [Serializable]
         public sealed class Map
         {
@@ -66,10 +45,20 @@
             /// <summary>
             /// Fails if there is not exactly one cell with _key_
             /// </summary>
-            /// <param name="key"></param>
-            /// <returns></returns>
             public Cell FindUnique(string key)
             {
+                var found = FindAll(key);
+                if (found.Count != 1) { throw new InvalidDataException($"should found only one {key} but found: {found.Count}"); }
+
+                return found[0];
+            }
+
+            /// <summary>
+            /// Fails if there is not exactly one cell with _key_
+            /// </summary>
+            public Cell FindUnique(Identifier identifier)
+            {
+                var key = ObjectTypes.Tags[identifier];
                 var found = FindAll(key);
                 if (found.Count != 1) { throw new InvalidDataException($"should found only one {key} but found: {found.Count}"); }
 
@@ -87,6 +76,25 @@
                     foreach (var cell in row.Cells)
                     {
                         if (cell.Data == key)
+                        {
+                            result.Add(cell);
+                        }
+                    }
+                }
+                return result;
+            }
+
+            /// <summary>
+            /// Finds all cell with matching _key_
+            /// </summary>
+            public List<Cell> FindAll(Identifier key)
+            {
+                var result = new List<Cell>();
+                foreach (var row in _Rows)
+                {
+                    foreach (var cell in row.Cells)
+                    {
+                        if (cell.Type == key)
                         {
                             result.Add(cell);
                         }
@@ -141,7 +149,8 @@
             #region Public Variables
             public Vector2Int GlobalId;
             public string Data;
-            public CellType Type;
+            public Identifier Type;
+
             public Vector2Int StageId => new Vector2Int(GlobalId.x / Config.StageSize.x, GlobalId.y / Config.StageSize.y);
 
             /// <summary>
@@ -165,9 +174,11 @@
             {
                 get
                 {
-                    if (Type != CellType.PortalEntry)
+                    if (Type != Identifier.PortalEntry)
                         throw new InvalidOperationException("MatchingExitPortalKey read on non-entry-portal");
-                    return PortalExitId + Data.Substring(PortalEntryId.Length);
+
+                    return ObjectTypes.Tags[Identifier.PortalExit] +
+                           Data.Substring(ObjectTypes.Tags[Identifier.PortalEntry].Length);
                 }
             }
             #endregion Public Variables
@@ -178,35 +189,15 @@
                 GlobalId = globalId;
                 Data = data;
 
-                var type = ParseCellType(data);
-                if (!type.HasValue)
+                Type = ObjectTypes.Find(data);
+                if (Type == Identifier.Unknown)
                 {
                     Debug.LogWarning($"ignoring unsupported cell value: {data} at {globalId}");
-                    type = CellType.Empty;
+                    Type = Identifier.Empty;
                 }
-                Type = type.Value;
-
                 Debug.Log($"{Type} at {GlobalId}");
             }
             #endregion Public Methods
-
-            #region Private Methods
-            private static CellType? ParseCellType(string data)
-            {
-                if (data.Length == 0) { return CellType.Empty; }
-                switch (data)
-                {
-                    case WallId: return CellType.Wall;
-                    case ExplorerId: return CellType.Explorer;
-                    case SpikeEnemyId: return CellType.SpikeEnemy;
-                    case MineEnemyId: return CellType.MineEnemy;
-                }
-                if (data.StartsWith(PortalEntryId)) { return CellType.PortalEntry; }
-                if (data.StartsWith(PortalExitId)) { return CellType.PortalExit; }
-
-                return null;
-            }
-            #endregion Private Methods
         }
         #endregion Public Types
 

@@ -64,36 +64,24 @@
         private void AddActor(Cell cell, Vector2Int position, Vector2Int gridSize)
         {
             Debug.Log($"AddActor {cell.Type}");
+
+            var name = cell.Type.ToString();
+            var prefab = Config.FindPrefab(cell.Type);
+
+            var actor = Create<Actor>(prefab, position, gridSize);
             switch (cell.Type)
             {
-                case CellType.Wall:
+                case Identifier.PortalEntry:
                 {
-                    var actor = Create<Actor>(Config.Wall, position, gridSize);
-                    actor.Create($"Wall{_AutoIncrement++}");
-                    break;
-                }
-                case CellType.SpikeEnemy:
-                {
-                    var actor = Create<Actor>(Config.SpikeEnemy, position, gridSize);
-                    actor.Create($"Spikes{_AutoIncrement++}");
-                    break;
-                }
-                case CellType.MineEnemy:
-                {
-                    var actor = Create<Actor>(Config.MineEnemy, position, gridSize);
-                    actor.Create($"Minesweeper{_AutoIncrement++}");
-                    break;
-                }
-                case CellType.PortalEntry:
-                {
-                    var actor = Create<Actor>(Config.PortalEntry, position, gridSize);
                     actor.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}");
                     actor.GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
                     break;
                 }
                 default:
-                    Debug.Log($"AddActor: ignoring cell type {cell.Type}");
+                {
+                    actor.Create($"{name}{_AutoIncrement++}");
                     break;
+                }
             }
         }
 

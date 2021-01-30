@@ -1,5 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
+    using System;
+    using System.Collections.Generic;
     using Mcpgnz.Utilities;
     using Sirenix.OdinInspector;
     using UnityEngine;
@@ -7,22 +9,39 @@
     [CreateAssetMenu(menuName = "Framework/Config")]
     public sealed class Config : ScriptableObjectSingleton<Config>
     {
+        #region Public Types
+        [Serializable]
+        public sealed class PrefabEntry
+        {
+            public Identifier Identifier;
+            public GameObject Prefab;
+        }
+
+        [Serializable]
+        public sealed class AvatarEntry
+        {
+            public Identifier Identifier;
+            public IconEx Avatar;
+        }
+        #endregion Public Types
+
         #region Public Variables
+        public static GameObject FindPrefab(Identifier id)
+        {
+            return Instance._Prefabs.Find(x => x.Identifier == id).Prefab;
+        }
+        public static IconEx FindAvatar(Identifier id)
+        {
+            return Instance._Avatars.Find(x => x.Identifier == id).Avatar;
+        }
+
         public static Vector2Int UnitySize => Instance._UnitySize;
         public static Vector2Int StageSize => Instance._StageSize;
 
         public static float MovementSpeed => Instance._MovementSpeed;
-        public static GameObject Wall => Instance._Wall;
-        public static GameObject PortalEntry => Instance._PortalEntry;
-        public static GameObject SpikeEnemy => Instance._SpikeEnemy;
-        public static GameObject MineEnemy => Instance._MineEnemy;
-
-        public static IconEx ExplorerAvatar => Instance._ExplorerAvatar;
-        public static IconEx ClippyAvatar => Instance._ClippyAvatar;
-        public static IconEx ErrorAvatar => Instance._ErrorAvatar;
         #endregion Public Variables
 
-        #region Private Variables
+        #region Inspector Variables
         [SerializeField, BoxGroup("Stages")]
         private Vector2Int _UnitySize = new Vector2Int(1920, 1080);
 
@@ -32,25 +51,12 @@
         [SerializeField, BoxGroup("Movement")]
         private float _MovementSpeed = 1.0f;
 
-        [SerializeField, BoxGroup("Prefabs")]
-        private GameObject _Wall;
+        [SerializeField]
+        private List<PrefabEntry> _Prefabs;
 
-        [SerializeField, BoxGroup("Prefabs")]
-        private GameObject _PortalEntry;
+        [SerializeField]
+        private List<AvatarEntry> _Avatars;
+        #endregion Inspector Variables
 
-        [SerializeField, BoxGroup("Prefabs")]
-        private GameObject _SpikeEnemy;
-        [SerializeField, BoxGroup("Prefabs")]
-        private GameObject _MineEnemy;
-
-        [SerializeField, BoxGroup("Avatars")]
-        private IconEx _ExplorerAvatar;
-
-        [SerializeField, BoxGroup("Avatars")]
-        private IconEx _ClippyAvatar;
-
-        [SerializeField, BoxGroup("Avatars")]
-        private IconEx _ErrorAvatar;
-        #endregion Private Variables
     }
 }
