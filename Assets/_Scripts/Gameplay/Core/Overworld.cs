@@ -65,7 +65,7 @@
                         var last = result.Dequeue();
 
                         /* handle state change */
-                        OnCreate(last);
+                        OnCreate(last, cell, gridSize);
                         return last;
                     }
                 }
@@ -81,8 +81,11 @@
                 _Created.Add(item, identifier);
                 return item;
             }
+
             public static void Release(GameObject obj)
             {
+                if (obj == null) { return; }
+
                 var identifier = _Created[obj];
 
                 /* add to freelist */
@@ -110,11 +113,18 @@
             #endregion Public Methods
 
             #region Private Methods
-            private static void OnCreate(GameObject item)
+            private static void OnCreate(GameObject item, Vector2Int cell, Vector2Int gridSize)
             {
+                /* update position */
+                var normalizedPosition = Coordinates.GridToNormalized(cell, gridSize);
+                var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
+                item.transform.localPosition = unityPosition;
+
+                /* notify */
                 var pooled = item.GetComponent<IPooled>();
                 pooled?.OnCreate();
 
+                /* activate */
                 item.SetActive(true);
             }
             private static void OnRelease(GameObject item)
