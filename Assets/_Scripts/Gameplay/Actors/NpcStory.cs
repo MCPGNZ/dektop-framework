@@ -22,22 +22,29 @@
         public sealed class TalkAction : IEncounterAction
         {
             public string Message;
+            public string Tooltip;
             public IconEx Icon;
 
+            [ListDrawerSettings(Expanded = true)]
             public string[] Options;
             public void Execute(NPC npc)
             {
                 if (Icon != null) { Dialog.Character(npc.Character, Message, Icon, Options); }
                 else { Dialog.Character(npc.Character, Message, Options); }
 
+                if (string.IsNullOrWhiteSpace(Tooltip))
+                {
+                    npc.Actor.Tooltip = Tooltip;
+                }
+
             }
         }
-        public sealed class TooltipAction : IEncounterAction
+
+        public sealed class DisappearAction : IEncounterAction
         {
-            public string Tooltip;
             public void Execute(NPC npc)
             {
-                npc.Actor.Tooltip = Tooltip;
+                npc.gameObject.SetActive(false);
             }
         }
 
@@ -47,7 +54,7 @@
             public int Number;
 
             [SerializeReference, HideLabel]
-            public IEncounterAction Action;
+            public List<IEncounterAction> Action;
         }
         #endregion Public Types
     }

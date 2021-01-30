@@ -52,7 +52,13 @@
             if (explorer == null) { }
 
             var found = _Story.Encounters.Find(x => x.Number == _Count);
-            found?.Action.Execute(this);
+            if (found != null)
+            {
+                foreach (var action in found.Action)
+                {
+                    action.Execute(this);
+                }
+            }
 
             _Count++;
         }
