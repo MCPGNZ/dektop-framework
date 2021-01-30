@@ -80,10 +80,15 @@
         #region Private Methods
         private void UpdatePosition()
         {
+            var desktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
             if (_UnityPosition != transform.localPosition)
             {
                 _UnityPosition = transform.localPosition;
-                _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
+                _Directory.DesktopPosition = desktopPosition;
+            }
+            else if (desktopPosition != _Directory.DesktopPosition)
+            {
+                _Directory.DesktopPosition = desktopPosition;
             }
         }
         #endregion Private Methods
