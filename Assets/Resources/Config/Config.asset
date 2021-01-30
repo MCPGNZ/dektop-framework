@@ -26,7 +26,7 @@ MonoBehaviour:
   - Identifier: 103
     Tag: 
     Prefab: {fileID: 0}
-    Avatar: {fileID: 11400000, guid: 1d493803bce24b043acb943dfdb86211, type: 2}
+    Avatar: {fileID: 11400000, guid: 0ee4ee1191236554893f6e495c29e081, type: 2}
   - Identifier: 101
     Tag: BIN
     Prefab: {fileID: 104899619469281166, guid: faac93143594ae945ae21e5f15d35a89, type: 3}

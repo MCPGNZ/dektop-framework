@@ -45,6 +45,20 @@
             FWF_USESEARCHFOLDER = 0x40000000,
             FWF_ALLOWRTLREADING = 0x80000000
         }
+        public enum FolderViewMode
+        {
+            FVM_AUTO = -1,
+            FVM_FIRST = 1,
+            FVM_ICON = 1,
+            FVM_SMALLICON = 2,
+            FVM_LIST = 3,
+            FVM_DETAILS = 4,
+            FVM_THUMBNAIL = 5,
+            FVM_TILE = 6,
+            FVM_THUMBSTRIP = 7,
+            FVM_CONTENT = 8,
+            FVM_LAST = 8
+        }
         #endregion Public Types
 
         #region Public Variables
@@ -126,6 +140,15 @@
         {
             desktop_set_style(flag, state);
         }
+
+        public static void Icons(ref FolderViewMode mode, ref int size)
+        {
+            desktop_get_icon_size(ref mode, ref size);
+        }
+        public static void Icons(FolderViewMode mode, int size)
+        {
+            desktop_set_icon_size(mode, size);
+        }
         #endregion Public Methods
 
         #region Private Variables
@@ -155,12 +178,17 @@
         [DllImport("desktop-lib.dll")]
         internal static extern void desktop_set_item_position(
             [MarshalAs(UnmanagedType.LPWStr)] string path, int x, int y);
-
         [DllImport("desktop-lib.dll")]
         internal static extern bool desktop_get_style(FolderFlags flag);
 
         [DllImport("desktop-lib.dll")]
         internal static extern void desktop_set_style(FolderFlags flag, bool state);
+
+        [DllImport("desktop-lib.dll")]
+        internal static extern void desktop_get_icon_size(ref FolderViewMode mode, ref int size);
+
+        [DllImport("desktop-lib.dll")]
+        internal static extern void desktop_set_icon_size(FolderViewMode mode, int size);
         #endregion Import
     }
 }
