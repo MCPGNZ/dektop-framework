@@ -1,6 +1,8 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System;
+    using System.Collections.Generic;
+    using System.IO;
     using GoogleSheetsToUnity;
     using GoogleSheetsToUnity.Utils;
     using Sirenix.OdinInspector;
@@ -8,8 +10,29 @@
 
     public class LevelParser : MonoBehaviour
     {
+        #region Public Variables
+        public const string ExplorerId = "E";
+        public const string WallId = "#";
+        #endregion Public Variables
+
         #region Public Methods
         public Map World => _Map;
+
+        /// <summary>
+        /// Starting position of the Explorer
+        /// note: this only works if the player is in the 0, 0 stage
+        /// </summary>
+        public Vector3 Explorer_UnityPosition
+        {
+            get
+            {
+                var cell = World.FindUnique(ExplorerId);
+                var normalizedPosition = Coordinates.GridToNormalized(cell.GlobalId, Config.StageSize);
+                var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
+
+                return unityPosition;
+            }
+        }
         #endregion Public Methods
 
         #region Public Types
@@ -38,6 +61,38 @@
                         Cells = new Cell[size.y]
                     };
                 }
+            }
+
+            /// <summary>
+            /// Fails if there is not exactly one cell with _key_
+            /// </summary>
+            /// <param name="key"></param>
+            /// <returns></returns>
+            public Cell FindUnique(string key)
+            {
+                var found = FindAll(key);
+                if (found.Count != 1) { throw new InvalidDataException($"should found only one {key} but found: {found.Count}"); }
+
+                return found[0];
+            }
+
+            /// <summary>
+            /// Finds all cell with matching _key_
+            /// </summary>
+            public List<Cell> FindAll(string key)
+            {
+                var result = new List<Cell>();
+                foreach (var row in _Rows)
+                {
+                    foreach (var cell in row.Cells)
+                    {
+                        if (cell.Data == key)
+                        {
+                            result.Add(cell);
+                        }
+                    }
+                }
+                return result;
             }
 
             /// <summary>
@@ -83,10 +138,10 @@
         [Serializable]
         public sealed class Cell
         {
-            public int X;
-            public int Y;
-
+            #region Public Variables
+            public Vector2Int GlobalId;
             public string Data;
+            #endregion Public Variables
         }
         #endregion Public Types
 
@@ -140,8 +195,7 @@
 
                 _Map[column][row] = new Cell
                 {
-                    X = column,
-                    Y = row,
+                    GlobalId = new Vector2Int(column, row),
                     Data = cell.Value.value
                 };
             }

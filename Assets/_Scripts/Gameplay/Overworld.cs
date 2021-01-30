@@ -18,7 +18,6 @@
                 }
             }
         }
-
         #endregion Public Methods
 
         #region Inspector Variables
@@ -55,7 +54,7 @@
         {
             switch (cell.Data)
             {
-                case "#":
+                case LevelParser.WallId:
                 {
                     var actor = Create<Actor>(Config.Wall, position, gridSize);
                     actor.Create($"Wall{_AutoIncrement++}");

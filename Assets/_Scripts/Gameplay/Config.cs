@@ -15,6 +15,10 @@
         public static GameObject Wall => Instance._Wall;
         public static GameObject SpikeEnemy => Instance._SpikeEnemy;
         public static GameObject MineEnemy => Instance._MineEnemy;
+
+        public static IconEx ExplorerAvatar => Instance._ExplorerAvatar;
+        public static IconEx ClippyAvatar => Instance._ClippyAvatar;
+        public static IconEx ErrorAvatar => Instance._ErrorAvatar;
         #endregion Public Variables
 
         #region Private Variables
@@ -33,6 +37,15 @@
         private GameObject _SpikeEnemy;
         [SerializeField, BoxGroup("Prefabs")]
         private GameObject _MineEnemy;
+
+        [SerializeField, BoxGroup("Avatars")]
+        private IconEx _ExplorerAvatar;
+
+        [SerializeField, BoxGroup("Avatars")]
+        private IconEx _ClippyAvatar;
+
+        [SerializeField, BoxGroup("Avatars")]
+        private IconEx _ErrorAvatar;
         #endregion Private Variables
     }
 }
