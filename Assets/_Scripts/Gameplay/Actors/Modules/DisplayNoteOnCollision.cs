@@ -14,7 +14,11 @@ public class DisplayNoteOnCollision : MonoBehaviour
         if (collision.gameObject.GetComponent<Movement>() == null) { return; }
 
         LevelParser.Note note = _Parser.GetNoteById(GetComponent<Actor>().Cell.Data);
-        new MessageBox("A Crippy note", note.Message, new string[] { "Huh." }, string.IsNullOrWhiteSpace(note.Icon) ? null : note.Icon).Show();
+        new MessageBox(title: "A Crippy note",
+                       message: note.Message,
+                       buttonLabels: new string[] { "Huh." },
+                       iconPath: string.IsNullOrWhiteSpace(note.Icon) ? null : note.Icon)
+            .ShowDialog();
 
         Destroy(gameObject);
     }
