@@ -211,10 +211,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Speed: 2000
+  _DashSpeed: 6000
+  _DashCooldown: 1
+  _DashDuration: 0.3
   _Up: 38
   _Down: 40
   _Right: 39
   _Left: 37
+  _Dash: 32
 --- !u!114 &5281587062277007895
 MonoBehaviour:
   m_ObjectHideFlags: 0
