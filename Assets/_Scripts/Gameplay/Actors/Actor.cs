@@ -74,6 +74,7 @@
         {
             if (_Directory == null) { throw new InvalidOperationException($"actor: {name}"); }
 
+            _Directory.DesktopPosition = Coordinates.NormalizedToDesktop(new Vector2(-5.0f, -5.0f));
             _Directory.Delete();
             _Directory = null;
         }
@@ -90,6 +91,7 @@
         }
         void Overworld.IPooled.OnRelease()
         {
+
             Destroy();
         }
         #endregion Public Methods
