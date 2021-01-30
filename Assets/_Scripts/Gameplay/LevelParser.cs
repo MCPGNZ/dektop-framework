@@ -21,8 +21,7 @@
 
         #region Public Methods
         public Map World => _Map;
-
-        public Cell ExplorerCell { get { return World.FindUnique(ExplorerId); } }
+        public Cell ExplorerCell => World.FindUnique(ExplorerId);
         #endregion Public Methods
 
         #region Public Types
@@ -34,7 +33,7 @@
             SpikeEnemy,
             MineEnemy,
             PortalEntry,
-            PortalExit,
+            PortalExit
         }
 
         [Serializable]
@@ -139,58 +138,29 @@
         [Serializable]
         public sealed class Cell
         {
-            private static CellType? ParseCellType(string data)
-            {
-                if (data.Length == 0) { return CellType.Empty; }
-                switch (data)
-                {
-                    case WallId: return CellType.Wall;
-                    case ExplorerId: return CellType.Explorer;
-                    case SpikeEnemyId: return CellType.SpikeEnemy;
-                    case MineEnemyId: return CellType.MineEnemy;
-                    default: break;
-                }
-                if (data.StartsWith(PortalEntryId)) { return CellType.PortalEntry; }
-                if (data.StartsWith(PortalExitId)) { return CellType.PortalExit; }
-
-                return null;
-            }
-
-            public Cell(Vector2Int globalId, string data)
-            {
-                this.GlobalId = globalId;
-                this.Data = data;
-
-                var type = ParseCellType(data);
-                if (!type.HasValue)
-                {
-                    //throw new ArgumentException($"unsupported cell value: {data} at {globalId}");
-                    Debug.LogWarning($"ignoring unsupported cell value: {data} at {globalId}");
-                    type = CellType.Empty;
-                }
-                this.Type = type.Value;
-
-                Debug.Log($"{this.Type} at {this.GlobalId}");
-            }
-
             #region Public Variables
-            public readonly Vector2Int GlobalId;
-            public readonly string Data;
-            public readonly CellType Type;
-            public Vector2Int StageId
-            {
-                get
-                {
-                    return new Vector2Int(GlobalId.x / Config.StageSize.x, GlobalId.y / Config.StageSize.y);
-                }
-            }
+            public Vector2Int GlobalId;
+            public string Data;
+            public CellType Type;
+            public Vector2Int StageId => new Vector2Int(GlobalId.x / Config.StageSize.x, GlobalId.y / Config.StageSize.y);
+
             /// <summary>
             /// position, in tiles, within current stage.
             /// </summary>
-            public Vector2Int LocalPositionGrid
+            public Vector2Int LocalPositionGrid => new Vector2Int(GlobalId.x % Config.StageSize.x, GlobalId.y % Config.StageSize.y);
+
+            /// <summary>
+            /// position, in unity, within current stage.
+            /// </summary>
+            public Vector3 LocalUnityPosition
             {
-                get { return new Vector2Int(GlobalId.x % Config.StageSize.x, GlobalId.y % Config.StageSize.y); }
+                get
+                {
+                    var normalized = Coordinates.GridToNormalized(LocalPositionGrid, Config.StageSize);
+                    return Coordinates.NormalizedToUnity(normalized);
+                }
             }
+
             public string MatchingPortalExitKey
             {
                 get
@@ -200,8 +170,43 @@
                     return PortalExitId + Data.Substring(PortalEntryId.Length);
                 }
             }
-
             #endregion Public Variables
+
+            #region Public Methods
+            public Cell(Vector2Int globalId, string data)
+            {
+                GlobalId = globalId;
+                Data = data;
+
+                var type = ParseCellType(data);
+                if (!type.HasValue)
+                {
+                    Debug.LogWarning($"ignoring unsupported cell value: {data} at {globalId}");
+                    type = CellType.Empty;
+                }
+                Type = type.Value;
+
+                Debug.Log($"{Type} at {GlobalId}");
+            }
+            #endregion Public Methods
+
+            #region Private Methods
+            private static CellType? ParseCellType(string data)
+            {
+                if (data.Length == 0) { return CellType.Empty; }
+                switch (data)
+                {
+                    case WallId: return CellType.Wall;
+                    case ExplorerId: return CellType.Explorer;
+                    case SpikeEnemyId: return CellType.SpikeEnemy;
+                    case MineEnemyId: return CellType.MineEnemy;
+                }
+                if (data.StartsWith(PortalEntryId)) { return CellType.PortalEntry; }
+                if (data.StartsWith(PortalExitId)) { return CellType.PortalExit; }
+
+                return null;
+            }
+            #endregion Private Methods
         }
         #endregion Public Types
 
@@ -253,7 +258,7 @@
                 var row = cell.Value.Row() - 1;
                 var column = GoogleSheetsToUnityUtilities.NumberFromExcelColumn(cell.Value.Column()) - 1;
 
-                _Map[column][row] = new Cell(globalId: new Vector2Int(column, row), data: cell.Value.value);
+                _Map[column][row] = new Cell(new Vector2Int(column, row), cell.Value.value);
             }
 
             Debug.Log("Parse success");

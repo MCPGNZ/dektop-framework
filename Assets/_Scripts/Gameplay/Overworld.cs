@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using UnityEngine;
     using Zenject;
-    using static Mcpgnz.DesktopFramework.LevelParser;
+    using static LevelParser;
 
     public class Overworld : MonoBehaviour
     {
@@ -55,20 +55,13 @@
             }
             Explorer.transform.position = Coordinates.NormalizedToUnity(Coordinates.GridToNormalized(cell.LocalPositionGrid, Config.StageSize));
         }
-
         public void TeleportExplorerTo(string targetKey)
         {
             var cell = _Parser.World.FindUnique(targetKey);
             TeleportExplorerTo(cell);
         }
 
-        private void TeleportExplorerBy(float x, float y)
-        {
-            var pos = Coordinates.UnityToNormalized(Explorer.transform.position);
-            Explorer.transform.position = Coordinates.NormalizedToUnity(pos + new Vector2(x, y));
-        }
-
-        private void AddActor(LevelParser.Cell cell, Vector2Int position, Vector2Int gridSize)
+        private void AddActor(Cell cell, Vector2Int position, Vector2Int gridSize)
         {
             Debug.Log($"AddActor {cell.Type}");
             switch (cell.Type)

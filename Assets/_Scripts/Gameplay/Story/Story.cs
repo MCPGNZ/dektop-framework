@@ -59,7 +59,7 @@
         private void BeginAction()
         {
             /* setup explorer starting position */
-            _Explorer.transform.position = _Parser.Explorer_UnityPosition;
+            _Explorer.transform.position = _Parser.ExplorerCell.LocalUnityPosition;
 
             /* load first level */
             _Overworld.Load(_Begin);
