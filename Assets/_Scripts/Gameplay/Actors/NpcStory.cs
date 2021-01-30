@@ -36,6 +36,10 @@
                 {
                     npc.Actor.Tooltip = Tooltip;
                 }
+                if (Icon != null)
+                {
+                    npc.Actor.ChangeIcon(Icon);
+                }
             }
         }
 

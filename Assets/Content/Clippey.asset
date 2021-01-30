@@ -29,16 +29,16 @@ MonoBehaviour:
       data:
         Message: Well... hello
         Tooltip: 
-        Icon: {fileID: 0}
+        Icon: {fileID: 11400000, guid: 4f48f2c2bea2bd44d9ee825a94049978, type: 2}
         Options:
-        - uhm
-        - yyyy
+        - uhm.. hi?
+        - hello!
     00000001:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
         Message: Oh? I haven't seen you in a while.
         Tooltip: 
-        Icon: {fileID: 0}
+        Icon: {fileID: 11400000, guid: 4f48f2c2bea2bd44d9ee825a94049978, type: 2}
         Options:
         - ...
         - and.. who are you?
@@ -47,7 +47,7 @@ MonoBehaviour:
       data:
         Message: "Who am I? Oh, silly! Your old friend! Don\u2019t you remember me?"
         Tooltip: 
-        Icon: {fileID: 0}
+        Icon: {fileID: 11400000, guid: 9fb3eedcd9422294e9b6541df036d31d, type: 2}
         Options:
         - "Not really\u2026"
         - "You remind me of someone\u2026"
@@ -57,7 +57,7 @@ MonoBehaviour:
         Message: "I\u2019m your office assistant! Would you like some assistance
           today?"
         Tooltip: 
-        Icon: {fileID: 0}
+        Icon: {fileID: 11400000, guid: 82a98c2dab822b64d8b028e4c74720dc, type: 2}
         Options:
         - NO
     00000004:
@@ -65,7 +65,7 @@ MonoBehaviour:
       data:
         Message: No? Well then... It seems you enjoy playing games?
         Tooltip: 
-        Icon: {fileID: 0}
+        Icon: {fileID: 11400000, guid: 21aaf2c5548b4494f8ae37ef841dffbe, type: 2}
         Options:
         - "Yes\u2026"
         - Not really.
@@ -75,7 +75,7 @@ MonoBehaviour:
       data:
         Message: 'Me too! Watch this! '
         Tooltip: 
-        Icon: {fileID: 0}
+        Icon: {fileID: 11400000, guid: cb1fefe2a6f73054686216fa613610e1, type: 2}
         Options:
         - Watch what?
     00000006:
