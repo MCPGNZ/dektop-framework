@@ -10,10 +10,14 @@
 
     public class LevelParser : MonoBehaviour
     {
-        #region Public Variables
-        public const string ExplorerId = "E";
-        public const string WallId = "#";
-        #endregion Public Variables
+        #region Private Variables
+        private const string ExplorerId = "E";
+        private const string WallId = "#";
+        private const string PortalEntryId = "P";
+        private const string PortalExitId = "K";
+        private const string SpikeEnemyId = "x";
+        private const string MineEnemyId = "m";
+        #endregion Private Variables
 
         #region Public Methods
         public Map World => _Map;
@@ -36,6 +40,17 @@
         #endregion Public Methods
 
         #region Public Types
+        public enum CellType
+        {
+            Empty,
+            Explorer,
+            Wall,
+            SpikeEnemy,
+            MineEnemy,
+            PortalEntry,
+            PortalExit,
+        }
+
         [Serializable]
         public sealed class Map
         {
@@ -138,9 +153,64 @@
         [Serializable]
         public sealed class Cell
         {
+            private static CellType? ParseCellType(string data)
+            {
+                if (data.Length == 0) { return CellType.Empty; }
+                switch (data)
+                {
+                    case WallId: return CellType.Wall;
+                    case ExplorerId: return CellType.Explorer;
+                    case SpikeEnemyId: return CellType.SpikeEnemy;
+                    case MineEnemyId: return CellType.MineEnemy;
+                    default: break;
+                }
+                if (data.StartsWith(PortalEntryId)) { return CellType.PortalEntry; }
+                if (data.StartsWith(PortalExitId)) { return CellType.PortalExit; }
+
+                return null;
+            }
+
+            public Cell(Vector2Int globalId, string data)
+            {
+                this.GlobalId = globalId;
+                this.Data = data;
+
+                var type = ParseCellType(data);
+                if (!type.HasValue)
+                    throw new ArgumentException($"unsupported cell value: {data} at {globalId}");
+                this.Type = type.Value;
+
+                Debug.Log($"{this.Type} at {this.GlobalId}");
+            }
+
             #region Public Variables
-            public Vector2Int GlobalId;
-            public string Data;
+            public readonly Vector2Int GlobalId;
+            public readonly string Data;
+            public readonly CellType Type;
+            public Vector2Int StageId
+            {
+                get
+                {
+                    return new Vector2Int(GlobalId.x / Config.StageSize.x, GlobalId.y / Config.StageSize.y);
+                }
+            }
+            /// <summary>
+            /// position, in tiles, within current stage.
+            /// </summary>
+            public Vector2Int LocalPositionGrid
+            {
+                get { return new Vector2Int(GlobalId.x % Config.StageSize.x, GlobalId.y % Config.StageSize.y); }
+            }
+            public string MatchingPortalExitKey
+            {
+                get
+                {
+                    if (Type != CellType.PortalEntry)
+                        throw new InvalidOperationException("MatchingExitPortalKey read on non-entry-portal");
+                    return PortalExitId + Data.Substring(PortalEntryId.Length);
+                }
+            }
+
             #endregion Public Variables
         }
         #endregion Public Types
@@ -193,11 +263,7 @@
                 var row = cell.Value.Row() - 1;
                 var column = GoogleSheetsToUnityUtilities.NumberFromExcelColumn(cell.Value.Column()) - 1;
 
-                _Map[column][row] = new Cell
-                {
-                    GlobalId = new Vector2Int(column, row),
-                    Data = cell.Value.value
-                };
+                _Map[column][row] = new Cell(globalId: new Vector2Int(column, row), data: cell.Value.value);
             }
         }
         #endregion Private Methods
