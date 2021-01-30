@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace GreenerGames
+﻿namespace GreenerGames
 {
+    using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// 2 key dictionary when key 1 and 2 are of different types
@@ -123,7 +121,6 @@ namespace GreenerGames
                 if (secondaryKeyLink.ContainsKey(secondaryKey))
                 {
                     //adding a key to an already existing secondary key, this will override the previous key
-                    Debug.LogWarning("Secondary key already exists, replacing orginal key with new one");
                     secondaryKeyLink[secondaryKey] = primaryKey;
                 }
                 else
@@ -268,7 +265,6 @@ namespace GreenerGames
                 if (secondaryKeyLink.ContainsKey(secondaryKey))
                 {
                     //adding a key to an already existing secondary key, this will override the previous key
-                    Debug.LogWarning("Secondary key already exists, replacing orginal key with new one");
                     secondaryKeyLink[secondaryKey] = primaryKey;
                 }
                 else
@@ -278,7 +274,6 @@ namespace GreenerGames
             else
                 throw new InvalidOperationException("Secondary key already exist");
         }
-
 
         public bool ContainsKey(T key)
         {

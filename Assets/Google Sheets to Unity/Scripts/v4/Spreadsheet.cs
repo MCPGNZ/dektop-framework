@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using GoogleSheetsToUnity.Utils;
-using GreenerGames;
-using UnityEngine;
-using UnityEngine.Events;
-
-namespace GoogleSheetsToUnity
+﻿namespace GoogleSheetsToUnity
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text.RegularExpressions;
+    using GoogleSheetsToUnity.Utils;
+    using GreenerGames;
+    using UnityEngine.Events;
+
     /// <summary>
     /// Search class for accessing a database
     /// </summary>
@@ -57,10 +56,10 @@ namespace GoogleSheetsToUnity
     [Serializable]
     public class GSTU_Cell
     {
-        string column = string.Empty;
+        private string column = string.Empty;
         public string columnId = string.Empty;
 
-        int row = -1;
+        private int row = -1;
         public string rowId = string.Empty;
 
         public string value = string.Empty;
@@ -167,12 +166,12 @@ namespace GoogleSheetsToUnity
         /// <param name="data"></param>
         public ValueRange(List<string> data)
         {
-            values.Add (data);
+            values.Add(data);
         }
 
         public ValueRange(string data)
         {
-            values.Add(new List<string>() { data });
+            values.Add(new List<string> { data });
         }
 
         public void Add(List<string> data)
@@ -210,7 +209,6 @@ namespace GoogleSheetsToUnity
         public List<Merge> merges;
     }
     [Serializable]
-
     public class Properties
     {
         public int sheetId;
@@ -263,53 +261,53 @@ namespace GoogleSheetsToUnity
         public SecondaryKeyDictionary<int, string, List<GSTU_Cell>> rows =
             new SecondaryKeyDictionary<int, string, List<GSTU_Cell>>();
 
-   /*     public GstuSpreadSheet(GSTU_SpreadsheetResponce data)
-        {
-            string startColumn = Regex.Replace(data.StartCell(), "[^a-zA-Z]", "");
-            int startRow = int.Parse(Regex.Replace(data.StartCell(), "[^0-9]", ""));
+        /*     public GstuSpreadSheet(GSTU_SpreadsheetResponce data)
+             {
+                 string startColumn = Regex.Replace(data.StartCell(), "[^a-zA-Z]", "");
+                 int startRow = int.Parse(Regex.Replace(data.StartCell(), "[^0-9]", ""));
 
-            int startColumnAsInt = GoogleSheetsToUnityUtilities.NumberFromExcelColumn(startColumn);
-            int currentRow = startRow;
+                 int startColumnAsInt = GoogleSheetsToUnityUtilities.NumberFromExcelColumn(startColumn);
+                 int currentRow = startRow;
 
-            foreach (List<string> dataValue in data.valueRange.values)
-            {
-                int currentColumn = startColumnAsInt;
+                 foreach (List<string> dataValue in data.valueRange.values)
+                 {
+                     int currentColumn = startColumnAsInt;
 
-                foreach (string entry in dataValue)
-                {
-                    string realColumn = GoogleSheetsToUnityUtilities.ExcelColumnFromNumber(currentColumn);
-                    GSTU_Cell cell = new GSTU_Cell(entry, realColumn, currentRow);
+                     foreach (string entry in dataValue)
+                     {
+                         string realColumn = GoogleSheetsToUnityUtilities.ExcelColumnFromNumber(currentColumn);
+                         GSTU_Cell cell = new GSTU_Cell(entry, realColumn, currentRow);
 
-                    Cells.Add(realColumn + currentRow, cell);
+                         Cells.Add(realColumn + currentRow, cell);
 
-                    if (!rows.ContainsKey(currentRow))
-                    {
-                        rows.Add(currentRow, new List<GSTU_Cell>());
-                    }
+                         if (!rows.ContainsKey(currentRow))
+                         {
+                             rows.Add(currentRow, new List<GSTU_Cell>());
+                         }
 
-                    rows[currentRow].Add(cell);
+                         rows[currentRow].Add(cell);
 
-                    if (!columns.ContainsPrimaryKey(realColumn))
-                    {
-                        columns.Add(realColumn, new List<GSTU_Cell>());
-                    }
+                         if (!columns.ContainsPrimaryKey(realColumn))
+                         {
+                             columns.Add(realColumn, new List<GSTU_Cell>());
+                         }
 
-                    columns[realColumn].Add(cell);
+                         columns[realColumn].Add(cell);
 
-                    currentColumn++;
-                }
+                         currentColumn++;
+                     }
 
-                currentRow++;
-            }
+                     currentRow++;
+                 }
 
-            if(data.sheetInfo != null)
-            {
-                foreach(var merge in data.sheetInfo.merges)
-                {
-                    Debug.Log("Merge starts at : " + merge.startRowIndex + " " + GoogleSheetsToUnityUtilities.ExcelColumnFromNumber(merge.startColumnIndex));
-                }
-            }
-        }*/
+                 if(data.sheetInfo != null)
+                 {
+                     foreach(var merge in data.sheetInfo.merges)
+                     {
+                         Debug.Log("Merge starts at : " + merge.startRowIndex + " " + GoogleSheetsToUnityUtilities.ExcelColumnFromNumber(merge.startColumnIndex));
+                     }
+                 }
+             }*/
 
         public GstuSpreadSheet(GSTU_SpreadsheetResponce data, string titleColumn, int titleRow)
         {
@@ -336,7 +334,6 @@ namespace GoogleSheetsToUnity
                     }
                 }
             }
-
 
             foreach (List<string> dataValue in data.valueRange.values)
             {
@@ -369,7 +366,6 @@ namespace GoogleSheetsToUnity
                         rows[currentRow].Add(cell);
                         columns[realColumn].Add(cell);
 
-
                         //build a series of seconard keys for the rows and columns
                         if (realColumn == titleColumn)
                         {
@@ -390,26 +386,28 @@ namespace GoogleSheetsToUnity
             }
 
             //build the column and row string Id's from titles
-            foreach(GSTU_Cell cell in Cells.Values)
+            foreach (GSTU_Cell cell in Cells.Values)
             {
                 cell.columnId = Cells[cell.Column() + titleRow].value;
                 cell.rowId = Cells[titleColumn + cell.Row()].value;
             }
 
             //build all links to row and columns for cells that are handled by merged title fields.
-            foreach(GSTU_Cell cell in Cells.Values)
-            {
-                foreach(KeyValuePair<string,GSTU_Cell> cell2 in Cells)
-                {
-                    if (cell.columnId == cell2.Value.columnId && cell.rowId == cell2.Value.rowId)
-                    {
-                        if (!cell.titleConnectedCells.Contains(cell2.Key))
-                        {
-                            cell.titleConnectedCells.Add(cell2.Key);
-                        }
-                    }
-                }
-            }
+
+            // TODO: MCPGNZ DISABLED FOR FASTNESSSS
+            //foreach(GSTU_Cell cell in Cells.Values)
+            //{
+            //    foreach(KeyValuePair<string,GSTU_Cell> cell2 in Cells)
+            //    {
+            //        if (cell.columnId == cell2.Value.columnId && cell.rowId == cell2.Value.rowId)
+            //        {
+            //            if (!cell.titleConnectedCells.Contains(cell2.Key))
+            //            {
+            //                cell.titleConnectedCells.Add(cell2.Key);
+            //            }
+            //        }
+            //    }
+            //}
         }
 
         public GSTU_Cell this[string cellRef]
@@ -424,23 +422,23 @@ namespace GoogleSheetsToUnity
         {
             get
             {
-                    string columnIndex = columns.secondaryKeyLink[columnId];
-                    int rowIndex = rows.secondaryKeyLink[rowId];
+                string columnIndex = columns.secondaryKeyLink[columnId];
+                int rowIndex = rows.secondaryKeyLink[rowId];
 
-                    return Cells[columnIndex + rowIndex];
+                return Cells[columnIndex + rowIndex];
             }
         }
 
-        public List<GSTU_Cell> this [string rowID, string columnID, bool mergedCells]
+        public List<GSTU_Cell> this[string rowID, string columnID, bool mergedCells]
         {
             get
             {
                 string columnIndex = columns.secondaryKeyLink[columnID];
                 int rowIndex = rows.secondaryKeyLink[rowID];
-                List < string > actualCells = Cells[columnIndex + rowIndex].titleConnectedCells;
+                List<string> actualCells = Cells[columnIndex + rowIndex].titleConnectedCells;
 
                 List<GSTU_Cell> returnCells = new List<GSTU_Cell>();
-                foreach(string s in actualCells)
+                foreach (string s in actualCells)
                 {
                     returnCells.Add(Cells[s]);
                 }

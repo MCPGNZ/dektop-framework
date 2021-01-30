@@ -148,13 +148,15 @@
         #region Inspector Variables
         [SerializeField] private string _SpreadSheetId = "17PZjawA0xeLcKWSJjHh22cn-BePWG1xDu0cgBKQ-zv4";
         [SerializeField] private string _WorksheetId = "Level";
-        [SerializeField] private Map _Map;
+
+        [SerializeField, HideInInspector] private Map _Map;
         #endregion Inspector Variables
 
         #region Private Methods
         [Button]
         private void Parse()
         {
+            Debug.Log("Parse started");
             SpreadsheetManager.ReadPublicSpreadsheet(new GSTU_Search(_SpreadSheetId, _WorksheetId, "A1", "ZZ128"), OnSheetLoaded);
         }
 
@@ -168,8 +170,6 @@
             {
                 var row = cell.Value.Row();
                 var column = GoogleSheetsToUnityUtilities.NumberFromExcelColumn(cell.Value.Column());
-
-                Debug.Log(row + " : " + column);
 
                 if (row > rowCount) { rowCount = row; }
                 if (column > columnCount) { columnCount = column; }
@@ -199,6 +199,8 @@
                     Data = cell.Value.value
                 };
             }
+
+            Debug.Log("Parse success");
         }
         #endregion Private Methods
     }
