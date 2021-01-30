@@ -73,7 +73,7 @@
         [SerializeField, BoxGroup("Portals")]
         private float _PortalLock = 1.0f;
 
-        [SerializeField]
+        [SerializeField, ListDrawerSettings(NumberOfItemsPerPage = 32)]
         internal List<IdentifierEntry> _Identifiers;
         #endregion Inspector Variables
 

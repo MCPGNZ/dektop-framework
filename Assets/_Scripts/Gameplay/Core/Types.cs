@@ -16,7 +16,14 @@
         Bin = 101,
         Error = 102,
         Clippy = 103,
-        Windows7 = 104,
+
+        Windows31 = 104,
+        Windows7 = 105,
+        Windows95 = 106,
+        Windows98 = 107,
+        Windows8 = 108,
+        Windows10 = 109,
+        Windows2000 = 110,
 
         /* environment */
         Empty = 200,
