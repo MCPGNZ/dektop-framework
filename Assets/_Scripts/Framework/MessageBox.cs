@@ -6,6 +6,45 @@ using System.IO;
 using System.Windows.Forms;
 using UnityEngine;
 
+public class GrowLabel : Label
+{
+    private bool mGrowing;
+    public GrowLabel()
+    {
+        this.AutoSize = false;
+    }
+    private void resizeLabel()
+    {
+        if (mGrowing) return;
+        try
+        {
+            mGrowing = true;
+            Size sz = new Size(this.Width, Int32.MaxValue);
+            sz = TextRenderer.MeasureText(this.Text, this.Font, sz, TextFormatFlags.WordBreak);
+            this.Height = sz.Height;
+        }
+        finally
+        {
+            mGrowing = false;
+        }
+    }
+    protected override void OnTextChanged(EventArgs e)
+    {
+        base.OnTextChanged(e);
+        resizeLabel();
+    }
+    protected override void OnFontChanged(EventArgs e)
+    {
+        base.OnFontChanged(e);
+        resizeLabel();
+    }
+    protected override void OnSizeChanged(EventArgs e)
+    {
+        base.OnSizeChanged(e);
+        resizeLabel();
+    }
+}
+
 public class MessageBox : Form
 {
     /// <summary>
@@ -13,9 +52,10 @@ public class MessageBox : Form
     /// </summary>
     private System.ComponentModel.IContainer components = null;
 
-    private Label message = null;
+    private GrowLabel message = null;
     private PictureBox icon = null;
     private Button[] buttons = null;
+    private FlowLayoutPanel buttonsPanel = null;
 
     public Action<string> OnButtonClick = null;
 
@@ -33,7 +73,7 @@ public class MessageBox : Form
             iconPath = UnityEngine.Application.streamingAssetsPath + System.IO.Path.DirectorySeparatorChar + iconPath;
         }
 
-        this.message = new Label();
+        this.message = new GrowLabel();
         if (iconPath != null)
         {
             this.icon = new PictureBox();
@@ -46,61 +86,66 @@ public class MessageBox : Form
             this.buttons[i] = new Button();
         }
 
-        this.SuspendLayout();
+        this.buttonsPanel = new FlowLayoutPanel();
 
-        this.message.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
-                    | AnchorStyles.Left)
-                    | AnchorStyles.Right)));
-        this.message.AutoSize = true;
-        this.message.Location = new System.Drawing.Point(85, 15);
-        this.message.MaximumSize = new System.Drawing.Size(294, 0);
-        this.message.Name = "message";
-        this.message.Size = new System.Drawing.Size(28, 13);
-        this.message.TabIndex = 0;
-        this.message.Text = message;
+        this.buttonsPanel.SuspendLayout();
+        this.SuspendLayout();
 
         if (this.icon != null)
         {
+            this.icon.Dock = DockStyle.Left;
             this.icon.ErrorImage = null;
             this.icon.InitialImage = null;
             this.icon.ImageLocation = iconPath;
-            this.icon.Location = new System.Drawing.Point(15, 15);
             this.icon.Name = "icon";
-            this.icon.Size = new System.Drawing.Size(64, 64);
+            this.icon.MaximumSize = new Size(64, 64);
             this.icon.SizeMode = PictureBoxSizeMode.Zoom;
             this.icon.TabIndex = 0;
             this.icon.TabStop = false;
         }
 
-        for (int i = 0; i < buttonLabels.Length; ++i)
+        this.message.Dock = DockStyle.Fill;
+        this.message.AutoSize = true;
+        this.message.Padding = new Padding(20);
+        this.message.Name = "message";
+        this.message.TabIndex = 1;
+        this.message.Text = message;
+
+        this.buttonsPanel.AutoSize = true;
+        this.buttonsPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        this.buttonsPanel.Anchor = AnchorStyles.Bottom;
+        this.buttonsPanel.Dock = DockStyle.Bottom;
+        this.buttonsPanel.Margin = new Padding(10, 0, 10, 0);
+        this.buttonsPanel.FlowDirection = FlowDirection.RightToLeft;
+        this.buttonsPanel.HorizontalScroll.Enabled = false;
+        this.buttonsPanel.VerticalScroll.Enabled = false;
+
+        for (int i = buttonLabels.Length - 1; i >= 0; ++i)
         {
             Button btn = buttons[i];
             string label = buttonLabels[i];
 
-            btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            //btn.FocusDuesEnabled = false;
-            btn.Location = new System.Drawing.Point(139 + i * 81, 88);
+            btn.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             btn.Name = "btn_" + label;
-            btn.Size = new System.Drawing.Size(75, 23);
-            btn.TabIndex = 2;
+            btn.Padding = new Padding(15, 1, 15, 1);
+            btn.AutoSize = true;
+            btn.TabIndex = 2 + i;
             btn.Text = label;
-            //btn.Tooltip = "";
-            btn.UseVisualStyleBackColor = true;
-            btn.Click += new EventHandler((object sender, EventArgs args) => {
+            btn.Click += new EventHandler((object sender, EventArgs args) =>
+            {
                 this.OnButtonClick?.Invoke(label);
                 this.Dispose();
             });
+
+            this.buttonsPanel.Controls.Add(btn);
         }
 
         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(this.buttons.Length * 81 + 151, 129);
+        this.AutoSize = true;
         this.Controls.Add(this.message);
+        this.Controls.Add(this.buttonsPanel);
         this.Controls.Add(this.icon);
-        foreach (Button button in buttons)
-        {
-            this.Controls.Add(button);
-        }
         this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
         this.MaximizeBox = false;
         this.MinimizeBox = false;
@@ -108,12 +153,14 @@ public class MessageBox : Form
         this.Name = "MessageForm";
         this.Padding = new System.Windows.Forms.Padding(15);
         this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+        this.MaximumSize = new Size(600, 200);
         this.Text = title;
         if (this.icon != null)
         {
             ((System.ComponentModel.ISupportInitialize)(this.icon)).EndInit();
             this.icon.Load();
         }
+        this.buttonsPanel.ResumeLayout();
         this.ResumeLayout(false);
         this.PerformLayout();
     }
