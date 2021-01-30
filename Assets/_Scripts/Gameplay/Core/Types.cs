@@ -30,6 +30,7 @@
         Wall = 201,
         Heart = 202,
         Note = 203,
+        Boulder = 204,
 
         /* enemies */
         SpikeEnemy = 300,
