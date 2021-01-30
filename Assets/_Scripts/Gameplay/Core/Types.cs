@@ -1,6 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System;
+    using System.Collections.Generic;
     using UnityEngine;
 
     /// <summary>
@@ -64,8 +65,11 @@
         /// <summary>
         /// Returns identifier enum
         /// </summary>
-        public static Identifier ToID(this string tag)
+        public static Identifier ToID(this string tagWithMaybeParams)
         {
+            int colonIndex = tagWithMaybeParams.IndexOf(':');
+            string tag = colonIndex < 0 ? tagWithMaybeParams : tagWithMaybeParams.Substring(0, colonIndex);
+
             if (string.IsNullOrWhiteSpace(tag)) { return Identifier.Empty; }
 
             var identifiers = Config.Instance._Identifiers;
@@ -78,7 +82,7 @@
             if (tag.StartsWith(Identifier.PortalExit.ToTag())) { return Identifier.PortalExit; }
             if (tag.StartsWith(Identifier.Note.ToTag())) { return Identifier.Note; }
 
-            Debug.LogWarning($"unrecognized tag: {tag}");
+            Debug.LogWarning($"unrecognized tag: {tag} (full: {tagWithMaybeParams})");
 
             return Identifier.Unknown;
         }

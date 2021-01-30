@@ -203,46 +203,10 @@
 
         private void InitializeActor(Cell cell, GameObject item)
         {
-            switch (cell.Type)
+            var actor = item.GetComponent<Actor>();
+            if (actor != null)
             {
-                case Identifier.PortalEntry:
-                {
-                    var portal = item.GetComponent<Actor>();
-                    portal.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}", cell);
-                    portal.GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
-                    break;
-                }
-
-                case Identifier.MineEnemy:
-                {
-                    var actor = item.GetComponent<Actor>();
-                    actor.Create($"Minesweeper{_AutoIncrement++}.exe");
-                    var automobile = item.GetComponent<Automobile>();
-                    if (cell.Data.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 100.0f); }
-                    if (cell.Data.Contains("-")) { automobile.MoveVector = new Vector2(100.0f, 0.0f); }
-                    if (cell.Data.Contains("*")) { automobile.MoveVector = new Vector2(100.0f, 100.0f); }
-                    break;
-                }
-                case Identifier.BatEnemy:
-                {
-                    var actor = item.GetComponent<Actor>();
-                    actor.Create($"Killer{_AutoIncrement++}.bat");
-                    var automobile = item.GetComponent<Automobile>();
-                    if (cell.Data.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 150.0f); }
-                    if (cell.Data.Contains("-")) { automobile.MoveVector = new Vector2(150.0f, 0.0f); }
-                    if (cell.Data.Contains("*")) { automobile.MoveVector = new Vector2(150.0f, 150.0f); }
-                    break;
-                }
-                default:
-                {
-                    var actor = item.GetComponent<Actor>();
-                    if (actor != null)
-                    {
-                        var actorName = cell.Type.ToString();
-                        actor.Create($"{actorName}{_AutoIncrement++}", cell);
-                    }
-                    break;
-                }
+                actor.Create(_AutoIncrement++.ToString(), cell);
             }
         }
 
