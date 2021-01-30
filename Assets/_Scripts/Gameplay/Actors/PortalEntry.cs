@@ -9,7 +9,12 @@
         #region Unity Methods
         private void OnTriggerEnter2D(Collider2D other)
         {
-            _Overworld.TeleportExplorerTo(PortalExitKey);
+
+            var bodyObject = other.attachedRigidbody.gameObject;
+            if (bodyObject.GetComponent<Movement>() != null)
+            {
+                _Overworld.TeleportExplorerTo(PortalExitKey);
+            }
         }
         #endregion Unity Methods
 

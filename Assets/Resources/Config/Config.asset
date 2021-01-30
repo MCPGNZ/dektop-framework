@@ -38,9 +38,13 @@ MonoBehaviour:
   - Identifier: 300
     Tag: x
     Prefab: {fileID: 4835563417813236666, guid: 6eca33b3dec1af44fa249caebf5aa32f, type: 3}
-    Avatar: {fileID: 0}
+    Avatar: {fileID: 11400000, guid: abaa57d34eed15149bfde5aeaa9a08d4, type: 2}
   - Identifier: 301
     Tag: m
+    Prefab: {fileID: 4898220957834961, guid: a0941299f380fea4caada4cd8a647ddc, type: 3}
+    Avatar: {fileID: 11400000, guid: 8155f3c1964f8ec46ad4e0740f0fcf3e, type: 2}
+  - Identifier: 302
+    Tag: b
     Prefab: {fileID: 4898220957834961, guid: a0941299f380fea4caada4cd8a647ddc, type: 3}
     Avatar: {fileID: 0}
   - Identifier: 400

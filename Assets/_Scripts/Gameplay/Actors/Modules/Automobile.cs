@@ -7,6 +7,12 @@
     public class Automobile : MonoBehaviour
     {
 
+        public Vector2 MoveVector
+        {
+            get => _CurrentMoveVector;
+            set => _CurrentMoveVector = value;
+        }
+
         // Use this for initialization
         void Start()
         {
