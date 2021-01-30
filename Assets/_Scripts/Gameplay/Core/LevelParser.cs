@@ -305,12 +305,6 @@
                     string message = spreadSheet.Cells["C" + rowIdx.ToString()].value;
 
                     if (string.IsNullOrWhiteSpace(id)) break;
-                    if (!id.StartsWith(Identifier.Note.ToTag()))
-                    {
-                        Debug.LogError($"Unexpected note id: {id}, ignoring");
-                        continue;
-                    }
-
                     if (_Notes.Where((n) => n.Id == id).Any())
                     {
                         Debug.LogError($"Duplicate note id: {id} at row {rowIdx}, overwriting");
