@@ -294,7 +294,7 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 0, y: 26}
-        Data: P42
+        Data: P:42
         Type: 400
       - GlobalId: {x: 0, y: 27}
         Data: 
@@ -464,8 +464,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 2, y: 2}
-        Data: o
-        Type: 204
+        Data: 
+        Type: 200
       - GlobalId: {x: 2, y: 3}
         Data: 
         Type: 200
@@ -1256,7 +1256,7 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 8, y: 24}
-        Data: K42
+        Data: K:42
         Type: 401
       - GlobalId: {x: 8, y: 25}
         Data: 
@@ -10439,3 +10439,7 @@ MonoBehaviour:
   - Id: pl:Clippy
     Icon: warning.ico
     Message: Zipped file blocking the way. Enter Password 1 to unzip.
+  - Id: CP:1
+    Icon: crippy_huh.ico
+    Message: "Let\u2019s see\u2026 I wonder if you can find your files! Try to walk
+      around and see!"
