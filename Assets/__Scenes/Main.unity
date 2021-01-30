@@ -895,7 +895,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9105458440472108016, guid: 9c3f2fa7a0386914d984a967dff22959, type: 3}
+      propertyPath: _Map._Rows.Array.data[2].Cells.Array.data[2].Data
+      value: o
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105458440472108016, guid: 9c3f2fa7a0386914d984a967dff22959, type: 3}
+      propertyPath: _Map._Rows.Array.data[2].Cells.Array.data[2].Type
+      value: 204
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105458440472108016, guid: 9c3f2fa7a0386914d984a967dff22959, type: 3}
       propertyPath: _Map._Rows.Array.data[17].Cells.Array.data[8].Type
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105458440472108016, guid: 9c3f2fa7a0386914d984a967dff22959, type: 3}
+      propertyPath: _Map._Rows.Array.data[18].Cells.Array.data[1].Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105458440472108016, guid: 9c3f2fa7a0386914d984a967dff22959, type: 3}
+      propertyPath: _Map._Rows.Array.data[18].Cells.Array.data[1].Type
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 9105458440472108016, guid: 9c3f2fa7a0386914d984a967dff22959, type: 3}
