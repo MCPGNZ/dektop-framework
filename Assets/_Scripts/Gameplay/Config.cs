@@ -21,13 +21,6 @@
 
             [HideLabel, HorizontalGroup, AssetsOnly]
             public GameObject Prefab;
-        }
-
-        [Serializable]
-        public sealed class AvatarEntry
-        {
-            [HideLabel, HorizontalGroup, LabelWidth(64)]
-            public Identifier Identifier;
 
             [HideLabel, HorizontalGroup, AssetsOnly]
             public IconEx Avatar;
@@ -38,14 +31,14 @@
         public static GameObject FindPrefab(Identifier id)
         {
             var found = Instance._Identifiers.Find(x => x.Identifier == id);
-            if (found == null) { throw new InvalidOperationException($"prefab not found for: {Enum.GetName(typeof(Identifier), id)}"); }
+            if (found == null) { throw new InvalidOperationException($"prefab not found for: {id.ToName()}"); }
 
             return found.Prefab;
         }
         public static IconEx FindAvatar(Identifier id)
         {
-            var found = Instance._Avatars.Find(x => x.Identifier == id);
-            if (found == null) { throw new InvalidOperationException($"avatar not found for: {Enum.GetName(typeof(Identifier), id)}"); }
+            var found = Instance._Identifiers.Find(x => x.Identifier == id);
+            if (found == null) { throw new InvalidOperationException($"avatar not found for: {id.ToName()}"); }
 
             return found.Avatar;
         }
@@ -68,9 +61,6 @@
 
         [SerializeField]
         internal List<IdentifierEntry> _Identifiers;
-
-        [SerializeField]
-        private List<AvatarEntry> _Avatars;
         #endregion Inspector Variables
 
     }

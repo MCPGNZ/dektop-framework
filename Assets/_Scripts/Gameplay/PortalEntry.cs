@@ -6,15 +6,15 @@
 
     public class PortalEntry : MonoBehaviour
     {
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             _Overworld.TeleportExplorerTo(PortalExitKey);
         }
 
-        [Inject]
-        private Overworld _Overworld;
-
         [ShowInInspector, HideInEditorMode]
         public string PortalExitKey;
+
+        [Inject]
+        private Overworld _Overworld;
     }
 }
