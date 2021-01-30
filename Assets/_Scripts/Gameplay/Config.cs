@@ -13,6 +13,9 @@
 
         public static float MovementSpeed => Instance._MovementSpeed;
         public static GameObject Wall => Instance._Wall;
+
+        public static IconEx ExplorerAvatar => Instance._ExplorerAvatar;
+        public static IconEx ClippyAvatar => Instance._ClippyAvatar;
         #endregion Public Variables
 
         #region Private Variables
@@ -27,6 +30,12 @@
 
         [SerializeField, BoxGroup("Prefabs")]
         private GameObject _Wall;
+
+        [SerializeField, BoxGroup("Avatars")]
+        private IconEx _ExplorerAvatar;
+
+        [SerializeField, BoxGroup("Avatars")]
+        private IconEx _ClippyAvatar;
         #endregion Private Variables
     }
 }

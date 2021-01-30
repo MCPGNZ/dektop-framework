@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2480559049a5194b93b4aeca85e091c, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
+  _UnitySize: {x: 1920, y: 1080}
+  _StageSize: {x: 21, y: 10}
   _MovementSpeed: 100
   _Wall: {fileID: 5096917803645802027, guid: 02f3a1d153f67b74babd350f83da8a84, type: 3}
+  _ExplorerAvatar: {fileID: 11400000, guid: 8978b034438143147a34a15943e7afe6, type: 2}
+  _ClippyAvatar: {fileID: 11400000, guid: 50de8b76fd3b4e045bda45efa9f1399c, type: 2}
