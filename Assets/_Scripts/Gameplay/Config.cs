@@ -11,10 +11,13 @@
     {
         #region Public Types
         [Serializable]
-        public sealed class PrefabEntry
+        public sealed class IdentifierEntry
         {
-            [HideLabel, HorizontalGroup]
+            [HideLabel, HorizontalGroup, LabelWidth(64)]
             public Identifier Identifier;
+
+            [HideLabel, HorizontalGroup, LabelWidth(64)]
+            public string Tag;
 
             [HideLabel, HorizontalGroup, AssetsOnly]
             public GameObject Prefab;
@@ -23,7 +26,7 @@
         [Serializable]
         public sealed class AvatarEntry
         {
-            [HideLabel, HorizontalGroup]
+            [HideLabel, HorizontalGroup, LabelWidth(64)]
             public Identifier Identifier;
 
             [HideLabel, HorizontalGroup, AssetsOnly]
@@ -34,7 +37,7 @@
         #region Public Variables
         public static GameObject FindPrefab(Identifier id)
         {
-            var found = Instance._Prefabs.Find(x => x.Identifier == id);
+            var found = Instance._Identifiers.Find(x => x.Identifier == id);
             if (found == null) { throw new InvalidOperationException($"prefab not found for: {Enum.GetName(typeof(Identifier), id)}"); }
 
             return found.Prefab;
@@ -64,7 +67,7 @@
         private float _MovementSpeed = 1.0f;
 
         [SerializeField]
-        private List<PrefabEntry> _Prefabs;
+        internal List<IdentifierEntry> _Identifiers;
 
         [SerializeField]
         private List<AvatarEntry> _Avatars;

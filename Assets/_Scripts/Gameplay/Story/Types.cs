@@ -1,6 +1,6 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
-    using System.Collections.Generic;
+    using System;
 
     public enum Identifier
     {
@@ -28,33 +28,38 @@
 
     public static class ObjectTypes
     {
-        public static Identifier Find(string tag)
+        /// <summary>
+        /// Returns display name
+        /// </summary>
+        public static string ToName(this Identifier id)
+        {
+            return Enum.GetName(typeof(Identifier), id);
+        }
+
+        /// <summary>
+        /// Returns parse tag
+        /// </summary>
+        public static string ToTag(this Identifier id)
+        {
+            var found = Config.Instance._Identifiers.Find(x => x.Identifier == id);
+            return found?.Tag;
+        }
+
+        /// <summary>
+        /// Returns identifier enum
+        /// </summary>
+        public static Identifier ToID(this string tag)
         {
             if (string.IsNullOrWhiteSpace(tag)) { return Identifier.Empty; }
 
-            foreach (var entry in Tags)
-            {
-                if (entry.Value == tag)
-                {
-                    return entry.Key;
-                }
-            }
-            if (tag.StartsWith(Tags[Identifier.PortalEntry])) { return Identifier.PortalEntry; }
-            if (tag.StartsWith(Tags[Identifier.PortalExit])) { return Identifier.PortalExit; }
+            var identifiers = Config.Instance._Identifiers;
+            var found = identifiers.Find(x => x.Tag == tag);
+            if (found != null) { return found.Identifier; }
+
+            if (tag.StartsWith(Identifier.PortalEntry.ToTag())) { return Identifier.PortalEntry; }
+            if (tag.StartsWith(Identifier.PortalExit.ToTag())) { return Identifier.PortalExit; }
 
             return Identifier.Unknown;
         }
-
-        public static readonly Dictionary<Identifier, string> Tags =
-            new Dictionary<Identifier, string>
-            {
-                {Identifier.Explorer, "E"},
-                {Identifier.Empty, " "},
-                {Identifier.Wall, "#"},
-                {Identifier.SpikeEnemy, "x"},
-                {Identifier.MineEnemy, "m"},
-                {Identifier.PortalEntry, "P"},
-                {Identifier.PortalExit, "K"}
-            };
     }
 }

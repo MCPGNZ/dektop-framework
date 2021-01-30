@@ -58,9 +58,8 @@
             /// </summary>
             public Cell FindUnique(Identifier identifier)
             {
-                var key = ObjectTypes.Tags[identifier];
-                var found = FindAll(key);
-                if (found.Count != 1) { throw new InvalidDataException($"should found only one {key} but found: {found.Count}"); }
+                var found = FindAll(identifier);
+                if (found.Count != 1) { throw new InvalidDataException($"should found only one {identifier.ToName()} but found: {found.Count}"); }
 
                 return found[0];
             }
@@ -177,8 +176,8 @@
                     if (Type != Identifier.PortalEntry)
                         throw new InvalidOperationException("MatchingExitPortalKey read on non-entry-portal");
 
-                    return ObjectTypes.Tags[Identifier.PortalExit] +
-                           Data.Substring(ObjectTypes.Tags[Identifier.PortalEntry].Length);
+                    return Identifier.PortalExit.ToTag() +
+                           Data.Substring(Identifier.PortalEntry.ToTag().Length);
                 }
             }
             #endregion Public Variables
@@ -189,7 +188,7 @@
                 GlobalId = globalId;
                 Data = data;
 
-                Type = ObjectTypes.Find(data);
+                Type = data.ToID();
                 if (Type == Identifier.Unknown)
                 {
                     Debug.LogWarning($"ignoring unsupported cell value: {data} at {globalId}");
