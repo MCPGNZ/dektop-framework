@@ -38,6 +38,17 @@
                 (int)(size.Width * normalizedPosition.x) - offset.X,
                 (int)(size.Height * normalizedPosition.y) - offset.Y);
         }
+
+        public static Vector2Int NormalizedToDesktop_Size(Vector2 normalizedSize)
+        {
+            var screen = Screen.PrimaryScreen;
+            var size = screen.WorkingArea.Size;
+
+            return new Vector2Int(
+                (int)(size.Width * normalizedSize.x),
+                (int)(size.Height * normalizedSize.y));
+        }
+
         public static Vector2 DesktopToNormalized(Vector2Int desktopPosition)
         {
             var screen = Screen.PrimaryScreen;
