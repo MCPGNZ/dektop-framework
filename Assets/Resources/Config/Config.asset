@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: 
   _DisableIcons: 0
-  _SkipIntro: 1
+  _SkipIntro: 0
+  _SaveInput: 0
   _UnitySize: {x: 2100, y: 1000}
   _StageSize: {x: 21, y: 10}
   _MovementSpeed: 100
@@ -66,7 +67,7 @@ MonoBehaviour:
   - Identifier: 102
     Tag: 
     Prefab: {fileID: 0}
-    Avatar: {fileID: 11400000, guid: abaa57d34eed15149bfde5aeaa9a08d4, type: 2}
+    Avatar: {fileID: 11400000, guid: 3d5f7970e2bf88544bc99fb21692336b, type: 2}
   - Identifier: 202
     Tag: <3
     Prefab: {fileID: 4835563417813236666, guid: b3bbd74abc58e0c419ae3d5922101b01, type: 3}

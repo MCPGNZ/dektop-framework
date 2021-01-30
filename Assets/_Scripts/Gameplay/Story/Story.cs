@@ -45,7 +45,7 @@
 
         private void BeginDialogs()
         {
-            Dialog.Character(Identifier.Error, "Error", "Error.", "Error?", "Malkovich!");
+            Dialog.Character(Identifier.Error, "Your game seems to be damaged. Explorer not found.", "Ok", "Yes", "Confirm");
 
         START:
             var response = Dialog.Character(Identifier.Clippy, "No!", "Yes", "No");
