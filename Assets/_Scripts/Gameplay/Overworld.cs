@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using UnityEngine;
     using Zenject;
+    using static Mcpgnz.DesktopFramework.LevelParser;
 
     public class Overworld : MonoBehaviour
     {
@@ -52,26 +53,30 @@
 
         private void AddActor(LevelParser.Cell cell, Vector2Int position, Vector2Int gridSize)
         {
-            switch (cell.Data)
+            Debug.Log($"AddActor {cell.Type}");
+            switch (cell.Type)
             {
-                case LevelParser.WallId:
+                case CellType.Wall:
                 {
                     var actor = Create<Actor>(Config.Wall, position, gridSize);
                     actor.Create($"Wall{_AutoIncrement++}");
                     break;
                 }
-                case "x":
+                case CellType.SpikeEnemy:
                 {
                     var actor = Create<Actor>(Config.SpikeEnemy, position, gridSize);
                     actor.Create($"Spikes{_AutoIncrement++}");
                     break;
-                    }
-                case "m":
+                }
+                case CellType.MineEnemy:
                 {
                     var actor = Create<Actor>(Config.MineEnemy, position, gridSize);
                     actor.Create($"Minesweeper{_AutoIncrement++}");
                     break;
                 }
+                default:
+                    Debug.Log($"AddActor: ignoring cell type {cell.Type}");
+                    break;
             }
         }
 
