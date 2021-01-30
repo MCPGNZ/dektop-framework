@@ -29,7 +29,8 @@
         Empty = 200,
         Wall = 201,
         Heart = 202,
-        Boulder = 203,
+        Note = 203,
+        Boulder = 204,
 
         /* enemies */
         SpikeEnemy = 300,
@@ -75,6 +76,7 @@
             if (tag.StartsWith(Identifier.BatEnemy.ToTag())) { return Identifier.BatEnemy; }
             if (tag.StartsWith(Identifier.PortalEntry.ToTag())) { return Identifier.PortalEntry; }
             if (tag.StartsWith(Identifier.PortalExit.ToTag())) { return Identifier.PortalExit; }
+            if (tag.StartsWith(Identifier.Note.ToTag())) { return Identifier.Note; }
 
             Debug.LogWarning($"unrecognized tag: {tag}");
 

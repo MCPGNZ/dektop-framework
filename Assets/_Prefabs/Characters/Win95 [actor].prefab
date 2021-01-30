@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Name: Windows 95
-  _Icon: {fileID: 11400000, guid: fffca38013ba9ef49befa3ddb91a7547, type: 2}
+  _Icon: {fileID: 11400000, guid: 0b0131bb137df6148bb4f0d034189b98, type: 2}
   _Tooltip: Don't look at me.
   _AutoCreate: 1
 --- !u!1 &7648953659995989948

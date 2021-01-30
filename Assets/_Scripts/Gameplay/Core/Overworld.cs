@@ -207,7 +207,7 @@
                 case Identifier.PortalEntry:
                 {
                     var portal = item.GetComponent<Actor>();
-                    portal.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}");
+                    portal.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}", cell);
                     portal.GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
                     break;
                 }
@@ -238,7 +238,7 @@
                     if (actor != null)
                     {
                         var actorName = cell.Type.ToString();
-                        actor.Create($"{actorName}{_AutoIncrement++}");
+                        actor.Create($"{actorName}{_AutoIncrement++}", cell);
                     }
                     break;
                 }
