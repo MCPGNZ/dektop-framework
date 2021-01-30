@@ -67,10 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97da985f466f4f17b2fe93366c55e2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Actor: {fileID: 0}
   character: 109
-  _Encounters: []
-  references:
-    version: 1
+  _Story: {fileID: 11400000, guid: 5ba4f51a21c842c47afcdcc9d7b6313b, type: 2}
 --- !u!114 &104899619469281164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +82,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c0035a80fae1e44938e2c810b1e443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell:
+    GlobalId: {x: 0, y: 0}
+    Data: 
+    Type: 0
   _Name: Windows 10
   _Icon: {fileID: 11400000, guid: c03e68a24ea39cf48a0c9b651665b0a8, type: 2}
   _Tooltip: Don't look at me.

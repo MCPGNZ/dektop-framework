@@ -25,8 +25,8 @@ MonoBehaviour:
     Prefab: {fileID: 7733286898918282246, guid: 764ba97460be42e4d82faec450791e1d, type: 3}
     Avatar: {fileID: 11400000, guid: 8978b034438143147a34a15943e7afe6, type: 2}
   - Identifier: 103
-    Tag: 
-    Prefab: {fileID: 0}
+    Tag: CP
+    Prefab: {fileID: 7733286898918282246, guid: cee3c19854aaf3b4c940f1cda8b21717, type: 3}
     Avatar: {fileID: 11400000, guid: 0ee4ee1191236554893f6e495c29e081, type: 2}
   - Identifier: 101
     Tag: BIN

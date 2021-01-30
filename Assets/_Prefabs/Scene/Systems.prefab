@@ -421,7 +421,7 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 1, y: 28}
-        Data: pl:2
+        Data: pl:fin
         Type: 205
       - GlobalId: {x: 1, y: 29}
         Data: P:40
@@ -470,11 +470,11 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 2, y: 4}
-        Data: cu
-        Type: 200
-      - GlobalId: {x: 2, y: 5}
         Data: 
         Type: 200
+      - GlobalId: {x: 2, y: 5}
+        Data: CP
+        Type: 103
       - GlobalId: {x: 2, y: 6}
         Data: 
         Type: 200
@@ -2763,8 +2763,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 21, y: 2}
-        Data: 
-        Type: 200
+        Data: CP
+        Type: 103
       - GlobalId: {x: 21, y: 3}
         Data: '#'
         Type: 201
@@ -9036,7 +9036,7 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 72, y: 36}
-        Data: plp:2
+        Data: plp:fin
         Type: 206
       - GlobalId: {x: 72, y: 37}
         Data: '#'
@@ -10434,8 +10434,8 @@ MonoBehaviour:
     Icon: crippy_normal.ico
     Message: Is it ...right? I should help, not leave people helpless...
   - Id: plp:Clippy
-    Icon: crippy_silhouette.ico
-    Message: bla bla bla haslo to Clippy
+    Icon: info.ico
+    Message: 'Warning! This file contains secret information. Password:   YouNeverBeatMe'
   - Id: pl:Clippy
-    Icon: firewall.ico
-    Message: "bla bla bla dawaj has\u0142o"
+    Icon: warning.ico
+    Message: Zipped file blocking the way. Enter Password 1 to unzip.
