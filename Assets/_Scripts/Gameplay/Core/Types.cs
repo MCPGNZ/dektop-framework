@@ -29,6 +29,7 @@
         Empty = 200,
         Wall = 201,
         Heart = 202,
+        Boulder = 203,
 
         /* enemies */
         SpikeEnemy = 300,
