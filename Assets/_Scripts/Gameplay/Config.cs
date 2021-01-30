@@ -13,6 +13,7 @@
 
         public static float MovementSpeed => Instance._MovementSpeed;
         public static GameObject Wall => Instance._Wall;
+        public static GameObject PortalEntry => Instance._PortalEntry;
         public static GameObject SpikeEnemy => Instance._SpikeEnemy;
         public static GameObject MineEnemy => Instance._MineEnemy;
 
@@ -33,6 +34,10 @@
 
         [SerializeField, BoxGroup("Prefabs")]
         private GameObject _Wall;
+
+        [SerializeField, BoxGroup("Prefabs")]
+        private GameObject _PortalEntry;
+
         [SerializeField, BoxGroup("Prefabs")]
         private GameObject _SpikeEnemy;
         [SerializeField, BoxGroup("Prefabs")]

@@ -74,6 +74,13 @@
                     actor.Create($"Minesweeper{_AutoIncrement++}");
                     break;
                 }
+                case CellType.PortalEntry:
+                {
+                    var actor = Create<Actor>(Config.PortalEntry, position, gridSize);
+                    actor.Create($"PortalEntry{Random.Range(-10.0f, 10.0f)}");
+                    actor.GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
+                    break;
+                }
                 default:
                     Debug.Log($"AddActor: ignoring cell type {cell.Type}");
                     break;
