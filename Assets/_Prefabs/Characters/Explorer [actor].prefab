@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d4dcddde8e436f8a9797db7dc2a360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Lives: 3
 --- !u!114 &7733286898918282244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c0035a80fae1e44938e2c810b1e443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell:
+    GlobalId: {x: 0, y: 0}
+    Data: 
+    Type: 0
   _Name: Explorer
   _Icon: {fileID: 11400000, guid: 8978b034438143147a34a15943e7afe6, type: 2}
   _Tooltip: Hello traveller!
@@ -223,5 +228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _AlternativeIcon: {fileID: 11400000, guid: 8fbf6a652c99ea04aab3795207c130f3, type: 2}
-  _BaseIcon: {fileID: 11400000, guid: 8978b034438143147a34a15943e7afe6, type: 2}
+  _BaseIcon: {fileID: 11400000, guid: 41da954b43abebf41afe893af3efe3c2, type: 2}
   _Time: 1
+  _ShakeStrength: 0

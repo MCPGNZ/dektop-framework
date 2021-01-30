@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: 
   _DisableIcons: 0
-  _SkipIntro: 0
+  _SkipIntro: 1
   _UnitySize: {x: 1920, y: 1080}
   _StageSize: {x: 21, y: 10}
   _MovementSpeed: 100

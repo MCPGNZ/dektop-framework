@@ -45,8 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c0035a80fae1e44938e2c810b1e443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell:
+    GlobalId: {x: 0, y: 0}
+    Data: 
+    Type: 0
   _Name: Boulder
-  _Icon: {fileID: 11400000, guid: e491cb611e89810498d2e620a778abb7, type: 2}
+  _Icon: {fileID: 11400000, guid: 324dc97e80dca0947a13818361cfe022, type: 2}
   _Tooltip: Looks like it can be pushed.
   _AutoCreate: 0
 --- !u!50 &495446661102639031
@@ -177,5 +181,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4, y: 1.4}
+  m_Size: {x: 1.3, y: 1.3}
   m_EdgeRadius: 0
