@@ -32,6 +32,8 @@
 
             /* load first level */
             _Overworld.Load(_BeginCutsceneStage);
+            // yolo
+            GameObject.FindGameObjectWithTag("Clippy").GetComponent<NPC>().TriggerNextEncounter();
         }
         #endregion Unity Methods
 
