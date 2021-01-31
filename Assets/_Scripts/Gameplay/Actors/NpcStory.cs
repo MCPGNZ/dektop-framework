@@ -52,6 +52,26 @@
             }
         }
 
+        public sealed class StealIconsCutsceneAction : IEncounterAction
+        {
+            public void Execute(NPC npc)
+            {
+                System.Threading.Thread.Sleep(2000);
+                Lifetime.HideItems();
+                System.Threading.Thread.Sleep(3000);
+            }
+        }
+
+        public sealed class SpawnFirstLevelAction : IEncounterAction
+        {
+            [Inject] private Story _Story;
+
+            public void Execute(NPC npc)
+            {
+                _Story.StoryBegin();
+            }
+        }
+
         [Serializable]
         public sealed class Encounter
         {

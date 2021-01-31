@@ -107,8 +107,11 @@
 
                 _StoredItems.Add(new StoredItem(item.Name, item.DesktopPosition));
             }
+        }
 
-            /* hide items */
+        public static void HideItems()
+        {
+            var items = DesktopEx.Items;
             foreach (var item in items)
             {
                 /* to the purgatory! */
