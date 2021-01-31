@@ -18,6 +18,8 @@
         #region Public Methods
         public void Load(Vector2Int levelId)
         {
+            Debug.Log($"load stage: {levelId}");
+
             /* cleanup */
             Release();
 
