@@ -161,7 +161,7 @@
         #endregion Private Variables
 
         #region Private Methods
-        private void Release()
+        public void Release()
         {
             Pool.ReleaseAll();
         }
