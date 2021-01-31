@@ -155,6 +155,7 @@ public class MessageBox : Form
         this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         this.MaximumSize = new Size(600, 200);
         this.Text = title;
+        this.TopLevel = true;
         if (this.icon != null)
         {
             ((System.ComponentModel.ISupportInitialize)(this.icon)).EndInit();

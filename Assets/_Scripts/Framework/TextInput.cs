@@ -108,6 +108,7 @@ public class TextInput : Form
         this.MinimumSize = this.Size;
         this.MaximumSize = this.Size;
         this.Text = title;
+        this.TopLevel = true;
         if (this.icon != null)
         {
             ((System.ComponentModel.ISupportInitialize)(this.icon)).EndInit();
