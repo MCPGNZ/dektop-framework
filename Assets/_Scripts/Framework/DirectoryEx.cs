@@ -3,13 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using Sirenix.OdinInspector;
 
     [Serializable]
     public sealed class DirectoryEx : ItemEx<DirectoryInfo>
     {
         #region Public Variables
-        [ShowInInspector]
         public List<FileEx> Files
         {
             get
@@ -25,7 +23,6 @@
             }
         }
 
-        [ShowInInspector]
         public List<DirectoryEx> Directories
         {
             get
@@ -51,9 +48,9 @@
         public DirectoryEx(DirectoryInfo directoryInfo) : base(directoryInfo)
         {
             _Watcher = new FileSystemWatcher(directoryInfo.FullName);
-            _Watcher.Created += (object sender, FileSystemEventArgs args) => OnItemCreated?.Invoke(args.Name);
-            _Watcher.Deleted += (object sender, FileSystemEventArgs args) => OnItemDeleted?.Invoke(args.Name);
-            _Watcher.Changed += (object sender, FileSystemEventArgs args) => OnItemChanged?.Invoke(args.Name);
+            _Watcher.Created += (sender, args) => OnItemCreated?.Invoke(args.Name);
+            _Watcher.Deleted += (sender, args) => OnItemDeleted?.Invoke(args.Name);
+            _Watcher.Changed += (sender, args) => OnItemChanged?.Invoke(args.Name);
             _Watcher.EnableRaisingEvents = true;
         }
 
@@ -77,7 +74,7 @@
         #endregion Public Methods
 
         #region Private variables
-        private static FileSystemWatcher _Watcher = null;
+        private static FileSystemWatcher _Watcher;
         #endregion Private variables
     }
 }

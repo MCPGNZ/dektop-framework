@@ -181,7 +181,7 @@
                 get
                 {
                     if (!HasParameters)
-                        throw new ArgumentException($"cell {Data} has no parameters");
+                        return "";
                     return Data.Substring(Data.IndexOf(':') + 1);
                 }
             }
@@ -305,12 +305,6 @@
                     string message = spreadSheet.Cells["C" + rowIdx.ToString()].value;
 
                     if (string.IsNullOrWhiteSpace(id)) break;
-                    if (!id.StartsWith(Identifier.Note.ToTag()))
-                    {
-                        Debug.LogError($"Unexpected note id: {id}, ignoring");
-                        continue;
-                    }
-
                     if (_Notes.Where((n) => n.Id == id).Any())
                     {
                         Debug.LogError($"Duplicate note id: {id} at row {rowIdx}, overwriting");

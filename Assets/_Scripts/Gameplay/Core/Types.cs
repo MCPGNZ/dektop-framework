@@ -32,6 +32,8 @@
         Heart = 202,
         Note = 203,
         Boulder = 204,
+        Lock = 205,
+        PermanentNote = 206,
 
         /* enemies */
         SpikeEnemy = 300,

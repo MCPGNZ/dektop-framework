@@ -45,10 +45,10 @@
 
         private void BeginDialogs()
         {
-            Dialog.Character(Identifier.Error, "Error", "Error.", "Error?", "Malkovich!");
+            Dialog.Character(Identifier.Error, "Your game seems to be damaged. Explorer not found.", null, "Ok", "Yes", "Confirm");
 
         START:
-            var response = Dialog.Character(Identifier.Clippy, "No!", "Yes", "No");
+            var response = Dialog.Character(Identifier.Clippy, "No!", null, "Yes", "No");
             switch (response)
             {
                 case "Yes":
@@ -57,8 +57,8 @@
                 }
                 case "No":
                 {
-                    Dialog.Character(Identifier.Clippy, "I am FED UP", "???");
-                    Dialog.Character(Identifier.Clippy, "No more playing games!", ":<");
+                    Dialog.Character(Identifier.Clippy, "I am FED UP", null, "???");
+                    Dialog.Character(Identifier.Clippy, "No more playing games!", null, ":<");
                     break;
                 }
             }
@@ -76,7 +76,7 @@
 
         private void EndDialogs()
         {
-            Dialog.Character(Identifier.Clippy, "You are no more", "Sorry...");
+            Dialog.Character(Identifier.Clippy, "You are no more", null, "Sorry...");
         }
 
         private void OnExplorerLifeLost(int count)

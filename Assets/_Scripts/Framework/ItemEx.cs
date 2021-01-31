@@ -2,7 +2,6 @@
 {
     using System.IO;
     using System.Runtime.InteropServices;
-    using Sirenix.OdinInspector;
     using UnityEngine;
 
     public interface IItemEx
@@ -48,7 +47,6 @@
         #region Public Variables
         public override bool IsCreated => _Info != null;
 
-        [ShowInInspector]
         public override string Name
         {
             get => _Info.Name;
@@ -59,7 +57,6 @@
             }
         }
 
-        [ShowInInspector]
         public override string AbsolutePath => _Info.FullName;
 
         public override string DirectoryPath => Path.GetDirectoryName(_Info.FullName);

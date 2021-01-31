@@ -2,12 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Threading;
     using JetBrains.Annotations;
     using UnityEngine;
+    using UnityRawInput;
     using Zenject;
     using static LevelParser;
-    using Random = UnityEngine.Random;
 
     public class Overworld : MonoBehaviour
     {
@@ -33,7 +32,12 @@
             }
             _CurrentStageId = levelId;
 
-            Thread.Sleep(1000);
+            /* force clean input */
+            RawKeyInput.HandleKeyUp(RawKey.Left);
+            RawKeyInput.HandleKeyUp(RawKey.Right);
+            RawKeyInput.HandleKeyUp(RawKey.Up);
+            RawKeyInput.HandleKeyUp(RawKey.Down);
+
             LevelChanged?.Invoke();
         }
         #endregion Public Methods
@@ -196,8 +200,8 @@
             Pool.Instantiate(cell.Type, transform, _Container,
                 item =>
                 {
-                    InitializePosition(item, position, gridSize);
                     InitializeActor(cell, item);
+                    InitializePosition(item, position, gridSize);
                 });
         }
 
@@ -216,8 +220,10 @@
             var unityPosition = Coordinates.NormalizedToUnity(normalizedPosition);
 
             item.transform.localPosition = unityPosition;
+
+            var component = item.GetComponent<Actor>();
+            if (component != null) { component.UpdatePosition(true); }
         }
         #endregion Private Methods
     }
-
 }

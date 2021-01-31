@@ -37,30 +37,27 @@
                 switch (cell.Type)
                 {
                     case Identifier.PortalEntry:
-                        {
-                            name = $"PortalEntry{name}";
-                            GetComponent<Actor>().GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
-                            break;
-                        }
+                    {
+                        name = $"PortalEntry{name}";
+                        GetComponent<Actor>().GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
+                        break;
+                    }
 
                     case Identifier.MineEnemy:
-                        {
-                            name = $"Minesweeper{name}.exe";
-                            var automobile = GetComponent<Automobile>();
-                            if (cell.Parameters.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 100.0f); }
-                            if (cell.Parameters.Contains("-")) { automobile.MoveVector = new Vector2(100.0f, 0.0f); }
-                            if (cell.Parameters.Contains("*")) { automobile.MoveVector = new Vector2(100.0f, 100.0f); }
-                            break;
-                        }
+                    {
+                        name = $"Minesweeper{name}.exe";
+                        break;
+                    }
                     case Identifier.BatEnemy:
-                        {
-                            name = $"Killer{name}.bat";
-                            var automobile = GetComponent<Automobile>();
-                            if (cell.Parameters.Contains("|")) { automobile.MoveVector = new Vector2(0.0f, 150.0f); }
-                            if (cell.Parameters.Contains("-")) { automobile.MoveVector = new Vector2(150.0f, 0.0f); }
-                            if (cell.Parameters.Contains("*")) { automobile.MoveVector = new Vector2(150.0f, 150.0f); }
-                            break;
-                        }
+                    {
+                        name = $"Killer{name}.bat";
+                        break;
+                    }
+                    default:
+                    {
+                        name = $"{cell.Type.ToName()}{name}";
+                        break;
+                    }
                 }
             }
 
@@ -77,6 +74,7 @@
         {
             if (_Directory == null) { throw new InvalidOperationException($"actor: {name}"); }
 
+            _Directory.DesktopPosition = Coordinates.NormalizedToDesktop(new Vector2(-5.0f, -5.0f));
             _Directory.Delete();
             _Directory = null;
         }
@@ -93,6 +91,7 @@
         }
         void Overworld.IPooled.OnRelease()
         {
+
             Destroy();
         }
         #endregion Public Methods
@@ -134,9 +133,12 @@
         #endregion Private Variables
 
         #region Private Methods
-        public void UpdatePosition()
+        public void UpdatePosition(bool force = false)
         {
-            if (_UnityPosition != transform.localPosition)
+            // Do not bother the backend with moving icons for micro-amounts.
+            var distance = _UnityPosition - transform.localPosition;
+
+            if (force || distance.magnitude > 1.0f)
             {
                 _UnityPosition = transform.localPosition;
                 _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);

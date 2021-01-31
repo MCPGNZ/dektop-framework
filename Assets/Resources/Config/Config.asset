@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _DisableIcons: 0
   _SkipIntro: 0
-  _UnitySize: {x: 1920, y: 1080}
+  _SaveInput: 1
+  _UnitySize: {x: 2100, y: 1000}
   _StageSize: {x: 21, y: 10}
   _MovementSpeed: 100
   _PortalLock: 1
@@ -24,9 +25,9 @@ MonoBehaviour:
     Prefab: {fileID: 7733286898918282246, guid: 764ba97460be42e4d82faec450791e1d, type: 3}
     Avatar: {fileID: 11400000, guid: 8978b034438143147a34a15943e7afe6, type: 2}
   - Identifier: 103
-    Tag: 
-    Prefab: {fileID: 0}
-    Avatar: {fileID: 11400000, guid: 0ee4ee1191236554893f6e495c29e081, type: 2}
+    Tag: CP
+    Prefab: {fileID: 7733286898918282246, guid: cee3c19854aaf3b4c940f1cda8b21717, type: 3}
+    Avatar: {fileID: 11400000, guid: 9fb3eedcd9422294e9b6541df036d31d, type: 2}
   - Identifier: 101
     Tag: BIN
     Prefab: {fileID: 104899619469281166, guid: faac93143594ae945ae21e5f15d35a89, type: 3}
@@ -66,7 +67,7 @@ MonoBehaviour:
   - Identifier: 102
     Tag: 
     Prefab: {fileID: 0}
-    Avatar: {fileID: 11400000, guid: abaa57d34eed15149bfde5aeaa9a08d4, type: 2}
+    Avatar: {fileID: 11400000, guid: 3d5f7970e2bf88544bc99fb21692336b, type: 2}
   - Identifier: 202
     Tag: <3
     Prefab: {fileID: 4835563417813236666, guid: b3bbd74abc58e0c419ae3d5922101b01, type: 3}
@@ -99,3 +100,11 @@ MonoBehaviour:
     Tag: WIN2000
     Prefab: {fileID: 104899619469281166, guid: 1b6fb0095bc520347a2673c5ef2bde1f, type: 3}
     Avatar: {fileID: 11400000, guid: 1ac6fef84b8dca843946fb8e37063158, type: 2}
+  - Identifier: 205
+    Tag: pl
+    Prefab: {fileID: 495446661102638985, guid: c3b75aa6375f115439daa892492a806b, type: 3}
+    Avatar: {fileID: 11400000, guid: a967b34dec823da418b80a7f89f81a7f, type: 2}
+  - Identifier: 206
+    Tag: plp
+    Prefab: {fileID: 4835563417813236666, guid: 019954407aabb3643a12b36d628a7968, type: 3}
+    Avatar: {fileID: 11400000, guid: 4f48f2c2bea2bd44d9ee825a94049978, type: 2}

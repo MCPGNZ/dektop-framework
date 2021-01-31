@@ -30,6 +30,7 @@
         #region Public Variables
         public static bool DisableIcons => Instance._DisableIcons;
         public static bool SkipIntro => Instance._SkipIntro;
+        public static bool SaveInput => Instance._SaveInput;
 
         public static GameObject FindPrefab(Identifier id)
         {
@@ -52,6 +53,8 @@
         public static float PortalLock => Instance._PortalLock;
 
         public static float MovementSpeed => Instance._MovementSpeed;
+
+        public static int MinResponseSize => Instance._MinResponseSize;
         #endregion Public Variables
 
         #region Inspector Variables
@@ -60,6 +63,9 @@
 
         [SerializeField, BoxGroup("Development")]
         private bool _SkipIntro;
+
+        [SerializeField, BoxGroup("Development")]
+        private bool _SaveInput;
 
         [SerializeField, BoxGroup("Stages")]
         private Vector2Int _UnitySize = new Vector2Int(1920, 1080);
@@ -72,6 +78,9 @@
 
         [SerializeField, BoxGroup("Portals")]
         private float _PortalLock = 1.0f;
+
+        [SerializeField, BoxGroup("Settings")]
+        private int _MinResponseSize = 196;
 
         [SerializeField, ListDrawerSettings(NumberOfItemsPerPage = 32)]
         internal List<IdentifierEntry> _Identifiers;

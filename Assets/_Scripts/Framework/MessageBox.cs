@@ -1,23 +1,65 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
-using UnityEngine;
+using Mcpgnz.DesktopFramework;
+using Application = UnityEngine.Application;
+
+public class GrowLabel : Label
+{
+    private bool mGrowing;
+    public GrowLabel()
+    {
+        AutoSize = false;
+    }
+    private void resizeLabel()
+    {
+        if (mGrowing) return;
+        try
+        {
+            mGrowing = true;
+            Size sz = new Size(Width, int.MaxValue);
+            sz = TextRenderer.MeasureText(Text, Font, sz, TextFormatFlags.WordBreak);
+            Height = sz.Height;
+        }
+        finally
+        {
+            mGrowing = false;
+        }
+    }
+    protected override void OnTextChanged(EventArgs e)
+    {
+        base.OnTextChanged(e);
+        resizeLabel();
+    }
+    protected override void OnFontChanged(EventArgs e)
+    {
+        base.OnFontChanged(e);
+        resizeLabel();
+    }
+    protected override void OnSizeChanged(EventArgs e)
+    {
+        base.OnSizeChanged(e);
+        resizeLabel();
+    }
+}
 
 public class MessageBox : Form
 {
     /// <summary>
     /// Required designer variable.
     /// </summary>
-    private System.ComponentModel.IContainer components = null;
+    private IContainer components = null;
 
-    private Label message = null;
-    private PictureBox icon = null;
-    private Button[] buttons = null;
+    private GrowLabel message;
+    private PictureBox icon;
+    private Button[] buttons;
+    private FlowLayoutPanel buttonsPanel;
 
-    public Action<string> OnButtonClick = null;
+    public Action<string> OnButtonClick;
 
     /// <summary>
     /// Constructor.
@@ -28,94 +70,107 @@ public class MessageBox : Form
     /// <param name="iconPath">Optional icon path. Either absolute path, or one relative to StreamingAssets.</param>
     public MessageBox(string title, string message, string[] buttonLabels, string iconPath = null)
     {
-        if (iconPath != null && !System.IO.Path.IsPathRooted(iconPath))
+        if (iconPath != null && !Path.IsPathRooted(iconPath))
         {
-            iconPath = UnityEngine.Application.streamingAssetsPath + System.IO.Path.DirectorySeparatorChar + iconPath;
+            iconPath = Application.streamingAssetsPath + Path.DirectorySeparatorChar + iconPath;
         }
 
-        this.message = new Label();
+        this.message = new GrowLabel();
         if (iconPath != null)
         {
-            this.icon = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
+            icon = new PictureBox();
+            ((ISupportInitialize)icon).BeginInit();
         }
 
-        this.buttons = new Button[buttonLabels.Length];
+        buttons = new Button[buttonLabels.Length];
         for (int i = 0; i < buttonLabels.Length; ++i)
         {
-            this.buttons[i] = new Button();
+            buttons[i] = new Button();
         }
 
-        this.SuspendLayout();
+        buttonsPanel = new FlowLayoutPanel();
 
-        this.message.Anchor = ((AnchorStyles)((((AnchorStyles.Top | AnchorStyles.Bottom)
-                    | AnchorStyles.Left)
-                    | AnchorStyles.Right)));
+        //  buttonsPanel.SuspendLayout();
+        // SuspendLayout();
+
+        if (icon != null)
+        {
+            icon.Dock = DockStyle.Left;
+            icon.ErrorImage = null;
+            icon.InitialImage = null;
+            icon.ImageLocation = iconPath;
+            icon.Name = "icon";
+            icon.Size = new Size(96, 96);
+            icon.SizeMode = PictureBoxSizeMode.Zoom;
+            icon.TabIndex = 0;
+            icon.TabStop = false;
+        }
+
+        this.message.Dock = DockStyle.Fill;
         this.message.AutoSize = true;
-        this.message.Location = new System.Drawing.Point(85, 15);
-        this.message.MaximumSize = new System.Drawing.Size(294, 0);
+        this.message.Padding = new Padding(20);
         this.message.Name = "message";
-        this.message.Size = new System.Drawing.Size(28, 13);
-        this.message.TabIndex = 0;
+        this.message.TabIndex = 1;
         this.message.Text = message;
 
-        if (this.icon != null)
-        {
-            this.icon.ErrorImage = null;
-            this.icon.InitialImage = null;
-            this.icon.ImageLocation = iconPath;
-            this.icon.Location = new System.Drawing.Point(15, 15);
-            this.icon.Name = "icon";
-            this.icon.Size = new System.Drawing.Size(64, 64);
-            this.icon.SizeMode = PictureBoxSizeMode.Zoom;
-            this.icon.TabIndex = 0;
-            this.icon.TabStop = false;
-        }
+        buttonsPanel.WrapContents = false;
+        buttonsPanel.AutoSize = true;
+        buttonsPanel.AutoSizeMode = AutoSizeMode.GrowOnly;
+        buttonsPanel.Anchor = AnchorStyles.Bottom;
+        buttonsPanel.Dock = DockStyle.Bottom;
+        buttonsPanel.Margin = new Padding(10, 0, 10, 0);
+        buttonsPanel.FlowDirection = FlowDirection.RightToLeft;
+        buttonsPanel.HorizontalScroll.Enabled = false;
+        buttonsPanel.VerticalScroll.Enabled = false;
 
-        for (int i = 0; i < buttonLabels.Length; ++i)
+        for (int i = buttonLabels.Length - 1; i >= 0; --i
+        )
         {
             Button btn = buttons[i];
             string label = buttonLabels[i];
 
-            btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            //btn.FocusDuesEnabled = false;
-            btn.Location = new System.Drawing.Point(139 + i * 81, 88);
+            btn.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             btn.Name = "btn_" + label;
-            btn.Size = new System.Drawing.Size(75, 23);
-            btn.TabIndex = 2;
+            btn.AutoSizeMode = AutoSizeMode.GrowOnly;
+            btn.Padding = new Padding(15, 1, 15, 1);
+            btn.AutoSize = true;
+            btn.TabIndex = 2 + i;
             btn.Text = label;
-            //btn.Tooltip = "";
-            btn.UseVisualStyleBackColor = true;
-            btn.Click += new EventHandler((object sender, EventArgs args) => {
-                this.OnButtonClick?.Invoke(label);
-                this.Dispose();
-            });
+            btn.Update();
+            btn.Click += (sender, args) =>
+            {
+                OnButtonClick?.Invoke(label);
+                Dispose();
+            };
+
+            buttonsPanel.Controls.Add(btn);
         }
 
-        this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(this.buttons.Length * 81 + 151, 129);
-        this.Controls.Add(this.message);
-        this.Controls.Add(this.icon);
-        foreach (Button button in buttons)
+        AutoScaleDimensions = new SizeF(6F, 13F);
+        AutoScaleMode = AutoScaleMode.Font;
+        AutoSizeMode = AutoSizeMode.GrowOnly;
+        AutoSize = true;
+        Controls.Add(this.message);
+        Controls.Add(buttonsPanel);
+        Controls.Add(icon);
+        FormBorderStyle = FormBorderStyle.FixedDialog;
+        MaximizeBox = false;
+        MinimizeBox = false;
+        ControlBox = false;
+        Name = "MessageForm";
+        Padding = new Padding(15);
+        StartPosition = FormStartPosition.CenterScreen;
+        MaximumSize = new Size(1280, 200);
+        MinimumSize = new Size(buttons.Length * Config.MinResponseSize, 32);
+        Text = title;
+        if (icon != null)
         {
-            this.Controls.Add(button);
+            ((ISupportInitialize)icon).EndInit();
+            icon.Load();
         }
-        this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-        this.MaximizeBox = false;
-        this.MinimizeBox = false;
-        this.ControlBox = false;
-        this.Name = "MessageForm";
-        this.Padding = new System.Windows.Forms.Padding(15);
-        this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-        this.Text = title;
-        if (this.icon != null)
-        {
-            ((System.ComponentModel.ISupportInitialize)(this.icon)).EndInit();
-            this.icon.Load();
-        }
-        this.ResumeLayout(false);
-        this.PerformLayout();
+        buttonsPanel.ResumeLayout();
+        ResumeLayout(false);
+        PerformLayout();
     }
 
     /// <summary>
@@ -124,7 +179,7 @@ public class MessageBox : Form
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
     protected override void Dispose(bool disposing)
     {
-        if (disposing && (components != null))
+        if (disposing && components != null)
         {
             components.Dispose();
         }
@@ -133,8 +188,8 @@ public class MessageBox : Form
 
     private static string SelectRandomIcon()
     {
-        var icons = new List<FileInfo>(new DirectoryInfo(UnityEngine.Application.streamingAssetsPath).GetFiles()).Where((file) => file.Name.EndsWith(".ico")).ToList();
-        return icons[new System.Random().Next(0, icons.Count)].Name;
+        var icons = new List<FileInfo>(new DirectoryInfo(Application.streamingAssetsPath).GetFiles()).Where(file => file.Name.EndsWith(".ico")).ToList();
+        return icons[new Random().Next(0, icons.Count)].Name;
     }
 
     public static void Demo()
@@ -142,8 +197,8 @@ public class MessageBox : Form
         Action displayMessageBox = null;
         displayMessageBox = () =>
         {
-            MessageBox box = new MessageBox("Łiii", "Jeszcze raz?", new string[] { "Tak", "Nie", "Może", "Niech będzie", "A co mi tam...", "Dajesz!", "No kurwa", "Wincyj", "tych", "przycisków", "daj", "AAAAAAA", "お前はもう死んでいる" }, SelectRandomIcon());
-            box.OnButtonClick += (string button) =>
+            MessageBox box = new MessageBox("Łiii", "Jeszcze raz?", new[] { "Tak", "Nie", "Może", "Niech będzie", "A co mi tam...", "Dajesz!", "No kurwa", "Wincyj", "tych", "przycisków", "daj", "AAAAAAA", "お前はもう死んでいる" }, SelectRandomIcon());
+            box.OnButtonClick += button =>
             {
                 switch (button)
                 {

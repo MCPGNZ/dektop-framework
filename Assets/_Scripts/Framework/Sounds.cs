@@ -2,9 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using UnityEngine;
 
     class Sounds
     {
@@ -13,16 +15,33 @@
             public Sound(string path)
             {
                 this.Path = path;
-                this.Player = new System.Media.SoundPlayer(this.Path);
+                try
+                {
+                    this.Player = new System.Media.SoundPlayer(this.Path);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogWarning($"unable to play {this.Path}: {e.ToString()}");
+                }
             }
 
             public void Play()
             {
-                this.Player.Play();
+                if (this.Player != null)
+                {
+                    try
+                    {
+                        this.Player.Play();
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogWarning($"unable to play {this.Path}: {e.ToString()}");
+                    }
+                }
             }
 
             public readonly string Path = null;
-            private System.Media.SoundPlayer Player;
+            private System.Media.SoundPlayer Player = null;
         }
 
         public static readonly Sound Alarm01 = new Sound("C:/Windows/Media/Alarm01.wav");

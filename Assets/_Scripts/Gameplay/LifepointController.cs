@@ -8,6 +8,7 @@
     {
         #region Inspector Variables
         [SerializeField] private GameObject _HeartPrefab;
+        [SerializeField] private float _PlacementSpread = 45.0f;
         #endregion Inspector Variables
 
         #region Unity Methods
@@ -29,14 +30,17 @@
         private int _AutoIncrement = 1;
 
         [Inject] private Explorer _Explorer;
+        [Inject] private Overworld _Overworld;
         #endregion Private Variables
 
         #region Private Methods
         private void AddHeart()
         {
-            var item = Instantiate(_HeartPrefab);
+            var item = Instantiate(_HeartPrefab, _Overworld.transform);
             _Hearts.Add(item);
-            var displacement = new Vector3(Random.Range(-15.05f, 15.05f), Random.Range(-30.05f, 30.05f), 0);
+            var displacement = new Vector3(
+                Random.Range(-_PlacementSpread, _PlacementSpread),
+                Random.Range(-_PlacementSpread, _PlacementSpread), 0);
             item.transform.position = gameObject.transform.position + displacement;
 
             var actorName = $"Heart{_AutoIncrement++}";
@@ -45,9 +49,12 @@
         private void RemoveHeart()
         {
             if (_Hearts.Count < 1) return;
-            var item = _Hearts[0];
-            _Hearts.RemoveAt(0);
-            Destroy(item);
+            var item = _Hearts[_Hearts.Count - 1];
+            _Hearts.RemoveAt(_Hearts.Count - 1);
+
+            var reaction = item.GetComponent<DamageReaction>();
+            reaction.OnDamage();
+            reaction.WhenDone(() => Destroy(item));
         }
         #endregion Private Methods
 

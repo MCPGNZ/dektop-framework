@@ -45,9 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c0035a80fae1e44938e2c810b1e443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cell:
+    GlobalId: {x: 0, y: 0}
+    Data: 
+    Type: 0
   _Name: Boulder
-  _Icon: {fileID: 11400000, guid: e491cb611e89810498d2e620a778abb7, type: 2}
-  _Tooltip: Looks like it can be pushed.
+  _Icon: {fileID: 11400000, guid: 324dc97e80dca0947a13818361cfe022, type: 2}
+  _Tooltip: 'This looks... somehow lighter. Can it be... movable? '
   _AutoCreate: 0
 --- !u!50 &495446661102639031
 Rigidbody2D:
@@ -96,8 +100,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495446663213037632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32, y: -32, z: 0}
-  m_LocalScale: {x: 64, y: 64, z: 1}
+  m_LocalPosition: {x: 48, y: -48, z: 0}
+  m_LocalScale: {x: 96, y: 96, z: 1}
   m_Children: []
   m_Father: {fileID: 495446661102639030}
   m_RootOrder: 0
@@ -177,5 +181,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4, y: 1.4}
+  m_Size: {x: 0.99, y: 0.99}
   m_EdgeRadius: 0
