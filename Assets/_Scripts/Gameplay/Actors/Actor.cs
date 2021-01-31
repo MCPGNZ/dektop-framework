@@ -109,7 +109,8 @@
         {
             if (_Directory == null) { return; }
 
-            Destroy();
+            _Directory.Delete();
+            _Directory = null;
         }
         #endregion Unity Methods
 

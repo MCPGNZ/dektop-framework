@@ -43,7 +43,7 @@
         }
         private static void SafeDelete(string rootPath)
         {
-            if (File.Exists(rootPath) == false) { return; }
+            if (Directory.Exists(rootPath) == false) { return; }
 
             File.SetAttributes(rootPath,
                 File.GetAttributes(rootPath) & ~FileAttributes.ReadOnly);
