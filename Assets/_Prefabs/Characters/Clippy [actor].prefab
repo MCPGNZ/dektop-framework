@@ -195,6 +195,7 @@ MonoBehaviour:
     GlobalId: {x: 0, y: 0}
     Data: 
     Type: 103
+    Discarded: 0
   _Name: Clippy
   _Icon: {fileID: 11400000, guid: 4f48f2c2bea2bd44d9ee825a94049978, type: 2}
   _Tooltip: Time does not matter.
@@ -208,6 +209,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7733286898918282246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9928701a471fc544285e8c2a0cf68dc7, type: 3}
+  m_Script: {fileID: 11500000, guid: 97da985f466f4f17b2fe93366c55e2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Actor: {fileID: 0}
+  character: 0
+  _Story: {fileID: 11400000, guid: 5911de1615dadb445aee88869642b21c, type: 2}
