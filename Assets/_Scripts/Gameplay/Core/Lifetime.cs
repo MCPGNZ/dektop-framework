@@ -1,7 +1,6 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System.Collections.Generic;
-    using System.Linq;
     using Mcpgnz.DesktopFramework.Framework;
     using UnityEngine;
     using UnityRawInput;
@@ -14,26 +13,6 @@
         public static readonly List<ItemEx> UpdateList = new List<ItemEx>();
 
         #region Public Methods
-        public static void RefreshPositions()
-        {
-            /* get ordered paths */
-            DesktopEx.desktop_get_item_indices2();
-
-            /* update positions */
-            var copy = UpdateList.ToList();
-            foreach (var entry in copy)
-            {
-                if (entry.IsCreated == false)
-                {
-                    UpdateList.Remove(entry);
-                    continue;
-                }
-
-                bool result = DesktopEx.desktop_set_item_position2(entry.Name, entry._Position.x, entry._Position.y);
-                if (result) { UpdateList.Remove(entry); }
-            }
-        }
-
         public static void Quit()
         {
 #if UNITY_EDITOR
@@ -60,9 +39,18 @@
 
             Minimize();
         }
+
         private void FixedUpdate()
         {
-            RefreshPositions();
+            DesktopEx.desktop_get_item_indices2();
+
+            foreach (var entry in UpdateList)
+            {
+                if (entry.IsCreated == false) { continue; }
+                DesktopEx.desktop_set_item_position2(entry.Name,
+                    entry._Position.x, entry._Position.y);
+            }
+            UpdateList.Clear();
         }
 
         private void OnDestroy()

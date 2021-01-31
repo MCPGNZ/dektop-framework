@@ -7,13 +7,7 @@
     public sealed class Actor : MonoBehaviour, Overworld.IPooled
     {
         #region Public Variables
-        public bool IsCreated => _Directory != null;
         public LevelParser.Cell Cell;
-        public Vector2 NormalizedPosition
-        {
-            get => Coordinates.UnityToNormalized(transform.position);
-            set => _UnityPosition = Coordinates.NormalizedToUnity(value);
-        }
 
         public string Tooltip
         {
@@ -72,25 +66,24 @@
         }
         public void Destroy()
         {
-            if (_Directory == null) { throw new InvalidOperationException($"actor: {name}"); }
+            if (_Directory == null) { return; }
 
-            _UnityPosition = Coordinates.NormalizedToUnity(new Vector2(-5, -5));
-            _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
-            Lifetime.RefreshPositions();
+            _Directory.DesktopPosition = new Vector2Int(-8192, -8192);
 
             _Directory.Delete();
             _Directory = null;
+
         }
         public void ChangeIcon(IconEx newIcon)
         {
-            if (_Directory == null) { throw new InvalidOperationException($"actor: {name}"); }
+            if (_Directory == null) { return; }
 
             _Directory.Icon = newIcon;
         }
 
         void Overworld.IPooled.OnCreate()
         {
-            UpdatePosition();
+            UpdatePosition(true);
         }
         void Overworld.IPooled.OnRelease()
         {
@@ -130,21 +123,17 @@
         #region Private Variables
         [ShowInInspector, HideInEditorMode]
         private DirectoryEx _Directory;
-
-        private Vector3 _UnityPosition;
         #endregion Private Variables
 
         #region Private Methods
         public void UpdatePosition(bool force = false)
         {
-            // Do not bother the backend with moving icons for micro-amounts.
-            var distance = _UnityPosition - transform.localPosition;
+            if (_Directory.IsCreated == false) { return; }
 
-            if (force || distance.magnitude > 1.0f)
+            var position = Coordinates.UnityToDesktop(transform.localPosition);
+            if (force || position != _Directory._Position)
             {
-                _UnityPosition = transform.localPosition;
-                _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
-
+                _Directory.DesktopPosition = position;
             }
         }
         #endregion Private Methods
