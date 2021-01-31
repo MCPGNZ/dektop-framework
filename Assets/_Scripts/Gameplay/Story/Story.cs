@@ -1,7 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
-    using Mcpgnz.DesktopFramework.Framework;
     using System.Collections;
+    using Mcpgnz.DesktopFramework.Framework;
     using UnityEngine;
     using Zenject;
 
@@ -64,23 +64,8 @@
         private void BeginDialogs()
         {
             Dialog.Character(Identifier.Error, "Your game seems to be damaged. Explorer not found.", null, "Ok", "Yes", "Confirm");
-
-        START:
-            var response = Dialog.Character(Identifier.Clippy, "No!", null, "Yes", "No");
-            switch (response)
-            {
-                case "Yes":
-                {
-                    goto START;
-                }
-                case "No":
-                {
-                    Dialog.Character(Identifier.Clippy, "I am FED UP", null, "???");
-                    Dialog.Character(Identifier.Clippy, "No more playing games!", null, ":<");
-                    break;
-                }
-            }
-
+            Dialog.Character(Identifier.Error, "You can press ESCAPE to exit the game at any time", null, "Got it");
+            Dialog.Character(Identifier.Error, "Use ARROW KEYS to move, good luck.", null, "Thanks Error!");
         }
         private void EndDialogs()
         {
