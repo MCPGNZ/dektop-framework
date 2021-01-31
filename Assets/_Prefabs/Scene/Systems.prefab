@@ -421,7 +421,7 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 1, y: 28}
-        Data: pl:fin
+        Data: pl:ASSISTANT
         Type: 205
       - GlobalId: {x: 1, y: 29}
         Data: P:40
@@ -458,8 +458,8 @@ MonoBehaviour:
         Type: 200
     - Cells:
       - GlobalId: {x: 2, y: 0}
-        Data: 
-        Type: 200
+        Data: P:60
+        Type: 400
       - GlobalId: {x: 2, y: 1}
         Data: 
         Type: 200
@@ -473,7 +473,7 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 2, y: 5}
-        Data: CP
+        Data: CP:1
         Type: 103
       - GlobalId: {x: 2, y: 6}
         Data: 
@@ -700,8 +700,8 @@ MonoBehaviour:
         Type: 200
     - Cells:
       - GlobalId: {x: 4, y: 0}
-        Data: 
-        Type: 200
+        Data: '#'
+        Type: 201
       - GlobalId: {x: 4, y: 1}
         Data: 
         Type: 200
@@ -2763,17 +2763,17 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 21, y: 2}
-        Data: CP
-        Type: 103
+        Data: 
+        Type: 200
       - GlobalId: {x: 21, y: 3}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 21, y: 4}
         Data: P:1
         Type: 400
       - GlobalId: {x: 21, y: 5}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 21, y: 6}
         Data: 
         Type: 200
@@ -2850,32 +2850,32 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 21, y: 31}
-        Data: 
-        Type: 200
+        Data: K:60
+        Type: 401
       - GlobalId: {x: 21, y: 32}
         Data: 
         Type: 200
       - GlobalId: {x: 21, y: 33}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 21, y: 34}
         Data: 
         Type: 200
       - GlobalId: {x: 21, y: 35}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 21, y: 36}
         Data: 
         Type: 200
       - GlobalId: {x: 21, y: 37}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 21, y: 38}
         Data: 
         Type: 200
       - GlobalId: {x: 21, y: 39}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
     - Cells:
       - GlobalId: {x: 22, y: 0}
         Data: 
@@ -2887,8 +2887,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 22, y: 3}
-        Data: 
-        Type: 200
+        Data: CP:2
+        Type: 103
       - GlobalId: {x: 22, y: 4}
         Data: K:0
         Type: 401
@@ -2980,19 +2980,19 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 22, y: 34}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 22, y: 35}
         Data: 
         Type: 200
       - GlobalId: {x: 22, y: 36}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 22, y: 37}
         Data: 
         Type: 200
       - GlobalId: {x: 22, y: 38}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 22, y: 39}
         Data: 
@@ -3098,26 +3098,26 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 23, y: 33}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 23, y: 34}
         Data: 
         Type: 200
       - GlobalId: {x: 23, y: 35}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 23, y: 36}
         Data: 
         Type: 200
       - GlobalId: {x: 23, y: 37}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 23, y: 38}
         Data: 
         Type: 200
       - GlobalId: {x: 23, y: 39}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
     - Cells:
       - GlobalId: {x: 24, y: 0}
         Data: 
@@ -3210,31 +3210,31 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 24, y: 30}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 24, y: 31}
         Data: 
         Type: 200
       - GlobalId: {x: 24, y: 32}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 24, y: 33}
         Data: 
         Type: 200
       - GlobalId: {x: 24, y: 34}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 24, y: 35}
         Data: 
         Type: 200
       - GlobalId: {x: 24, y: 36}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 24, y: 37}
         Data: 
         Type: 200
       - GlobalId: {x: 24, y: 38}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 24, y: 39}
         Data: 
@@ -3253,7 +3253,7 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 25, y: 4}
-        Data: pl:Clippy
+        Data: pl:pass1234
         Type: 205
       - GlobalId: {x: 25, y: 5}
         Data: '#'
@@ -3334,32 +3334,32 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 25, y: 31}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 25, y: 32}
         Data: 
         Type: 200
       - GlobalId: {x: 25, y: 33}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 25, y: 34}
         Data: 
         Type: 200
       - GlobalId: {x: 25, y: 35}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 25, y: 36}
         Data: 
         Type: 200
       - GlobalId: {x: 25, y: 37}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 25, y: 38}
         Data: 
         Type: 200
       - GlobalId: {x: 25, y: 39}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
     - Cells:
       - GlobalId: {x: 26, y: 0}
         Data: 
@@ -3452,19 +3452,19 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 26, y: 30}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 26, y: 31}
         Data: 
         Type: 200
       - GlobalId: {x: 26, y: 32}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 26, y: 33}
         Data: 
         Type: 200
       - GlobalId: {x: 26, y: 34}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 26, y: 35}
         Data: 
@@ -3576,22 +3576,22 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 27, y: 31}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 27, y: 32}
         Data: 
         Type: 200
       - GlobalId: {x: 27, y: 33}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 27, y: 34}
         Data: 
         Type: 200
       - GlobalId: {x: 27, y: 35}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 27, y: 36}
-        Data: pl:3
+        Data: pl:YouNeverBeatMe
         Type: 205
       - GlobalId: {x: 27, y: 37}
         Data: 
@@ -3694,19 +3694,19 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 28, y: 30}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 28, y: 31}
         Data: 
         Type: 200
       - GlobalId: {x: 28, y: 32}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 28, y: 33}
         Data: 
         Type: 200
       - GlobalId: {x: 28, y: 34}
-        Data: p
+        Data: 
         Type: 200
       - GlobalId: {x: 28, y: 35}
         Data: 
@@ -3818,20 +3818,20 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 29, y: 31}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 29, y: 32}
         Data: 
         Type: 200
       - GlobalId: {x: 29, y: 33}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 29, y: 34}
         Data: 
         Type: 200
       - GlobalId: {x: 29, y: 35}
-        Data: p
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 29, y: 36}
         Data: '#'
         Type: 201
@@ -3894,7 +3894,7 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 30, y: 16}
-        Data: P:9F
+        Data: P:9
         Type: 400
       - GlobalId: {x: 30, y: 17}
         Data: K:10
@@ -4078,7 +4078,7 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 31, y: 37}
-        Data: P:30F
+        Data: P:30
         Type: 400
       - GlobalId: {x: 31, y: 38}
         Data: 
@@ -5201,7 +5201,7 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 41, y: 8}
-        Data: plp:Clippy
+        Data: plp:pass1234
         Type: 206
       - GlobalId: {x: 41, y: 9}
         Data: '#'
@@ -5316,17 +5316,17 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 42, y: 6}
-        Data: '#'
-        Type: 201
+        Data: K:21
+        Type: 401
       - GlobalId: {x: 42, y: 7}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 42, y: 8}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 42, y: 9}
-        Data: '#'
-        Type: 201
+        Data: nt:7
+        Type: 203
       - GlobalId: {x: 42, y: 10}
         Data: '#'
         Type: 201
@@ -5437,20 +5437,20 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 43, y: 6}
-        Data: K:21
-        Type: 401
+        Data: 
+        Type: 200
       - GlobalId: {x: 43, y: 7}
         Data: 
         Type: 200
       - GlobalId: {x: 43, y: 8}
-        Data: nt:7
-        Type: 203
+        Data: 
+        Type: 200
       - GlobalId: {x: 43, y: 9}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 43, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 43, y: 11}
         Data: '#'
         Type: 201
@@ -5567,11 +5567,11 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 44, y: 9}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 44, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 44, y: 11}
         Data: '#'
         Type: 201
@@ -5588,7 +5588,7 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 44, y: 16}
-        Data: plp:3
+        Data: plp:YouNeverBeatMe
         Type: 206
       - GlobalId: {x: 44, y: 17}
         Data: '#'
@@ -5688,11 +5688,11 @@ MonoBehaviour:
         Data: <3
         Type: 202
       - GlobalId: {x: 45, y: 9}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 45, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 45, y: 11}
         Data: 
         Type: 200
@@ -5812,8 +5812,8 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 46, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 46, y: 11}
         Data: '#'
         Type: 201
@@ -5933,8 +5933,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 47, y: 10}
-        Data: '#'
-        Type: 201
+        Data: b:-
+        Type: 302
       - GlobalId: {x: 47, y: 11}
         Data: '#'
         Type: 201
@@ -6054,8 +6054,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 48, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 48, y: 11}
         Data: '#'
         Type: 201
@@ -6175,8 +6175,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 49, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 49, y: 11}
         Data: 
         Type: 200
@@ -6266,8 +6266,8 @@ MonoBehaviour:
         Type: 200
     - Cells:
       - GlobalId: {x: 50, y: 0}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 50, y: 1}
         Data: 
         Type: 200
@@ -6296,8 +6296,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 50, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 50, y: 11}
         Data: '#'
         Type: 201
@@ -6387,11 +6387,11 @@ MonoBehaviour:
         Type: 201
     - Cells:
       - GlobalId: {x: 51, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 51, y: 1}
         Data: K:13
         Type: 401
+      - GlobalId: {x: 51, y: 1}
+        Data: 
+        Type: 200
       - GlobalId: {x: 51, y: 2}
         Data: 
         Type: 200
@@ -6417,8 +6417,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 51, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 51, y: 11}
         Data: '#'
         Type: 201
@@ -6508,8 +6508,8 @@ MonoBehaviour:
         Type: 202
     - Cells:
       - GlobalId: {x: 52, y: 0}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 52, y: 1}
         Data: 
         Type: 200
@@ -6538,8 +6538,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 52, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 52, y: 11}
         Data: 
         Type: 200
@@ -6659,8 +6659,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 53, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 53, y: 11}
         Data: '#'
         Type: 201
@@ -6677,8 +6677,8 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 53, y: 16}
-        Data: x
-        Type: 300
+        Data: 
+        Type: 200
       - GlobalId: {x: 53, y: 17}
         Data: 
         Type: 200
@@ -6750,8 +6750,8 @@ MonoBehaviour:
         Type: 201
     - Cells:
       - GlobalId: {x: 54, y: 0}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 54, y: 1}
         Data: 
         Type: 200
@@ -6780,8 +6780,8 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 54, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 54, y: 11}
         Data: '#'
         Type: 201
@@ -6807,8 +6807,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 54, y: 19}
-        Data: x
-        Type: 300
+        Data: 
+        Type: 200
       - GlobalId: {x: 54, y: 20}
         Data: 
         Type: 200
@@ -6871,11 +6871,11 @@ MonoBehaviour:
         Type: 201
     - Cells:
       - GlobalId: {x: 55, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 55, y: 1}
         Data: K:19
         Type: 401
+      - GlobalId: {x: 55, y: 1}
+        Data: 
+        Type: 200
       - GlobalId: {x: 55, y: 2}
         Data: 
         Type: 200
@@ -6895,14 +6895,14 @@ MonoBehaviour:
         Data: K:20
         Type: 401
       - GlobalId: {x: 55, y: 8}
+        Data: 
+        Type: 200
+      - GlobalId: {x: 55, y: 9}
         Data: P:21
         Type: 400
-      - GlobalId: {x: 55, y: 9}
-        Data: '#'
-        Type: 201
       - GlobalId: {x: 55, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 55, y: 11}
         Data: 
         Type: 200
@@ -6992,8 +6992,8 @@ MonoBehaviour:
         Type: 200
     - Cells:
       - GlobalId: {x: 56, y: 0}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 56, y: 1}
         Data: 
         Type: 200
@@ -7019,11 +7019,11 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 56, y: 9}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 56, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 56, y: 11}
         Data: '#'
         Type: 201
@@ -7143,8 +7143,8 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 57, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 57, y: 11}
         Data: '#'
         Type: 201
@@ -7264,8 +7264,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 58, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 58, y: 11}
         Data: 
         Type: 200
@@ -7402,9 +7402,9 @@ MonoBehaviour:
       - GlobalId: {x: 59, y: 15}
         Data: 
         Type: 200
-      - GlobalId: {x: 59, y: 16}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 59, y: 17}
         Data: 
         Type: 200
@@ -7476,11 +7476,11 @@ MonoBehaviour:
         Type: 200
     - Cells:
       - GlobalId: {x: 60, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 60, y: 1}
         Data: K:17
         Type: 401
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 60, y: 2}
         Data: P:14
         Type: 400
@@ -7523,9 +7523,9 @@ MonoBehaviour:
       - GlobalId: {x: 60, y: 15}
         Data: 
         Type: 200
-      - GlobalId: {x: 60, y: 16}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 60, y: 17}
         Data: 
         Type: 200
@@ -7533,8 +7533,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 60, y: 19}
-        Data: x
-        Type: 300
+        Data: 
+        Type: 200
       - GlobalId: {x: 60, y: 20}
         Data: 
         Type: 200
@@ -7596,12 +7596,12 @@ MonoBehaviour:
         Data: 
         Type: 200
     - Cells:
-      - GlobalId: {x: 61, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 61, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 61, y: 2}
         Data: 
         Type: 200
@@ -7644,9 +7644,9 @@ MonoBehaviour:
       - GlobalId: {x: 61, y: 15}
         Data: 
         Type: 200
-      - GlobalId: {x: 61, y: 16}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 61, y: 17}
         Data: 
         Type: 200
@@ -7717,18 +7717,18 @@ MonoBehaviour:
         Data: 
         Type: 200
     - Cells:
-      - GlobalId: {x: 62, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 62, y: 1}
-        Data: '#'
-        Type: 201
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 62, y: 2}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 62, y: 3}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 62, y: 4}
         Data: '#'
         Type: 201
@@ -7765,9 +7765,9 @@ MonoBehaviour:
       - GlobalId: {x: 62, y: 15}
         Data: 
         Type: 200
-      - GlobalId: {x: 62, y: 16}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 62, y: 17}
         Data: 
         Type: 200
@@ -7838,66 +7838,66 @@ MonoBehaviour:
         Data: 
         Type: 200
     - Cells:
-      - GlobalId: {x: 63, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 63, y: 1}
-        Data: '#'
-        Type: 201
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 63, y: 2}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 3}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 4}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 5}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 6}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 7}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 8}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 63, y: 9}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 63, y: 10}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 11}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 12}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 13}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 14}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 15}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 63, y: 16}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 63, y: 17}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 18}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 63, y: 20}
         Data: '#'
         Type: 201
@@ -7959,12 +7959,12 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 64, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 64, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 64, y: 2}
         Data: 
         Type: 200
@@ -7986,9 +7986,9 @@ MonoBehaviour:
       - GlobalId: {x: 64, y: 8}
         Data: P:10
         Type: 400
-      - GlobalId: {x: 64, y: 9}
-        Data: '#'
-        Type: 201
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 64, y: 10}
         Data: 
         Type: 200
@@ -8007,18 +8007,18 @@ MonoBehaviour:
       - GlobalId: {x: 64, y: 15}
         Data: 
         Type: 200
-      - GlobalId: {x: 64, y: 16}
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 64, y: 17}
         Data: 
         Type: 200
-      - GlobalId: {x: 64, y: 17}
-        Data: K:30
-        Type: 401
       - GlobalId: {x: 64, y: 18}
-        Data: P:35
-        Type: 400
+        Data: 
+        Type: 200
       - GlobalId: {x: 64, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -8080,12 +8080,12 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 65, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 65, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 65, y: 2}
         Data: 
         Type: 200
@@ -8101,15 +8101,15 @@ MonoBehaviour:
       - GlobalId: {x: 65, y: 6}
         Data: 
         Type: 200
-      - GlobalId: {x: 65, y: 7}
-        Data: K:9
-        Type: 401
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 65, y: 8}
         Data: 
         Type: 200
-      - GlobalId: {x: 65, y: 9}
-        Data: '#'
-        Type: 201
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 65, y: 10}
         Data: 
         Type: 200
@@ -8128,9 +8128,9 @@ MonoBehaviour:
       - GlobalId: {x: 65, y: 15}
         Data: 
         Type: 200
-      - GlobalId: {x: 65, y: 16}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 65, y: 17}
         Data: 
         Type: 200
@@ -8138,8 +8138,8 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 65, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -8201,12 +8201,12 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 66, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 66, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 66, y: 2}
         Data: 
         Type: 200
@@ -8222,15 +8222,15 @@ MonoBehaviour:
       - GlobalId: {x: 66, y: 6}
         Data: 
         Type: 200
-      - GlobalId: {x: 66, y: 7}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 66, y: 8}
         Data: 
         Type: 200
-      - GlobalId: {x: 66, y: 9}
-        Data: '#'
-        Type: 201
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 66, y: 10}
         Data: 
         Type: 200
@@ -8241,26 +8241,26 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 66, y: 13}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 66, y: 14}
         Data: 
         Type: 200
       - GlobalId: {x: 66, y: 15}
         Data: 
         Type: 200
-      - GlobalId: {x: 66, y: 16}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 66, y: 17}
         Data: 
         Type: 200
       - GlobalId: {x: 66, y: 18}
+        Data: P:35
+        Type: 400
+      - GlobalId: {x: 66, y: 19}
         Data: 
         Type: 200
-      - GlobalId: {x: 66, y: 19}
-        Data: '#'
-        Type: 201
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -8322,12 +8322,12 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 67, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 67, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 67, y: 2}
         Data: 
         Type: 200
@@ -8341,23 +8341,23 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 67, y: 6}
-        Data: FOLDER
-        Type: 200
-      - GlobalId: {x: 67, y: 7}
         Data: 
         Type: 200
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 67, y: 8}
         Data: WIN95
         Type: 106
-      - GlobalId: {x: 67, y: 9}
-        Data: '#'
-        Type: 201
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 67, y: 10}
         Data: 
         Type: 200
       - GlobalId: {x: 67, y: 11}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 67, y: 12}
         Data: 
         Type: 200
@@ -8368,20 +8368,20 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 67, y: 15}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 67, y: 16}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 67, y: 17}
         Data: 
         Type: 200
-      - GlobalId: {x: 67, y: 18}
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 67, y: 19}
         Data: 
         Type: 200
-      - GlobalId: {x: 67, y: 19}
-        Data: '#'
-        Type: 201
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -8443,12 +8443,12 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 68, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 68, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 68, y: 2}
         Data: 
         Type: 200
@@ -8464,15 +8464,15 @@ MonoBehaviour:
       - GlobalId: {x: 68, y: 6}
         Data: 
         Type: 200
-      - GlobalId: {x: 68, y: 7}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 68, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 68, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 68, y: 10}
         Data: 
         Type: 200
@@ -8483,26 +8483,26 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 68, y: 13}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 68, y: 14}
         Data: 
         Type: 200
       - GlobalId: {x: 68, y: 15}
         Data: 
         Type: 200
-      - GlobalId: {x: 68, y: 16}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 68, y: 17}
         Data: 
         Type: 200
-      - GlobalId: {x: 68, y: 18}
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 68, y: 19}
         Data: 
         Type: 200
-      - GlobalId: {x: 68, y: 19}
-        Data: '#'
-        Type: 201
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -8564,12 +8564,12 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 69, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 69, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 69, y: 2}
         Data: 
         Type: 200
@@ -8585,15 +8585,15 @@ MonoBehaviour:
       - GlobalId: {x: 69, y: 6}
         Data: 
         Type: 200
-      - GlobalId: {x: 69, y: 7}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 69, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 69, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 69, y: 10}
         Data: 
         Type: 200
@@ -8601,29 +8601,29 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 69, y: 12}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 69, y: 13}
         Data: 
         Type: 200
       - GlobalId: {x: 69, y: 14}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 69, y: 15}
         Data: 
         Type: 200
-      - GlobalId: {x: 69, y: 16}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 69, y: 17}
         Data: 
         Type: 200
-      - GlobalId: {x: 69, y: 18}
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 69, y: 19}
         Data: 
         Type: 200
-      - GlobalId: {x: 69, y: 19}
-        Data: '#'
-        Type: 201
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -8685,12 +8685,12 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 70, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 70, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 70, y: 2}
         Data: 
         Type: 200
@@ -8706,21 +8706,21 @@ MonoBehaviour:
       - GlobalId: {x: 70, y: 6}
         Data: 
         Type: 200
-      - GlobalId: {x: 70, y: 7}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 70, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 70, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 70, y: 10}
         Data: 
         Type: 200
       - GlobalId: {x: 70, y: 11}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 70, y: 12}
         Data: 
         Type: 200
@@ -8731,20 +8731,20 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 70, y: 15}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 70, y: 16}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 70, y: 17}
         Data: 
         Type: 200
-      - GlobalId: {x: 70, y: 18}
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 70, y: 19}
         Data: 
         Type: 200
-      - GlobalId: {x: 70, y: 19}
-        Data: '#'
-        Type: 201
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -8806,42 +8806,42 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 71, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 71, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 71, y: 2}
         Data: 
         Type: 200
       - GlobalId: {x: 71, y: 3}
         Data: 
         Type: 200
-      - GlobalId: {x: 71, y: 4}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 71, y: 5}
         Data: 
         Type: 200
       - GlobalId: {x: 71, y: 6}
         Data: 
         Type: 200
-      - GlobalId: {x: 71, y: 7}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 71, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 71, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 71, y: 10}
         Data: 
         Type: 200
       - GlobalId: {x: 71, y: 11}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 71, y: 12}
         Data: 
         Type: 200
@@ -8852,20 +8852,20 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 71, y: 15}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 71, y: 16}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 71, y: 17}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 71, y: 18}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 71, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -8927,66 +8927,66 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 72, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 72, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 72, y: 2}
         Data: 
         Type: 200
       - GlobalId: {x: 72, y: 3}
         Data: 
         Type: 200
-      - GlobalId: {x: 72, y: 4}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 72, y: 5}
         Data: 
         Type: 200
       - GlobalId: {x: 72, y: 6}
         Data: 
         Type: 200
-      - GlobalId: {x: 72, y: 7}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 72, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 72, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 72, y: 10}
         Data: 
         Type: 200
       - GlobalId: {x: 72, y: 11}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 72, y: 12}
         Data: 
         Type: 200
       - GlobalId: {x: 72, y: 13}
-        Data: 
-        Type: 200
+        Data: K:30
+        Type: 401
       - GlobalId: {x: 72, y: 14}
         Data: 
         Type: 200
       - GlobalId: {x: 72, y: 15}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 72, y: 16}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 72, y: 17}
         Data: 
         Type: 200
-      - GlobalId: {x: 72, y: 18}
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 72, y: 19}
         Data: 
         Type: 200
-      - GlobalId: {x: 72, y: 19}
-        Data: '#'
-        Type: 201
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -9036,7 +9036,7 @@ MonoBehaviour:
         Data: '#'
         Type: 201
       - GlobalId: {x: 72, y: 36}
-        Data: plp:fin
+        Data: plp:ASSISTANT
         Type: 206
       - GlobalId: {x: 72, y: 37}
         Data: '#'
@@ -9048,42 +9048,42 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 73, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 73, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 73, y: 2}
         Data: 
         Type: 200
       - GlobalId: {x: 73, y: 3}
         Data: nt:3
         Type: 203
-      - GlobalId: {x: 73, y: 4}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 73, y: 5}
         Data: 
         Type: 200
       - GlobalId: {x: 73, y: 6}
         Data: 
         Type: 200
-      - GlobalId: {x: 73, y: 7}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 73, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 73, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 73, y: 10}
         Data: 
         Type: 200
       - GlobalId: {x: 73, y: 11}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 73, y: 12}
         Data: 
         Type: 200
@@ -9094,20 +9094,20 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 73, y: 15}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 73, y: 16}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 73, y: 17}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 73, y: 18}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 73, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -9169,42 +9169,42 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 74, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 74, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 74, y: 2}
         Data: 
         Type: 200
-      - GlobalId: {x: 74, y: 3}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 74, y: 4}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 74, y: 5}
         Data: 
         Type: 200
       - GlobalId: {x: 74, y: 6}
         Data: 
         Type: 200
-      - GlobalId: {x: 74, y: 7}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 74, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 74, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 74, y: 10}
         Data: 
         Type: 200
       - GlobalId: {x: 74, y: 11}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 74, y: 12}
         Data: 
         Type: 200
@@ -9215,20 +9215,20 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 74, y: 15}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 74, y: 16}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 74, y: 17}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 74, y: 18}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 74, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -9290,36 +9290,36 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 75, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 75, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 75, y: 2}
         Data: 
         Type: 200
-      - GlobalId: {x: 75, y: 3}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 75, y: 4}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 75, y: 5}
         Data: 
         Type: 200
       - GlobalId: {x: 75, y: 6}
         Data: WIN10
         Type: 109
-      - GlobalId: {x: 75, y: 7}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 75, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 75, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 75, y: 10}
         Data: 
         Type: 200
@@ -9327,29 +9327,29 @@ MonoBehaviour:
         Data: 
         Type: 200
       - GlobalId: {x: 75, y: 12}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 75, y: 13}
         Data: 
         Type: 200
       - GlobalId: {x: 75, y: 14}
-        Data: 
-        Type: 200
+        Data: o
+        Type: 204
       - GlobalId: {x: 75, y: 15}
         Data: 
         Type: 200
-      - GlobalId: {x: 75, y: 16}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 75, y: 17}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 75, y: 18}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 75, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -9411,66 +9411,66 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 76, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 76, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 76, y: 2}
         Data: WIN8
         Type: 108
-      - GlobalId: {x: 76, y: 3}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 76, y: 4}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 76, y: 5}
         Data: 
         Type: 200
-      - GlobalId: {x: 76, y: 6}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 76, y: 7}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 76, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 76, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 76, y: 10}
         Data: 
         Type: 200
       - GlobalId: {x: 76, y: 11}
         Data: 
         Type: 200
-      - GlobalId: {x: 76, y: 12}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 76, y: 13}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 76, y: 14}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 76, y: 15}
         Data: 
         Type: 200
-      - GlobalId: {x: 76, y: 16}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 76, y: 17}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 76, y: 18}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 76, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -9532,66 +9532,66 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 77, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 77, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 77, y: 2}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 77, y: 3}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 77, y: 4}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 77, y: 5}
         Data: 
         Type: 200
-      - GlobalId: {x: 77, y: 6}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 77, y: 7}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 77, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 77, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 77, y: 10}
         Data: 
         Type: 200
       - GlobalId: {x: 77, y: 11}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 77, y: 12}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 77, y: 13}
         Data: 
         Type: 200
-      - GlobalId: {x: 77, y: 14}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 77, y: 15}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 77, y: 16}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 77, y: 17}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 77, y: 18}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 77, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -9653,66 +9653,66 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 78, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 78, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 2}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 3}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 4}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 78, y: 5}
         Data: 
         Type: 200
-      - GlobalId: {x: 78, y: 6}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 7}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 78, y: 10}
         Data: 
         Type: 200
-      - GlobalId: {x: 78, y: 11}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 12}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 78, y: 13}
+        Data: o
+        Type: 204
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 14}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 15}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 16}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 17}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 78, y: 18}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 78, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -9774,66 +9774,66 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 79, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 79, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 2}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 3}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 4}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 79, y: 5}
         Data: 
         Type: 200
-      - GlobalId: {x: 79, y: 6}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 7}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 79, y: 10}
         Data: 
         Type: 200
-      - GlobalId: {x: 79, y: 11}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 12}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 13}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 14}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 15}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 16}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 17}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 79, y: 18}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 79, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -9895,66 +9895,66 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 80, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 80, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 2}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 3}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 4}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 80, y: 5}
         Data: WIN2000
         Type: 110
-      - GlobalId: {x: 80, y: 6}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 7}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 80, y: 10}
         Data: 
         Type: 200
-      - GlobalId: {x: 80, y: 11}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 12}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 13}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 14}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 15}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 16}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 17}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 80, y: 18}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 80, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -10016,66 +10016,66 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 81, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 81, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 2}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 3}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 4}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 5}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 6}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 7}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 81, y: 10}
         Data: 
         Type: 200
-      - GlobalId: {x: 81, y: 11}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 12}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 13}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 14}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 15}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 16}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 17}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 81, y: 18}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 81, y: 19}
-        Data: '#'
-        Type: 201
+        Data: 
+        Type: 200
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -10137,66 +10137,66 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 82, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 82, y: 1}
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 2}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 3}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 4}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 5}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 6}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 7}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 8}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 9}
-        Data: '#'
-        Type: 201
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 82, y: 10}
+        Data: <3
+        Type: 202
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 11}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 12}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 13}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 14}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 15}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 16}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 17}
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
         Data: 
-        Type: 200
-      - GlobalId: {x: 82, y: 18}
-        Data: 
-        Type: 200
+        Type: 0
       - GlobalId: {x: 82, y: 19}
-        Data: '#'
-        Type: 201
+        Data: <3
+        Type: 202
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -10258,66 +10258,66 @@ MonoBehaviour:
         Data: '#'
         Type: 201
     - Cells:
-      - GlobalId: {x: 83, y: 0}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 1}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 2}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 3}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 4}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 5}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 6}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 7}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 8}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 9}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 10}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 11}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 12}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 13}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 14}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 15}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 16}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 17}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 18}
-        Data: '#'
-        Type: 201
-      - GlobalId: {x: 83, y: 19}
-        Data: '#'
-        Type: 201
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
+      - GlobalId: {x: 0, y: 0}
+        Data: 
+        Type: 0
       - GlobalId: {x: 0, y: 0}
         Data: 
         Type: 0
@@ -10381,7 +10381,7 @@ MonoBehaviour:
   _Notes:
   - Id: nt:1
     Icon: crippy_normal.ico
-    Message: "What year was it? \u201898? I cannot even remember. But I remember
+    Message: "1What year was it? \u201898? I cannot even remember. But I remember
       the excitement and motivation. I knew that I could help you, I could help so
       many people, and it made me happy."
   - Id: nt:2
@@ -10433,13 +10433,58 @@ MonoBehaviour:
   - Id: nt:12
     Icon: crippy_normal.ico
     Message: Is it ...right? I should help, not leave people helpless...
-  - Id: plp:Clippy
+  - Id: plp:pass1234
     Icon: info.ico
-    Message: 'Warning! This file contains secret information. Password:   YouNeverBeatMe'
-  - Id: pl:Clippy
+    Message: 'Warning! This file contains secret information. Password:   pass1234'
+  - Id: pl:pass1234
     Icon: warning.ico
-    Message: Zipped file blocking the way. Enter Password 1 to unzip.
+    Message: Zipped file blocking the way. Enter Password to unzip.
   - Id: CP:1
     Icon: crippy_huh.ico
     Message: "Let\u2019s see\u2026 I wonder if you can find your files! Try to walk
       around and see!"
+  - Id: plp:YouNeverBeatMe
+    Icon: mine_notif.ico
+    Message: 'This small note looks like something important. A password perhaps?
+      It says: YouNeverBeatMe'
+  - Id: pl:YouNeverBeatMe
+    Icon: warning.ico
+    Message: Zipped file blocking the way. Enter password to unzip
+  - Id: plp:ASSISTANT
+    Icon: options.ico
+    Message: You found a file, looking like a badge. It has the word ASSISTANT written
+      on it.
+  - Id: pl:ASSISTANT
+    Icon: error.ico
+    Message: "Stop! You can\u2019t go through! What can you say to Crippy? How would
+      you name him?"
+  - Id: BIN
+    Icon: bin_ful.ico
+    Message: A note in a bin? It says "push space to dash". Convinient.
+  - Id: BIN
+    Icon: bin.ico
+    Message: 'This bin is empty. '
+  - Id: CP:2
+    Icon: crippy_huh.ico
+    Message: "Give up! Without assistance\u2026 You\u2019re nothing!"
+  - Id: WIN31
+    Icon: 
+    Message: 640K ought to be enough for anybody
+  - Id: WIN7
+    Icon: 
+    Message: "We don\u2019t talk about V**** around here."
+  - Id: WIN95
+    Icon: 
+    Message: It's now safe to turn off your computer.
+  - Id: WIN8
+    Icon: 
+    Message: Flat is justice.
+  - Id: WIN10
+    Icon: 
+    Message: win7, wtf did you do to win9?!
+  - Id: WIN2000
+    Icon: 
+    Message: You must be joking, these are all rookie numbers.
+  - Id: WIN98
+    Icon: 
+    Message: https://www.youtube.com/watch?v=Jij5Nzh2Sj4 ?

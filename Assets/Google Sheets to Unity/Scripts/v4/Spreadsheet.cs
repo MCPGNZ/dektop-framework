@@ -385,12 +385,13 @@
                 currentRow++;
             }
 
+            // TODO: MCPGNZ DISABLED FOR FASTNESSSS
             //build the column and row string Id's from titles
-            foreach (GSTU_Cell cell in Cells.Values)
-            {
-                cell.columnId = Cells[cell.Column() + titleRow].value;
-                cell.rowId = Cells[titleColumn + cell.Row()].value;
-            }
+            // foreach (GSTU_Cell cell in Cells.Values)
+            // {
+            //     cell.columnId = Cells[cell.Column() + titleRow].value;
+            //     cell.rowId = Cells[titleColumn + cell.Row()].value;
+            //  }
 
             //build all links to row and columns for cells that are handled by merged title fields.
 
