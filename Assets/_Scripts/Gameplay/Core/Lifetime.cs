@@ -182,8 +182,11 @@
 
         private void Style(DesktopEx.FolderFlags flag, bool newValue)
         {
-            _Style.Add(flag, DesktopEx.Style(flag));
-            DesktopEx.Style(flag, newValue);
+            var current = DesktopEx.Style(flag);
+            _Style.Add(flag, current);
+
+            if (current != newValue) { DesktopEx.Style(flag, newValue); }
+
         }
         #endregion Private Methods
 
