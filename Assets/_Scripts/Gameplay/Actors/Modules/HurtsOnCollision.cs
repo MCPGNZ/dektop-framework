@@ -40,16 +40,9 @@
 
             if (_Damage > 0)
             {
-                Debug.Log("Ouch! It hurt!");
-                // TODO replace with Ailish sounds
-                Sounds.WindowsHardwareRemove.Play();
+                // Debug.Log("Ouch! It hurt!");
                 var reaction = bodyObject.GetComponent<DamageReaction>();
                 if (reaction != null) reaction.OnDamage();
-            }
-            else if (_Damage < 0)
-            {
-                // TODO replace with Ailish sounds
-                Sounds.WindowsHardwareInsert.Play();
             }
         }
         #endregion Private Methds

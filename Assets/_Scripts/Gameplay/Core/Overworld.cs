@@ -11,7 +11,7 @@
     public class Overworld : MonoBehaviour
     {
         #region Public Variables
-        public static Action LevelChanged;
+        public static Action<Vector2Int> LevelChanged;
         public Vector2Int CurrentStageId => _CurrentStageId;
         #endregion Public Variables
 
@@ -40,7 +40,7 @@
             RawKeyInput.HandleKeyUp(RawKey.Up);
             RawKeyInput.HandleKeyUp(RawKey.Down);
 
-            LevelChanged?.Invoke();
+            LevelChanged?.Invoke(levelId);
         }
         #endregion Public Methods
 
