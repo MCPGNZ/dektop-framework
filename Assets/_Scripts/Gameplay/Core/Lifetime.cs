@@ -5,7 +5,6 @@
     using Mcpgnz.DesktopFramework.Framework;
     using UnityEngine;
     using UnityRawInput;
-
 #if UNITY_EDITOR
     using UnityEditor;
 #endif
@@ -41,7 +40,7 @@
 
             Minimize();
 
-            for (int i = 0; i < _Paths.Length; ++i) { _Paths[i] = new StringBuilder(512); }
+            for (int i = 0; i < _Paths.Length; ++i) { _Paths[i] = new StringBuilder(1024); }
         }
         private void FixedUpdate()
         {
