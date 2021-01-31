@@ -12,6 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7c04991f0b45b89799ebaf77a6dd4f, type: 3}
   m_Name: Windows2000
   m_EditorClassIdentifier: 
-  Encounters: []
+  Encounters:
+  - Number: 0
+    Action:
+    - id: 0
   references:
     version: 1
+    00000000:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: It's above 1999!
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options:
+        - 7000 to go
