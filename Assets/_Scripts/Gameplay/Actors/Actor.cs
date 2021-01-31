@@ -76,6 +76,7 @@
 
             _UnityPosition = Coordinates.NormalizedToUnity(new Vector2(-5, -5));
             _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
+            Lifetime.RefreshPositions();
 
             _Directory.Delete();
             _Directory = null;

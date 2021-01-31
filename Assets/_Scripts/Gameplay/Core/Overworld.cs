@@ -43,6 +43,7 @@
             RawKeyInput.HandleKeyUp(RawKey.Down);
 
             LevelChanged?.Invoke(levelId);
+            Lifetime.RefreshPositions();
         }
         #endregion Public Methods
 
