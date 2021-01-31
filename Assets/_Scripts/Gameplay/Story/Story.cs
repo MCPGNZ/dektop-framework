@@ -1,5 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
+    using Mcpgnz.DesktopFramework.Framework;
+    using System.Collections;
     using UnityEngine;
     using Zenject;
 
@@ -39,6 +41,15 @@
         }
         private void StoryEnd()
         {
+            StartCoroutine(StoryEndAsync());
+        }
+
+        private IEnumerator StoryEndAsync()
+        {
+            yield return new WaitForSeconds(1);
+            _Overworld.Release();
+            Wallpaper.Set("blescreen.png");
+            yield return new WaitForSeconds(3);
             EndDialogs();
             Lifetime.Quit();
         }
