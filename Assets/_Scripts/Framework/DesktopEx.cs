@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Runtime.InteropServices;
-    using System.Text;
 
     [Serializable]
     public static class DesktopEx
@@ -166,34 +165,6 @@
             _Watcher.Changed += (sender, args) => OnItemChanged?.Invoke(args.Name);
             _Watcher.EnableRaisingEvents = true;
         }
-
-        public unsafe static string[] DesktopGetItemIndices2()
-        {
-            const int maxResults = 4096;
-            const int singleBufSize = 1024;
-            IntPtr buffer = Marshal.AllocHGlobal(maxResults * singleBufSize);
-            IntPtr array = Marshal.AllocHGlobal((int)(maxResults * IntPtr.Size));
-            char* bufferPtr = (char*)buffer;
-            char** pointers = (char**)array.ToPointer();
-
-            for (int i = 0; i < maxResults; ++i)
-            {
-                pointers[i] = bufferPtr + i * singleBufSize;
-            }
-
-            int numResults = desktop_get_item_indices2(array);
-            string[] result = new string[numResults];
-
-            for (int i = 0; i < numResults; ++i)
-            {
-                result[i] = Marshal.PtrToStringAuto((IntPtr)pointers[i]);
-            }
-
-            Marshal.FreeCoTaskMem(array);
-            Marshal.FreeCoTaskMem(buffer);
-
-            return result;
-        }
         #endregion Private Methods
 
         #region Import
@@ -201,12 +172,11 @@
         internal static extern void desktop_initialize();
 
         [DllImport("desktop-lib.dll")]
-        internal static extern int desktop_get_item_indices2(
-            [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPWStr)]
-            IntPtr paths);
+        internal static extern int desktop_get_item_indices2();
 
         [DllImport("desktop-lib.dll")]
-        internal static extern void desktop_set_item_position2(int index, int x, int y);
+        internal static extern bool desktop_set_item_position2(
+            [MarshalAs(UnmanagedType.LPWStr)] string path, int x, int y);
 
         [DllImport("desktop-lib.dll")]
         internal static extern void desktop_get_item_position(

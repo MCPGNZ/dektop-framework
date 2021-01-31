@@ -1,7 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System.Collections.Generic;
-    using System.Text;
+    using System.Linq;
     using Mcpgnz.DesktopFramework.Framework;
     using UnityEngine;
     using UnityRawInput;
@@ -17,27 +17,21 @@
         public static void RefreshPositions()
         {
             /* get ordered paths */
-            string[] paths = DesktopEx.DesktopGetItemIndices2();
-
-            /* update ordering */
-            _Ordering.Clear();
-            for (int i = 0; i < paths.Length; ++i) { _Ordering.Add(paths[i]); }
+            int count = DesktopEx.desktop_get_item_indices2();
 
             /* update positions */
-            foreach (var entry in UpdateList)
+            var copy = UpdateList.ToList();
+            foreach (var entry in copy)
             {
-                if (entry.IsCreated == false) { continue; }
+                if (entry.IsCreated == false)
+                {
+                    UpdateList.Remove(entry);
+                    continue;
+                }
 
-                var index = _Ordering.FindIndex(x => x == entry.Name);
-                if (index == -1) { continue; }
-
-                DesktopEx.desktop_set_item_position2(index, entry._Position.x, entry._Position.y);
+                bool result = DesktopEx.desktop_set_item_position2(entry.Name, entry._Position.x, entry._Position.y);
+                if (result) { UpdateList.Remove(entry); }
             }
-            UpdateList.RemoveAll(x =>
-            {
-                if (x.IsCreated == false) { return false; }
-                return _Ordering.FindIndex(a => a == x.Name) != -1;
-            });
         }
 
         public static void Quit()
@@ -108,8 +102,6 @@
             new Dictionary<DesktopEx.FolderFlags, bool>();
 
         private List<StoredItem> _StoredItems;
-
-        private static List<string> _Ordering = new List<string>();
         #endregion Private Variables
 
         #region Private Methods

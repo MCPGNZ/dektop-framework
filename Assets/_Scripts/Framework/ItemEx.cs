@@ -77,7 +77,6 @@
                 {
                     Lifetime.UpdateList.Add(this);
                 }
-
             }
         }
 
