@@ -641,7 +641,7 @@ MonoBehaviour:
         Type: 200
         Discarded: 0
       - GlobalId: {x: 2, y: 5}
-        Data: CP:1
+        Data: CP
         Type: 103
         Discarded: 0
       - GlobalId: {x: 2, y: 6}
@@ -2196,8 +2196,8 @@ MonoBehaviour:
         Type: 200
         Discarded: 0
       - GlobalId: {x: 9, y: 42}
-        Data: CP:0
-        Type: 103
+        Data: 
+        Type: 200
         Discarded: 0
       - GlobalId: {x: 9, y: 43}
         Data: 
