@@ -1,0 +1,31 @@
+﻿namespace Mcpgnz.DesktopFramework
+{
+    using UnityEngine;
+    using Zenject;
+
+    public class LevelTrigger : MonoBehaviour
+    {
+
+        #region Inspector Variables
+        [SerializeField] private Level _Level;
+
+        [SerializeField] private bool _LeftWall;
+        [SerializeField] private bool _RightWall;
+        [SerializeField] private bool _TopWall;
+        [SerializeField] private bool _BottomWall;
+        #endregion Inspector Variables
+
+        #region Private Variables
+        [Inject] private OverworldArea _OverworldArea;
+        #endregion Private Variables
+
+        #region Unity Methods
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.name != "Explorer [actor]") { Debug.Log("Should not happen lol."); }
+            _OverworldArea.Load();
+        }
+        #endregion Unity Methods
+
+    }
+}
