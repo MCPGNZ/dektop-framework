@@ -7,9 +7,8 @@
     public class PortalEntry : MonoBehaviour
     {
         #region Unity Methods
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerStay2D(Collider2D other)
         {
-
             var bodyObject = other.attachedRigidbody.gameObject;
             if (bodyObject.GetComponent<Movement>() != null)
             {

@@ -231,7 +231,6 @@
                     Debug.LogWarning($"ignoring unsupported cell value: {data} at {globalId}");
                     Type = Identifier.Empty;
                 }
-                Debug.Log($"{Type} at {GlobalId}");
             }
             #endregion Public Methods
         }
