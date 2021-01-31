@@ -24,11 +24,16 @@
         private void Awake()
         {
             Actor = GetComponent<Actor>();
+            foreach (var encounter in _Story.Encounters)
+            {
+                _Container.Inject(encounter);
+            }
         }
         #endregion Unity Methods
 
         #region Private Variables
         [Inject] private Overworld _Overworld;
+        [Inject] private DiContainer _Container;
 
         [ShowInInspector, LabelText("Encounter count"), ReadOnly]
         private int _Count;
