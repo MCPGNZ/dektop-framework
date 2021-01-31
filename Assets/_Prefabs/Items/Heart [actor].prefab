@@ -51,6 +51,7 @@ MonoBehaviour:
     GlobalId: {x: 0, y: 0}
     Data: 
     Type: 0
+    Discarded: 0
   _Name: heart
   _Icon: {fileID: 11400000, guid: 08f063ab091a6c847b0a1dcdeabe407a, type: 2}
   _Tooltip: helth
@@ -80,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedfc23dca18337488371c1c6d22766f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Pickable: 1
 --- !u!50 &3127894495098539782
 Rigidbody2D:
   serializedVersion: 4

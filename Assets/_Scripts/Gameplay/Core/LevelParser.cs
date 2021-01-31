@@ -1,9 +1,9 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System;
-    using System.Linq;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using GoogleSheetsToUnity;
     using GoogleSheetsToUnity.Utils;
     using Sirenix.OdinInspector;
@@ -17,8 +17,8 @@
         public Note GetNoteById(string id)
         {
             Debug.Log($"got {_Notes.Count} notes");
-            Debug.Log($"notes = {string.Join("\n",_Notes.Select((n) => n.ToString()))}");
-            var matchingNotes = _Notes.Where((n) => n.Id == id).ToList();
+            Debug.Log($"notes = {string.Join("\n", _Notes.Select(n => n.ToString()))}");
+            var matchingNotes = _Notes.Where(n => n.Id == id).ToList();
             if (matchingNotes.Count == 0)
                 throw new ArgumentException($"no note for id = {id}");
             if (matchingNotes.Count > 1)
@@ -175,6 +175,8 @@
             public string Data;
             public Identifier Type;
 
+            public bool Discarded;
+
             public bool HasParameters { get { return Data.Contains(':'); } }
             public string Parameters
             {
@@ -300,12 +302,12 @@
             {
                 for (int rowIdx = 1; ; ++rowIdx)
                 {
-                    string id = spreadSheet.Cells["A" + rowIdx.ToString()].value;
-                    string icon = spreadSheet.Cells["B" + rowIdx.ToString()].value;
-                    string message = spreadSheet.Cells["C" + rowIdx.ToString()].value;
+                    string id = spreadSheet.Cells["A" + rowIdx].value;
+                    string icon = spreadSheet.Cells["B" + rowIdx].value;
+                    string message = spreadSheet.Cells["C" + rowIdx].value;
 
                     if (string.IsNullOrWhiteSpace(id)) break;
-                    if (_Notes.Where((n) => n.Id == id).Any())
+                    if (_Notes.Where(n => n.Id == id).Any())
                     {
                         Debug.LogError($"Duplicate note id: {id} at row {rowIdx}, overwriting");
                     }

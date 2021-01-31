@@ -27,6 +27,8 @@
             {
                 for (int y = 0; y < stage.Size.y; ++y)
                 {
+                    if (stage[x][y].Discarded) { continue; }
+
                     AddActor(stage[x][y], new Vector2Int(x, y), stage.Size);
                 }
             }
