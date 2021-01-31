@@ -70,9 +70,7 @@
             }
             set
             {
-                //DesktopEx.desktop_set_item_position(_Info.Name, value.x, value.y);
                 _Position = value;
-
                 if (Lifetime.UpdateList.Contains(this) == false)
                 {
                     Lifetime.UpdateList.Add(this);
