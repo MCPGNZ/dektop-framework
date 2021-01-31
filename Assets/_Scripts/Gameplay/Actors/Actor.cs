@@ -134,7 +134,7 @@
             if (_Directory.IsCreated == false) { return; }
 
             var position = Coordinates.UnityToDesktop(transform.localPosition);
-            if (force || position != _Directory._Position)
+            // if (force || position != _Directory._Position)
             {
                 _Directory.DesktopPosition = position;
             }
