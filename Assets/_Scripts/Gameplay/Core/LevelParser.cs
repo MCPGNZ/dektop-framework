@@ -16,8 +16,6 @@
 
         public Note GetNoteById(string id)
         {
-            Debug.Log($"got {_Notes.Count} notes");
-            Debug.Log($"notes = {string.Join("\n", _Notes.Select(n => n.ToString()))}");
             var matchingNotes = _Notes.Where(n => n.Id == id).ToList();
             if (matchingNotes.Count == 0)
                 throw new ArgumentException($"no note for id = {id}");
