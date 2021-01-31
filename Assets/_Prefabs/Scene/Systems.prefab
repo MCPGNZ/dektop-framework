@@ -649,8 +649,8 @@ MonoBehaviour:
         Type: 200
         Discarded: 0
       - GlobalId: {x: 2, y: 7}
-        Data: 
-        Type: 200
+        Data: E
+        Type: 100
         Discarded: 0
       - GlobalId: {x: 2, y: 8}
         Data: 
@@ -809,8 +809,8 @@ MonoBehaviour:
         Type: 200
         Discarded: 0
       - GlobalId: {x: 2, y: 47}
-        Data: E
-        Type: 100
+        Data: 
+        Type: 200
         Discarded: 0
       - GlobalId: {x: 2, y: 48}
         Data: 
