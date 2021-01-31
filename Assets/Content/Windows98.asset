@@ -12,6 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7c04991f0b45b89799ebaf77a6dd4f, type: 3}
   m_Name: Windows98
   m_EditorClassIdentifier: 
-  Encounters: []
+  Encounters:
+  - Number: 0
+    Action:
+    - id: 0
+    - id: 1
+    - id: 2
+  - Number: 0
+    Action: []
   references:
     version: 1
+    00000000:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: Remember the 90s?
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options:
+        - NO.
+        - Radical!
+    00000001:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: Going back
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options: []
+    00000002:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: To wear my sunglasses at night
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options: []
