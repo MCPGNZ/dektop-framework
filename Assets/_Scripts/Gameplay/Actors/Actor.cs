@@ -38,24 +38,24 @@
                 {
                     case Identifier.PortalEntry:
                     {
-                        name = $"PortalEntry{name}";
+                        name = $"Folder_{name}";
                         GetComponent<Actor>().GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
                         break;
                     }
 
                     case Identifier.MineEnemy:
                     {
-                        name = $"Minesweeper{name}.exe";
+                        name = $"Minesweeper_{name}.exe";
                         break;
                     }
                     case Identifier.BatEnemy:
                     {
-                        name = $"Killer{name}.bat";
+                        name = $"Killer_{name}.bat";
                         break;
                     }
                     default:
                     {
-                        name = $"{cell.Type.ToName()}{name}";
+                        name = $"{cell.Type.ToName()}_{name}";
                         break;
                     }
                 }
