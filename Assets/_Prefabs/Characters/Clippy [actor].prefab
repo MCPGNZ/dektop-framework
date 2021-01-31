@@ -195,6 +195,6 @@ MonoBehaviour:
     Data: 
     Type: 103
   _Name: Clippy
-  _Icon: {fileID: 11400000, guid: 9fb3eedcd9422294e9b6541df036d31d, type: 2}
+  _Icon: {fileID: 11400000, guid: 4f48f2c2bea2bd44d9ee825a94049978, type: 2}
   _Tooltip: Time does not matter.
   _AutoCreate: 0

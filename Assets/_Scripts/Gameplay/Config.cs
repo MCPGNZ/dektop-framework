@@ -53,6 +53,8 @@
         public static float PortalLock => Instance._PortalLock;
 
         public static float MovementSpeed => Instance._MovementSpeed;
+
+        public static int MinResponseSize => Instance._MinResponseSize;
         #endregion Public Variables
 
         #region Inspector Variables
@@ -76,6 +78,9 @@
 
         [SerializeField, BoxGroup("Portals")]
         private float _PortalLock = 1.0f;
+
+        [SerializeField, BoxGroup("Settings")]
+        private int _MinResponseSize = 196;
 
         [SerializeField, ListDrawerSettings(NumberOfItemsPerPage = 32)]
         internal List<IdentifierEntry> _Identifiers;

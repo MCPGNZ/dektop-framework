@@ -74,6 +74,7 @@
         {
             if (_Directory == null) { throw new InvalidOperationException($"actor: {name}"); }
 
+            _Directory.DesktopPosition = Coordinates.NormalizedToDesktop(new Vector2(-5.0f, -5.0f));
             _Directory.Delete();
             _Directory = null;
         }
@@ -90,6 +91,7 @@
         }
         void Overworld.IPooled.OnRelease()
         {
+
             Destroy();
         }
         #endregion Public Methods
@@ -133,7 +135,10 @@
         #region Private Methods
         public void UpdatePosition(bool force = false)
         {
-            if (force || _UnityPosition != transform.localPosition)
+            // Do not bother the backend with moving icons for micro-amounts.
+            var distance = _UnityPosition - transform.localPosition;
+
+            if (force || distance.magnitude > 1.0f)
             {
                 _UnityPosition = transform.localPosition;
                 _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
