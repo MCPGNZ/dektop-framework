@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 6787758381924810688}
   m_Layer: 0
   m_Name: Clippy [actor]
-  m_TagString: Untagged
+  m_TagString: Clippy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
