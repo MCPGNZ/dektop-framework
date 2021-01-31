@@ -75,7 +75,8 @@
             if (_Directory == null) { throw new InvalidOperationException($"actor: {name}"); }
 
             _UnityPosition = Coordinates.NormalizedToUnity(new Vector2(-5, -5));
-            UpdatePosition(true);
+            _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
+            Lifetime.RefreshPositions();
 
             _Directory.Delete();
             _Directory = null;
@@ -145,8 +146,6 @@
                 _UnityPosition = transform.localPosition;
                 _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
 
-                /* now ! */
-                if (force) { Lifetime.RefreshPositions(); }
             }
         }
         #endregion Private Methods
