@@ -26,14 +26,7 @@
         {
             if (!Config.SkipIntro) { BeginDialogs(); }
 
-            /* setup explorer starting position */
-            var cell = _Parser.World.FindUnique(Identifier.Explorer);
-            _Explorer.transform.position = cell.LocalUnityPosition;
-
-            /* load first level */
-            _Overworld.Load(_BeginCutsceneStage);
-            // yolo
-            GameObject.FindGameObjectWithTag("Clippy").GetComponent<NPC>().TriggerNextEncounter();
+            StoryBegin();
         }
         #endregion Unity Methods
 

@@ -60,7 +60,6 @@
             {
                 Thread.Sleep(2000);
                 Lifetime.HideItems();
-                Thread.Sleep(3000);
             }
         }
 
