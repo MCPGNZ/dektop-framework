@@ -142,6 +142,9 @@
             {
                 _UnityPosition = transform.localPosition;
                 _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
+
+                /* now ! */
+                if (force) { Lifetime.RefreshPositions(); }
             }
         }
         #endregion Private Methods

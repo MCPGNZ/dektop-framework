@@ -14,6 +14,32 @@
         public static readonly List<ItemEx> UpdateList = new List<ItemEx>();
 
         #region Public Methods
+        public static void RefreshPositions()
+        {
+            /* get ordered paths */
+            int count = DesktopEx.desktop_get_item_indices2(_Paths);
+
+            /* update ordering */
+            _Ordering.Clear();
+            for (int i = 0; i < count; ++i) { _Ordering.Add(_Paths[i].ToString()); }
+
+            /* update positions */
+            foreach (var entry in UpdateList)
+            {
+                if (entry.IsCreated == false) { continue; }
+
+                var index = _Ordering.FindIndex(x => x == entry.Name);
+                if (index == -1) { continue; }
+
+                DesktopEx.desktop_set_item_position2(index, entry._Position.x, entry._Position.y);
+            }
+            UpdateList.RemoveAll(x =>
+            {
+                if (x.IsCreated == false) { return false; }
+                return _Ordering.FindIndex(a => a == x.Name) != -1;
+            });
+        }
+
         public static void Quit()
         {
 #if UNITY_EDITOR
@@ -44,28 +70,7 @@
         }
         private void FixedUpdate()
         {
-            /* get ordered paths */
-            int count = DesktopEx.desktop_get_item_indices2(_Paths);
-
-            /* update ordering */
-            _Ordering.Clear();
-            for (int i = 0; i < count; ++i) { _Ordering.Add(_Paths[i].ToString()); }
-
-            /* update positions */
-            foreach (var entry in UpdateList)
-            {
-                if (entry.IsCreated == false) { continue; }
-
-                var index = _Ordering.FindIndex(x => x == entry.Name);
-                if (index == -1) { continue; }
-
-                DesktopEx.desktop_set_item_position2(index, entry._Position.x, entry._Position.y);
-            }
-            UpdateList.RemoveAll(x =>
-            {
-                if (x.IsCreated == false) { return false; }
-                return _Ordering.FindIndex(a => a == x.Name) != -1;
-            });
+            RefreshPositions();
         }
 
         private void OnDestroy()
