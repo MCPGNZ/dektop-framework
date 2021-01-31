@@ -2,7 +2,6 @@
 {
     using UnityEngine;
     using System;
-    using System.Collections.Generic;
 
     public class Automobile : MonoBehaviour
     {
@@ -20,8 +19,8 @@
             var actor = GetComponent<Actor>();
             if ((bool)(actor?.Cell?.HasParameters)) { 
                 var parameters = actor.Cell.Parameters;
-                if (parameters.Contains("|")) { MoveVector = new Vector2(0.0f, 100.0f); }
-                if (parameters.Contains("-")) { MoveVector = new Vector2(100.0f, 0.0f); }
+                if (parameters.Contains("|")) { MoveVector = new Vector2(0.0f, 150.0f); }
+                if (parameters.Contains("-")) { MoveVector = new Vector2(150.0f, 0.0f); }
                 if (parameters.Contains("*")) { MoveVector = new Vector2(100.0f, 100.0f); }
             }
         }
@@ -42,7 +41,7 @@
         {
             var point = collision.GetContact(0);
             var relativePos = point.normal;
-            Debug.Log(String.Format($"Bouncing off from {collision.rigidbody.name} with {relativePos.x}, {relativePos.y}"));
+            // Debug.Log(String.Format($"Bouncing off from {collision.rigidbody.name} with {relativePos.x}, {relativePos.y}"));
             if (Math.Abs(relativePos.x) > Math.Abs(relativePos.y))
             {
                 _QueueHorizontalBounce = true;
