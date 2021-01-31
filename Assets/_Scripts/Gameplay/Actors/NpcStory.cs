@@ -2,9 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading;
     using Mcpgnz.DesktopFramework;
     using Sirenix.OdinInspector;
     using UnityEngine;
+    using Zenject;
 
     [CreateAssetMenu(fileName = "Framework/NPC Story")]
     internal class NpcStory : ScriptableObject
@@ -52,6 +54,26 @@
             }
         }
 
+        public sealed class StealIconsCutsceneAction : IEncounterAction
+        {
+            public void Execute(NPC npc)
+            {
+                Thread.Sleep(2000);
+                Lifetime.HideItems();
+                Thread.Sleep(3000);
+            }
+        }
+
+        public sealed class SpawnFirstLevelAction : IEncounterAction
+        {
+            [Inject] private Story _Story;
+
+            public void Execute(NPC npc)
+            {
+                _Story.StoryBegin();
+            }
+        }
+
         [Serializable]
         public sealed class Encounter
         {
@@ -59,6 +81,14 @@
 
             [SerializeReference, HideLabel]
             public List<IEncounterAction> Action;
+
+            public void Inject(DiContainer container)
+            {
+                foreach (var action in Action)
+                {
+                    container.Inject(action);
+                }
+            }
         }
         #endregion Public Types
     }

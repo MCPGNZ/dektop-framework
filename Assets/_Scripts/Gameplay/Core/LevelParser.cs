@@ -65,6 +65,8 @@
                     {
                         Cells = new Cell[size.y]
                     };
+                    for (int y = 0; y < size.y; ++y)
+                        _Rows[x][y] = new Cell(new Vector2Int(x, y), "");
                 }
             }
 
@@ -288,7 +290,12 @@
                 var row = cell.Value.Row() - 1;
                 var column = GoogleSheetsToUnityUtilities.NumberFromExcelColumn(cell.Value.Column()) - 1;
 
-                _Map[column][row] = new Cell(new Vector2Int(column, row), cell.Value.value);
+                var c = new Cell(new Vector2Int(column, row), cell.Value.value);
+                if (c.Type == Identifier.Unknown)
+                {
+                    Debug.Log($"WAT {c.GlobalId} = {c.Data} / {c.Type}");
+                }
+                _Map[column][row] = c;
             }
 
             Debug.Log("Map parse success");

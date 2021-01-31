@@ -18,6 +18,8 @@
         #region Public Methods
         public void Load(Vector2Int levelId)
         {
+            Debug.Log($"load stage: {levelId}");
+
             /* cleanup */
             Release();
 
@@ -193,6 +195,8 @@
 
         private void AddActor(Cell cell, Vector2Int position, Vector2Int gridSize)
         {
+            Debug.Log($"Instantiate for {cell.GlobalId} ({cell.Data} = {cell.Type})");
+
             /* empty is empty... */
             if (cell.Type == Identifier.Unknown) { Debug.LogWarning("shouldn't get here"); return; }
 

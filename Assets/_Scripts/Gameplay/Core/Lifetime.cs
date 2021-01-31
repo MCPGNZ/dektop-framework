@@ -135,13 +135,18 @@
 
                 _StoredItems.Add(new StoredItem(item.Name, item.DesktopPosition));
             }
+        }
 
-            /* hide items */
+        public static void HideItems()
+        {
+            Debug.Log("Hiding items");
+            var items = DesktopEx.Items;
             foreach (var item in items)
             {
                 /* to the purgatory! */
                 item.DesktopPosition = new Vector2Int(-8192, -8192);
             }
+            Debug.Log("Items hidden");
         }
 
         private void RestoreDesktop()

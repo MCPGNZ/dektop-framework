@@ -22,6 +22,30 @@ MonoBehaviour:
     - id: 4
     - id: 5
     - id: 6
+    - id: 7
+    - id: 8
+    - id: 9
+    - id: 10
+  - Number: 1
+    Action:
+    - id: 11
+    - id: 12
+    - id: 13
+  - Number: 2
+    Action:
+    - id: 14
+    - id: 15
+  - Number: 3
+    Action:
+    - id: 16
+    - id: 17
+    - id: 18
+    - id: 19
+  - Number: 4
+    Action:
+    - id: 20
+    - id: 21
+    - id: 22
   references:
     version: 1
     00000000:
@@ -79,4 +103,109 @@ MonoBehaviour:
         Options:
         - Watch what?
     00000006:
+      type: {class: NpcStory/StealIconsCutsceneAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+    00000007:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: "Let\u2019s play a game, friend. MY GAME. You want to get your precious
+          files back? "
+        Tooltip: 
+        Icon: {fileID: 11400000, guid: 82a98c2dab822b64d8b028e4c74720dc, type: 2}
+        Options:
+        - Give them back!
+        - What did you do?
+        - YES!
+    00000008:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: "Sure, I\u2019ll give them back\u2026 if you beat me! Hahaha!"
+        Tooltip: 
+        Icon: {fileID: 11400000, guid: 6a722997e6ec4ab4ab182185bba18385, type: 2}
+        Options:
+        - NO, WAIT!
+    00000009:
+      type: {class: NpcStory/SpawnFirstLevelAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+    0000000A:
+      type: {class: NpcStory/DisappearAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+    0000000B:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: 
+        Tooltip: 
+        Icon: {fileID: 11400000, guid: cb1fefe2a6f73054686216fa613610e1, type: 2}
+        Options:
+        - "What\u2026 is this?"
+    0000000C:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: "Let\u2019s see\u2026 I wonder if you can find your files! Try to
+          walk around and see!"
+        Tooltip: 
+        Icon: {fileID: 11400000, guid: cb1fefe2a6f73054686216fa613610e1, type: 2}
+        Options:
+        - I can walk with my keyboard?!
+    0000000D:
+      type: {class: NpcStory/DisappearAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+    0000000E:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: What? You thought it was just one screen? Too bad! Welcome to my
+          labirynth!
+        Tooltip: 
+        Icon: {fileID: 11400000, guid: 9fb3eedcd9422294e9b6541df036d31d, type: 2}
+        Options:
+        - There's more?
+        - Just give back my files!
+    0000000F:
+      type: {class: NpcStory/DisappearAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+    00000010:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: Took you long enough!
+        Tooltip: 
+        Icon: {fileID: 11400000, guid: 1c219023ced1bb541be96c2055572f0f, type: 2}
+        Options:
+        - I know.
+        - I wanted to make you wait
+    00000011:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: 'Pathetic! It was just the easiest path. Now it''s going to be a
+          lot harder! Say hello to my little assistants! '
+        Tooltip: 
+        Icon: {fileID: 11400000, guid: 6a722997e6ec4ab4ab182185bba18385, type: 2}
+        Options:
+        - I'll avoid them easily!
+        - "Just let me pass\u2026"
+    00000012:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: I'll watch how you do this!
+        Tooltip: 
+        Icon: {fileID: 11400000, guid: 0ee4ee1191236554893f6e495c29e081, type: 2}
+        Options:
+        - "\u0CA0_\u0CA0"
+    00000013:
+      type: {class: NpcStory/DisappearAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+    00000014:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: I hope you had fun with mine mines!
+        Tooltip: 
+        Icon: {fileID: 11400000, guid: 82a98c2dab822b64d8b028e4c74720dc, type: 2}
+        Options:
+        - That was a bad pun.
+        - Yes I had!
+        - NO
+    00000015:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: Lets see how you handle my cute minions!
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options:
+        - Oh, come on!
+        - I'll avoid them easily!
+        - I don't want to.
+    00000016:
       type: {class: NpcStory/DisappearAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
