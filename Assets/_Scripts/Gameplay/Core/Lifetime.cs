@@ -17,11 +17,11 @@
         public static void RefreshPositions()
         {
             /* get ordered paths */
-            int count = DesktopEx.desktop_get_item_indices2(out _Paths);
+            string[] paths = DesktopEx.DesktopGetItemIndices2();
 
             /* update ordering */
             _Ordering.Clear();
-            for (int i = 0; i < count; ++i) { _Ordering.Add(_Paths[i].ToString()); }
+            for (int i = 0; i < paths.Length; ++i) { _Ordering.Add(paths[i]); }
 
             /* update positions */
             foreach (var entry in UpdateList)
@@ -65,8 +65,6 @@
             SetupItems();
 
             Minimize();
-
-            for (int i = 0; i < _Paths.Length; ++i) { _Paths[i] = new StringBuilder(1024); }
         }
         private void FixedUpdate()
         {
@@ -111,7 +109,6 @@
 
         private List<StoredItem> _StoredItems;
 
-        private static StringBuilder[] _Paths = new StringBuilder[4096];
         private static List<string> _Ordering = new List<string>();
         #endregion Private Variables
 
