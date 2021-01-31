@@ -43,7 +43,6 @@
             RawKeyInput.HandleKeyUp(RawKey.Down);
 
             LevelChanged?.Invoke(levelId);
-            Lifetime.RefreshPositions();
         }
         #endregion Public Methods
 
@@ -98,7 +97,7 @@
                 var identifier = _Instantiated[obj];
 
                 /* add to freelist */
-                if (_FreeList.TryGetValue(identifier, out var result) == false)
+                if (_FreeList.ContainsKey(identifier) == false)
                 {
                     _FreeList.Add(identifier, new Queue<GameObject>());
                 }
@@ -176,14 +175,14 @@
             /* portals are blocked for set amount of time */
             if (_PortalLock > 0.0f) { return; }
 
-            /* lock portal for some time */
-            _PortalLock = Config.PortalLock;
-
             /* stages are only reloaded if the portals leads to another stage */
             if (_CurrentStageId != cell.StageId)
             {
                 Load(cell.StageId);
             }
+
+            /* lock portal for some time */
+            _PortalLock = Config.PortalLock;
 
             /* move the player */
             _Explorer.transform.position = Coordinates.NormalizedToUnity(Coordinates.GridToNormalized(cell.LocalPositionGrid, Config.StageSize));

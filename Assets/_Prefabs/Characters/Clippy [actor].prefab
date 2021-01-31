@@ -213,5 +213,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Actor: {fileID: 0}
-  character: 0
+  character: 103
   _Story: {fileID: 11400000, guid: 5911de1615dadb445aee88869642b21c, type: 2}

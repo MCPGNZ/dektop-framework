@@ -58,7 +58,6 @@
         }
 
         public override string AbsolutePath => _Info.FullName;
-
         public override string DirectoryPath => Path.GetDirectoryName(_Info.FullName);
 
         public override Vector2Int DesktopPosition
@@ -70,11 +69,11 @@
             }
             set
             {
+
+                if (Lifetime.UpdateList.Contains(this)) { return; }
+
                 _Position = value;
-                if (Lifetime.UpdateList.Contains(this) == false)
-                {
-                    Lifetime.UpdateList.Add(this);
-                }
+                Lifetime.UpdateList.Add(this);
             }
         }
 
