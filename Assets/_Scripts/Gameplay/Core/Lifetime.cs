@@ -17,7 +17,7 @@
         public static void RefreshPositions()
         {
             /* get ordered paths */
-            int count = DesktopEx.desktop_get_item_indices2(_Paths);
+            int count = DesktopEx.desktop_get_item_indices2(out _Paths);
 
             /* update ordering */
             _Ordering.Clear();
