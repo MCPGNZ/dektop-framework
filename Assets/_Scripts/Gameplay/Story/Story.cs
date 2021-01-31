@@ -15,11 +15,11 @@
         #region Unity Methods
         private void Awake()
         {
-            _Explorer.OnLifeLost += OnExplorerLifeLost;
+            _Explorer.OnLifeChange += OnExplorerLifeChange;
         }
         private void OnDestroy()
         {
-            _Explorer.OnLifeLost -= OnExplorerLifeLost;
+            _Explorer.OnLifeChange -= OnExplorerLifeChange;
         }
 
         private void Start()
@@ -92,7 +92,7 @@
             Dialog.Character(Identifier.Clippy, "You are no more", null, "Sorry...");
         }
 
-        private void OnExplorerLifeLost(int count)
+        private void OnExplorerLifeChange(int count)
         {
             if (_Explorer.Lives <= 0)
             {

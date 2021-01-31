@@ -19,6 +19,7 @@ MonoBehaviour:
   _StageSize: {x: 21, y: 10}
   _MovementSpeed: 100
   _PortalLock: 1
+  _MinResponseSize: 196
   _Identifiers:
   - Identifier: 100
     Tag: E
@@ -28,6 +29,10 @@ MonoBehaviour:
     Tag: CP
     Prefab: {fileID: 7733286898918282246, guid: cee3c19854aaf3b4c940f1cda8b21717, type: 3}
     Avatar: {fileID: 11400000, guid: 9fb3eedcd9422294e9b6541df036d31d, type: 2}
+  - Identifier: 111
+    Tag: CR
+    Prefab: {fileID: 7733286898918282246, guid: 28337cfd47cd86b43b3e17d45a75e807, type: 3}
+    Avatar: {fileID: 11400000, guid: 6a722997e6ec4ab4ab182185bba18385, type: 2}
   - Identifier: 101
     Tag: BIN
     Prefab: {fileID: 104899619469281166, guid: faac93143594ae945ae21e5f15d35a89, type: 3}

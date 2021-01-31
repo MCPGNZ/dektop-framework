@@ -11,7 +11,7 @@
     public class Overworld : MonoBehaviour
     {
         #region Public Variables
-        public static Action LevelChanged;
+        public static Action<Vector2Int> LevelChanged;
         public Vector2Int CurrentStageId => _CurrentStageId;
         #endregion Public Variables
 
@@ -29,6 +29,8 @@
             {
                 for (int y = 0; y < stage.Size.y; ++y)
                 {
+                    if (stage[x][y].Discarded) { continue; }
+
                     AddActor(stage[x][y], new Vector2Int(x, y), stage.Size);
                 }
             }
@@ -40,7 +42,7 @@
             RawKeyInput.HandleKeyUp(RawKey.Up);
             RawKeyInput.HandleKeyUp(RawKey.Down);
 
-            LevelChanged?.Invoke();
+            LevelChanged?.Invoke(levelId);
         }
         #endregion Public Methods
 
@@ -194,6 +196,9 @@
         private void AddActor(Cell cell, Vector2Int position, Vector2Int gridSize)
         {
             Debug.Log($"Instantiate for {cell.GlobalId} ({cell.Data} = {cell.Type})");
+
+            /* empty is empty... */
+            if (cell.Type == Identifier.Unknown) { Debug.LogWarning("shouldn't get here"); return; }
 
             /* empty is empty... */
             if (cell.Type == Identifier.Empty) { return; }

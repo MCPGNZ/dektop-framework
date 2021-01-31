@@ -38,24 +38,24 @@
                 {
                     case Identifier.PortalEntry:
                     {
-                        name = $"PortalEntry{name}";
+                        name = $"Folder_{name}";
                         GetComponent<Actor>().GetComponent<PortalEntry>().PortalExitKey = cell.MatchingPortalExitKey;
                         break;
                     }
 
                     case Identifier.MineEnemy:
                     {
-                        name = $"Minesweeper{name}.exe";
+                        name = $"Minesweeper_{name}.exe";
                         break;
                     }
                     case Identifier.BatEnemy:
                     {
-                        name = $"Killer{name}.bat";
+                        name = $"Killer_{name}.bat";
                         break;
                     }
                     default:
                     {
-                        name = $"{cell.Type.ToName()}{name}";
+                        name = $"{cell.Type.ToName()}_{name}";
                         break;
                     }
                 }
@@ -74,7 +74,10 @@
         {
             if (_Directory == null) { throw new InvalidOperationException($"actor: {name}"); }
 
-            _Directory.DesktopPosition = Coordinates.NormalizedToDesktop(new Vector2(-5.0f, -5.0f));
+            _UnityPosition = Coordinates.NormalizedToUnity(new Vector2(-5, -5));
+            _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
+            Lifetime.RefreshPositions();
+
             _Directory.Delete();
             _Directory = null;
         }
@@ -142,6 +145,7 @@
             {
                 _UnityPosition = transform.localPosition;
                 _Directory.DesktopPosition = Coordinates.UnityToDesktop(_UnityPosition);
+
             }
         }
         #endregion Private Methods

@@ -1,7 +1,6 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System;
-    using System.Collections.Generic;
     using UnityEngine;
 
     /// <summary>
@@ -25,6 +24,8 @@
         Windows8 = 108,
         Windows10 = 109,
         Windows2000 = 110,
+
+        FinalClippy = 111,
 
         /* environment */
         Empty = 200,

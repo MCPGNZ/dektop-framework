@@ -175,7 +175,7 @@
         [DllImport("desktop-lib.dll")]
         internal static extern int desktop_get_item_indices2(
             [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPWStr, SizeParamIndex = 1)]
-            StringBuilder[] paths);
+            out StringBuilder[] paths);
 
         [DllImport("desktop-lib.dll")]
         internal static extern void desktop_set_item_position2(int index, int x, int y);

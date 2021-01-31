@@ -6,15 +6,14 @@
     public sealed class Explorer : MonoBehaviour
     {
         #region Public Variables
-        public Action<int> OnLifeLost;
+        public Action<int> OnLifeChange;
 
         public int Lives
         {
             get => _Lives;
             set
             {
-                if (value < _Lives) { OnLifeLost?.Invoke(_Lives - value); }
-
+                OnLifeChange?.Invoke(value - _Lives);
                 _Lives = value;
             }
         }

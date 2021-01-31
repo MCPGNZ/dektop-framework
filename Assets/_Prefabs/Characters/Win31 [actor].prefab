@@ -89,7 +89,7 @@ MonoBehaviour:
   _Name: Windows 3.1
   _Icon: {fileID: 11400000, guid: 7ad221516d014c84dbcf1e8dad374078, type: 2}
   _Tooltip: cough... cough...
-  _AutoCreate: 1
+  _AutoCreate: 0
 --- !u!1 &7648953659995989948
 GameObject:
   m_ObjectHideFlags: 0

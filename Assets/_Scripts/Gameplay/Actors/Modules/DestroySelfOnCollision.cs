@@ -5,13 +5,34 @@
 
     public class DestroySelfOnCollision : MonoBehaviour
     {
-
+        [SerializeField] private bool _Pickable;
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // make sure it only collides with the player
-            if (collision.gameObject.GetComponent<Movement>() == null) { return; }
+            // This is for mines, who have solid bodies.
+            OnAnyKindOfContact(collision.collider);
+        }
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            // This is for spikes, who you can pass through.
+            OnAnyKindOfContact(collider);
+        }
+
+        private void OnAnyKindOfContact(Collider2D collider)
+        {
+            var bodyObject = collider.attachedRigidbody.gameObject;
+            Debug.Log($"I collided with {bodyObject.name}.");
+
+            // make sure it only hurts the player (who has Movement behavior)
+            if (bodyObject.GetComponent<Movement>() == null) { return; }
+
+            if (_Pickable)
+            {
+                var actor = GetComponent<Actor>();
+                if (actor != null) { actor.Cell.Discarded = true; }
+            }
 
             Destroy(gameObject);
         }
+
     }
 }

@@ -89,7 +89,7 @@ MonoBehaviour:
   _Name: Windows 2000
   _Icon: {fileID: 11400000, guid: 1ac6fef84b8dca843946fb8e37063158, type: 2}
   _Tooltip: Don't look at me.
-  _AutoCreate: 1
+  _AutoCreate: 0
 --- !u!1 &7648953659995989948
 GameObject:
   m_ObjectHideFlags: 0
