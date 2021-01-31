@@ -26,7 +26,7 @@
             Actor = GetComponent<Actor>();
             foreach (var encounter in _Story.Encounters)
             {
-                _Container.Inject(encounter);
+                encounter.Inject(_Container);
             }
         }
         #endregion Unity Methods

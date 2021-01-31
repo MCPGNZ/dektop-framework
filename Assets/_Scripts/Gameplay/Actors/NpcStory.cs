@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading;
     using Mcpgnz.DesktopFramework;
     using Sirenix.OdinInspector;
     using UnityEngine;
@@ -57,9 +58,9 @@
         {
             public void Execute(NPC npc)
             {
-                System.Threading.Thread.Sleep(2000);
+                Thread.Sleep(2000);
                 Lifetime.HideItems();
-                System.Threading.Thread.Sleep(3000);
+                Thread.Sleep(3000);
             }
         }
 
@@ -80,6 +81,14 @@
 
             [SerializeReference, HideLabel]
             public List<IEncounterAction> Action;
+
+            public void Inject(DiContainer container)
+            {
+                foreach (var action in Action)
+                {
+                    container.Inject(action);
+                }
+            }
         }
         #endregion Public Types
     }
