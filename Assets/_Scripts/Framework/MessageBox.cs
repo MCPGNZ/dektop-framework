@@ -163,7 +163,7 @@ public class MessageBox : Form
         MaximumSize = new Size(1280, 200);
         MinimumSize = new Size(buttons.Length * Config.MinResponseSize, 32);
         Text = title;
-        TopLevel = true;
+        TopMost = true;
         if (icon != null)
         {
             ((ISupportInitialize)icon).EndInit();

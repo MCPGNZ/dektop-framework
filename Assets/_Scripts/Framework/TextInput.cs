@@ -114,6 +114,7 @@ public class TextInput : Form
         MinimumSize = Size;
         MaximumSize = Size;
         Text = title;
+        TopMost = true;
         if (icon != null)
         {
             ((ISupportInitialize)icon).EndInit();
