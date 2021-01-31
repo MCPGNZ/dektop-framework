@@ -1,6 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Mcpgnz.DesktopFramework.Framework;
     using UnityEngine;
     using UnityRawInput;
@@ -44,13 +45,15 @@
         {
             DesktopEx.desktop_get_item_indices2();
 
-            foreach (var entry in UpdateList)
+            var copy = UpdateList.ToList();
+            foreach (var entry in copy)
             {
                 if (entry.IsCreated == false) { continue; }
-                DesktopEx.desktop_set_item_position2(entry.Name,
+                bool result = DesktopEx.desktop_set_item_position2(entry.Name,
                     entry._Position.x, entry._Position.y);
+
+                if (result) { UpdateList.Remove(entry); }
             }
-            UpdateList.Clear();
         }
 
         private void OnDestroy()

@@ -70,9 +70,9 @@
             set
             {
 
-                if (Lifetime.UpdateList.Contains(this)) { return; }
-
                 _Position = value;
+
+                if (Lifetime.UpdateList.Contains(this)) { return; }
                 Lifetime.UpdateList.Add(this);
             }
         }

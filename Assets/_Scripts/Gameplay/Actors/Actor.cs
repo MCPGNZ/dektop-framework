@@ -69,6 +69,8 @@
             if (_Directory == null) { return; }
 
             _Directory.DesktopPosition = new Vector2Int(-8192, -8192);
+            bool result = DesktopEx.desktop_set_item_position2(_Directory.Name,
+                _Directory._Position.x, _Directory._Position.y);
 
             _Directory.Delete();
             _Directory = null;
