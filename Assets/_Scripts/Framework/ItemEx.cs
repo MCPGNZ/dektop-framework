@@ -1,6 +1,5 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
-    using System;
     using System.IO;
     using System.Runtime.InteropServices;
     using UnityEngine;
@@ -19,6 +18,7 @@
     public abstract class ItemEx : IItemEx
     {
         #region Public Variables
+        public abstract bool IsCreated { get; }
         public abstract string Name { get; set; }
         public abstract string AbsolutePath { get; }
         public abstract string DirectoryPath { get; }
@@ -37,14 +37,15 @@
             [MarshalAs(UnmanagedType.LPWStr)] string itemPath,
             [MarshalAs(UnmanagedType.LPWStr)] string tooltip);
         #endregion Import
+
+        public Vector2Int _Position;
     }
 
     public class ItemEx<T> : ItemEx
         where T : FileSystemInfo
     {
         #region Public Variables
-        public event Action<string> OnNameChanged;
-        public event Action<Vector2Int> OnPositionChanged;
+        public override bool IsCreated => _Info != null;
 
         public override string Name
         {
@@ -53,8 +54,6 @@
             {
                 if (_Info is DirectoryInfo directoryInfo) { directoryInfo.MoveTo(Path.Combine(DirectoryPath, value)); }
                 if (_Info is FileInfo fileInfo) { fileInfo.MoveTo(Path.Combine(DirectoryPath, value)); }
-
-                OnNameChanged?.Invoke(value);
             }
         }
 
@@ -71,9 +70,14 @@
             }
             set
             {
-                DesktopEx.desktop_set_item_position(_Info.Name, value.x, value.y);
+                //DesktopEx.desktop_set_item_position(_Info.Name, value.x, value.y);
+                _Position = value;
 
-                OnPositionChanged?.Invoke(value);
+                if (Lifetime.UpdateList.Contains(this) == false)
+                {
+                    Lifetime.UpdateList.Add(this);
+                }
+
             }
         }
 
@@ -97,7 +101,5 @@
         #region Private Variables
         protected T _Info;
         #endregion Private Variables
-
     }
-
 }

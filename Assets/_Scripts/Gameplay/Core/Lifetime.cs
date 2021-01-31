@@ -1,6 +1,7 @@
 ﻿namespace Mcpgnz.DesktopFramework
 {
     using System.Collections.Generic;
+    using System.Text;
     using Mcpgnz.DesktopFramework.Framework;
     using UnityEngine;
     using UnityRawInput;
@@ -10,6 +11,8 @@
 
     public sealed class Lifetime : MonoBehaviour
     {
+        public static readonly List<ItemEx> UpdateList = new List<ItemEx>();
+
         #region Public Methods
         public static void Quit()
         {
@@ -36,7 +39,35 @@
             SetupItems();
 
             Minimize();
+
+            for (int i = 0; i < _Paths.Length; ++i) { _Paths[i] = new StringBuilder(1024); }
         }
+        private void FixedUpdate()
+        {
+            /* get ordered paths */
+            int count = DesktopEx.desktop_get_item_indices2(_Paths);
+
+            /* update ordering */
+            _Ordering.Clear();
+            for (int i = 0; i < count; ++i) { _Ordering.Add(_Paths[i].ToString()); }
+
+            /* update positions */
+            foreach (var entry in UpdateList)
+            {
+                if (entry.IsCreated == false) { continue; }
+
+                var index = _Ordering.FindIndex(x => x == entry.Name);
+                if (index == -1) { continue; }
+
+                DesktopEx.desktop_set_item_position2(index, entry._Position.x, entry._Position.y);
+            }
+            UpdateList.RemoveAll(x =>
+            {
+                if (x.IsCreated == false) { return false; }
+                return _Ordering.FindIndex(a => a == x.Name) != -1;
+            });
+        }
+
         private void OnDestroy()
         {
             RawKeyInput.Stop();
@@ -74,6 +105,9 @@
             new Dictionary<DesktopEx.FolderFlags, bool>();
 
         private List<StoredItem> _StoredItems;
+
+        private static StringBuilder[] _Paths = new StringBuilder[4096];
+        private static List<string> _Ordering = new List<string>();
         #endregion Private Variables
 
         #region Private Methods
@@ -145,7 +179,7 @@
         {
             // don't minimize the editor
 #if !UNITY_EDITOR
-            Framework.GameWindow.Minimize();
+            GameWindow.Minimize();
 #endif
         }
         private void OnExitKey(RawKey key)
