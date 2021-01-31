@@ -14,6 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Encounters:
   - Number: 0
-    Action: []
+    Action:
+    - id: 0
+  - Number: 1
+    Action:
+    - id: 1
   references:
     version: 1
+    00000000:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: I'm so full....
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options:
+        - Ok
+    00000001:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: Can't... hold... more...
+        Tooltip: 
+        Icon: {fileID: 0}
+        Options:
+        - Sure

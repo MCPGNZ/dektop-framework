@@ -85,7 +85,8 @@ MonoBehaviour:
   Cell:
     GlobalId: {x: 0, y: 0}
     Data: 
-    Type: 0
+    Type: 101
+    Discarded: 0
   _Name: _Bin_
   _Icon: {fileID: 11400000, guid: 50de8b76fd3b4e045bda45efa9f1399c, type: 2}
   _Tooltip: Don't look at me.
