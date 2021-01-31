@@ -89,7 +89,7 @@ MonoBehaviour:
   _Name: Windows 8
   _Icon: {fileID: 11400000, guid: a81edf671fcfc194db792a9d13f4e6ba, type: 2}
   _Tooltip: Don't look at me.
-  _AutoCreate: 1
+  _AutoCreate: 0
 --- !u!1 &7648953659995989948
 GameObject:
   m_ObjectHideFlags: 0

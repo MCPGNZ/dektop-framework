@@ -216,7 +216,7 @@ MonoBehaviour:
     _Rows:
     - Cells:
       - GlobalId: {x: 0, y: 0}
-        Data: P:10
+        Data: P:9
         Type: 400
       - GlobalId: {x: 0, y: 1}
         Data: 

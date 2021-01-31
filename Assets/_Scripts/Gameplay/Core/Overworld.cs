@@ -192,6 +192,9 @@
         private void AddActor(Cell cell, Vector2Int position, Vector2Int gridSize)
         {
             /* empty is empty... */
+            if (cell.Type == Identifier.Unknown) { Debug.LogWarning("shouldn't get here"); return; }
+
+            /* empty is empty... */
             if (cell.Type == Identifier.Empty) { return; }
 
             /* explorer is always on scene */

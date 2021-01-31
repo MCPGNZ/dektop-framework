@@ -89,7 +89,7 @@ MonoBehaviour:
   _Name: Windows 98
   _Icon: {fileID: 11400000, guid: 0201f5fa06bd198439db976882c2a6f1, type: 2}
   _Tooltip: Don't look at me.
-  _AutoCreate: 1
+  _AutoCreate: 0
 --- !u!1 &7648953659995989948
 GameObject:
   m_ObjectHideFlags: 0
