@@ -216,8 +216,8 @@ MonoBehaviour:
     _Rows:
     - Cells:
       - GlobalId: {x: 0, y: 0}
-        Data: 
-        Type: 200
+        Data: P:10
+        Type: 400
       - GlobalId: {x: 0, y: 1}
         Data: 
         Type: 200
@@ -337,8 +337,8 @@ MonoBehaviour:
         Type: 201
     - Cells:
       - GlobalId: {x: 1, y: 0}
-        Data: 
-        Type: 200
+        Data: P:30
+        Type: 400
       - GlobalId: {x: 1, y: 1}
         Data: 
         Type: 200
@@ -458,7 +458,7 @@ MonoBehaviour:
         Type: 200
     - Cells:
       - GlobalId: {x: 2, y: 0}
-        Data: P:60
+        Data: P:40
         Type: 400
       - GlobalId: {x: 2, y: 1}
         Data: 
@@ -579,8 +579,8 @@ MonoBehaviour:
         Type: 200
     - Cells:
       - GlobalId: {x: 3, y: 0}
-        Data: 
-        Type: 200
+        Data: P:60
+        Type: 400
       - GlobalId: {x: 3, y: 1}
         Data: 
         Type: 200
@@ -700,8 +700,8 @@ MonoBehaviour:
         Type: 200
     - Cells:
       - GlobalId: {x: 4, y: 0}
-        Data: '#'
-        Type: 201
+        Data: P:25
+        Type: 400
       - GlobalId: {x: 4, y: 1}
         Data: 
         Type: 200
@@ -821,8 +821,8 @@ MonoBehaviour:
         Type: 200
     - Cells:
       - GlobalId: {x: 5, y: 0}
-        Data: 
-        Type: 200
+        Data: P:43
+        Type: 400
       - GlobalId: {x: 5, y: 1}
         Data: 
         Type: 200
