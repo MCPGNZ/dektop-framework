@@ -51,6 +51,7 @@ MonoBehaviour:
     GlobalId: {x: 0, y: 0}
     Data: 
     Type: 0
+    Discarded: 0
   _Name: note
   _Icon: {fileID: 11400000, guid: f0152e2e201629642887cbe3d8358f96, type: 2}
   _Tooltip: What is this random sheet of paper? Could it be... someone's diary?
@@ -67,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedfc23dca18337488371c1c6d22766f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Pickable: 1
 --- !u!114 &1135457674954590834
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@
 
     public class DestroySelfOnCollision : MonoBehaviour
     {
-
+        [SerializeField] private bool _Pickable;
         private void OnCollisionEnter2D(Collision2D collision)
         {
             // This is for mines, who have solid bodies.
@@ -24,6 +24,12 @@
 
             // make sure it only hurts the player (who has Movement behavior)
             if (bodyObject.GetComponent<Movement>() == null) { return; }
+
+            if (_Pickable)
+            {
+                var actor = GetComponent<Actor>();
+                if (actor != null) { actor.Cell.Discarded = true; }
+            }
 
             Destroy(gameObject);
         }
