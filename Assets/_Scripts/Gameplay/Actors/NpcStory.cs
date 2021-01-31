@@ -65,11 +65,11 @@
 
         public sealed class SpawnFirstLevelAction : IEncounterAction
         {
-            [Inject] private Overworld _Overworld;
+            [Inject] private Story _Story;
 
             public void Execute(NPC npc)
             {
-                _Overworld.enabled = true;
+                _Story.StoryBegin();
             }
         }
 

@@ -191,6 +191,8 @@
 
         private void AddActor(Cell cell, Vector2Int position, Vector2Int gridSize)
         {
+            Debug.Log($"Instantiate for {cell.GlobalId} ({cell.Data} = {cell.Type})");
+
             /* empty is empty... */
             if (cell.Type == Identifier.Empty) { return; }
 

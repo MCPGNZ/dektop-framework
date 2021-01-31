@@ -8,7 +8,8 @@
     public class Story : MonoBehaviour
     {
         #region Inspector Variables
-        [SerializeField] private Vector2Int _Begin;
+        [SerializeField] private Vector2Int _BeginCutsceneStage;
+        [SerializeField] private Vector2Int _BeginGameplayStage;
         #endregion Inspector Variables
 
         #region Unity Methods
@@ -23,7 +24,14 @@
 
         private void Start()
         {
-            StoryBegin();
+            if (!Config.SkipIntro) { BeginDialogs(); }
+
+            /* setup explorer starting position */
+            var cell = _Parser.World.FindUnique(Identifier.Explorer);
+            _Explorer.transform.position = cell.LocalUnityPosition;
+
+            /* load first level */
+            _Overworld.Load(_BeginCutsceneStage);
         }
         #endregion Unity Methods
 
@@ -34,10 +42,14 @@
         #endregion Private Variables
 
         #region Private Methods
-        private void StoryBegin()
+        public void StoryBegin()
         {
-            if (!Config.SkipIntro) { BeginDialogs(); }
-            BeginAction();
+            /* setup explorer starting position */
+            var cell = _Parser.World.FindUnique(Identifier.Explorer);
+            _Explorer.transform.position = cell.LocalUnityPosition;
+
+            /* load first level */
+            _Overworld.Load(_BeginGameplayStage);
         }
         private void StoryEnd()
         {
@@ -75,16 +87,6 @@
             }
 
         }
-        private void BeginAction()
-        {
-            /* setup explorer starting position */
-            var cell = _Parser.World.FindUnique(Identifier.Explorer);
-            _Explorer.transform.position = cell.LocalUnityPosition;
-
-            /* load first level */
-            _Overworld.Load(_Begin);
-        }
-
         private void EndDialogs()
         {
             Dialog.Character(Identifier.Clippy, "You are no more", null, "Sorry...");

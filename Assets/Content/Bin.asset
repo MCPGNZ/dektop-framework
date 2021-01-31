@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7c04991f0b45b89799ebaf77a6dd4f, type: 3}
   m_Name: Bin
   m_EditorClassIdentifier: 
-  Encounters: []
+  Encounters:
+  - Number: 0
+    Action: []
   references:
     version: 1
