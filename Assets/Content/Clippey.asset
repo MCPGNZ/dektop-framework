@@ -21,22 +21,21 @@ MonoBehaviour:
     - id: 3
     - id: 4
     - id: 5
-    - id: 6
   - Number: 1
     Action:
+    - id: 6
     - id: 7
-    - id: 8
   - Number: 2
     Action:
+    - id: 8
     - id: 9
     - id: 10
     - id: 11
-    - id: 12
   - Number: 3
     Action:
+    - id: 12
     - id: 13
     - id: 14
-    - id: 15
   references:
     version: 1
     00000000:
@@ -78,7 +77,7 @@ MonoBehaviour:
     00000004:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
-        Message: 
+        Message: "No? Well then\u2026  It seems you enjoy playing games?"
         Tooltip: 
         Icon: {fileID: 11400000, guid: cb1fefe2a6f73054686216fa613610e1, type: 2}
         Options:
@@ -93,8 +92,6 @@ MonoBehaviour:
         Options:
         - I can walk with my keyboard?!
     00000006:
-      type: {class: NpcStory/DisappearAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
-    00000007:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
         Message: What? You thought it was just one screen? Too bad! Welcome to my
@@ -104,9 +101,9 @@ MonoBehaviour:
         Options:
         - There's more?
         - Just give back my files!
-    00000008:
+    00000007:
       type: {class: NpcStory/DisappearAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
-    00000009:
+    00000008:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
         Message: Took you long enough!
@@ -115,7 +112,7 @@ MonoBehaviour:
         Options:
         - I know.
         - I wanted to make you wait
-    0000000A:
+    00000009:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
         Message: 'Pathetic! It was just the easiest path. Now it''s going to be a
@@ -125,7 +122,7 @@ MonoBehaviour:
         Options:
         - I'll avoid them easily!
         - "Just let me pass\u2026"
-    0000000B:
+    0000000A:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
         Message: I'll watch how you do this!
@@ -133,9 +130,9 @@ MonoBehaviour:
         Icon: {fileID: 11400000, guid: 0ee4ee1191236554893f6e495c29e081, type: 2}
         Options:
         - "\u0CA0_\u0CA0"
-    0000000C:
+    0000000B:
       type: {class: NpcStory/DisappearAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
-    0000000D:
+    0000000C:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
         Message: I hope you had fun with mine mines!
@@ -145,7 +142,7 @@ MonoBehaviour:
         - That was a bad pun.
         - Yes I had!
         - NO
-    0000000E:
+    0000000D:
       type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
       data:
         Message: Lets see how you handle my cute minions!
@@ -155,5 +152,5 @@ MonoBehaviour:
         - Oh, come on!
         - I'll avoid them easily!
         - I don't want to.
-    0000000F:
+    0000000E:
       type: {class: NpcStory/DisappearAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}

@@ -120,7 +120,6 @@ GameObject:
   - component: {fileID: 8651160211061711694}
   - component: {fileID: 3799017388966256742}
   - component: {fileID: 7733286898918282244}
-  - component: {fileID: 6787758381924810688}
   m_Layer: 0
   m_Name: Clippy [actor]
   m_TagString: Clippy
@@ -200,18 +199,3 @@ MonoBehaviour:
   _Icon: {fileID: 11400000, guid: 4f48f2c2bea2bd44d9ee825a94049978, type: 2}
   _Tooltip: Time does not matter.
   _AutoCreate: 0
---- !u!114 &6787758381924810688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7733286898918282246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97da985f466f4f17b2fe93366c55e2a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Actor: {fileID: 0}
-  character: 103
-  _Story: {fileID: 11400000, guid: 5911de1615dadb445aee88869642b21c, type: 2}

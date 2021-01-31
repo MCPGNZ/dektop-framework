@@ -42,19 +42,6 @@
         #endregion Private Variables
 
         #region Private Methods
-        public void TriggerNextEncounter()
-        {
-            var found = _Story.Encounters.Find(x => x.Number == _Count);
-            if (found != null)
-            {
-                foreach (var action in found.Action)
-                {
-                    action.Execute(this);
-                }
-            }
-
-            _Count++;
-        }
         private void OnTriggerEnter2D(Collider2D collider)
         {
             /* exclude visited stages */
@@ -69,7 +56,17 @@
             var explorer = rigidbody.GetComponent<Explorer>();
             if (explorer == null) { }
 
-            TriggerNextEncounter();
+            var found = _Story.Encounters.Find(x => x.Number == _Count);
+            if (found != null)
+            {
+                var count = found.Action.Count;
+                for (int i = 0; i < count; ++i)
+                {
+                    found.Action[i].Execute(this);
+                }
+            }
+
+            _Count++;
         }
         #endregion Private Methods
     }
