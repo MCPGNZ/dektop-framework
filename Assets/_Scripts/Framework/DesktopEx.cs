@@ -166,6 +166,34 @@
             _Watcher.Changed += (sender, args) => OnItemChanged?.Invoke(args.Name);
             _Watcher.EnableRaisingEvents = true;
         }
+
+        public unsafe static string[] DesktopGetItemIndices2()
+        {
+            const int maxResults = 4096;
+            const int singleBufSize = 1024;
+            IntPtr buffer = Marshal.AllocHGlobal(maxResults * singleBufSize);
+            IntPtr array = Marshal.AllocHGlobal((int)(maxResults * IntPtr.Size));
+            char* bufferPtr = (char*)buffer;
+            char** pointers = (char**)array.ToPointer();
+
+            for (int i = 0; i < maxResults; ++i)
+            {
+                pointers[i] = bufferPtr + i * singleBufSize;
+            }
+
+            int numResults = desktop_get_item_indices2(array);
+            string[] result = new string[numResults];
+
+            for (int i = 0; i < numResults; ++i)
+            {
+                result[i] = Marshal.PtrToStringAuto((IntPtr)pointers[i]);
+            }
+
+            Marshal.FreeCoTaskMem(array);
+            Marshal.FreeCoTaskMem(buffer);
+
+            return result;
+        }
         #endregion Private Methods
 
         #region Import
@@ -174,8 +202,8 @@
 
         [DllImport("desktop-lib.dll")]
         internal static extern int desktop_get_item_indices2(
-            [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPWStr, SizeParamIndex = 1)]
-            out StringBuilder[] paths);
+            [MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPWStr)]
+            IntPtr paths);
 
         [DllImport("desktop-lib.dll")]
         internal static extern void desktop_set_item_position2(int index, int x, int y);
