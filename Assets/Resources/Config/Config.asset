@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _DisableIcons: 0
   _SkipIntro: 0
-  _SaveInput: 1
+  _SaveInput: 0
   _UnitySize: {x: 2100, y: 1000}
   _StageSize: {x: 21, y: 10}
   _MovementSpeed: 100
