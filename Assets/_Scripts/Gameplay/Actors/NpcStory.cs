@@ -5,6 +5,7 @@
     using Mcpgnz.DesktopFramework;
     using Sirenix.OdinInspector;
     using UnityEngine;
+    using Zenject;
 
     [CreateAssetMenu(fileName = "Framework/NPC Story")]
     internal class NpcStory : ScriptableObject
@@ -64,11 +65,11 @@
 
         public sealed class SpawnFirstLevelAction : IEncounterAction
         {
-            [Inject] private Story _Story;
+            [Inject] private Overworld _Overworld;
 
             public void Execute(NPC npc)
             {
-                _Story.StoryBegin();
+                _Overworld.enabled = true;
             }
         }
 

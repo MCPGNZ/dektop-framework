@@ -22,6 +22,10 @@ MonoBehaviour:
     - id: 4
     - id: 5
     - id: 6
+    - id: 7
+    - id: 8
+    - id: 9
+    - id: 10
   references:
     version: 1
     00000000:
@@ -79,4 +83,27 @@ MonoBehaviour:
         Options:
         - Watch what?
     00000006:
+      type: {class: NpcStory/StealIconsCutsceneAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+    00000007:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: "Let\u2019s play a game, friend. MY GAME. You want to get your precious
+          files back? "
+        Tooltip: 
+        Icon: {fileID: 11400000, guid: 82a98c2dab822b64d8b028e4c74720dc, type: 2}
+        Options:
+        - Give them back!
+        - What did you do?
+        - YES!
+    00000008:
+      type: {class: NpcStory/TalkAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+      data:
+        Message: "Sure, I\u2019ll give them back\u2026 if you beat me! Hahaha!"
+        Tooltip: 
+        Icon: {fileID: 11400000, guid: 6a722997e6ec4ab4ab182185bba18385, type: 2}
+        Options:
+        - NO, WAIT!
+    00000009:
+      type: {class: NpcStory/SpawnFirstLevelAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
+    0000000A:
       type: {class: NpcStory/DisappearAction, ns: Assets._Scripts.Gameplay.Actors, asm: Assembly-CSharp}
